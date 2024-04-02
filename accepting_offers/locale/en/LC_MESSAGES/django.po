@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-02 17:44+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: models.py:13
+msgid "accepting_offers.payment_frequency.every_semester"
+msgstr "every semester"
+
+#: models.py:14
+msgid "accepting_offers.payment_frequency.every_year"
+msgstr "every year"
+
+#: models.py:15
+msgid "accepting_offers.payment_frequency.every_month"
+msgstr "every month"
+
+#: models.py:16
+msgid "accepting_offers.payment_frequency.full"
+msgstr "full"
+
+#: models.py:20
+msgid "accepting_offers.payment_type.governmental"
+msgstr "governmental"
+
+#: models.py:21
+msgid "accepting_offers.payment_type.town"
+msgstr "town"
+
+#: models.py:22
+msgid "accepting_offers.payment_type.private"
+msgstr "private"
+
+#: models.py:23
+msgid "accepting_offers.payment_type.privileged"
+msgstr "privileged"
+
+#: models.py:26
+msgid "abiturient"
+msgstr "abiturient"
+
+#: models.py:29
+msgid "university_offer"
+msgstr "university offer"
+
+#: models.py:32
+msgid "generic.created_at"
+msgstr "created at"
+
+#: models.py:36
+msgid "accepting_offers.payment_type"
+msgstr "payment type"
+
+#: models.py:40
+msgid "accepting_offers.payment_frequency"
+msgstr "payment frequency"
+
+#: models.py:45
+msgid "accepting_offers.accepted_year"
+msgstr "accepted year"
+
+#: models.py:49
+msgid "accepted_offer"
+msgstr "accepted offer"
+
+#: models.py:50
+msgid "accepted_offer.plural"
+msgstr "accepted offers"
+
+#: templates/accepting_offers/done.html:4
+msgid "done.title"
+msgstr "Done"
+
+#: templates/accepting_offers/done.html:7
+msgid "done.content"
+msgstr "Record was successfully created!"
+
+#: templates/accepting_offers/footer.html:7
+msgid "footer.admin"
+msgstr "Administration"
+
+#: templates/accepting_offers/footer.html:12
+msgid "footer.authors"
+msgstr ""
+"Popov Ruslan Oleksandrovich, Karpenko Nadiia Valeriivna, Gerasimov Volodymyr "
+"Volodymyrovych"
+
+#: templates/accepting_offers/header.html:4
+msgid "header.title"
+msgstr "Abiturients and documents"
+
+#: templates/accepting_offers/wizard.html:6
+msgid "wizard.step"
+msgstr "Step"
+
+#: templates/accepting_offers/wizard.html:22
+msgid "wizard.previous_step"
+msgstr "Previous step"
+
+#: templates/accepting_offers/wizard.html:24
+msgid "wizard.next"
+msgstr "Next"
+
+#: templates/accepting_offers/wizard.html:31
+msgid "wizard.add"
+msgstr "Add"
+
+#: templates/accepting_offers/wizard.html:32
+msgid "wizard.delete"
+msgstr "Remove"
+
+#: templates/accepting_offers/wrapper.html:11
+msgid "meta.description"
+msgstr "Automatizing the completition of documents while entering the university"
+
+#: templates/accepting_offers/wrapper.html:12
+msgid "meta.keywords"
+msgstr ""

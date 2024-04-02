@@ -12,7 +12,10 @@ from formtools.wizard.views import CookieWizardView
 
 
 def done(request):
-    return render(request, "done.html")
+    from django.urls import get_resolver
+
+    print(get_resolver().reverse_dict.keys())
+    return render(request, "accepting_offers/done.html")
 
 
 class AbiturientAndOffersWizard(CookieWizardView):
@@ -22,7 +25,7 @@ class AbiturientAndOffersWizard(CookieWizardView):
         FamilyMemberFormSet,
         AcceptedOfferFormSet,
     ]
-    template_name = "wizard.html"
+    template_name = "accepting_offers/wizard.html"
 
     def done(self, form_list, **kwargs):
         form, phone_set, family_member_set, accepted_offer_set = form_list

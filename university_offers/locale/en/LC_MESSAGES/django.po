@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-02 17:38+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: models.py:10
+msgid "generic.full_name"
+msgstr "full name"
+
+#: models.py:13
+msgid "generic.abbreviation"
+msgstr "abbreviation"
+
+#: models.py:16
+msgid "generic.cipher"
+msgstr "cipher"
+
+#: models.py:23 models.py:40
+msgid "faculty"
+msgstr "faculty"
+
+#: models.py:24
+msgid "faculty.plural"
+msgstr "faculties"
+
+#: models.py:29
+msgid "generic.name"
+msgstr "name"
+
+#: models.py:31
+msgid "generic.code"
+msgstr "code"
+
+#: models.py:37
+msgid "speciality.specialization"
+msgstr "specialization"
+
+#: models.py:43
+msgid "speciality.end_of_accreditation"
+msgstr "end of accrediation"
+
+#: models.py:46
+msgid "speciality.educational_program_name"
+msgstr "name of educational program"
+
+#: models.py:57 models.py:78
+msgid "speciality"
+msgstr "speciality"
+
+#: models.py:58
+msgid "speciality.plural"
+msgstr "specialities"
+
+#: models.py:64
+msgid "university_offer.type.budget"
+msgstr "budget"
+
+#: models.py:65
+msgid "university_offer.type.contract"
+msgstr "contract"
+
+#: models.py:68
+msgid "university_offer.study_form.day"
+msgstr "full-time"
+
+#: models.py:69
+msgid "university_offer.study_form.over_distance"
+msgstr "distance"
+
+#: models.py:70
+msgid "university_offer.study_form.evening"
+msgstr "evening"
+
+#: models.py:72
+msgid "university_offer.study_begin"
+msgstr "beginning of the study"
+
+#: models.py:75
+msgid "university_offer.study_duration"
+msgstr "study duration"
+
+#: models.py:81
+msgid "university_offer.type"
+msgstr "type of the university offer"
+
+#: models.py:84
+msgid "university_offer.study_form"
+msgstr "study form"
+
+#: models.py:87
+msgid "university_offer.ects"
+msgstr "ECTS"
+
+#: models.py:100
+msgid "university_offer"
+msgstr "university offer"
+
+#: models.py:101
+msgid "university_offer.plural"
+msgstr "university offers"

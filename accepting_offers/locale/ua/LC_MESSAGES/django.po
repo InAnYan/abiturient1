@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-02 17:44+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:13
+msgid "accepting_offers.payment_frequency.every_semester"
+msgstr "щосеместрова"
+
+#: models.py:14
+msgid "accepting_offers.payment_frequency.every_year"
+msgstr "щорічна"
+
+#: models.py:15
+msgid "accepting_offers.payment_frequency.every_month"
+msgstr "щомісячна"
+
+#: models.py:16
+msgid "accepting_offers.payment_frequency.full"
+msgstr "повна"
+
+#: models.py:20
+msgid "accepting_offers.payment_type.governmental"
+msgstr "державного замовлення"
+
+#: models.py:21
+msgid "accepting_offers.payment_type.town"
+msgstr "місцевого замовлення"
+
+#: models.py:22
+msgid "accepting_offers.payment_type.private"
+msgstr "за кошти фізичних або юридичних осіб"
+
+#: models.py:23
+msgid "accepting_offers.payment_type.privileged"
+msgstr "пільгове"
+
+#: models.py:26
+msgid "abiturient"
+msgstr "абітурієнт"
+
+#: models.py:29
+msgid "university_offer"
+msgstr "конкурсна пропозиція"
+
+#: models.py:32
+msgid "generic.created_at"
+msgstr "Дата створення"
+
+#: models.py:36
+msgid "accepting_offers.payment_type"
+msgstr "тип оплати"
+
+#: models.py:40
+msgid "accepting_offers.payment_frequency"
+msgstr "частота оплати"
+
+#: models.py:45
+msgid "accepting_offers.accepted_year"
+msgstr "курс зарахування"
+
+#: models.py:49
+msgid "accepted_offer"
+msgstr "заява"
+
+#: models.py:50
+msgid "accepted_offer.plural"
+msgstr "заяви"
+
+#: templates/accepting_offers/done.html:4
+msgid "done.title"
+msgstr "Запис створено"
+
+#: templates/accepting_offers/done.html:7
+msgid "done.content"
+msgstr "Запис створено!"
+
+#: templates/accepting_offers/footer.html:7
+msgid "footer.admin"
+msgstr "Адміністрування"
+
+#: templates/accepting_offers/footer.html:12
+msgid "footer.authors"
+msgstr ""
+"Попов Руслан Олександрович, Карпенко Надія Валеріївна, Герасімов Володимир "
+"Володимирович"
+
+#: templates/accepting_offers/header.html:4
+msgid "header.title"
+msgstr "Абітурієнт та документи"
+
+#: templates/accepting_offers/wizard.html:6
+msgid "wizard.step"
+msgstr "Шаг"
+
+#: templates/accepting_offers/wizard.html:22
+msgid "wizard.previous_step"
+msgstr "Попередній шаг"
+
+#: templates/accepting_offers/wizard.html:24
+msgid "wizard.next"
+msgstr "Наступний шаг"
+
+#: templates/accepting_offers/wizard.html:31
+msgid "wizard.add"
+msgstr "Додати"
+
+#: templates/accepting_offers/wizard.html:32
+msgid "wizard.delete"
+msgstr "Видалити"
+
+#: templates/accepting_offers/wrapper.html:11
+msgid "meta.description"
+msgstr "Автоматизація заповнення документів при вступі до університету"
+
+#: templates/accepting_offers/wrapper.html:12
+msgid "meta.keywords"
+msgstr ""
