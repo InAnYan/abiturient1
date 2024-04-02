@@ -2,3 +2,5 @@ django
 gunicorn
 django-crispy-forms
 crispy-bootstrap5
+django-formtools
+django-debug-toolbar

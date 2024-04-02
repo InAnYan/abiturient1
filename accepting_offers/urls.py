@@ -1,9 +1,15 @@
 from django.urls import path
 
-from . import views
+from abiturients.forms import AbiturientForm
+
+from . import views, forms
 
 
 urlpatterns = [
-    path("", views.CreateAbiturientView.as_view(), name="form"),
+    path(
+        "",
+        views.AbiturientAndOffersWizard.as_view(),
+        name="form",
+    ),
     path("done", views.done, name="done"),
 ]

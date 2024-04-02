@@ -27,9 +27,14 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,0.0.0.0").split(
-    ","
-)
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,0.0.0.0").split(",")
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+if DEBUG:
+    INTERNAL_IPS += ["0.0.0.0", "172.20.0.1"]
 
 
 # Application definition
@@ -46,6 +51,8 @@ INSTALLED_APPS = [
     "accepting_offers.apps.AcceptingOffersConfig",
     "crispy_forms",
     "crispy_bootstrap5",
+    "formtools",
+    "debug_toolbar",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -67,6 +74,7 @@ LOGGING = {
     },
 }
 
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -75,7 +83,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
+
 
 ROOT_URLCONF = "abiturient1.urls"
 
@@ -144,6 +154,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]

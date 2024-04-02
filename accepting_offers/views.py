@@ -4,71 +4,39 @@ from django.urls import reverse
 from django.views.generic import CreateView
 from django.db import transaction
 
+from abiturients.forms import AbiturientForm, FamilyMemberFormSet, PhoneFormSet
 from abiturients.models import Abiturient
-from accepting_offers import forms
-from accepting_offers.forms import AbiturientForm, AcceptedOfferFormSet
+from accepting_offers.forms import AcceptedOfferFormSet
 
-import logging
-
-logger = logging.getLogger(__name__)
-
-
-def form(request: HttpRequest):
-    if request.method == "POST":
-        form = MainForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("done"))
-    else:
-        form = AbiturientForm()
-
-    context = {"form": form}
-
-    return render(request, "form.html", context)
+from formtools.wizard.views import CookieWizardView
 
 
 def done(request):
     return render(request, "done.html")
 
 
-class CreateAbiturientView(CreateView):
-    template_name = "form.html"
-    model = Abiturient
-    form_class = AbiturientForm
-    success_url = "done"
+class AbiturientAndOffersWizard(CookieWizardView):
+    form_list = [
+        AbiturientForm,
+        PhoneFormSet,
+        FamilyMemberFormSet,
+        AcceptedOfferFormSet,
+    ]
+    template_name = "wizard.html"
 
-    def get_context_data(self, **kwargs):
-        context = super(CreateAbiturientView, self).get_context_data(**kwargs)
-        if self.request.POST:
-            context["formset"] = AcceptedOfferFormSet(
-                self.request.POST, instance=self.object
-            )
-        else:
-            context["formset"] = AcceptedOfferFormSet(instance=self.object)
-        return context
+    def done(self, form_list, **kwargs):
+        form, phone_set, family_member_set, accepted_offer_set = form_list
 
-    def form_valid(self, form, formset: AcceptedOfferFormSet):
         with transaction.atomic():
             self.object = form.save()
 
-            if formset.is_valid():
-                formset.instance = self.object
-                formset.save()
+            phone_set.instance = self.object
+            phone_set.save()
 
-        return super().form_valid(form)
+            family_member_set.instance = self.object
+            family_member_set.save()
 
-    def post(self, request, *args, **kwargs):
-        self.object = None
-        form_class = self.get_form_class()
-        form = self.get_form(form_class)
-        formset = AcceptedOfferFormSet(self.request.POST)
-        if form.is_valid() and formset.is_valid():
-            return self.form_valid(form, formset)
-        else:
-            return self.form_invalid(form, formset)
+            accepted_offer_set.instance = self.object
+            accepted_offer_set.save()
 
-    def form_invalid(self, form, formset):
-        return self.render_to_response(
-            self.get_context_data(form=form, formset=formset)
-        )
+        return HttpResponseRedirect(reverse("done"))
