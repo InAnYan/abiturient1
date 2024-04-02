@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  abiturient-1-main:
+    container_name: abiturient-1-main
+    restart: always
+    build: .
+    volumes:
+      - ./:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - DJANGO_DEBUG=${DJANGO_DEBUG}
+      - DJANGO_ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS}
