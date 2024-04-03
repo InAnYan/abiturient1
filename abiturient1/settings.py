@@ -151,8 +151,10 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = "en"
 
 # Does not work on Pythonanywhere.
-# TIME_ZONE = "Europe/Kyiv"
-TIME_ZONE = "Europe/Kiev"
+if os.getenv("DJANGO_LOCAL", False) == "True":
+    TIME_ZONE = "Europe/Kyiv"
+else:
+    TIME_ZONE = "Europe/Kiev"
 
 USE_I18N = True
 USE_L10N = True
