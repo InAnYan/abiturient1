@@ -150,7 +150,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en"
 
-TIME_ZONE = "Europe/Kyiv"
+# Does not work on Pythonanywhere.
+# TIME_ZONE = "Europe/Kyiv"
+TIME_ZONE = "Europe/Kiev"
 
 USE_I18N = True
 USE_L10N = True
