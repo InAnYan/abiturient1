@@ -31,7 +31,7 @@ class Abiturient(models.Model):
         max_length=255, verbose_name=_("generic.foreign_language")
     )
     nationality = models.CharField(
-        max_length=255, verbose_name=_("generic.nationality")
+        max_length=255, verbose_name=_("generic.nationality"), null=True, blank=True
     )
     work = models.TextField(verbose_name=_("abiturient.work"))
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-02 17:44+0300\n"
+"POT-Creation-Date: 2024-04-03 10:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps.py:8
+msgid "accepting_offers"
+msgstr "accepted offers"
 
 #: models.py:13
 msgid "accepting_offers.payment_frequency.every_semester"
@@ -74,11 +78,11 @@ msgstr "payment frequency"
 msgid "accepting_offers.accepted_year"
 msgstr "accepted year"
 
-#: models.py:49
+#: models.py:52
 msgid "accepted_offer"
 msgstr "accepted offer"
 
-#: models.py:50
+#: models.py:53
 msgid "accepted_offer.plural"
 msgstr "accepted offers"
 
@@ -104,29 +108,46 @@ msgstr ""
 msgid "header.title"
 msgstr "Abiturients and documents"
 
-#: templates/accepting_offers/wizard.html:6
+#: templates/accepting_offers/wizard_steps/step1.html:4
+msgid "wizard.steps.1"
+msgstr "Perosnal information"
+
+#: templates/accepting_offers/wizard_steps/step2.html:4
+msgid "wizard.steps.2"
+msgstr "Telephones"
+
+#: templates/accepting_offers/wizard_steps/step3.html:4
+msgid "wizard.steps.3"
+msgstr "Family members"
+
+#: templates/accepting_offers/wizard_steps/step4.html:4
+msgid "wizard.steps.4"
+msgstr "University offers"
+
+#: templates/accepting_offers/wizard_steps/wizard_step_base.html:8
 msgid "wizard.step"
 msgstr "Step"
 
-#: templates/accepting_offers/wizard.html:22
+#: templates/accepting_offers/wizard_steps/wizard_step_base.html:31
 msgid "wizard.previous_step"
 msgstr "Previous step"
 
-#: templates/accepting_offers/wizard.html:24
+#: templates/accepting_offers/wizard_steps/wizard_step_base.html:33
 msgid "wizard.next"
 msgstr "Next"
 
-#: templates/accepting_offers/wizard.html:31
+#: templates/accepting_offers/wizard_steps/wizard_step_base.html:41
 msgid "wizard.add"
 msgstr "Add"
 
-#: templates/accepting_offers/wizard.html:32
+#: templates/accepting_offers/wizard_steps/wizard_step_base.html:42
 msgid "wizard.delete"
 msgstr "Remove"
 
 #: templates/accepting_offers/wrapper.html:11
 msgid "meta.description"
-msgstr "Automatizing the completition of documents while entering the university"
+msgstr ""
+"Automatizing the completition of documents while entering the university"
 
 #: templates/accepting_offers/wrapper.html:12
 msgid "meta.keywords"

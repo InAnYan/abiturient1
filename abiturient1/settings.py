@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,8 @@ if DEBUG:
 # Application definition
 
 INSTALLED_APPS = [
+    "admin_interface",
+    "colorfield",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -54,6 +57,9 @@ INSTALLED_APPS = [
     "formtools",
     "debug_toolbar",
 ]
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
+SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -147,12 +153,13 @@ LANGUAGE_CODE = "en"
 TIME_ZONE = "Europe/Kyiv"
 
 USE_I18N = True
+USE_L10N = True
 
 USE_TZ = True
 
 LANGUAGES = [
-    ("en", "English"),
-    ("ua", "Ukrainian"),
+    ("en", _("English")),
+    ("ua", _("Ukrainian")),
 ]
 
 LOCALE_PATH = [os.path.join(BASE_DIR, "locale")]

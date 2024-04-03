@@ -25,7 +25,19 @@ class AbiturientAndOffersWizard(CookieWizardView):
         FamilyMemberFormSet,
         AcceptedOfferFormSet,
     ]
-    template_name = "accepting_offers/wizard.html"
+
+    def get_template_names(self) -> list[str]:
+        match self.steps.current:
+            case "0":
+                return ["accepting_offers/wizard_steps/step1.html"]
+            case "1":
+                return ["accepting_offers/wizard_steps/step2.html"]
+            case "2":
+                return ["accepting_offers/wizard_steps/step3.html"]
+            case "3":
+                return ["accepting_offers/wizard_steps/step4.html"]
+            case _:
+                raise NotImplementedError()
 
     def done(self, form_list, **kwargs):
         form, phone_set, family_member_set, accepted_offer_set = form_list

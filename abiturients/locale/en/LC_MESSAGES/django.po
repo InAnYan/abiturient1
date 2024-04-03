@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-02 17:13+0300\n"
+"POT-Creation-Date: 2024-04-03 10:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,15 +30,15 @@ msgstr "male"
 msgid "generic.sex.female"
 msgstr "female"
 
-#: models.py:11 models.py:59
+#: models.py:11 models.py:62
 msgid "generic.last_name"
 msgstr "last name"
 
-#: models.py:12 models.py:60
+#: models.py:12 models.py:63
 msgid "generic.first_name"
 msgstr "first name"
 
-#: models.py:13 models.py:61
+#: models.py:13 models.py:64
 msgid "generic.patronymic"
 msgstr "patronymic"
 
@@ -86,66 +86,66 @@ msgstr "registered address"
 msgid "abiturient.living_address"
 msgstr "living address"
 
-#: models.py:44 models.py:66 models.py:84
+#: models.py:47 models.py:69 models.py:90
 msgid "abiturient"
 msgstr "abiturient"
 
-#: models.py:45
+#: models.py:48
 msgid "abiturient.plural"
 msgstr "abiturients"
 
-#: models.py:51
+#: models.py:54
 msgid "family_member.type.mother"
 msgstr "mother"
 
-#: models.py:52
+#: models.py:55
 msgid "family_member.type.father"
 msgstr "father"
 
-#: models.py:53
+#: models.py:56
 msgid "family_member.type.other"
 msgstr "other member"
 
-#: models.py:56
+#: models.py:59
 msgid "family_member.type"
 msgstr "type of the family member"
 
-#: models.py:63
+#: models.py:66
 msgid "generic.telephone"
 msgstr "telephone"
 
-#: models.py:70
+#: models.py:76
 msgid "family_member"
 msgstr "family member"
 
-#: models.py:71
+#: models.py:77
 msgid "family_member.plural"
 msgstr "family members"
 
-#: models.py:77
+#: models.py:83
 msgid "phone.type.home"
 msgstr "home"
 
-#: models.py:78
+#: models.py:84
 msgid "phone.type.mobile"
 msgstr "mobile"
 
-#: models.py:79
+#: models.py:85
 msgid "phone.type.work"
 msgstr "work"
 
-#: models.py:81
+#: models.py:87
 msgid "phone.type"
 msgstr "phone type"
 
-#: models.py:82
+#: models.py:88
 msgid "phone.number"
 msgstr "phone number"
 
-#: models.py:88
+#: models.py:97
 msgid "phone"
 msgstr "phone"
 
-#: models.py:89
+#: models.py:98
 msgid "phone.plural"
 msgstr "phones"
