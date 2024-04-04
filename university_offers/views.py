@@ -5,63 +5,55 @@ from university_offers.models import Speciality, UniversityOffer
 
 
 def ajax_specialities(request: HttpRequest):
-    faculty = 0
+    faculty = request.GET.get("faculty")
 
-    for key, value in request.GET.items():
-        if key.endswith("faculty") and value:
-            faculty = int(value)
+    context = {"list": Speciality.objects.filter(faculty=faculty) if faculty else []}
 
-    context = {"list": Speciality.objects.filter(faculty=faculty)}
-
-    return render(request, "university_offers/ajax/main.html", context)
+    return render(request, "university_offers/ajax/objects.html", context)
 
 
 def ajax_study_forms(request: HttpRequest):
-    speciality = None
-
-    for key, value in request.GET.items():
-        if key.endswith("speciality") and value:
-            speciality = int(value)
+    speciality = request.GET.get("speciality")
 
     context = {
         "list": (
             [
-                UniversityOffer.StudyForm(value).label
+                (
+                    int(UniversityOffer.StudyForm(value)),
+                    UniversityOffer.StudyForm(value).label,
+                )
                 for value in UniversityOffer.objects.filter(speciality=speciality)
                 .values_list("study_form", flat=True)
                 .distinct()
             ]
-            if speciality is not None
+            if speciality
             else []
         )
     }
 
-    return render(request, "university_offers/ajax/main.html", context)
+    return render(request, "university_offers/ajax/int_choices.html", context)
 
 
 def ajax_offer_types(request: HttpRequest):
-    speciality = None
-    study_form = None
-
-    for key, value in request.GET.items():
-        if key.endswith("speciality") and value:
-            speciality = int(value)
-        elif key.endswith("study_form") and value:
-            study_form = int(value)
+    speciality = request.GET.get("speciality")
+    study_form = request.GET.get("study_form")
 
     context = {
         "list": (
             [
-                UniversityOffer.Type(value).label
+                (
+                    int(UniversityOffer.Type(value)),
+                    UniversityOffer.Type(value).label,
+                )
                 for value in UniversityOffer.objects.filter(
                     speciality=speciality, study_form=study_form
                 )
                 .values_list("type", flat=True)
                 .distinct()
             ]
-            if speciality is not None and study_form is not None
+            if speciality and study_form
             else []
         )
     }
 
-    return render(request, "university_offers/ajax/main.html", context)
+    return render(request, "university_offers/ajax/int_choices.html", context)

@@ -1,5 +1,7 @@
+from opcode import hasconst
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 from abiturients.models import Abiturient
@@ -25,9 +27,11 @@ class AcceptedOffer(models.Model):
     abiturient = models.ForeignKey(
         Abiturient, on_delete=models.PROTECT, verbose_name=_("abiturient")
     )
+
     offer = models.ForeignKey(
         UniversityOffer, on_delete=models.PROTECT, verbose_name=_("university_offer")
     )
+
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name=_("generic.created_at")
     )
@@ -35,18 +39,48 @@ class AcceptedOffer(models.Model):
     payment_type = models.IntegerField(
         choices=PaymentType.choices, verbose_name=_("accepting_offers.payment_type")
     )
+
     payment_frequency = models.IntegerField(
         choices=PaymentFrequency.choices,
         verbose_name=_("accepting_offers.payment_frequency"),
+        blank=True,
+        null=True,
     )
 
     accepted_year = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],
+        validators=[MinValueValidator(1), MaxValueValidator(4)],
         verbose_name=_("accepting_offers.accepted_year"),
     )
 
     def __str__(self) -> str:
         return f"{self.abiturient} - {self.offer}"
+
+    def clean(self) -> None:
+        super().clean()
+
+        if not hasattr(self, "offer"):
+            return
+
+        if self.offer.type == UniversityOffer.Type.BUDGET:
+            if self.payment_type != AcceptedOffer.PaymentType.GOVERNMENTAL:
+                raise ValidationError(
+                    _("accepting_offers.validation.budget_should_be_governmental")
+                )
+            if self.payment_frequency is not None:
+                raise ValidationError(
+                    _("accepting_offers.validation.budget_should_not_have_frequency")
+                )
+        else:
+            if self.payment_type == AcceptedOffer.PaymentType.GOVERNMENTAL:
+                raise ValidationError(
+                    _(
+                        "accepting_offers.validation.not_budget_should_not_be_governmental"
+                    )
+                )
+            if self.payment_frequency is None:
+                raise ValidationError(
+                    _("accepting_offers.validation.not_budget_should_have_frequency")
+                )
 
     class Meta:
         verbose_name = _("accepted_offer")

@@ -1,6 +1,7 @@
-from random import choices
+from typing import Any
 from django import forms
-from django.urls import reverse, reverse_lazy
+from django.forms import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 from abiturients.models import Abiturient
 from accepting_offers.models import AcceptedOffer
@@ -8,44 +9,33 @@ from university_offers.models import Faculty, Speciality, UniversityOffer
 
 
 class AcceptedOfferForm(forms.ModelForm):
-    faculty = forms.ModelChoiceField(
-        Faculty.objects.all(),
-        widget=forms.Select(
-            attrs={
-                "hx-get": reverse_lazy("ajax_specialities"),
-                "hx-trigger": "change",
-                "hx-target": "next .select",
-            }
-        ),
-    )
+    faculty = forms.ModelChoiceField(Faculty.objects.all())
+    speciality = forms.CharField(widget=forms.Select(choices=[]))
+    study_form = forms.CharField(widget=forms.Select(choices=[]))
+    type = forms.CharField(widget=forms.Select(choices=[]))
 
-    speciality = forms.ModelChoiceField(
-        Speciality.objects.all(),
-        widget=forms.Select(
-            attrs={
-                "hx-get": reverse_lazy("ajax_study_forms"),
-                "hx-trigger": "change",
-                "hx-target": "next .select",
-            }
-        ),
-    )
+    def clean(self) -> dict[str, Any]:
+        self.construct_university_offer()
+        return super().clean()
 
-    study_form = forms.ChoiceField(
-        choices=UniversityOffer.StudyForm.choices,
-        widget=forms.Select(
-            attrs={
-                "hx-get": reverse_lazy("ajax_offer_types"),
-                "hx-trigger": "change",
-                "hx-target": "next .select",
-            }
-        ),
-    )
+    def set_abiturient(self, abiturient: Abiturient):
+        self.instance.abiturient = abiturient
 
-    type = forms.ChoiceField(choices=UniversityOffer.Type.choices)
+    def construct_university_offer(self):
+        if (
+            "speciality" in self.cleaned_data
+            and "study_form" in self.cleaned_data
+            and "type" in self.cleaned_data
+        ):
+            self.instance.offer = UniversityOffer.objects.filter(
+                speciality__id=self.cleaned_data["speciality"],
+                study_form=self.cleaned_data["study_form"],
+                type=self.cleaned_data["type"],
+            ).get()
 
     class Meta:
         model = AcceptedOffer
-        exclude = ("offer",)
+        exclude = ("offer", "abiturient")
 
     field_order = [
         "faculty",
@@ -56,14 +46,3 @@ class AcceptedOfferForm(forms.ModelForm):
         "payment_frequency",
         "accepted_year",
     ]
-
-
-AcceptedOfferFormSet = forms.inlineformset_factory(
-    Abiturient,
-    AcceptedOffer,
-    AcceptedOfferForm,
-    fields="__all__",
-    min_num=1,
-    extra=0,
-    can_delete=False,
-)

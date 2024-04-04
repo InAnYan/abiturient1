@@ -14,10 +14,13 @@ import os
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+dotenv_path = os.path.join(BASE_DIR, ".env")
+load_dotenv(dotenv_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -163,7 +166,7 @@ USE_TZ = True
 
 LANGUAGES = [
     ("en", _("English")),
-    ("ua", _("Ukrainian")),
+    ("uk", _("Ukrainian")),
 ]
 
 LOCALE_PATH = [os.path.join(BASE_DIR, "locale")]

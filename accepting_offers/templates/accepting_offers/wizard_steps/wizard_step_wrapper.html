@@ -1,0 +1,44 @@
+{% extends "accepting_offers/wrapper.html" %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="text-center">
+        <h3>
+            {% trans "wizard.step" %} {{ wizard.steps.step1 }}/{{ wizard.steps.count }} -
+            <strong>
+                {% block step_name %}
+                {% endblock step_name %}
+            </strong>
+        </h3>
+    </div>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% block content_form %}
+        {% endblock content_form %}
+        <div class="mb-5"></div>
+        <div class="position-relative">
+            {% if wizard.steps.prev %}
+                <button name="wizard_goto_step"
+                        type="submit"
+                        value="{{ wizard.steps.prev }}"
+                        class="btn btn-secondary position-absolute start-0">{% trans "wizard.previous_step" %}</button>
+            {% endif %}
+            <button type="submit" class="btn btn-primary position-absolute end-0">{% trans "wizard.next" %}</button>
+        </div>
+    </form>
+    <script src="{% static 'accepting_offers/jquery.formset.js' %}"></script>
+    {% if wizard.form.forms %}
+        <script type="text/javascript">
+        $('.formset_row').formset({
+            addText: '{% trans "wizard.add" %}',
+            addCssClass: 'btn btn-success',
+            deleteText: '{% trans "wizard.delete" %}',
+            deleteCssClass: 'btn btn-danger',
+            prefix: '{{ wizard.form.prefix }}'
+        });
+        </script>
+    {% endif %}
+    {% block additional_scripts %}
+    {% endblock additional_scripts %}
+{% endblock content %}

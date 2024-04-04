@@ -1,5 +1,71 @@
-{% extends "accepting_offers/wizard_steps/wizard_step_base.html" %}
+{% extends "accepting_offers/wizard_steps/wizard_step_wrapper.html" %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 {% block step_name %}
     {% trans "wizard.steps.4" %}
 {% endblock step_name %}
+{% block content_form %}
+    {{ wizard.management_form }}
+    {{ form | crispy }}
+{% endblock content_form %}
+{% block additional_scripts %}
+    <script>
+        function facultyAjax(elem) {
+            let faculty = $(elem).val();
+
+            $.ajax({
+                url: '{% url "ajax_specialities" %}',
+                data: {
+                    faculty,
+                },
+                success: function (data) {
+                    let specialityElem = $("[name=3-speciality]");
+                    specialityElem.html(data);
+                    specialityAjax(specialityElem);
+                }
+            });
+        }
+
+        $("[name=3-faculty]").change(function () {
+            facultyAjax(this)
+        });
+
+        function specialityAjax(elem) {
+            var speciality = $(elem).val();
+
+            $.ajax({
+                url: '{% url "ajax_study_forms" %}',
+                data: {
+                    speciality,
+                },
+                success: function (data) {
+                    let studyFormElem = $("[name=3-study_form]");
+                    studyFormElem.html(data);
+                    studyFormAjax(studyFormElem);
+                }
+            });
+        }
+
+        $("[name=3-speciality]").change(function () {
+            specialityAjax(this);
+        });
+
+
+        function studyFormAjax(elem) {
+            var study_form = $(elem).val();
+            let speciality = $("[name=3-speciality]").val();
+
+            $.ajax({
+                url: '{% url "ajax_offer_types" %}',
+                data: {
+                    speciality,
+                    study_form,
+                },
+                success: function (data) {
+                    $("[name=3-type]").html(data);
+                }
+            });
+        }
+
+    </script>
+{% endblock additional_scripts %}
