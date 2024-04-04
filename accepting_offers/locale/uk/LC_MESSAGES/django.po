@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-03 11:00+0300\n"
+"POT-Creation-Date: 2024-04-04 11:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,136 +17,153 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: accepting_offers/apps.py
+#: apps.py:8
 msgid "accepting_offers"
 msgstr "заяви"
 
-#: accepting_offers/models.py
+#: models.py:15
 msgid "accepting_offers.payment_frequency.every_semester"
 msgstr "щосеместрова"
 
-#: accepting_offers/models.py
+#: models.py:16
 msgid "accepting_offers.payment_frequency.every_year"
 msgstr "щорічна"
 
-#: accepting_offers/models.py
+#: models.py:17
 msgid "accepting_offers.payment_frequency.every_month"
 msgstr "щомісячна"
 
-#: accepting_offers/models.py
+#: models.py:18
 msgid "accepting_offers.payment_frequency.full"
 msgstr "повна"
 
-#: accepting_offers/models.py
+#: models.py:22
 msgid "accepting_offers.payment_type.governmental"
 msgstr "державного замовлення"
 
-#: accepting_offers/models.py
+#: models.py:23
 msgid "accepting_offers.payment_type.town"
 msgstr "місцевого замовлення"
 
-#: accepting_offers/models.py
+#: models.py:24
 msgid "accepting_offers.payment_type.private"
 msgstr "за кошти фізичних або юридичних осіб"
 
-#: accepting_offers/models.py
+#: models.py:25
 msgid "accepting_offers.payment_type.privileged"
 msgstr "пільгове"
 
-#: accepting_offers/models.py
+#: models.py:28
 msgid "abiturient"
 msgstr "абітурієнт"
 
-#: accepting_offers/models.py
+#: models.py:32
 msgid "university_offer"
 msgstr "конкурсна пропозиція"
 
-#: accepting_offers/models.py
+#: models.py:36
 msgid "generic.created_at"
 msgstr "Дата створення"
 
-#: accepting_offers/models.py
+#: models.py:40
 msgid "accepting_offers.payment_type"
 msgstr "тип оплати"
 
-#: accepting_offers/models.py
+#: models.py:45
 msgid "accepting_offers.payment_frequency"
 msgstr "частота оплати"
 
-#: accepting_offers/models.py
+#: models.py:52
 msgid "accepting_offers.accepted_year"
 msgstr "курс зарахування"
 
-#: accepting_offers/models.py
+#: models.py:67
+msgid "accepting_offers.validation.budget_should_be_governmental"
+msgstr "Для бюджетних пропозицій доступно лише державне замовлення"
+
+#: models.py:71
+msgid "accepting_offers.validation.budget_should_not_have_frequency"
+msgstr "Для бюджетних пропозицій не має бути частоти оплати"
+
+#: models.py:77
+msgid "accepting_offers.validation.not_budget_should_not_be_governmental"
+msgstr "Контрактні пропозиції не можуть бути державного замовлення"
+
+#: models.py:82
+msgid "accepting_offers.validation.not_budget_should_have_frequency"
+msgstr "Для контрактних пропозицій має бути частота оплати"
+
+#: models.py:86
 msgid "accepted_offer"
 msgstr "заява"
 
-#: accepting_offers/models.py
+#: models.py:87
 msgid "accepted_offer.plural"
 msgstr "заяви"
 
-#: accepting_offers/templates/accepting_offers/done.html
+#: templates/accepting_offers/done.html:4
 msgid "done.title"
 msgstr "Запис створено"
 
-#: accepting_offers/templates/accepting_offers/done.html
+#: templates/accepting_offers/done.html:7
 msgid "done.content"
 msgstr "Запис створено!"
 
-#: accepting_offers/templates/accepting_offers/footer.html
+#: templates/accepting_offers/footer.html:7
 msgid "footer.admin"
 msgstr "Адміністрування"
 
-#: accepting_offers/templates/accepting_offers/footer.html
+#: templates/accepting_offers/footer.html:12
 msgid "footer.authors"
 msgstr ""
 "Попов Руслан Олександрович, Карпенко Надія Валеріївна, Герасімов Володимир "
 "Володимирович"
 
-#: accepting_offers/templates/accepting_offers/header.html
+#: templates/accepting_offers/header.html:4
 msgid "header.title"
 msgstr "Абітурієнт та документи"
 
-#: accepting_offers/templates/accepting_offers/wizard_steps/step1.html
+#: templates/accepting_offers/wizard_steps/step1.html:4
 msgid "wizard.steps.1"
 msgstr "Персональна інформація"
 
-#: accepting_offers/templates/accepting_offers/wizard_steps/step2.html
+#: templates/accepting_offers/wizard_steps/step2.html:4
 msgid "wizard.steps.2"
 msgstr "Контактна інформація"
 
-#: accepting_offers/templates/accepting_offers/wizard_steps/step3.html
+#: templates/accepting_offers/wizard_steps/step3.html:4
 msgid "wizard.steps.3"
 msgstr "Члени сім'ї"
 
-#: accepting_offers/templates/accepting_offers/wizard_steps/step4.html
+#: templates/accepting_offers/wizard_steps/step4.html:5
+#: templates/accepting_offers/wizard_steps/step4old.html:4
 msgid "wizard.steps.4"
 msgstr "Конкурсні пропозиції"
 
-#: accepting_offers/templates/accepting_offers/wizard_steps/wizard_step_base.html
+#: templates/accepting_offers/wizard_steps/wizard_step_wrapper.html:8
 msgid "wizard.step"
 msgstr "Шаг"
 
-#: accepting_offers/templates/accepting_offers/wizard_steps/wizard_step_base.html
+#: templates/accepting_offers/wizard_steps/wizard_step_wrapper.html:25
 msgid "wizard.previous_step"
 msgstr "Попередній шаг"
 
-#: accepting_offers/templates/accepting_offers/wizard_steps/wizard_step_base.html
+#: templates/accepting_offers/wizard_steps/wizard_step_wrapper.html:27
 msgid "wizard.next"
 msgstr "Наступний шаг"
 
-#: accepting_offers/templates/accepting_offers/wizard_steps/wizard_step_base.html
+#: templates/accepting_offers/wizard_steps/wizard_step_wrapper.html:34
 msgid "wizard.add"
 msgstr "Додати"
 
-#: accepting_offers/templates/accepting_offers/wizard_steps/wizard_step_base.html
+#: templates/accepting_offers/wizard_steps/wizard_step_wrapper.html:36
 msgid "wizard.delete"
 msgstr "Видалити"
 
-#: accepting_offers/templates/accepting_offers/wrapper.html
+#: templates/accepting_offers/wrapper.html:11
 msgid "meta.description"
 msgstr "Автоматизація заповнення документів при вступі до університету"
 
-#: accepting_offers/templates/accepting_offers/wrapper.html
+#: templates/accepting_offers/wrapper.html:12
 msgid "meta.keywords"
 msgstr ""

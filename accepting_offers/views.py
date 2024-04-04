@@ -9,7 +9,7 @@ from accepting_offers.forms import (
     AcceptedOfferForm,
 )
 
-from formtools.wizard.views import SessionWizardView
+from formtools.wizard.views import CookieWizardView
 
 
 def done(request):
@@ -19,7 +19,7 @@ def done(request):
     return render(request, "accepting_offers/done.html")
 
 
-class AbiturientAndOffersWizard(SessionWizardView):
+class AbiturientAndOffersWizard(CookieWizardView):
     form_list = [AbiturientForm, PhoneFormSet, FamilyMemberFormSet, AcceptedOfferForm]
 
     def get_template_names(self) -> list[str]:

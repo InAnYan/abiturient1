@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-03 11:00+0300\n"
+"POT-Creation-Date: 2024-04-04 11:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,134 +17,146 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: abiturients/apps.py
+#: apps.py:8
 msgid "abiturients"
 msgstr "абітурієнти"
 
-#: abiturients/models.py
+#: models.py:6
+msgid "abiturients.invalid_name_part"
+msgstr "Це поле може містити лише символи алфавіту або пробіли"
+
+#: models.py:7
+msgid "generic.only_alpha"
+msgstr "Це поле може містити лише символи алфавіту"
+
+#: models.py:8
+msgid "generic.only_numbers"
+msgstr "Це поле може містити лише цифри"
+
+#: models.py:14
 msgid "generic.sex.male"
 msgstr "чоловік"
 
-#: abiturients/models.py
+#: models.py:15
 msgid "generic.sex.female"
 msgstr "жінка"
 
-#: abiturients/models.py
+#: models.py:18 models.py:93
 msgid "generic.last_name"
 msgstr "прізвище"
 
-#: abiturients/models.py
+#: models.py:23 models.py:98
 msgid "generic.first_name"
 msgstr "ім'я"
 
-#: abiturients/models.py
+#: models.py:29 models.py:104
 msgid "generic.patronymic"
 msgstr "по-батькові"
 
-#: abiturients/models.py
+#: models.py:34
 msgid "generic.sex"
 msgstr "стать"
 
-#: abiturients/models.py
+#: models.py:37
 msgid "abiturient.birth_date"
 msgstr "дата народження"
 
-#: abiturients/models.py
+#: models.py:40
 msgid "abiturient.birth_country"
 msgstr "країна народження"
 
-#: abiturients/models.py
+#: models.py:44
 msgid "abiturient.birth_town"
 msgstr "місто народження"
 
-#: abiturients/models.py
+#: models.py:47
 msgid "abiturient.education"
 msgstr "освіта"
 
-#: abiturients/models.py
+#: models.py:49
 msgid "generic.email"
 msgstr "електронна пошта"
 
-#: abiturients/models.py
+#: models.py:53
 msgid "generic.foreign_language"
 msgstr "іноземна мова"
 
-#: abiturients/models.py
+#: models.py:59
 msgid "generic.nationality"
 msgstr "національність"
 
-#: abiturients/models.py
+#: models.py:65
 msgid "abiturient.work"
 msgstr "робота"
 
-#: abiturients/models.py
+#: models.py:68
 msgid "abiturient.registered_address"
 msgstr "адреса реєстрації"
 
-#: abiturients/models.py
+#: models.py:71
 msgid "abiturient.living_address"
 msgstr "адреса проживання"
 
-#: abiturients/models.py
+#: models.py:77 models.py:113 models.py:136
 msgid "abiturient"
 msgstr "абітурієнт"
 
-#: abiturients/models.py
+#: models.py:78
 msgid "abiturient.plural"
 msgstr "абітурієнти"
 
-#: abiturients/models.py
+#: models.py:84
 msgid "family_member.type.mother"
 msgstr "матір"
 
-#: abiturients/models.py
+#: models.py:85
 msgid "family_member.type.father"
 msgstr "батько"
 
-#: abiturients/models.py
+#: models.py:86
 msgid "family_member.type.other"
 msgstr "інший (опікун)"
 
-#: abiturients/models.py
+#: models.py:89
 msgid "family_member.type"
 msgstr "тип члена сім'ї"
 
-#: abiturients/models.py
+#: models.py:109
 msgid "generic.telephone"
 msgstr "телефон"
 
-#: abiturients/models.py
+#: models.py:120
 msgid "family_member"
 msgstr "член сім'ї"
 
-#: abiturients/models.py
+#: models.py:121
 msgid "family_member.plural"
 msgstr "члени сім'ї"
 
-#: abiturients/models.py
+#: models.py:127
 msgid "phone.type.home"
 msgstr "домашній"
 
-#: abiturients/models.py
+#: models.py:128
 msgid "phone.type.mobile"
 msgstr "мобільний"
 
-#: abiturients/models.py
+#: models.py:129
 msgid "phone.type.work"
 msgstr "робочий"
 
-#: abiturients/models.py
+#: models.py:131
 msgid "phone.type"
 msgstr "тип телефону"
 
-#: abiturients/models.py
+#: models.py:133
 msgid "phone.number"
 msgstr "номер телефону"
 
-#: abiturients/models.py
+#: models.py:143
 msgid "phone"
 msgstr "телефон"
 
-#: abiturients/models.py
+#: models.py:144
 msgid "phone.plural"
 msgstr "телефони"
