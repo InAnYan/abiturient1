@@ -6,3 +6,4 @@ django-formtools
 django-debug-toolbar
 django-admin-interface
 python-dotenv
+docxtpl

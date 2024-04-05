@@ -17,9 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 
-from abiturient1.settings import DEBUG
+from abiturient1.settings import DEBUG, MEDIA_ROOT, MEDIA_URL
 
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
@@ -38,4 +39,7 @@ urlpatterns = i18n_patterns(
 ]
 
 if DEBUG:
-    urlpatterns += [path("__debug__", include("debug_toolbar.urls"))]
+    urlpatterns += [
+        path("__debug__", include("debug_toolbar.urls")),
+    ]
+    urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)

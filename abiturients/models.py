@@ -8,6 +8,11 @@ only_alpha_validator = RegexValidator("[^\W\d]+", _("generic.only_alpha"))
 number_validator = RegexValidator("\d+", _("generic.only_numbers"))
 
 
+telephone_validators = [number_validator]
+telephone_verbose_name = _("generic.telephone")
+telephone_max_length = 12
+
+
 # Абітурієнт.
 class Abiturient(models.Model):
     class Sex(models.IntegerChoices):
@@ -71,7 +76,15 @@ class Abiturient(models.Model):
     living_address = models.TextField(verbose_name=_("abiturient.living_address"))
 
     def __str__(self) -> str:
+        return self.full_name
+
+    @property
+    def full_name(self) -> str:
         return f"{self.last_name} {self.first_name} {self.patronymic}"
+
+    @property
+    def sex_label(self) -> str:
+        return self.Sex(self.sex).label
 
     class Meta:
         verbose_name = _("abiturient")
@@ -106,7 +119,9 @@ class FamilyMember(models.Model):
     )
 
     telephone = models.CharField(
-        max_length=9, verbose_name=_("generic.telephone"), validators=[number_validator]
+        max_length=telephone_max_length,
+        validators=telephone_validators,
+        verbose_name=telephone_verbose_name,
     )
 
     abiturient = models.ForeignKey(
@@ -129,16 +144,22 @@ class Phone(models.Model):
         WORK = 3, _("phone.type.work")
 
     type = models.IntegerField(choices=Type.choices, verbose_name=_("phone.type"))
-    number = models.CharField(
-        max_length=9, verbose_name=_("phone.number"), validators=[number_validator]
+
+    telephone = models.CharField(
+        max_length=telephone_max_length,
+        validators=telephone_validators,
+        verbose_name=telephone_verbose_name,
     )
+
     abiturient = models.ForeignKey(
         Abiturient, on_delete=models.CASCADE, verbose_name=_("abiturient")
     )
 
     def __str__(self) -> str:
-        return f"{self.abiturient} - {self.Type(self.type).label} - {self.number}"
+        return f"{self.abiturient} - {self.Type(self.type).label} - {self.telephone}"
 
     class Meta:
         verbose_name = _("phone")
         verbose_name_plural = _("phone.plural")
+
+    field_order = ["type", "number"]

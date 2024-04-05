@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "documents.apps.DocumentsConfig",
     "abiturients.apps.AbiturientsConfig",
     "university_offers.apps.UniversityOffersConfig",
     "accepting_offers.apps.AcceptingOffersConfig",
@@ -178,6 +179,10 @@ LOCALE_PATH = [os.path.join(BASE_DIR, "locale")]
 STATIC_URL = "static/"
 
 STATIC_ROOT = BASE_DIR / "static"
+
+MEDIA_URL = "/files/"
+
+MEDIA_ROOT = BASE_DIR / "files"
 
 
 # Default primary key field type
