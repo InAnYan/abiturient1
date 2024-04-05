@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 11:14+0300\n"
+"POT-Creation-Date: 2024-04-05 10:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:15
+msgid "Make abiturient info"
+msgstr "Make abiturient info"
 
 #: apps.py:8
 msgid "abiturients"
@@ -34,130 +38,129 @@ msgstr "Only alphabetical characters are allowed"
 msgid "generic.only_numbers"
 msgstr "Only numberical characters are allowed"
 
-#: models.py:14
-msgid "generic.sex.male"
-msgstr "male"
-
-#: models.py:15
-msgid "generic.sex.female"
-msgstr "female"
-
-#: models.py:18 models.py:93
-msgid "generic.last_name"
-msgstr "last name"
-
-#: models.py:23 models.py:98
-msgid "generic.first_name"
-msgstr "first name"
-
-#: models.py:29 models.py:104
-msgid "generic.patronymic"
-msgstr "patronymic"
-
-#: models.py:34
-msgid "generic.sex"
-msgstr "gender"
-
-#: models.py:37
-msgid "abiturient.birth_date"
-msgstr "birth date"
-
-#: models.py:40
-msgid "abiturient.birth_country"
-msgstr "birth country"
-
-#: models.py:44
-msgid "abiturient.birth_town"
-msgstr "birth town"
-
-#: models.py:47
-msgid "abiturient.education"
-msgstr "education"
-
-#: models.py:49
-msgid "generic.email"
-msgstr "email"
-
-#: models.py:53
-msgid "generic.foreign_language"
-msgstr "foreign language"
-
-#: models.py:59
-msgid "generic.nationality"
-msgstr "nationality"
-
-#: models.py:65
-msgid "abiturient.work"
-msgstr "work"
-
-#: models.py:68
-msgid "abiturient.registered_address"
-msgstr "registered address"
-
-#: models.py:71
-msgid "abiturient.living_address"
-msgstr "living address"
-
-#: models.py:77 models.py:113 models.py:136
-msgid "abiturient"
-msgstr "abiturient"
-
-#: models.py:78
-msgid "abiturient.plural"
-msgstr "abiturients"
-
-#: models.py:84
-msgid "family_member.type.mother"
-msgstr "mother"
-
-#: models.py:85
-msgid "family_member.type.father"
-msgstr "father"
-
-#: models.py:86
-msgid "family_member.type.other"
-msgstr "other member"
-
-#: models.py:89
-msgid "family_member.type"
-msgstr "type of the family member"
-
-#: models.py:109
+#: models.py:12
 msgid "generic.telephone"
 msgstr "telephone"
 
-#: models.py:120
+#: models.py:19
+msgid "generic.sex.male"
+msgstr "male"
+
+#: models.py:20
+msgid "generic.sex.female"
+msgstr "female"
+
+#: models.py:23 models.py:106
+msgid "generic.last_name"
+msgstr "last name"
+
+#: models.py:28 models.py:111
+msgid "generic.first_name"
+msgstr "first name"
+
+#: models.py:34 models.py:117
+msgid "generic.patronymic"
+msgstr "patronymic"
+
+#: models.py:39
+msgid "generic.sex"
+msgstr "gender"
+
+#: models.py:42
+msgid "abiturient.birth_date"
+msgstr "birth date"
+
+#: models.py:45
+msgid "abiturient.birth_country"
+msgstr "birth country"
+
+#: models.py:49
+msgid "abiturient.birth_town"
+msgstr "birth town"
+
+#: models.py:52
+msgid "abiturient.education"
+msgstr "education"
+
+#: models.py:54
+msgid "generic.email"
+msgstr "email"
+
+#: models.py:58
+msgid "generic.foreign_language"
+msgstr "foreign language"
+
+#: models.py:64
+msgid "generic.nationality"
+msgstr "nationality"
+
+#: models.py:70
+msgid "abiturient.work"
+msgstr "work"
+
+#: models.py:73
+msgid "abiturient.registered_address"
+msgstr "registered address"
+
+#: models.py:76
+msgid "abiturient.living_address"
+msgstr "living address"
+
+#: models.py:90 models.py:128 models.py:155
+msgid "abiturient"
+msgstr "abiturient"
+
+#: models.py:91
+msgid "abiturient.plural"
+msgstr "abiturients"
+
+#: models.py:97
+msgid "family_member.type.mother"
+msgstr "mother"
+
+#: models.py:98
+msgid "family_member.type.father"
+msgstr "father"
+
+#: models.py:99
+msgid "family_member.type.other"
+msgstr "other member"
+
+#: models.py:102
+msgid "family_member.type"
+msgstr "type of the family member"
+
+#: models.py:135
 msgid "family_member"
 msgstr "family member"
 
-#: models.py:121
+#: models.py:136
 msgid "family_member.plural"
 msgstr "family members"
 
-#: models.py:127
+#: models.py:142
 msgid "phone.type.home"
 msgstr "home"
 
-#: models.py:128
+#: models.py:143
 msgid "phone.type.mobile"
 msgstr "mobile"
 
-#: models.py:129
+#: models.py:144
 msgid "phone.type.work"
 msgstr "work"
 
-#: models.py:131
+#: models.py:146
 msgid "phone.type"
 msgstr "phone type"
 
-#: models.py:133
-msgid "phone.number"
-msgstr "phone number"
-
-#: models.py:143
+#: models.py:162
 msgid "phone"
 msgstr "phone"
 
-#: models.py:144
+#: models.py:163
 msgid "phone.plural"
 msgstr "phones"
+
+#~ msgid "phone.number"
+#~ msgstr "phone number"
