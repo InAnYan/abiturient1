@@ -8,18 +8,18 @@
     {% endif %}
 </p>
 <p>
-    {% trans "speciality.educational_program_name" %}:
+    {% trans "speciality.educational_program_name"|title %}:
     {{ offer.speciality.educational_program_name }}
 </p>
 <p>
-    {% trans "university_offer.study_begin" %}:
+    {% trans "university_offer.study_begin"|title %}:
     {{ offer.study_begin }}
 </p>
 <p>
-    {% trans "university_offer.study_duration" %}:
+    {% trans "university_offer.study_duration"|title %}:
     {{ offer.study_duration_years }} {% trans "generic.years" %}, {{ offer.study_duration_months }} {% trans "generic.months" %}
 </p>
 <p>
-    {% trans "univeristy_offer.ects" %}:
+    {% trans "univeristy_offer.ects"|title %}:
     {{ offer.ects }}
 </p>

@@ -15,6 +15,7 @@
         let studyFormElem = $("[name=3-study_form]");
         let typeElem = $("[name=3-type]");
         let infoElem = $("[name=3-info_div]");
+        let infoLabel = $("label[for=3-info_div]");
 
         $(function () {
             infoElem.changeElementType("p");
@@ -22,6 +23,11 @@
             infoElem.removeClass("textarea");
             infoElem.removeClass("form-control");
             infoElem.text('{% trans "generic.loading" %}');
+
+            infoLabel.changeElementType("p");
+            infoLabel = $("p[for=3-info_div]")
+            infoLabel.removeClass("form-label");
+            infoLabel.addClass("text-center font-weight-bold");
 
             let facultyVal = Cookies.get("faculty-val");
             if (facultyVal) {
