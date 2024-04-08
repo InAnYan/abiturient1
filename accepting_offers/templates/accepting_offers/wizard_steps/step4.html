@@ -15,11 +15,11 @@
         let studyFormElem = $("[name=3-study_form]");
         let typeElem = $("[name=3-type]");
         let infoElem = $("[name=3-info_div]");
-        let infoLabel = $("label[for=3-info_div]");
+        let infoLabel = $("label[for=id_3-info_div]");
 
         $(function () {
             infoElem.changeElementType("p");
-            infoElem = $("[name=3-info_div]");
+            infoElem = $("[name=id_3-info_div]");
             infoElem.removeClass("textarea");
             infoElem.removeClass("form-control");
             infoElem.text('{% trans "generic.loading" %}');
