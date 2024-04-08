@@ -73,4 +73,4 @@ def ajax_offer_info(request: HttpRequest):
 
         return render(request, "university_offers/ajax/offer_info.html", context)
     else:
-        return HttpResponse("")
+        return HttpResponse("<p>No information</p>")
