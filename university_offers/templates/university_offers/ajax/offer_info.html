@@ -1,6 +1,6 @@
 {% load i18n %}
 <p>
-    {% trans "speciality.end_of_accreditation" %}:
+    {% trans "speciality.end_of_accreditation"|title %}:
     {% if offer.speciality.end_of_accreditation %}
         {{ offer.speciality.end_of_accreditation }}
     {% else %}
@@ -20,6 +20,6 @@
     {{ offer.study_duration_years }} {% trans "generic.years" %}, {{ offer.study_duration_months }} {% trans "generic.months" %}
 </p>
 <p>
-    {% trans "univeristy_offer.ects"|title %}:
+    {% trans "univeristy_offer.ects"|upper %}:
     {{ offer.ects }}
 </p>
