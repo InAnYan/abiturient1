@@ -123,8 +123,6 @@ msgid "generic.years"
 msgstr "years"
 
 #: templates/university_offers/ajax/offer_info.html:20
-#, fuzzy
-#| msgid "generic.name"
 msgid "generic.months"
 msgstr "months"
 
