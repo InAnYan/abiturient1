@@ -18,16 +18,16 @@
         let infoLabel = $("label[for=id_3-info_div]");
 
         $(function () {
-            infoElem.changeElementType("p");
-            infoElem = $("[name=id_3-info_div]");
-            infoElem.removeClass("textarea");
-            infoElem.removeClass("form-control");
-            infoElem.text('{% trans "generic.loading" %}');
-
             infoLabel.changeElementType("p");
             infoLabel = $("p[for=id_3-info_div]")
             infoLabel.removeClass("form-label");
             infoLabel.addClass("text-center font-weight-bold");
+
+            infoElem.changeElementType("p");
+            infoElem = $("[name=3-info_div]");
+            infoElem.removeClass("textarea");
+            infoElem.removeClass("form-control");
+            infoElem.text('{% trans "generic.loading" %}');
 
             let facultyVal = Cookies.get("faculty-val");
             if (facultyVal) {
