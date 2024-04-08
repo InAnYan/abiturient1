@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 11:17+0300\n"
+"POT-Creation-Date: 2024-04-08 10:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,10 @@ msgstr ""
 #: apps.py:8
 msgid "accepting_offers"
 msgstr "заяви"
+
+#: forms.py:21
+msgid "accepted_offers.info_about_offer"
+msgstr "Інформація про конкурсну пропозицію"
 
 #: models.py:15
 msgid "accepting_offers.payment_frequency.every_semester"
@@ -139,6 +143,10 @@ msgstr "Члени сім'ї"
 #: templates/accepting_offers/wizard_steps/step4old.html:4
 msgid "wizard.steps.4"
 msgstr "Конкурсні пропозиції"
+
+#: templates/accepting_offers/wizard_steps/step4.html:24
+msgid "generic.loading"
+msgstr "Завантаження..."
 
 #: templates/accepting_offers/wizard_steps/wizard_step_wrapper.html:8
 msgid "wizard.step"

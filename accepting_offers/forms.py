@@ -14,6 +14,13 @@ class AcceptedOfferForm(forms.ModelForm):
     study_form = forms.CharField(widget=forms.Select(choices=[]))
     type = forms.CharField(widget=forms.Select(choices=[]))
 
+    # Dummy field
+    info_div = forms.CharField(
+        required=False,
+        widget=forms.Textarea,
+        label=_("accepted_offers.info_about_offer"),
+    )
+
     def clean(self) -> dict[str, Any]:
         self.construct_university_offer()
         return super().clean()
@@ -42,6 +49,7 @@ class AcceptedOfferForm(forms.ModelForm):
         "speciality",
         "study_form",
         "type",
+        "info_div",
         "payment_type",
         "payment_frequency",
         "accepted_year",

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-04 11:17+0300\n"
+"POT-Creation-Date: 2024-04-08 10:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr "аббревіатура"
 msgid "generic.cipher"
 msgstr "шифр"
 
-#: models.py:23 models.py:40
+#: models.py:23 models.py:43
 msgid "faculty"
 msgstr "факультет"
 
@@ -45,74 +45,86 @@ msgstr "факультети"
 msgid "generic.name"
 msgstr "назва"
 
-#: models.py:31
+#: models.py:32
 msgid "generic.code"
 msgstr "код"
 
-#: models.py:37
+#: models.py:39
 msgid "speciality.specialization"
 msgstr "спеціалізація"
 
-#: models.py:43
+#: models.py:47 templates/university_offers/ajax/offer_info.html:3
 msgid "speciality.end_of_accreditation"
 msgstr "кінець аккредитації"
 
-#: models.py:46
+#: models.py:51 templates/university_offers/ajax/offer_info.html:11
 msgid "speciality.educational_program_name"
 msgstr "назва освітньої програми"
 
-#: models.py:57 models.py:78
+#: models.py:62 models.py:93
 msgid "speciality"
 msgstr "спеціальність"
 
-#: models.py:58
+#: models.py:63
 msgid "speciality.plural"
 msgstr "спеціальності"
 
-#: models.py:64
+#: models.py:69
 msgid "university_offer.type.budget"
 msgstr "бюджет"
 
-#: models.py:65
+#: models.py:70
 msgid "university_offer.type.contract"
 msgstr "контракт"
 
-#: models.py:68
+#: models.py:73
 msgid "university_offer.study_form.day"
 msgstr "очне"
 
-#: models.py:69
+#: models.py:74
 msgid "university_offer.study_form.over_distance"
 msgstr "заочне"
 
-#: models.py:70
+#: models.py:75
 msgid "university_offer.study_form.evening"
 msgstr "вечірнє"
 
-#: models.py:72
+#: models.py:77 templates/university_offers/ajax/offer_info.html:15
 msgid "university_offer.study_begin"
 msgstr "початок навчання"
 
-#: models.py:75
+#: models.py:81 templates/university_offers/ajax/offer_info.html:19
 msgid "university_offer.study_duration"
 msgstr "тривалість навчання"
 
-#: models.py:81
+#: models.py:97
 msgid "university_offer.type"
 msgstr "тип конкурсної пропозиції"
 
-#: models.py:84
+#: models.py:101
 msgid "university_offer.study_form"
 msgstr "форма навчання"
 
-#: models.py:87
+#: models.py:105
 msgid "university_offer.ects"
 msgstr "ЕКТС"
 
-#: models.py:100
+#: models.py:122
 msgid "university_offer"
 msgstr "конкурсна пропозиція"
 
-#: models.py:101
+#: models.py:123
 msgid "university_offer.plural"
 msgstr "конкурсні пропозиції"
+
+#: templates/university_offers/ajax/offer_info.html:20
+msgid "generic.years"
+msgstr "р."
+
+#: templates/university_offers/ajax/offer_info.html:20
+msgid "generic.months"
+msgstr "міс."
+
+#: templates/university_offers/ajax/offer_info.html:23
+msgid "univeristy_offer.ects"
+msgstr "ЕКТС"

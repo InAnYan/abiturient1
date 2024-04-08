@@ -14,8 +14,15 @@
         let specialityElem = $("[name=3-speciality]");
         let studyFormElem = $("[name=3-study_form]");
         let typeElem = $("[name=3-type]");
+        let infoElem = $("[name=3-info_div]");
 
         $(function () {
+            infoElem.changeElementType("p");
+            infoElem = $("[name=3-info_div]");
+            infoElem.removeClass("textarea");
+            infoElem.removeClass("form-control");
+            infoElem.text('{% trans "generic.loading" %}');
+
             let facultyVal = Cookies.get("faculty-val");
             if (facultyVal) {
                 facultyElem.val(facultyVal);
@@ -44,6 +51,7 @@
             let typeData = Cookies.get("type-data");
             if (typeData) {
                 typeElem.html(typeData);
+                typeElemChange();
             }
 
             let typeVal = Cookies.get("type-val");
@@ -52,8 +60,8 @@
             }
         });
 
-        function facultyAjax(elem) {
-            let faculty = $(elem).val();
+        function facultyAjax() {
+            let faculty = facultyElem.val();
 
             $.ajax({
                 url: '{% url "ajax_specialities" %}',
@@ -65,18 +73,15 @@
                     Cookies.set("speciality-data", data);
 
                     specialityElem.html(data);
-
-                    specialityAjax(specialityElem);
+                    specialityAjax();
                 }
             });
         }
 
-        facultyElem.change(function () {
-            facultyAjax(this)
-        });
+        facultyElem.change(facultyAjax);
 
-        function specialityAjax(elem) {
-            var speciality = $(elem).val();
+        function specialityAjax() {
+            var speciality = specialityElem.val();
 
             $.ajax({
                 url: '{% url "ajax_study_forms" %}',
@@ -88,18 +93,16 @@
                     Cookies.set("studyForm-data", data);
 
                     studyFormElem.html(data);
-                    studyFormAjax(studyFormElem);
+                    studyFormAjax();
                 }
             });
         }
 
-        specialityElem.change(function () {
-            specialityAjax(this);
-        });
+        specialityElem.change(specialityAjax);
 
 
-        function studyFormAjax(elem) {
-            var study_form = $(elem).val();
+        function studyFormAjax() {
+            var study_form = studyFormElem.val();
             let speciality = specialityElem.val();
 
             $.ajax({
@@ -113,12 +116,36 @@
                     Cookies.set("type-data", data);
 
                     typeElem.html(data);
+                    typeElemChange();
+                }
+            });
+        }
+
+        studyFormElem.change(studyFormAjax);
+
+        function typeElemChange() {
+            Cookies.set("type-val", typeElem.val());
+
+            let speciality = specialityElem.val();
+            let study_form = studyFormElem.val();
+            let type = typeElem.val();
+            
+
+            $.ajax({
+                url: '{% url "ajax_offer_info" %}',
+                data: {
+                    speciality,
+                    study_form,
+                    type
+                },
+                success: function (data) {
+                    infoElem.html(data);
                 }
             });
         }
 
         typeElem.change(function () {
-            Cookies.set("type-val", typeElem.val());
+            typeElemChange(this);
         });
 
     </script>

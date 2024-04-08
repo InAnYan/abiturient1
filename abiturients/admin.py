@@ -10,8 +10,47 @@ from django.utils.translation import gettext_lazy as _
 
 from docxtpl import DocxTemplate
 
+from import_export import resources, fields, widgets
+from import_export.admin import ImportExportModelAdmin
 
-class AbiturientAdmin(admin.ModelAdmin):
+abiturient_full_name = fields.Field(
+    column_name="abiturient_full_name",
+    attribute="abiturient",
+    widget=widgets.ForeignKeyWidget(Abiturient, "full_name"),
+)
+
+
+class AbiturientResource(resources.ModelResource):
+    class Meta:
+        model = Abiturient
+
+
+class FamilyMemberResource(resources.ModelResource):
+    abiturient_id = abiturient_full_name
+
+    class Meta:
+        model = FamilyMember
+
+
+class PhoneResource(resources.ModelResource):
+    abiturient_id = abiturient_full_name
+
+    class Meta:
+        model = Phone
+
+
+class FamilyMemberInline(admin.StackedInline):
+    model = FamilyMember
+    extra = 0
+
+
+class PhoneInline(admin.StackedInline):
+    model = Phone
+    extra = 0
+
+
+@admin.register(Abiturient)
+class AbiturientAdmin(ImportExportModelAdmin):
     @admin.action(description=_("Make abiturient info"))
     def make_abiturient_info(self, request: HttpRequest, queryset: QuerySet):
         print(dir(queryset.first()))
@@ -25,8 +64,16 @@ class AbiturientAdmin(admin.ModelAdmin):
         return response
 
     actions = [make_abiturient_info]
+    resource_classes = [AbiturientResource]
+    inlines = [FamilyMemberInline, PhoneInline]
+    search_fields = ["last_name", "first_name", "patronymic", "email"]
 
 
-admin.site.register(Abiturient, AbiturientAdmin)
-admin.site.register(FamilyMember)
-admin.site.register(Phone)
+@admin.register(FamilyMember)
+class FamilyMemberAdmin(ImportExportModelAdmin):
+    resource_classes = [FamilyMemberResource]
+
+
+@admin.register(Phone)
+class PhoneAdmin(ImportExportModelAdmin):
+    resource_classes = [PhoneResource]

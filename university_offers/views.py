@@ -57,3 +57,17 @@ def ajax_offer_types(request: HttpRequest):
     }
 
     return render(request, "university_offers/ajax/int_choices.html", context)
+
+
+def ajax_offer_info(request: HttpRequest):
+    speciality = request.GET.get("speciality")
+    study_form = request.GET.get("study_form")
+    type = request.GET.get("type")
+
+    offer = UniversityOffer.objects.get(
+        speciality=speciality, study_form=study_form, type=type
+    )
+
+    context = {"offer": offer}
+
+    return render(request, "university_offers/ajax/offer_info.html", context)

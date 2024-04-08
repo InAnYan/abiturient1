@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "formtools",
     "debug_toolbar",
+    "import_export",
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"

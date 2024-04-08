@@ -1,0 +1,25 @@
+{% load i18n %}
+<p>
+    {% trans "speciality.end_of_accreditation" %}:
+    {% if offer.speciality.end_of_accreditation %}
+        {{ offer.speciality.end_of_accreditation }}
+    {% else %}
+        ---
+    {% endif %}
+</p>
+<p>
+    {% trans "speciality.educational_program_name" %}:
+    {{ offer.speciality.educational_program_name }}
+</p>
+<p>
+    {% trans "university_offer.study_begin" %}:
+    {{ offer.study_begin }}
+</p>
+<p>
+    {% trans "university_offer.study_duration" %}:
+    {{ offer.study_duration_years }} {% trans "generic.years" %}, {{ offer.study_duration_months }} {% trans "generic.months" %}
+</p>
+<p>
+    {% trans "univeristy_offer.ects" %}:
+    {{ offer.ects }}
+</p>

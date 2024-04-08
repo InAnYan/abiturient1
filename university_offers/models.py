@@ -27,21 +27,26 @@ class Faculty(models.Model):
 # Спеціальність.
 class Speciality(models.Model):
     name = models.CharField(max_length=255, verbose_name=_("generic.name"))
+
     code = models.IntegerField(
         validators=[MinValueValidator(1)], verbose_name=_("generic.code")
     )
+
     specialization = models.IntegerField(
         validators=[MinValueValidator(1)],
         null=True,
         blank=True,
         verbose_name=_("speciality.specialization"),
     )
+
     faculty = models.ForeignKey(
         Faculty, on_delete=models.PROTECT, verbose_name=_("faculty")
     )
+
     end_of_accreditation = models.DateField(
         null=True, blank=True, verbose_name=_("speciality.end_of_accreditation")
     )  # TODO: ???
+
     educational_program_name = models.CharField(
         max_length=255, verbose_name=_("speciality.educational_program_name")
     )
@@ -70,24 +75,41 @@ class UniversityOffer(models.Model):
         EVENING = 3, _("university_offer.study_form.evening")
 
     study_begin = models.DateField(verbose_name=_("university_offer.study_begin"))
+
     study_duration = models.IntegerField(
         validators=[MinValueValidator(1)],
         verbose_name=_("university_offer.study_duration"),
     )
+
+    @property
+    def study_duration_years(self) -> int:
+        return self.study_duration // 12
+
+    @property
+    def study_duration_months(self) -> int:
+        return self.study_duration % 12
+
     speciality = models.ForeignKey(
         Speciality, on_delete=models.PROTECT, verbose_name=_("speciality")
     )
+
     type = models.PositiveIntegerField(
         choices=Type.choices, verbose_name=_("university_offer.type")
     )
+
     study_form = models.PositiveIntegerField(
         choices=StudyForm.choices, verbose_name=_("university_offer.study_form")
     )
+
     ects = models.IntegerField(
         validators=[MinValueValidator(1)], verbose_name=_("university_offer.ects")
     )
 
     def __str__(self) -> str:
+        return self.str_property
+
+    @property
+    def str_property(self) -> str:
         return (
             str(self.speciality)
             + " - "
