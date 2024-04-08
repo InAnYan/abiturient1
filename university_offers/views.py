@@ -1,4 +1,4 @@
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
 from university_offers.models import Speciality, UniversityOffer
@@ -64,10 +64,13 @@ def ajax_offer_info(request: HttpRequest):
     study_form = request.GET.get("study_form")
     type = request.GET.get("type")
 
-    offer = UniversityOffer.objects.get(
-        speciality=speciality, study_form=study_form, type=type
-    )
+    if speciality and study_form and type:
+        offer = UniversityOffer.objects.get(
+            speciality=speciality, study_form=study_form, type=type
+        )
 
-    context = {"offer": offer}
+        context = {"offer": offer}
 
-    return render(request, "university_offers/ajax/offer_info.html", context)
+        return render(request, "university_offers/ajax/offer_info.html", context)
+    else:
+        return HttpResponse("")
