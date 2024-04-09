@@ -57,12 +57,12 @@
             let typeData = Cookies.get("type-data");
             if (typeData) {
                 typeElem.html(typeData);
-                typeElemChange();
             }
 
             let typeVal = Cookies.get("type-val");
             if (typeVal) {
                 typeElem.val(typeVal);
+                updateOfferInfo();
             }
         });
 
@@ -132,6 +132,10 @@
         function typeElemChange() {
             Cookies.set("type-val", typeElem.val());
 
+            updateOfferInfo();
+        }
+
+        function updateOfferInfo() {
             let speciality = specialityElem.val();
             let study_form = studyFormElem.val();
             let type = typeElem.val();
@@ -150,9 +154,7 @@
             });
         }
 
-        typeElem.change(function () {
-            typeElemChange(this);
-        });
+        typeElem.change(typeElemChange);
 
     </script>
 {% endblock additional_scripts %}
