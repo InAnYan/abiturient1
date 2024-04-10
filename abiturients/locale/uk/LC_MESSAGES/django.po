@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-08 10:23+0300\n"
+"POT-Creation-Date: 2024-04-10 09:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: admin.py:54
+#: admin.py:57
 msgid "Make abiturient info"
 msgstr "Звіт про абітурієнтів"
+
+#: admin.py:69
+#, fuzzy
+#| msgid "abiturient.work"
+msgid "abiturient.report"
+msgstr "робота"
 
 #: apps.py:8
 msgid "abiturients"

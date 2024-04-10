@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-08 10:23+0300\n"
+"POT-Creation-Date: 2024-04-10 09:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: admin.py:93
+msgid "accepting_offers.admin.only_one_offer"
+msgstr "Only one offer should be selected"
+
+#: admin.py:125
+msgid "accepting_offers.admin.make_document"
+msgstr "Make"
+
 #: apps.py:8
 msgid "accepting_offers"
 msgstr "accepted offers"
 
-#: forms.py:21
+#: forms.py:16
+msgid "faculty"
+msgstr "Faculty"
+
+#: forms.py:20
+msgid "speciality"
+msgstr "Speciality"
+
+#: forms.py:25
+msgid "university_offer.study_form"
+msgstr "Study form"
+
+#: forms.py:30
+msgid "university_offer.type"
+msgstr "Offer type"
+
+#: forms.py:37
 msgid "accepted_offers.info_about_offer"
 msgstr "Information about offer"
 
@@ -145,7 +169,7 @@ msgstr "Family members"
 msgid "wizard.steps.4"
 msgstr "University offers"
 
-#: templates/accepting_offers/wizard_steps/step4.html:24
+#: templates/accepting_offers/wizard_steps/step4.html:30
 msgid "generic.loading"
 msgstr "Loading..."
 

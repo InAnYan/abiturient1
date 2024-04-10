@@ -1,22 +1,22 @@
 {% load i18n %}
 <p>
-    {% trans "speciality.end_of_accreditation"|title %}:
+    {% trans "speciality.end_of_accreditation"|capfirst %}:
     {% if offer.speciality.end_of_accreditation %}
         {{ offer.speciality.end_of_accreditation }}
     {% else %}
-        ---
+        {% trans "offer.speciality.no_accreditation" %}
     {% endif %}
 </p>
 <p>
-    {% trans "speciality.educational_program_name"|title %}:
+    {% trans "speciality.educational_program_name"|capfirst %}:
     {{ offer.speciality.educational_program_name }}
 </p>
 <p>
-    {% trans "university_offer.study_begin"|title %}:
+    {% trans "university_offer.study_begin"|capfirst %}:
     {{ offer.study_begin }}
 </p>
 <p>
-    {% trans "university_offer.study_duration"|title %}:
+    {% trans "university_offer.study_duration"|capfirst %}:
     {{ offer.study_duration_years }} {% trans "generic.years" %}, {{ offer.study_duration_months }} {% trans "generic.months" %}
 </p>
 <p>

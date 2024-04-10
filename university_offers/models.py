@@ -1,6 +1,7 @@
 from tabnanny import verbose
 from django.db import models
 from django.core.validators import MinValueValidator
+from dateutil.relativedelta import relativedelta
 from django.utils.translation import gettext_lazy as _
 
 
@@ -52,11 +53,15 @@ class Speciality(models.Model):
     )
 
     def __str__(self) -> str:
+        return self.faculty.abbreviation + " - " + self.short_label
+
+    @property
+    def short_label(self) -> str:
         code = str(self.code).zfill(3)
         if self.specialization:
             code += "." + str(self.specialization).zfill(3)
 
-        return self.faculty.abbreviation + " - " + code + " " + self.name
+        return code + " " + self.name
 
     class Meta:
         verbose_name = _("speciality")
@@ -80,6 +85,10 @@ class UniversityOffer(models.Model):
         validators=[MinValueValidator(1)],
         verbose_name=_("university_offer.study_duration"),
     )
+
+    @property
+    def study_end(self):
+        return self.study_begin + relativedelta(months=self.study_duration)
 
     @property
     def study_duration_years(self) -> int:

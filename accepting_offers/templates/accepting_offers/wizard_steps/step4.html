@@ -66,11 +66,13 @@
             }
         });
 
+        {% get_current_language as LANGUAGE_CODE %}
+
         function facultyAjax() {
             let faculty = facultyElem.val();
 
             $.ajax({
-                url: '{% url "ajax_specialities" %}',
+                url: "{% url "ajax_specialities" %}",
                 data: {
                     faculty,
                 },
@@ -90,7 +92,7 @@
             var speciality = specialityElem.val();
 
             $.ajax({
-                url: '{% url "ajax_study_forms" %}',
+                url: "{% url "ajax_study_forms" %}",
                 data: {
                     speciality,
                 },
@@ -112,7 +114,7 @@
             let speciality = specialityElem.val();
 
             $.ajax({
-                url: '{% url "ajax_offer_types" %}',
+                url: "{% url "ajax_offer_types" %}",
                 data: {
                     speciality,
                     study_form,
@@ -142,7 +144,7 @@
             
 
             $.ajax({
-                url: '{% url "ajax_offer_info" %}',
+                url: "{% url "ajax_offer_info" %}",
                 data: {
                     speciality,
                     study_form,

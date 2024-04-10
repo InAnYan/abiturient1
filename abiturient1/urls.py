@@ -33,9 +33,12 @@ admin.site.site_title = _("admin.site.site_title")
 
 urlpatterns = i18n_patterns(
     path("admin/", admin.site.urls, name="admin"),
-    path("", include("accepting_offers.urls")),
-) + [
     path("univeristy_offers/", include("university_offers.urls")),
+    path("", include("accepting_offers.urls")),
+)
+
+urlpatterns += [
+    path("i18n/", include("django.conf.urls.i18n")),
 ]
 
 if DEBUG:

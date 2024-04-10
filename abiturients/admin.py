@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.contrib import admin
 
 from abiturient1.settings import MEDIA_ROOT
@@ -7,6 +8,7 @@ from django.contrib import admin
 from django.http import HttpRequest, HttpResponse
 from django.db.models.query import QuerySet
 from django.utils.translation import gettext_lazy as _
+from django.utils import formats
 
 from docxtpl import DocxTemplate
 
@@ -51,12 +53,25 @@ class PhoneInline(admin.StackedInline):
 
 @admin.register(Abiturient)
 class AbiturientAdmin(ImportExportModelAdmin):
-    @admin.action(description=_("Make abiturient info"))
+    @admin.action(
+        description=_("Make abiturient info")
+    )  # NOTE: Yep, the translation key is not in the project style. That's a mistake.
     def make_abiturient_info(self, request: HttpRequest, queryset: QuerySet):
-        print(dir(queryset.first()))
         response = HttpResponse(
             content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         )
+
+        now = datetime.now()
+        formatted_now = formats.date_format(now, "SHORT_DATETIME_FORMAT")
+
+        response["Content-Disposition"] = (
+            'attachment; filename="'
+            + _("abiturient.report")
+            + "_"
+            + formatted_now
+            + '.docx"'
+        )
+
         doc = DocxTemplate(MEDIA_ROOT / "abiturient_info.docx")
         context = {"abiturients": list(queryset)}
         doc.render(context)

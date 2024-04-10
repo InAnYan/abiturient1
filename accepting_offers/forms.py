@@ -2,23 +2,39 @@ from typing import Any
 from django import forms
 from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
+from django.utils.functional import lazy
 
 from abiturients.models import Abiturient
 from accepting_offers.models import AcceptedOffer
 from university_offers.models import Faculty, Speciality, UniversityOffer
 
+capitalize_lazy = lazy(lambda s: s.capitalize(), str)
+
 
 class AcceptedOfferForm(forms.ModelForm):
-    faculty = forms.ModelChoiceField(Faculty.objects.all())
-    speciality = forms.CharField(widget=forms.Select(choices=[]))
-    study_form = forms.CharField(widget=forms.Select(choices=[]))
-    type = forms.CharField(widget=forms.Select(choices=[]))
+    faculty = forms.ModelChoiceField(
+        Faculty.objects.all(), label=capitalize_lazy(_("faculty"))
+    )
+
+    speciality = forms.CharField(
+        widget=forms.Select(choices=[]), label=capitalize_lazy(_("speciality"))
+    )
+
+    study_form = forms.CharField(
+        widget=forms.Select(choices=[]),
+        label=capitalize_lazy(_("university_offer.study_form")),
+    )
+
+    type = forms.CharField(
+        widget=forms.Select(choices=[]),
+        label=capitalize_lazy(_("university_offer.type")),
+    )
 
     # Dummy field
     info_div = forms.CharField(
         required=False,
         widget=forms.Textarea,
-        label=_("accepted_offers.info_about_offer"),
+        label=capitalize_lazy(_("accepted_offers.info_about_offer")),
     )
 
     def clean(self) -> dict[str, Any]:
