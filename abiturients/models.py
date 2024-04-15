@@ -1,16 +1,29 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
+from django.core.validators import MinLengthValidator
+
+from datetime import date
+
+from django.core.validators import MaxValueValidator
 
 
-name_validator = RegexValidator("([^\W\d]| )+", _("abiturients.invalid_name_part"))
-only_alpha_validator = RegexValidator("[^\W\d]+", _("generic.only_alpha"))
+only_alpha_space_validator = RegexValidator("([^\W\d]| )+", _("generic.only_alpha"))
 number_validator = RegexValidator("\d+", _("generic.only_numbers"))
 
 
-telephone_validators = [number_validator]
-telephone_verbose_name = _("generic.telephone")
 telephone_max_length = 12
+telephone_min_length = 9
+telephone_validators = [number_validator, MinLengthValidator(telephone_min_length)]
+telephone_verbose_name = _("generic.telephone")
+
+
+class LowerCaseField(models.CharField):
+    def __init__(self, *args, **kwargs):
+        super(LowerCaseField, self).__init__(*args, **kwargs)
+
+    def get_prep_value(self, value):
+        return str(value).lower()
 
 
 # Абітурієнт.
@@ -19,34 +32,35 @@ class Abiturient(models.Model):
         MALE = 1, _("generic.sex.male")
         FEMALE = 2, _("generic.sex.female")
 
-    last_name = models.CharField(
-        max_length=255, verbose_name=_("generic.last_name"), validators=[name_validator]
-    )
+    last_name = models.CharField(max_length=255, verbose_name=_("generic.last_name"))
 
     first_name = models.CharField(
         max_length=255,
         verbose_name=_("generic.first_name"),
-        validators=[name_validator],
     )
 
     patronymic = models.CharField(
         max_length=255,
         verbose_name=_("generic.patronymic"),
-        validators=[name_validator],
     )
 
     sex = models.PositiveIntegerField(
         choices=Sex.choices, verbose_name=_("generic.sex")
     )
 
-    birth_date = models.DateField(verbose_name=_("abiturient.birth_date"))
+    birth_date = models.DateField(
+        verbose_name=_("abiturient.birth_date"),
+        validators=[MaxValueValidator(limit_value=date.today)],
+    )
 
     birth_country = models.CharField(
         max_length=255, verbose_name=_("abiturient.birth_country")
     )
 
     birth_town = models.CharField(
-        max_length=255, verbose_name=_("abiturient.birth_town")
+        max_length=255,
+        verbose_name=_("abiturient.birth_town"),
+        validators=[only_alpha_space_validator],
     )
 
     education = models.TextField(verbose_name=_("abiturient.education"))
@@ -56,7 +70,7 @@ class Abiturient(models.Model):
     foreign_language = models.CharField(
         max_length=255,
         verbose_name=_("generic.foreign_language"),
-        validators=[only_alpha_validator],
+        validators=[only_alpha_space_validator],
     )
 
     nationality = models.CharField(
@@ -64,7 +78,7 @@ class Abiturient(models.Model):
         verbose_name=_("generic.nationality"),
         null=True,
         blank=True,
-        validators=[only_alpha_validator],
+        validators=[only_alpha_space_validator],
     )
 
     work = models.TextField(verbose_name=_("abiturient.work"))
@@ -102,20 +116,16 @@ class FamilyMember(models.Model):
         choices=Type.choices, verbose_name=_("family_member.type")
     )
 
-    last_name = models.CharField(
-        max_length=255, verbose_name=_("generic.last_name"), validators=[name_validator]
-    )
+    last_name = models.CharField(max_length=255, verbose_name=_("generic.last_name"))
 
     first_name = models.CharField(
         max_length=255,
         verbose_name=_("generic.first_name"),
-        validators=[name_validator],
     )
 
     patronymic = models.CharField(
         max_length=255,
         verbose_name=_("generic.patronymic"),
-        validators=[name_validator],
     )
 
     telephone = models.CharField(

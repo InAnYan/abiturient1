@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-05 09:28+0300\n"
+"POT-Creation-Date: 2024-04-15 14:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,10 +20,15 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-#: models.py:13
+
+#: models.py:18
+msgid "generic.only_alpha"
+msgstr "Це поле може містити лише символи алфавіту, цифри або пробіли"
+
+#: models.py:29
 msgid "document"
 msgstr "Документ"
 
-#: models.py:14
+#: models.py:30
 msgid "document.plural"
 msgstr "Документи"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-10 09:43+0300\n"
+"POT-Creation-Date: 2024-04-15 10:25+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,141 +32,140 @@ msgstr "work"
 msgid "abiturients"
 msgstr "abiturients"
 
-#: models.py:6
-msgid "abiturients.invalid_name_part"
-msgstr "This field should contain only letters or spaces"
-
-#: models.py:7
+#: models.py:11
 msgid "generic.only_alpha"
 msgstr "Only alphabetical characters are allowed"
 
-#: models.py:8
+#: models.py:12
 msgid "generic.only_numbers"
 msgstr "Only numberical characters are allowed"
 
-#: models.py:12
+#: models.py:18
 msgid "generic.telephone"
 msgstr "telephone"
 
-#: models.py:19
+#: models.py:32
 msgid "generic.sex.male"
 msgstr "male"
 
-#: models.py:20
+#: models.py:33
 msgid "generic.sex.female"
 msgstr "female"
 
-#: models.py:23 models.py:106
+#: models.py:35 models.py:119
 msgid "generic.last_name"
 msgstr "last name"
 
-#: models.py:28 models.py:111
+#: models.py:39 models.py:123
 msgid "generic.first_name"
 msgstr "first name"
 
-#: models.py:34 models.py:117
+#: models.py:44 models.py:128
 msgid "generic.patronymic"
 msgstr "patronymic"
 
-#: models.py:39
+#: models.py:48
 msgid "generic.sex"
 msgstr "gender"
 
-#: models.py:42
+#: models.py:52
 msgid "abiturient.birth_date"
 msgstr "birth date"
 
-#: models.py:45
+#: models.py:57
 msgid "abiturient.birth_country"
 msgstr "birth country"
 
-#: models.py:49
+#: models.py:62
 msgid "abiturient.birth_town"
 msgstr "birth town"
 
-#: models.py:52
+#: models.py:66
 msgid "abiturient.education"
 msgstr "education"
 
-#: models.py:54
+#: models.py:68
 msgid "generic.email"
 msgstr "email"
 
-#: models.py:58
+#: models.py:72
 msgid "generic.foreign_language"
 msgstr "foreign language"
 
-#: models.py:64
+#: models.py:78
 msgid "generic.nationality"
 msgstr "nationality"
 
-#: models.py:70
+#: models.py:84
 msgid "abiturient.work"
 msgstr "work"
 
-#: models.py:73
+#: models.py:87
 msgid "abiturient.registered_address"
 msgstr "registered address"
 
-#: models.py:76
+#: models.py:90
 msgid "abiturient.living_address"
 msgstr "living address"
 
-#: models.py:90 models.py:128 models.py:155
+#: models.py:104 models.py:138 models.py:165
 msgid "abiturient"
 msgstr "abiturient"
 
-#: models.py:91
+#: models.py:105
 msgid "abiturient.plural"
 msgstr "abiturients"
 
-#: models.py:97
+#: models.py:111
 msgid "family_member.type.mother"
 msgstr "mother"
 
-#: models.py:98
+#: models.py:112
 msgid "family_member.type.father"
 msgstr "father"
 
-#: models.py:99
+#: models.py:113
 msgid "family_member.type.other"
 msgstr "other member"
 
-#: models.py:102
+#: models.py:116
 msgid "family_member.type"
 msgstr "type of the family member"
 
-#: models.py:135
+#: models.py:145
 msgid "family_member"
 msgstr "family member"
 
-#: models.py:136
+#: models.py:146
 msgid "family_member.plural"
 msgstr "family members"
 
-#: models.py:142
+#: models.py:152
 msgid "phone.type.home"
 msgstr "home"
 
-#: models.py:143
+#: models.py:153
 msgid "phone.type.mobile"
 msgstr "mobile"
 
-#: models.py:144
+#: models.py:154
 msgid "phone.type.work"
 msgstr "work"
 
-#: models.py:146
+#: models.py:156
 msgid "phone.type"
 msgstr "phone type"
 
-#: models.py:162
+#: models.py:172
 msgid "phone"
 msgstr "phone"
 
-#: models.py:163
+#: models.py:173
 msgid "phone.plural"
 msgstr "phones"
+
+#~ msgid "abiturients.invalid_name_part"
+#~ msgstr "This field should contain only letters or spaces"
 
 #~ msgid "phone.number"
 #~ msgstr "phone number"

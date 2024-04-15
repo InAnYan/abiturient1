@@ -1,7 +1,7 @@
 django
 gunicorn
 django-crispy-forms
-crispy-bootstrap5
+crispy-bootstrap4
 django-formtools
 django-debug-toolbar
 django-admin-interface

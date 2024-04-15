@@ -10,11 +10,11 @@
             {% for form in wizard.form.forms %}
                 <div class="formset_row">
                     <div class="mb-3"></div>
-                    {{ form | crispy }}
+                    {% for field in form %}{{ field | as_crispy_field }}{% endfor %}
                 </div>
             {% endfor %}
         {% else %}
-            {{ wizard.form | crispy }}
+            {% for field in wizard.form %}{{ field | as_crispy_field }}{% endfor %}
         {% endif %}
     </table>
 {% endblock content_form %}

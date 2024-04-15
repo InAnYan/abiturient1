@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-10 09:43+0300\n"
+"POT-Creation-Date: 2024-04-15 14:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,83 +50,83 @@ msgstr "Offer type"
 msgid "accepted_offers.info_about_offer"
 msgstr "Information about offer"
 
-#: models.py:15
+#: models.py:14
 msgid "accepting_offers.payment_frequency.every_semester"
 msgstr "every semester"
 
-#: models.py:16
+#: models.py:15
 msgid "accepting_offers.payment_frequency.every_year"
 msgstr "every year"
 
-#: models.py:17
+#: models.py:16
 msgid "accepting_offers.payment_frequency.every_month"
 msgstr "every month"
 
-#: models.py:18
+#: models.py:17
 msgid "accepting_offers.payment_frequency.full"
 msgstr "full"
 
-#: models.py:22
+#: models.py:21
 msgid "accepting_offers.payment_type.governmental"
 msgstr "governmental"
 
-#: models.py:23
+#: models.py:22
 msgid "accepting_offers.payment_type.town"
 msgstr "town"
 
-#: models.py:24
+#: models.py:23
 msgid "accepting_offers.payment_type.private"
 msgstr "private"
 
-#: models.py:25
+#: models.py:24
 msgid "accepting_offers.payment_type.privileged"
 msgstr "privileged"
 
-#: models.py:28
+#: models.py:27
 msgid "abiturient"
 msgstr "abiturient"
 
-#: models.py:32
+#: models.py:31
 msgid "university_offer"
 msgstr "university offer"
 
-#: models.py:36
+#: models.py:35
 msgid "generic.created_at"
 msgstr "created at"
 
-#: models.py:40
+#: models.py:39
 msgid "accepting_offers.payment_type"
 msgstr "payment type"
 
-#: models.py:45
+#: models.py:44
 msgid "accepting_offers.payment_frequency"
 msgstr "payment frequency"
 
-#: models.py:52
+#: models.py:51
 msgid "accepting_offers.accepted_year"
 msgstr "accepted year"
 
-#: models.py:67
+#: models.py:66
 msgid "accepting_offers.validation.budget_should_be_governmental"
 msgstr "Only governmental payment for budget offers"
 
-#: models.py:71
+#: models.py:70
 msgid "accepting_offers.validation.budget_should_not_have_frequency"
 msgstr "The payment frequency should not be set on budget offers"
 
-#: models.py:77
+#: models.py:76
 msgid "accepting_offers.validation.not_budget_should_not_be_governmental"
 msgstr "Governmental payment should not be on contract offers"
 
-#: models.py:82
+#: models.py:81
 msgid "accepting_offers.validation.not_budget_should_have_frequency"
 msgstr "Payment frequency should be set for contract offers"
 
-#: models.py:86
+#: models.py:85
 msgid "accepted_offer"
 msgstr "accepted offer"
 
-#: models.py:87
+#: models.py:86
 msgid "accepted_offer.plural"
 msgstr "accepted offers"
 
@@ -152,7 +152,7 @@ msgstr ""
 msgid "header.title"
 msgstr "Abiturients and documents"
 
-#: templates/accepting_offers/wizard_steps/step1.html:4
+#: templates/accepting_offers/wizard_steps/step1.html:5
 msgid "wizard.steps.1"
 msgstr "Perosnal information"
 
@@ -193,11 +193,11 @@ msgstr "Add"
 msgid "wizard.delete"
 msgstr "Remove"
 
-#: templates/accepting_offers/wrapper.html:11
+#: templates/accepting_offers/wrapper.html:12
 msgid "meta.description"
 msgstr ""
 "Automatizing the completition of documents while entering the university"
 
-#: templates/accepting_offers/wrapper.html:12
+#: templates/accepting_offers/wrapper.html:13
 msgid "meta.keywords"
 msgstr ""

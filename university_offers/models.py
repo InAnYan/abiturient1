@@ -3,15 +3,25 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from dateutil.relativedelta import relativedelta
 from django.utils.translation import gettext_lazy as _
+from django.core.validators import RegexValidator
+
+
+only_alpha_space_validator = RegexValidator("([^\W\d]| )+", _("generic.only_alpha"))
 
 
 # Факультет.
 class Faculty(models.Model):
     full_name = models.CharField(
-        max_length=255, unique=True, verbose_name=_("generic.full_name")
+        max_length=255,
+        unique=True,
+        verbose_name=_("generic.full_name"),
+        validators=[only_alpha_space_validator],
     )
     abbreviation = models.CharField(
-        max_length=255, unique=True, verbose_name=_("generic.abbreviation")
+        max_length=255,
+        unique=True,
+        verbose_name=_("generic.abbreviation"),
+        validators=[only_alpha_space_validator],
     )
     cipher = models.IntegerField(
         validators=[MinValueValidator(1)], unique=True, verbose_name=_("generic.cipher")
@@ -27,7 +37,11 @@ class Faculty(models.Model):
 
 # Спеціальність.
 class Speciality(models.Model):
-    name = models.CharField(max_length=255, verbose_name=_("generic.name"))
+    name = models.CharField(
+        max_length=255,
+        verbose_name=_("generic.name"),
+        validators=[only_alpha_space_validator],
+    )
 
     code = models.IntegerField(
         validators=[MinValueValidator(1)], verbose_name=_("generic.code")
@@ -49,7 +63,9 @@ class Speciality(models.Model):
     )  # TODO: ???
 
     educational_program_name = models.CharField(
-        max_length=255, verbose_name=_("speciality.educational_program_name")
+        max_length=255,
+        verbose_name=_("speciality.educational_program_name"),
+        validators=[only_alpha_space_validator],
     )
 
     def __str__(self) -> str:

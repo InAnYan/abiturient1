@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     "university_offers.apps.UniversityOffersConfig",
     "accepting_offers.apps.AcceptingOffersConfig",
     "crispy_forms",
-    "crispy_bootstrap5",
+    "crispy_bootstrap4",
     "formtools",
     "debug_toolbar",
     "import_export",
@@ -66,8 +66,8 @@ INSTALLED_APPS = [
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGGING = {
     "version": 1,
