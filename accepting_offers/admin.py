@@ -11,7 +11,7 @@ from import_export import resources, fields, widgets
 from import_export.admin import ImportExportModelAdmin
 
 from abiturient1.settings import MEDIA_ROOT
-from abiturients.models import Abiturient
+from persons.models import Person
 from accepting_offers.models import AcceptedOffer
 from documents.models import Document
 from university_offers.models import UniversityOffer
@@ -23,7 +23,7 @@ class AcceptedOfferResource(resources.ModelResource):
     abiturient_full_name = fields.Field(
         column_name="abiturient_full_name",
         attribute="abiturient",
-        widget=widgets.ForeignKeyWidget(Abiturient, "full_name"),
+        widget=widgets.ForeignKeyWidget(Person, "full_name"),
     )
 
     offer_str = fields.Field(

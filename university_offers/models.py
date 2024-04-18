@@ -1,4 +1,3 @@
-from tabnanny import verbose
 from django.db import models
 from django.core.validators import MinValueValidator
 from dateutil.relativedelta import relativedelta
@@ -9,7 +8,6 @@ from django.core.validators import RegexValidator
 only_alpha_space_validator = RegexValidator("([^\W\d]| )+", _("generic.only_alpha"))
 
 
-# Факультет.
 class Faculty(models.Model):
     full_name = models.CharField(
         max_length=255,
@@ -35,7 +33,6 @@ class Faculty(models.Model):
         verbose_name_plural = _("faculty.plural")
 
 
-# Спеціальність.
 class Speciality(models.Model):
     name = models.CharField(
         max_length=255,
@@ -84,7 +81,6 @@ class Speciality(models.Model):
         verbose_name_plural = _("speciality.plural")
 
 
-# Конкурсна пропозиція.
 class UniversityOffer(models.Model):
     class Type(models.IntegerChoices):
         BUDGET = 1, _("university_offer.type.budget")
@@ -94,6 +90,11 @@ class UniversityOffer(models.Model):
         DAY = 1, _("university_offer.study_form.day")
         OVER_DISTANCE = 2, _("university_offer.study_form.over_distance")
         EVENING = 3, _("university_offer.study_form.evening")
+
+    class Level(models.IntegerChoices):
+        BACHELOR = 1, _("university_offer.level.bachelor")
+        MASTER = 2, _("university_offer.level.master")
+        ASPIRANT = 3, _("university_offer.level.aspirant")
 
     study_begin = models.DateField(verbose_name=_("university_offer.study_begin"))
 
@@ -118,6 +119,10 @@ class UniversityOffer(models.Model):
         Speciality, on_delete=models.PROTECT, verbose_name=_("speciality")
     )
 
+    level = models.PositiveIntegerField(
+        choices=Level.choices, verbose_name=_("university_offer.level")
+    )
+
     type = models.PositiveIntegerField(
         choices=Type.choices, verbose_name=_("university_offer.type")
     )
@@ -128,6 +133,22 @@ class UniversityOffer(models.Model):
 
     ects = models.IntegerField(
         validators=[MinValueValidator(1)], verbose_name=_("university_offer.ects")
+    )
+
+    year1_const = models.PositiveIntegerField(
+        verbose_name=_("university_offer.year1_cost"), default=0
+    )
+
+    year2_const = models.PositiveIntegerField(
+        verbose_name=_("university_offer.year2_cost"), default=0
+    )
+
+    year3_const = models.PositiveIntegerField(
+        verbose_name=_("university_offer.year3_cost"), default=0
+    )
+
+    year4_const = models.PositiveIntegerField(
+        verbose_name=_("university_offer.year4_cost"), default=0
     )
 
     def __str__(self) -> str:

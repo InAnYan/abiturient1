@@ -1,12 +1,11 @@
-from datetime import date
-import time
+from datetime import date, datetime, timedelta
 from django.db import models
 from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
 import jinja2
 
-from abiturients.models import Abiturient
+from persons.models import Person
 from accepting_offers.models import AcceptedOffer
 from university_offers.models import Faculty, Speciality, UniversityOffer
 
@@ -32,21 +31,33 @@ class Document(models.Model):
     def clean(self):
         super().clean()
 
-        test_abiturient = Abiturient(
+        test_parent = Person(
+            last_name="ParentTest",
+            first_name="ParentTest",
+            patronymic="ParentTest",
+            phone=1111111111,
+            email="Parenta@a.com",
+            living_address="Parentasd",
+            passport_serie="AE",
+            passport_number=123456789,
+            passport_who_give=1234,
+            passport_when_given=datetime.today() - timedelta(days=5),
+            inn=123456789123,
+        )
+
+        test_abiturient = Person(
             last_name="Test",
             first_name="Test",
             patronymic="Test",
-            sex=Abiturient.Sex.MALE,
-            birth_date=date.fromtimestamp(time.time() - 10000),
-            birth_country="Test",
-            birth_town="Test",
-            education="asd",
+            phone=1111111111,
             email="a@a.com",
-            foreign_language="asd",
-            nationality="asd",
-            work="asd",
-            registered_address="asd",
             living_address="asd",
+            passport_serie="AE",
+            passport_number=123456789,
+            passport_who_give=1234,
+            passport_when_given=datetime.today() - timedelta(days=5),
+            inn=123456789123,
+            parent=test_parent,
         )
 
         test_faculty = Faculty(
@@ -82,12 +93,20 @@ class Document(models.Model):
         )
 
         try:
-            with NamedTemporaryFile("w+b") as template_file:
-                template_file.write(self.file.file.file.read())
-                with NamedTemporaryFile("w+b") as filled_file:
-                    fill_document_for_offer(
-                        str(template_file.name), test_object, filled_file
-                    )
+            template_file = NamedTemporaryFile(delete=False, suffix=".docx")
+            template_file.write(self.file.file.file.read())
+            template_file.close()
+
+            filled_file = NamedTemporaryFile(delete=False, suffix=".docx")
+            fill_document_for_offer(str(template_file.name), test_object, filled_file)
+
+            filled_file.close()
+
+            import os
+
+            os.unlink(template_file.name)
+            os.unlink(filled_file.name)
+
         except Exception as e:
             raise ValidationError("Got an error: " + str(e))
 

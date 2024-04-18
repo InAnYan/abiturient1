@@ -1,12 +1,11 @@
 from typing import Any
 from django import forms
-from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.utils.functional import lazy
 
-from abiturients.models import Abiturient
+from persons.models import Person
 from accepting_offers.models import AcceptedOffer
-from university_offers.models import Faculty, Speciality, UniversityOffer
+from university_offers.models import Faculty, UniversityOffer
 
 capitalize_lazy = lazy(lambda s: s.capitalize(), str)
 
@@ -41,7 +40,7 @@ class AcceptedOfferForm(forms.ModelForm):
         self.construct_university_offer()
         return super().clean()
 
-    def set_abiturient(self, abiturient: Abiturient):
+    def set_abiturient(self, abiturient: Person):
         self.instance.abiturient = abiturient
 
     def construct_university_offer(self):

@@ -125,4 +125,5 @@ class Command(BaseCommand):
                 type=type,
                 study_form=study_form,
                 ects=60,
+                level=UniversityOffer.Level.BACHELOR,
             )

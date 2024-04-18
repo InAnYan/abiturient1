@@ -8,14 +8,16 @@
             "name": "Python Debugger: Django",
             "type": "debugpy",
             "request": "launch",
-            "python": "${workspaceFolder}/.venv/bin/python3",
-            "program": "${workspaceFolder}/manage.py",
             "args": [
                 "runserver"
             ],
             "django": true,
             "autoStartBrowser": false,
-            "justMyCode": false
+            "program": "${workspaceFolder}\\manage.py",
+            "env": {
+                "DJANGO_DEBUG": "True",
+                "DJANGO_SECRET_KEY": "x&515!-w@#g)8s60-53qk69++n-n=^xar4cwd$ia6e_28dw@v+"
+            }
         }
     ]
 }

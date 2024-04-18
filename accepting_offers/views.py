@@ -1,10 +1,10 @@
-from mmap import ACCESS_COPY
+from typing import Optional
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.db import transaction
 
-from abiturients.forms import AbiturientForm, FamilyMemberFormSet, PhoneFormSet
+from persons.forms import AbiturientForm, PersonForm
 from accepting_offers.forms import (
     AcceptedOfferForm,
 )
@@ -20,35 +20,54 @@ def done(request):
 
 
 class AbiturientAndOffersWizard(CookieWizardView):
-    form_list = [AbiturientForm, PhoneFormSet, FamilyMemberFormSet, AcceptedOfferForm]
+    form_list = [
+        ("abiturient", AbiturientForm),
+        ("parent", PersonForm),
+        ("offer", AcceptedOfferForm),
+    ]
+
+    def should_be_parent(self) -> bool:
+        abiturient: dict | None = self.get_cleaned_data_for_step("abiturient")
+        if not abiturient:
+            return True
+
+        return not abiturient["has_18_years"]
+
+    condition_dict = {
+        "abiturient": lambda _: True,
+        "parent": should_be_parent,
+        "offer": lambda _: True,
+    }
 
     def get_template_names(self) -> list[str]:
         match self.steps.current:
-            case "0":
+            case "abiturient":
                 return ["accepting_offers/wizard_steps/step1.html"]
-            case "1":
+            case "parent":
                 return ["accepting_offers/wizard_steps/step2.html"]
-            case "2":
+            case "offer":
                 return ["accepting_offers/wizard_steps/step3.html"]
-            case "3":
-                # BUG: ON VALIDATION ERRORS FIELDS BECOME EMPTY.
-                return ["accepting_offers/wizard_steps/step4.html"]
             case _:
                 raise NotImplementedError()
 
     def done(self, form_list, **kwargs):
-        form, phone_set, family_member_set, accepted_offer = form_list
+        if len(form_list) == 3:
+            abiturient_form, parent_form, accepted_offer = form_list
+        else:
+            abiturient_form, accepted_offer = form_list
+            parent_form = None
+
+        abiturient_form: AbiturientForm
+        parent_form: Optional[PersonForm]
+        accepted_offer: AcceptedOfferForm
 
         with transaction.atomic():
-            abiturient = form.save()
+            if parent_form:
+                parent = parent_form.save()
+                abiturient_form.instance.parent = parent
 
-            phone_set.instance = abiturient
-            phone_set.save()
+            abiturient = abiturient_form.save()
 
-            family_member_set.instance = abiturient
-            family_member_set.save()
-
-            accepted_offer: AcceptedOfferForm
             accepted_offer.set_abiturient(abiturient)
             accepted_offer.save()
 

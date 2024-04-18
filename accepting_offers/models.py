@@ -3,20 +3,17 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 
-from abiturients.models import Abiturient
+from persons.models import Person
 from university_offers.models import UniversityOffer
 
 
-# Заява.
 class AcceptedOffer(models.Model):
-    # Періодичність оплати.
     class PaymentFrequency(models.IntegerChoices):
         EVERY_SEMESTER = 1, _("accepting_offers.payment_frequency.every_semester")
         EVERY_YEAR = 2, _("accepting_offers.payment_frequency.every_year")
         EVERY_MONTH = 3, _("accepting_offers.payment_frequency.every_month")
         FULL = 4, _("accepting_offers.payment_frequency.full")
 
-    # Тип фінансування.
     class PaymentType(models.IntegerChoices):
         GOVERNMENTAL = 1, _("accepting_offers.payment_type.governmental")
         TOWN = 2, _("accepting_offers.payment_type.town")
@@ -24,7 +21,7 @@ class AcceptedOffer(models.Model):
         PRIVILEGED = 4, _("accepting_offers.payment_type.privileged")
 
     abiturient = models.ForeignKey(
-        Abiturient, on_delete=models.PROTECT, verbose_name=_("abiturient")
+        Person, on_delete=models.PROTECT, verbose_name=_("abiturient")
     )
 
     offer = models.ForeignKey(

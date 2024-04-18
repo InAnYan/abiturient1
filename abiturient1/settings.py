@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "documents.apps.DocumentsConfig",
-    "abiturients.apps.AbiturientsConfig",
+    "persons.apps.PersonsConfig",
     "university_offers.apps.UniversityOffersConfig",
     "accepting_offers.apps.AcceptingOffersConfig",
     "crispy_forms",
@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "formtools",
     "debug_toolbar",
     "import_export",
+    "django_extensions",
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"

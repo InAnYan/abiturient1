@@ -1,8 +1,6 @@
 from django.urls import path
 
-from abiturients.forms import AbiturientForm
-
-from . import views, forms
+from . import views
 
 
 urlpatterns = [

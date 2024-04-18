@@ -1,5 +1,162 @@
-{% extends "accepting_offers/wizard_steps/wizard_step_base.html" %}
+{% extends "accepting_offers/wizard_steps/wizard_step_wrapper.html" %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 {% block step_name %}
     {% trans "wizard.steps.3" %}
 {% endblock step_name %}
+{% block content_form %}
+    {{ wizard.management_form }}
+    {{ form | crispy }}
+{% endblock content_form %}
+{% block additional_scripts %}
+    <script>
+        let facultyElem = $("[name$=faculty]");
+        let specialityElem = $("[name$=speciality]");
+        let studyFormElem = $("[name$=study_form]");
+        let typeElem = $("[name$=type]");
+        let infoElem = $("[name$=info_div]");
+        let infoLabel = $("label[for$=-info_div]");
+
+        $(function () {
+            infoLabel.changeElementType("p");
+            infoLabel = $("p[for$=info_div]")
+            infoLabel.removeClass("form-label");
+            infoLabel.addClass("text-center font-weight-bold");
+
+            infoElem.changeElementType("p");
+            infoElem = $("[name$=info_div]");
+            infoElem.removeClass("textarea");
+            infoElem.removeClass("form-control");
+            infoElem.text('{% trans "generic.loading" %}');
+
+            let facultyVal = Cookies.get("faculty-val");
+            if (facultyVal) {
+                facultyElem.val(facultyVal);
+            }
+
+            let specialityData = Cookies.get("speciality-data");
+            if (specialityData) {
+                specialityElem.html(specialityData);
+            }
+
+            let specialityVal = Cookies.get("speciality-val");
+            if (specialityVal) {
+                specialityElem.val(specialityVal);
+            }
+
+            let studyFormData = Cookies.get("studyForm-data");
+            if (studyFormData) {
+                studyFormElem.html(studyFormData);
+            }
+
+            let studyFormVal = Cookies.get("studyForm-val");
+            if (studyFormVal) {
+                studyFormElem.val(studyFormVal);
+            }
+            
+            let typeData = Cookies.get("type-data");
+            if (typeData) {
+                typeElem.html(typeData);
+            }
+
+            let typeVal = Cookies.get("type-val");
+            if (typeVal) {
+                typeElem.val(typeVal);
+                updateOfferInfo();
+            }
+        });
+
+        {% get_current_language as LANGUAGE_CODE %}
+
+        function facultyAjax() {
+            let faculty = facultyElem.val();
+
+            $.ajax({
+                url: "{% url "ajax_specialities" %}",
+                data: {
+                    faculty,
+                },
+                success: function (data) {
+                    Cookies.set("faculty-val", faculty);
+                    Cookies.set("speciality-data", data);
+
+                    specialityElem.html(data);
+                    specialityAjax();
+                }
+            });
+        }
+
+        facultyElem.change(facultyAjax);
+
+        function specialityAjax() {
+            var speciality = specialityElem.val();
+
+            $.ajax({
+                url: "{% url "ajax_study_forms" %}",
+                data: {
+                    speciality,
+                },
+                success: function (data) {
+                    Cookies.set("speciality-val", speciality);
+                    Cookies.set("studyForm-data", data);
+
+                    studyFormElem.html(data);
+                    studyFormAjax();
+                }
+            });
+        }
+
+        specialityElem.change(specialityAjax);
+
+
+        function studyFormAjax() {
+            var study_form = studyFormElem.val();
+            let speciality = specialityElem.val();
+
+            $.ajax({
+                url: "{% url "ajax_offer_types" %}",
+                data: {
+                    speciality,
+                    study_form,
+                },
+                success: function (data) {
+                    Cookies.set("studyForm-val", study_form);
+                    Cookies.set("type-data", data);
+
+                    typeElem.html(data);
+                    typeElemChange();
+                }
+            });
+        }
+
+        studyFormElem.change(studyFormAjax);
+
+        function typeElemChange() {
+            Cookies.set("type-val", typeElem.val());
+
+            updateOfferInfo();
+        }
+
+        function updateOfferInfo() {
+            let speciality = specialityElem.val();
+            let study_form = studyFormElem.val();
+            let type = typeElem.val();
+            
+
+            $.ajax({
+                url: "{% url "ajax_offer_info" %}",
+                data: {
+                    speciality,
+                    study_form,
+                    type
+                },
+                success: function (data) {
+                    infoElem.html(data);
+                }
+            });
+        }
+
+        typeElem.change(typeElemChange);
+
+    </script>
+{% endblock additional_scripts %}

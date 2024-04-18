@@ -9,3 +9,4 @@ python-dotenv
 docxtpl
 django-import-export
 python-dateutil
+django-extensions
