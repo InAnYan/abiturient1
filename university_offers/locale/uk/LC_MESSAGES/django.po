@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-18 13:14+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+#: .\apps.py:8
+msgid "university_offers"
+msgstr "конкурсні пропозиції"
+
+#: .\management\commands\add_faculties.py:58
+msgid "university_offers.add_faculties.help"
+msgstr "додати факультети (ДНУ) для тестування"
+
+#: .\management\commands\add_offers.py:117
+msgid "university_offers.add_offers.help"
+msgstr "додати конкурсні пропозиції (ДНУ) для тестування"
+
+#: .\management\commands\add_specialities.py:20
+msgid "university_offers.add_specialities.help"
+msgstr "додати спеціальності (ДНУ) для тестування"
+
+#: .\models.py:8
+msgid "generic.only_alpha"
+msgstr "Лише символи алфавіту"
+
+#: .\models.py:15
+msgid "generic.full_name"
+msgstr "повна назва"
+
+#: .\models.py:21
+msgid "generic.abbreviation"
+msgstr "аббревіатура"
+
+#: .\models.py:25
+msgid "generic.cipher"
+msgstr "шифр"
+
+#: .\models.py:32 .\models.py:55
+msgid "faculty"
+msgstr "факультет"
+
+#: .\models.py:33
+msgid "faculty.plural"
+msgstr "факультети"
+
+#: .\models.py:39
+msgid "generic.name"
+msgstr "назва"
+
+#: .\models.py:44
+msgid "generic.code"
+msgstr "код"
+
+#: .\models.py:51
+msgid "speciality.specialization"
+msgstr "спеціалізація"
+
+#: .\models.py:59 .\templates\university_offers\ajax\offer_info.html:3
+msgid "speciality.end_of_accreditation"
+msgstr "кінець акредитації"
+
+#: .\models.py:64 .\templates\university_offers\ajax\offer_info.html:11
+msgid "speciality.educational_program_name"
+msgstr "назва освітньої програми"
+
+#: .\models.py:80 .\models.py:119
+msgid "speciality"
+msgstr "спеціальність"
+
+#: .\models.py:81
+msgid "speciality.plural"
+msgstr "спеціальності"
+
+#: .\models.py:86
+msgid "university_offer.type.budget"
+msgstr "бюджет"
+
+#: .\models.py:87
+msgid "university_offer.type.contract"
+msgstr "контракт"
+
+#: .\models.py:90
+msgid "university_offer.study_form.day"
+msgstr "денна"
+
+#: .\models.py:91
+msgid "university_offer.study_form.over_distance"
+msgstr "заочна"
+
+#: .\models.py:92
+msgid "university_offer.study_form.evening"
+msgstr "вечірня"
+
+#: .\models.py:95
+msgid "university_offer.level.bachelor"
+msgstr "Бакалавр"
+
+#: .\models.py:96
+msgid "university_offer.level.master"
+msgstr "Магістр"
+
+#: .\models.py:97
+msgid "university_offer.level.aspirant"
+msgstr "Аспірант"
+
+#: .\models.py:99 .\templates\university_offers\ajax\offer_info.html:15
+msgid "university_offer.study_begin"
+msgstr "початок навчання"
+
+#: .\models.py:103 .\templates\university_offers\ajax\offer_info.html:19
+msgid "university_offer.study_duration"
+msgstr "тривалість навчання"
+
+#: .\models.py:123
+msgid "university_offer.level"
+msgstr "освітній рівень"
+
+#: .\models.py:127
+msgid "university_offer.type"
+msgstr "тип конкурсної пропозиції"
+
+#: .\models.py:131
+msgid "university_offer.study_form"
+msgstr "форма навчання"
+
+#: .\models.py:135
+msgid "university_offer.ects"
+msgstr "ЕКТС"
+
+#: .\models.py:139
+msgid "university_offer.year1_cost"
+msgstr "вартість першого року"
+
+#: .\models.py:143
+msgid "university_offer.year2_cost"
+msgstr "вартість другого року"
+
+#: .\models.py:147
+msgid "university_offer.year3_cost"
+msgstr "вартість третього року"
+
+#: .\models.py:151
+msgid "university_offer.year4_cost"
+msgstr "вартість четвертого року"
+
+#: .\models.py:168
+msgid "university_offer"
+msgstr "конкурсна пропозиція"
+
+#: .\models.py:169
+msgid "university_offer.plural"
+msgstr "конкурсні пропозиції"
+
+#: .\templates\university_offers\ajax\offer_info.html:7
+msgid "offer.speciality.no_accreditation"
+msgstr "немає акредитації"
+
+#: .\templates\university_offers\ajax\offer_info.html:20
+msgid "generic.years"
+msgstr "р."
+
+#: .\templates\university_offers\ajax\offer_info.html:20
+msgid "generic.months"
+msgstr "міс."
+
+#: .\templates\university_offers\ajax\offer_info.html:23
+msgid "univeristy_offer.ects"
+msgstr "ЕКТС"

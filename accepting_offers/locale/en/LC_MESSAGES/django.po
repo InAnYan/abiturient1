@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-18 13:14+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\admin.py:93
+msgid "accepting_offers.admin.only_one_offer"
+msgstr "select only one offer"
+
+#: .\admin.py:125
+msgid "accepting_offers.admin.make_document"
+msgstr "make"
+
+#: .\apps.py:8
+msgid "accepting_offers"
+msgstr "accepting offers"
+
+#: .\forms.py:15
+msgid "faculty"
+msgstr "faculty"
+
+#: .\forms.py:19
+msgid "speciality"
+msgstr "speciality"
+
+#: .\forms.py:24
+msgid "university_offer.study_form"
+msgstr "study form"
+
+#: .\forms.py:29
+msgid "university_offer.type"
+msgstr "offer type"
+
+#: .\forms.py:36
+msgid "accepted_offers.info_about_offer"
+msgstr "infromation about the offer"
+
+#: .\models.py:12
+msgid "accepting_offers.payment_frequency.every_semester"
+msgstr "each semester"
+
+#: .\models.py:13
+msgid "accepting_offers.payment_frequency.every_year"
+msgstr "each year"
+
+#: .\models.py:14
+msgid "accepting_offers.payment_frequency.every_month"
+msgstr "each month"
+
+#: .\models.py:15
+msgid "accepting_offers.payment_frequency.full"
+msgstr "full"
+
+#: .\models.py:18
+msgid "accepting_offers.payment_type.governmental"
+msgstr "governmental"
+
+#: .\models.py:19
+msgid "accepting_offers.payment_type.town"
+msgstr "town"
+
+#: .\models.py:20
+msgid "accepting_offers.payment_type.private"
+msgstr "private"
+
+#: .\models.py:21
+msgid "accepting_offers.payment_type.privileged"
+msgstr "priveleged"
+
+#: .\models.py:24
+msgid "abiturient"
+msgstr "abiturient"
+
+#: .\models.py:28
+msgid "university_offer"
+msgstr "university offer"
+
+#: .\models.py:32
+msgid "generic.created_at"
+msgstr "created at"
+
+#: .\models.py:36
+msgid "accepting_offers.payment_type"
+msgstr "payment type"
+
+#: .\models.py:41
+msgid "accepting_offers.payment_frequency"
+msgstr "payment frequency"
+
+#: .\models.py:48
+msgid "accepting_offers.accepted_year"
+msgstr "accepted year"
+
+#: .\models.py:63
+msgid "accepting_offers.validation.budget_should_be_governmental"
+msgstr "Chose governmental payment type for budget offers"
+
+#: .\models.py:67
+msgid "accepting_offers.validation.budget_should_not_have_frequency"
+msgstr "Leave payment frequency empty for budget offers"
+
+#: .\models.py:73
+msgid "accepting_offers.validation.not_budget_should_not_be_governmental"
+msgstr "Set payment type to other type for contract offers"
+
+#: .\models.py:78
+msgid "accepting_offers.validation.not_budget_should_have_frequency"
+msgstr "Set payment frequency for contract offers"
+
+#: .\models.py:82
+msgid "accepted_offer"
+msgstr "accepted offer"
+
+#: .\models.py:83
+msgid "accepted_offer.plural"
+msgstr "accepted offers"
+
+#: .\templates\accepting_offers\done.html:4
+msgid "done.title"
+msgstr "record saved"
+
+#: .\templates\accepting_offers\done.html:7
+msgid "done.content"
+msgstr "end"
+
+#: .\templates\accepting_offers\footer.html:7
+msgid "footer.admin"
+msgstr "administration"
+
+#: .\templates\accepting_offers\footer.html:12
+msgid "footer.authors"
+msgstr "(c) Popov Ruslan Oleksandrovich, Karpenko Nadiia Valeriivna, Gerasimov Volodymyr Volodymyrovych 2024"
+
+#: .\templates\accepting_offers\header.html:4
+msgid "header.title"
+msgstr "abiturients form"
+
+#: .\templates\accepting_offers\wizard_steps\step1.html:5
+msgid "wizard.steps.1"
+msgstr "personal information"
+
+#: .\templates\accepting_offers\wizard_steps\step2.html:4
+msgid "wizard.steps.2"
+msgstr "legal representative"
+
+#: .\templates\accepting_offers\wizard_steps\step3.html:5
+msgid "wizard.steps.3"
+msgstr "university offer"
+
+#: .\templates\accepting_offers\wizard_steps\step3.html:30
+msgid "generic.loading"
+msgstr "loading"
+
+#: .\templates\accepting_offers\wizard_steps\step4old.html:4
+msgid "wizard.steps.4"
+msgstr "OLD"
+
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:8
+msgid "wizard.step"
+msgstr "step"
+
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:25
+msgid "wizard.previous_step"
+msgstr "previous step"
+
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:27
+msgid "wizard.next"
+msgstr "next"
+
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:34
+msgid "wizard.add"
+msgstr "add"
+
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:36
+msgid "wizard.delete"
+msgstr "remove"
+
+#: .\templates\accepting_offers\wrapper.html:13
+msgid "meta.description"
+msgstr ""
+
+#: .\templates\accepting_offers\wrapper.html:14
+msgid "meta.keywords"
+msgstr ""

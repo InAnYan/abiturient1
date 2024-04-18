@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-18 13:14+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+#: .\admin.py:18
+msgid "persons.admin.make_info"
+msgstr "створити інформацію про абітурієнта"
+
+#: .\admin.py:29
+msgid "abiturient.report"
+msgstr "інформація"
+
+#: .\apps.py:8
+msgid "persons"
+msgstr "люди"
+
+#: .\forms.py:19
+msgid "persons.has_18_years"
+msgstr "на момент підписання договору мені є 18 років"
+
+#: .\models.py:13
+msgid "generic.last_name"
+msgstr "прізвище"
+
+#: .\models.py:17
+msgid "generic.first_name"
+msgstr "ім'я"
+
+#: .\models.py:22
+msgid "generic.patronymic"
+msgstr "по-батькові"
+
+#: .\models.py:26
+msgid "generic.telephone"
+msgstr "телефон"
+
+#: .\models.py:33
+msgid "generic.email"
+msgstr "електронна пошта"
+
+#: .\models.py:35
+msgid "abiturient.living_address"
+msgstr "адреса проживання (реєстрації)"
+
+#: .\models.py:38
+msgid "persons.passport_serie"
+msgstr "серія паспорту (якщо є)"
+
+#: .\models.py:41
+msgid "persons.passport_number"
+msgstr "номер паспорти"
+
+#: .\models.py:43
+msgid "persons.passport_who_give"
+msgstr "(Паспорт) ким виданий"
+
+#: .\models.py:46
+msgid "persons.passport_when_given"
+msgstr "(Паспорт) коли виданий"
+
+#: .\models.py:50
+msgid "persons.inn"
+msgstr "ІНН"
+
+#: .\models.py:57
+msgid "persons.parent"
+msgstr "законний представник"
+
+#: .\models.py:68
+msgid "abiturient"
+msgstr "абітурієнт"
+
+#: .\models.py:69
+msgid "abiturient.plural"
+msgstr "абітурієнти"
