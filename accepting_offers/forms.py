@@ -5,18 +5,24 @@ from django.utils.functional import lazy
 
 from persons.models import Person
 from accepting_offers.models import AcceptedOffer
-from university_offers.models import Faculty, UniversityOffer
+from university_offers.models import Speciality, UniversityOffer
 
 capitalize_lazy = lazy(lambda s: s.capitalize(), str)
 
 
 class AcceptedOfferForm(forms.ModelForm):
-    faculty = forms.ModelChoiceField(
-        Faculty.objects.all(), label=capitalize_lazy(_("faculty"))
+    speciality = forms.ModelChoiceField(
+        Speciality.objects.all(), label=capitalize_lazy(_("speciality"))
     )
 
-    speciality = forms.CharField(
-        widget=forms.Select(choices=[]), label=capitalize_lazy(_("speciality"))
+    basis = forms.CharField(
+        widget=forms.Select(choices=[]),
+        label=capitalize_lazy(_("university_offer.basis")),
+    )
+
+    level = forms.CharField(
+        widget=forms.Select(choices=[]),
+        label=capitalize_lazy(_("university_offer.level")),
     )
 
     study_form = forms.CharField(
@@ -48,11 +54,15 @@ class AcceptedOfferForm(forms.ModelForm):
             "speciality" in self.cleaned_data
             and "study_form" in self.cleaned_data
             and "type" in self.cleaned_data
+            and "level" in self.cleaned_data
+            and "basis" in self.cleaned_data
         ):
             self.instance.offer = UniversityOffer.objects.filter(
-                speciality__id=self.cleaned_data["speciality"],
+                speciality__id=self.cleaned_data["speciality"].id,
                 study_form=self.cleaned_data["study_form"],
                 type=self.cleaned_data["type"],
+                level=self.cleaned_data["level"],
+                basis=self.cleaned_data["basis"],
             ).get()
 
     class Meta:
@@ -60,8 +70,9 @@ class AcceptedOfferForm(forms.ModelForm):
         exclude = ("offer", "abiturient")
 
     field_order = [
-        "faculty",
         "speciality",
+        "basis",
+        "level",
         "study_form",
         "type",
         "info_div",

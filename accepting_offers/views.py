@@ -4,10 +4,8 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.db import transaction
 
+from accepting_offers.forms import AcceptedOfferForm
 from persons.forms import AbiturientForm, PersonForm
-from accepting_offers.forms import (
-    AcceptedOfferForm,
-)
 
 from formtools.wizard.views import CookieWizardView
 

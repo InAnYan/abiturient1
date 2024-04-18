@@ -10,8 +10,9 @@
 {% endblock content_form %}
 {% block additional_scripts %}
     <script>
-        let facultyElem = $("[name$=faculty]");
         let specialityElem = $("[name$=speciality]");
+        let basisElem = $("[name$=basis]");
+        let levelElem = $("[name$=level]");
         let studyFormElem = $("[name$=study_form]");
         let typeElem = $("[name$=type]");
         let infoElem = $("[name$=info_div]");
@@ -29,14 +30,19 @@
             infoElem.removeClass("form-control");
             infoElem.text('{% trans "generic.loading" %}');
 
-            let facultyVal = Cookies.get("faculty-val");
-            if (facultyVal) {
-                facultyElem.val(facultyVal);
-            }
-
             let specialityData = Cookies.get("speciality-data");
             if (specialityData) {
                 specialityElem.html(specialityData);
+            }
+
+            let basisData = Cookies.get("basis-data");
+            if (basisData) {
+                basisElem.html(basisData);
+            }
+
+            let levelData = Cookies.get("level-data");
+            if (levelData) {
+                levelElem.html(levelData);
             }
 
             let specialityVal = Cookies.get("speciality-val");
@@ -68,59 +74,89 @@
 
         {% get_current_language as LANGUAGE_CODE %}
 
-        function facultyAjax() {
-            let faculty = facultyElem.val();
-
-            $.ajax({
-                url: "{% url "ajax_specialities" %}",
-                data: {
-                    faculty,
-                },
-                success: function (data) {
-                    Cookies.set("faculty-val", faculty);
-                    Cookies.set("speciality-data", data);
-
-                    specialityElem.html(data);
-                    specialityAjax();
-                }
-            });
-        }
-
-        facultyElem.change(facultyAjax);
-
         function specialityAjax() {
-            var speciality = specialityElem.val();
+            let speciality = specialityElem.val();
+
+            Cookies.set("speciality-val", speciality);
 
             $.ajax({
-                url: "{% url "ajax_study_forms" %}",
+                url: "{% url "ajax_bases" %}",
                 data: {
-                    speciality,
+                    speciality
                 },
                 success: function (data) {
-                    Cookies.set("speciality-val", speciality);
-                    Cookies.set("studyForm-data", data);
-
-                    studyFormElem.html(data);
-                    studyFormAjax();
+                    Cookies.set("basis-data", data);
+                    basisElem.html(data);
+                    basisAjax();
                 }
             });
         }
 
         specialityElem.change(specialityAjax);
 
+        function basisAjax() {
+            let speciality = specialityElem.val();
+            let basis = basisElem.val();
+
+            Cookies.set("basis-val", basis);
+
+            $.ajax({
+                url: "{% url "ajax_levels" %}",
+                data: {
+                    speciality,
+                    basis
+                },
+                success: function (data) {
+                    Cookies.set("level-data", data);
+                    levelElem.html(data);
+                    levelAjax();
+                }
+            });
+        }
+
+        basisElem.change(basisAjax);
+
+        function levelAjax() {
+            let speciality = specialityElem.val();
+            let basis = basisElem.val();
+            let level = levelElem.val();
+
+            Cookies.set("level-val", level);
+
+            $.ajax({
+                url: "{% url "ajax_study_forms" %}",
+                data: {
+                    speciality,
+                    basis,
+                    level
+                },
+                success: function (data) {
+                    Cookies.set("sudyForm-data", data);
+                    studyFormElem.html(data);
+                    studyFormAjax();
+                }
+            });
+        }
+
+        levelElem.change(levelAjax);
 
         function studyFormAjax() {
-            var study_form = studyFormElem.val();
             let speciality = specialityElem.val();
+            let basis = basisElem.val();
+            let level = levelElem.val();
+            let study_form = studyFormElem.val();
+
+            Cookies.set("studyForm-val", study_form);
 
             $.ajax({
                 url: "{% url "ajax_offer_types" %}",
                 data: {
                     speciality,
+                    basis,
+                    level,
                     study_form,
                 },
                 success: function (data) {
-                    Cookies.set("studyForm-val", study_form);
                     Cookies.set("type-data", data);
 
                     typeElem.html(data);
@@ -139,14 +175,17 @@
 
         function updateOfferInfo() {
             let speciality = specialityElem.val();
+            let basis = basisElem.val();
+            let level = levelElem.val();
             let study_form = studyFormElem.val();
             let type = typeElem.val();
-            
 
             $.ajax({
                 url: "{% url "ajax_offer_info" %}",
                 data: {
                     speciality,
+                    basis,
+                    level,
                     study_form,
                     type
                 },

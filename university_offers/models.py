@@ -66,7 +66,13 @@ class Speciality(models.Model):
     )
 
     def __str__(self) -> str:
-        return self.faculty.abbreviation + " - " + self.short_label
+        return (
+            self.short_label
+            + " - "
+            + self.educational_program_name
+            + " - "
+            + self.faculty.abbreviation
+        )
 
     @property
     def short_label(self) -> str:
@@ -96,6 +102,9 @@ class UniversityOffer(models.Model):
         MASTER = 2, _("university_offer.level.master")
         ASPIRANT = 3, _("university_offer.level.aspirant")
 
+    class Basis(models.IntegerChoices):
+        SCHOOL = 1, _("university_offer.basis.school")
+
     study_begin = models.DateField(verbose_name=_("university_offer.study_begin"))
 
     study_duration = models.IntegerField(
@@ -121,6 +130,12 @@ class UniversityOffer(models.Model):
 
     level = models.PositiveIntegerField(
         choices=Level.choices, verbose_name=_("university_offer.level")
+    )
+
+    basis = models.PositiveIntegerField(
+        choices=Basis.choices,
+        verbose_name=_("university_offers.basis"),
+        default=Basis.SCHOOL,
     )
 
     type = models.PositiveIntegerField(
