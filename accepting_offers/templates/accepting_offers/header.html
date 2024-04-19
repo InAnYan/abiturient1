@@ -1,7 +1,7 @@
 {% load i18n %}
 <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url "form" %}">{% trans "header.title" %}</a>
+        <a class="navbar-brand" href="{% url "form" %}">{% trans "header.title"|capfirst %}</a>
         <ul class="navbar-nav mr-auto">
             {% get_available_languages as LANGUAGES %}
             {% for lang_code, lang_name in LANGUAGES %}

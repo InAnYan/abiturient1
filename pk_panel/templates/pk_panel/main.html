@@ -1,0 +1,39 @@
+{% extends "pk_panel/wrapper.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+<div id="accordion">
+
+{% for offer in offers %}
+
+<div class="card mb-3 t-1">
+    <div class="card-header p-0" id="headingOne">
+      <h5 id="header{{ offer.id }}">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ offer.id }}" aria-expanded="true" aria-controls="collapse{{ offer.id }}">
+            {{ offer }}
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapse{{ offer.id }}" class="collapse" data-parent="#accordion" aria-labelledby="heading{{ offer.id }}">
+      <div class="card-body">
+        
+        {% for document in documents %}
+        
+        <a role="button" class="btn btn-primary" href="{% url "gen_doc" %}?offer_id={{ offer.id }}&doc_id={{ document.id }}">
+            {% trans "pk_panel.generate"|capfirst %} {{ document }}
+        </a>
+
+        {% endfor %}
+
+      </div>
+    </div>
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock content %}

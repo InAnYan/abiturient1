@@ -1,8 +1,11 @@
 {% extends "accepting_offers/wizard_steps/wizard_step_wrapper.html" %}
 {% load i18n %}
 {% load crispy_forms_tags %}
+{% block info %}
+{% trans "wizard.steps.3.info" %}
+{% endblock info %}
 {% block step_name %}
-    {% trans "wizard.steps.3" %}
+    {% trans "wizard.steps.3"|capfirst %}
 {% endblock step_name %}
 {% block content_form %}
     {{ wizard.management_form }}

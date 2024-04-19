@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-18 13:14+0300\n"
+"POT-Creation-Date: 2024-04-18 17:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\admin.py:93
 msgid "accepting_offers.admin.only_one_offer"
 msgstr "select only one offer"
@@ -30,22 +31,26 @@ msgid "accepting_offers"
 msgstr "accepting offers"
 
 #: .\forms.py:15
-msgid "faculty"
-msgstr "faculty"
-
-#: .\forms.py:19
 msgid "speciality"
 msgstr "speciality"
 
-#: .\forms.py:24
+#: .\forms.py:20
+msgid "university_offer.basis"
+msgstr "Basis of entrance"
+
+#: .\forms.py:25
+msgid "university_offer.level"
+msgstr "educational level"
+
+#: .\forms.py:30
 msgid "university_offer.study_form"
 msgstr "study form"
 
-#: .\forms.py:29
+#: .\forms.py:35
 msgid "university_offer.type"
 msgstr "offer type"
 
-#: .\forms.py:36
+#: .\forms.py:42
 msgid "accepted_offers.info_about_offer"
 msgstr "infromation about the offer"
 
@@ -135,7 +140,7 @@ msgstr "record saved"
 
 #: .\templates\accepting_offers\done.html:7
 msgid "done.content"
-msgstr "end"
+msgstr "Your information has been successfully saved in our database. Now you are ready to move on to the next stage - a meeting with the Admissions Committee. The generated documents are waiting for your signature to formalize your admission. Thank you for your participation and trust. We wish you success in the next stages of your studies!"
 
 #: .\templates\accepting_offers\footer.html:7
 msgid "footer.admin"
@@ -143,25 +148,39 @@ msgstr "administration"
 
 #: .\templates\accepting_offers\footer.html:12
 msgid "footer.authors"
-msgstr "(c) Popov Ruslan Oleksandrovich, Karpenko Nadiia Valeriivna, Gerasimov Volodymyr Volodymyrovych 2024"
+msgstr ""
+"Popov Ruslan Oleksandrovich, Karpenko Nadiia Valeriivna, Gerasimov "
+"Volodymyr Volodymyrovych 2024"
 
 #: .\templates\accepting_offers\header.html:4
 msgid "header.title"
 msgstr "abiturients form"
 
 #: .\templates\accepting_offers\wizard_steps\step1.html:5
+msgid "wizard.steps.1.info"
+msgstr "Welcome to the system of automation of filling out documents for admission to the university! This form is your step towards a new stage in your education. Please provide us with your personal information so that we can simplify the admission process and provide you with the best support."
+
+#: .\templates\accepting_offers\wizard_steps\step1.html:8
 msgid "wizard.steps.1"
 msgstr "personal information"
 
 #: .\templates\accepting_offers\wizard_steps\step2.html:4
+msgid "wizard.steps.2.info"
+msgstr "If you are under 18 years of age, you are required by law to provide information about your legal representative (customer of educational services). This can be your mother, father or guardian who will represent you in the admission process. Please provide us with the necessary information to further process your application."
+
+#: .\templates\accepting_offers\wizard_steps\step2.html:7
 msgid "wizard.steps.2"
 msgstr "legal representative"
 
 #: .\templates\accepting_offers\wizard_steps\step3.html:5
+msgid "wizard.steps.3.info"
+msgstr "Congratulations on continuing your application process! Now it's time to choose the offer that best suits your academic and professional goals. Please select one of the available offers so that we can better support you in your studies. "
+
+#: .\templates\accepting_offers\wizard_steps\step3.html:8
 msgid "wizard.steps.3"
 msgstr "university offer"
 
-#: .\templates\accepting_offers\wizard_steps\step3.html:30
+#: .\templates\accepting_offers\wizard_steps\step3.html:34
 msgid "generic.loading"
 msgstr "loading"
 
@@ -173,19 +192,19 @@ msgstr "OLD"
 msgid "wizard.step"
 msgstr "step"
 
-#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:25
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:31
 msgid "wizard.previous_step"
 msgstr "previous step"
 
-#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:27
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:33
 msgid "wizard.next"
 msgstr "next"
 
-#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:34
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:40
 msgid "wizard.add"
 msgstr "add"
 
-#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:36
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:42
 msgid "wizard.delete"
 msgstr "remove"
 
@@ -196,3 +215,6 @@ msgstr ""
 #: .\templates\accepting_offers\wrapper.html:14
 msgid "meta.keywords"
 msgstr ""
+
+#~ msgid "faculty"
+#~ msgstr "faculty"

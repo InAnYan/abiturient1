@@ -35,7 +35,10 @@ class Person(models.Model):
     living_address = models.TextField(verbose_name=_("abiturient.living_address"))
 
     passport_serie = models.CharField(
-        verbose_name=_("persons.passport_serie"), max_length=2
+        verbose_name=_("persons.passport_serie"),
+        max_length=2,
+        null=True,
+        blank=True,
     )
 
     passport_number = models.IntegerField(verbose_name=_("persons.passport_number"))

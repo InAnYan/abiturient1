@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-18 13:14+0300\n"
+"POT-Creation-Date: 2024-04-19 15:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,7 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
 #: .\admin.py:18
 msgid "persons.admin.make_info"
 msgstr "створити інформацію про абітурієнта"
@@ -32,7 +33,7 @@ msgstr "інформація"
 msgid "persons"
 msgstr "люди"
 
-#: .\forms.py:19
+#: .\forms.py:23
 msgid "persons.has_18_years"
 msgstr "на момент підписання договору мені є 18 років"
 
@@ -64,30 +65,30 @@ msgstr "адреса проживання (реєстрації)"
 msgid "persons.passport_serie"
 msgstr "серія паспорту (якщо є)"
 
-#: .\models.py:41
+#: .\models.py:44
 msgid "persons.passport_number"
 msgstr "номер паспорти"
 
-#: .\models.py:43
+#: .\models.py:46
 msgid "persons.passport_who_give"
 msgstr "(Паспорт) ким виданий"
 
-#: .\models.py:46
+#: .\models.py:49
 msgid "persons.passport_when_given"
 msgstr "(Паспорт) коли виданий"
 
-#: .\models.py:50
+#: .\models.py:53
 msgid "persons.inn"
 msgstr "ІНН"
 
-#: .\models.py:57
+#: .\models.py:60
 msgid "persons.parent"
 msgstr "законний представник"
 
-#: .\models.py:68
+#: .\models.py:71
 msgid "abiturient"
 msgstr "абітурієнт"
 
-#: .\models.py:69
+#: .\models.py:72
 msgid "abiturient.plural"
 msgstr "абітурієнти"

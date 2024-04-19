@@ -15,12 +15,14 @@ class Faculty(models.Model):
         verbose_name=_("generic.full_name"),
         validators=[only_alpha_space_validator],
     )
+
     abbreviation = models.CharField(
         max_length=255,
         unique=True,
         verbose_name=_("generic.abbreviation"),
         validators=[only_alpha_space_validator],
     )
+
     cipher = models.IntegerField(
         validators=[MinValueValidator(1)], unique=True, verbose_name=_("generic.cipher")
     )
@@ -64,6 +66,13 @@ class Speciality(models.Model):
         verbose_name=_("speciality.educational_program_name"),
         validators=[only_alpha_space_validator],
     )
+
+    @property
+    def has_accreditation(self) -> str:
+        if self.end_of_accreditation:
+            return "акредитованою"
+        else:
+            return "неакредитованою"
 
     def __str__(self) -> str:
         return (
@@ -150,21 +159,25 @@ class UniversityOffer(models.Model):
         validators=[MinValueValidator(1)], verbose_name=_("university_offer.ects")
     )
 
-    year1_const = models.PositiveIntegerField(
+    year1_cost = models.PositiveIntegerField(
         verbose_name=_("university_offer.year1_cost"), default=0
     )
 
-    year2_const = models.PositiveIntegerField(
+    year2_cost = models.PositiveIntegerField(
         verbose_name=_("university_offer.year2_cost"), default=0
     )
 
-    year3_const = models.PositiveIntegerField(
+    year3_cost = models.PositiveIntegerField(
         verbose_name=_("university_offer.year3_cost"), default=0
     )
 
-    year4_const = models.PositiveIntegerField(
+    year4_cost = models.PositiveIntegerField(
         verbose_name=_("university_offer.year4_cost"), default=0
     )
+
+    @property
+    def full_cost(self) -> int:
+        return self.year1_cost + self.year2_cost + self.year3_cost + self.year4_cost
 
     def __str__(self) -> str:
         return self.str_property

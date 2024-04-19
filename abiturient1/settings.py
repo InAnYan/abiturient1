@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     "persons.apps.PersonsConfig",
     "university_offers.apps.UniversityOffersConfig",
     "accepting_offers.apps.AcceptingOffersConfig",
+    "pk_panel.apps.PkPanelConfig",
+    "users_login.apps.UsersLoginConfig",
     "crispy_forms",
     "crispy_bootstrap4",
     "formtools",
@@ -63,6 +65,8 @@ INSTALLED_APPS = [
     "import_export",
     "django_extensions",
 ]
+
+LOGIN_URL = "/panel/login"
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SILENCED_SYSTEM_CHECKS = ["security.W019"]

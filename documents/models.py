@@ -1,4 +1,5 @@
 from datetime import date, datetime, timedelta
+from email.mime import base
 from django.db import models
 from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
@@ -81,6 +82,8 @@ class Document(models.Model):
             type=UniversityOffer.Type.CONTRACT,
             study_form=UniversityOffer.StudyForm.DAY,
             ects=60,
+            level=UniversityOffer.Level.BACHELOR,
+            basis=UniversityOffer.Basis.SCHOOL,
         )
 
         test_object = AcceptedOffer(
@@ -98,7 +101,10 @@ class Document(models.Model):
             template_file.close()
 
             filled_file = NamedTemporaryFile(delete=False, suffix=".docx")
-            fill_document_for_offer(str(template_file.name), test_object, filled_file)
+
+            from documents.generation import generate_document
+
+            generate_document(test_object, template_file.name, filled_file)
 
             filled_file.close()
 
@@ -109,12 +115,3 @@ class Document(models.Model):
 
         except Exception as e:
             raise ValidationError("Got an error: " + str(e))
-
-
-def fill_document_for_offer(document_path: str, offer: AcceptedOffer, out):
-    offer.offer.study_form = UniversityOffer.StudyForm(offer.offer.study_form).label
-    offer.offer.type = UniversityOffer.Type(offer.offer.type).label
-    doc_templ = DocxTemplate(document_path)
-    context = {"offer": offer}
-    doc_templ.render(context, jinja2.Environment(undefined=jinja2.StrictUndefined))
-    doc_templ.save(out)

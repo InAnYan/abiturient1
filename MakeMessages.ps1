@@ -1,4 +1,4 @@
-$applications = "abiturient1", "persons", "accepting_offers", "documents", "university_offers"
+$applications = "abiturient1", "persons", "accepting_offers", "documents", "university_offers", "users_login", "pk_panel"
 $languages = "en", "uk"
 
 function Change-DirectorySafely ($path) {

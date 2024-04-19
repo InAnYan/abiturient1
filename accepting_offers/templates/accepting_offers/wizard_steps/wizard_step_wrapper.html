@@ -3,28 +3,34 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="text-center">
+    <div class="text-center mb-4">
         <h3>
-            {% trans "wizard.step" %} {{ wizard.steps.step1 }}/{{ wizard.steps.count }} -
+            {% trans "wizard.step"|capfirst %} {{ wizard.steps.step1 }} -
             <strong>
                 {% block step_name %}
                 {% endblock step_name %}
             </strong>
         </h3>
     </div>
+    
+    <p class="mb-4">
+    {% block info %}
+    {% endblock info %}
+    </p>
+
     <form action="" method="post" novalidate autocomplete="off">
         {% csrf_token %}
         {% block content_form %}
         {% endblock content_form %}
         <div class="mb-5"></div>
-        <div class="position-relative">
+        <div class="d-flex justify-content-between">
             {% if wizard.steps.prev %}
                 <button name="wizard_goto_step"
                         type="submit"
                         value="{{ wizard.steps.prev }}"
-                        class="btn btn-secondary position-absolute start-0">{% trans "wizard.previous_step" %}</button>
+                        class="btn btn-secondary">{% trans "wizard.previous_step"|capfirst %}</button>
             {% endif %}
-            <button type="submit" class="btn btn-primary position-absolute end-0">{% trans "wizard.next" %}</button>
+            <button type="submit" class="btn btn-primary">{% trans "wizard.next"|capfirst %}</button>
         </div>
     </form>
     <script src="{% static 'accepting_offers/jquery.formset.js' %}"></script>

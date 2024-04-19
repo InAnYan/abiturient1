@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-18 13:14+0300\n"
+"POT-Creation-Date: 2024-04-19 15:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: .\apps.py:8
 msgid "university_offers"
 msgstr "university offers"
@@ -41,127 +42,135 @@ msgstr "Only alphabetical characters are allowed"
 msgid "generic.full_name"
 msgstr "full name"
 
-#: .\models.py:21
+#: .\models.py:22
 msgid "generic.abbreviation"
 msgstr "abbreviation"
 
-#: .\models.py:25
+#: .\models.py:27
 msgid "generic.cipher"
 msgstr "cipher"
 
-#: .\models.py:32 .\models.py:55
+#: .\models.py:34 .\models.py:57
 msgid "faculty"
 msgstr "faculty"
 
-#: .\models.py:33
+#: .\models.py:35
 msgid "faculty.plural"
 msgstr "faculties"
 
-#: .\models.py:39
+#: .\models.py:41
 msgid "generic.name"
 msgstr "name"
 
-#: .\models.py:44
+#: .\models.py:46
 msgid "generic.code"
 msgstr "code"
 
-#: .\models.py:51
+#: .\models.py:53
 msgid "speciality.specialization"
 msgstr "specialization"
 
-#: .\models.py:59 .\templates\university_offers\ajax\offer_info.html:3
+#: .\models.py:61 .\templates\university_offers\ajax\offer_info.html:3
 msgid "speciality.end_of_accreditation"
 msgstr "end of accreditation"
 
-#: .\models.py:64 .\templates\university_offers\ajax\offer_info.html:11
+#: .\models.py:66 .\templates\university_offers\ajax\offer_info.html:11
 msgid "speciality.educational_program_name"
 msgstr "name of the educational program"
 
-#: .\models.py:80 .\models.py:119
+#: .\models.py:95 .\models.py:137
 msgid "speciality"
 msgstr "speciality"
 
-#: .\models.py:81
+#: .\models.py:96
 msgid "speciality.plural"
 msgstr "specialities"
 
-#: .\models.py:86
+#: .\models.py:101
 msgid "university_offer.type.budget"
 msgstr "budget"
 
-#: .\models.py:87
+#: .\models.py:102
 msgid "university_offer.type.contract"
 msgstr "contract"
 
-#: .\models.py:90
+#: .\models.py:105
 msgid "university_offer.study_form.day"
 msgstr "full-time"
 
-#: .\models.py:91
+#: .\models.py:106
 msgid "university_offer.study_form.over_distance"
 msgstr "distance"
 
-#: .\models.py:92
+#: .\models.py:107
 msgid "university_offer.study_form.evening"
 msgstr "evening"
 
-#: .\models.py:95
+#: .\models.py:110
 msgid "university_offer.level.bachelor"
 msgstr "Bachelor"
 
-#: .\models.py:96
+#: .\models.py:111
 msgid "university_offer.level.master"
 msgstr "Master"
 
-#: .\models.py:97
+#: .\models.py:112
 msgid "university_offer.level.aspirant"
 msgstr "Graduate"
 
-#: .\models.py:99 .\templates\university_offers\ajax\offer_info.html:15
+#: .\models.py:115
+msgid "university_offer.basis.school"
+msgstr "school"
+
+#: .\models.py:117 .\templates\university_offers\ajax\offer_info.html:15
 msgid "university_offer.study_begin"
 msgstr "beginning of the study"
 
-#: .\models.py:103 .\templates\university_offers\ajax\offer_info.html:19
+#: .\models.py:121 .\templates\university_offers\ajax\offer_info.html:19
 msgid "university_offer.study_duration"
 msgstr "study duration"
 
-#: .\models.py:123
+#: .\models.py:141
 msgid "university_offer.level"
 msgstr "educational level"
 
-#: .\models.py:127
+#: .\models.py:146
+msgid "university_offers.basis"
+msgstr "basis of entrance"
+
+#: .\models.py:151
 msgid "university_offer.type"
 msgstr "offer type"
 
-#: .\models.py:131
+#: .\models.py:155
 msgid "university_offer.study_form"
 msgstr "study form"
 
-#: .\models.py:135
+#: .\models.py:159
 msgid "university_offer.ects"
 msgstr "ECTS"
 
-#: .\models.py:139
+#: .\models.py:163
 msgid "university_offer.year1_cost"
 msgstr "year 1 cost"
 
-#: .\models.py:143
+#: .\models.py:167
 msgid "university_offer.year2_cost"
 msgstr "year 2 cost"
 
-#: .\models.py:147
+#: .\models.py:171
 msgid "university_offer.year3_cost"
 msgstr "year 3 cost"
 
-#: .\models.py:151
+#: .\models.py:175
 msgid "university_offer.year4_cost"
 msgstr "year 4 cost"
 
-#: .\models.py:168
+#: .\models.py:196
 msgid "university_offer"
 msgstr "university offer"
 
-#: .\models.py:169
+#: .\models.py:197
 msgid "university_offer.plural"
 msgstr "university offers"
 

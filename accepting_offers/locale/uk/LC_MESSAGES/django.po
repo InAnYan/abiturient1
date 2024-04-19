@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-18 13:14+0300\n"
+"POT-Creation-Date: 2024-04-18 17:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,7 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
 #: .\admin.py:93
 msgid "accepting_offers.admin.only_one_offer"
 msgstr "оберіть лише одну заяву"
@@ -33,22 +34,26 @@ msgid "accepting_offers"
 msgstr "заява"
 
 #: .\forms.py:15
-msgid "faculty"
-msgstr "факультет"
-
-#: .\forms.py:19
 msgid "speciality"
 msgstr "спеціальність"
 
-#: .\forms.py:24
+#: .\forms.py:20
+msgid "university_offer.basis"
+msgstr "підстава до вступу"
+
+#: .\forms.py:25
+msgid "university_offer.level"
+msgstr "освітній рівень"
+
+#: .\forms.py:30
 msgid "university_offer.study_form"
 msgstr "форма навчання"
 
-#: .\forms.py:29
+#: .\forms.py:35
 msgid "university_offer.type"
 msgstr "тип конкурсної проопозиції"
 
-#: .\forms.py:36
+#: .\forms.py:42
 msgid "accepted_offers.info_about_offer"
 msgstr "інформація про обрану конкурсну пропозицію"
 
@@ -138,7 +143,7 @@ msgstr "запис створено"
 
 #: .\templates\accepting_offers\done.html:7
 msgid "done.content"
-msgstr "йдіть далі"
+msgstr "Ваша інформація успішно збережена у нашій базі даних. Тепер ви готові перейти до наступного етапу - зустрічі з приймальною комісією. Згенеровані документи очікують на ваш підпис, щоб офіційно оформити ваш вступ. Дякуємо за вашу участь та довіру. Бажаємо успіху на наступних етапах вашого навчання!"
 
 #: .\templates\accepting_offers\footer.html:7
 msgid "footer.admin"
@@ -146,25 +151,41 @@ msgstr "адміністрування"
 
 #: .\templates\accepting_offers\footer.html:12
 msgid "footer.authors"
-msgstr "(c) Попов Руслан Олександрович, Карпенко Надія Валеріївна, Герасімов Володимир Володимирович"
+msgstr ""
+"Попов Руслан Олександрович, Карпенко Надія Валеріївна, Герасімов "
+"Володимир Володимирович"
 
 #: .\templates\accepting_offers\header.html:4
 msgid "header.title"
 msgstr "Форма для абітурієнтів"
 
 #: .\templates\accepting_offers\wizard_steps\step1.html:5
+msgid "wizard.steps.1.info"
+msgstr "Ласкаво просимо до системи автоматизації заповнення документів для вступу до університету! Ця форма - ваш крок до нового етапу в освіті. Будь ласка, надайте нам вашу персональну інформацію, щоб ми могли спростити процес вступу та забезпечити вам найкращу підтримку."
+
+#: .\templates\accepting_offers\wizard_steps\step1.html:8
 msgid "wizard.steps.1"
 msgstr "персональна інформація"
 
 #: .\templates\accepting_offers\wizard_steps\step2.html:4
+msgid "wizard.steps.2.info"
+msgstr "Якщо вам не виповнилося 18 років, за законом необхідно вказати інформацію про вашого законного представника (замовника освітніх послуг). Це може бути ваша мати, батько або опікун, який вас представлятиме у вступному процесі. Будь ласка, надайте нам необхідну інформацію для подальшого оформлення вашої заяви."
+
+#: .\templates\accepting_offers\wizard_steps\step2.html:7
 msgid "wizard.steps.2"
 msgstr "інформація про законного представника"
 
 #: .\templates\accepting_offers\wizard_steps\step3.html:5
+#, fuzzy
+#| msgid "wizard.steps.3"
+msgid "wizard.steps.3.info"
+msgstr "Вітаємо з продовженням вашого вступного процесу! Тепер час обрати конкурсну пропозицію, яка найбільше відповідає вашим академічним та професійним цілям. Будь ласка, оберіть одну з доступних пропозицій, щоб ми могли краще вас підтримати у вашому навчанні."
+
+#: .\templates\accepting_offers\wizard_steps\step3.html:8
 msgid "wizard.steps.3"
 msgstr "вибір конкурсної пропозиції"
 
-#: .\templates\accepting_offers\wizard_steps\step3.html:30
+#: .\templates\accepting_offers\wizard_steps\step3.html:34
 msgid "generic.loading"
 msgstr "завантаження"
 
@@ -176,19 +197,19 @@ msgstr "ДАВНО"
 msgid "wizard.step"
 msgstr "шаг"
 
-#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:25
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:31
 msgid "wizard.previous_step"
 msgstr "попередній шаг"
 
-#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:27
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:33
 msgid "wizard.next"
 msgstr "наступний шаг"
 
-#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:34
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:40
 msgid "wizard.add"
 msgstr "додати"
 
-#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:36
+#: .\templates\accepting_offers\wizard_steps\wizard_step_wrapper.html:42
 msgid "wizard.delete"
 msgstr "видалити"
 
@@ -199,3 +220,6 @@ msgstr ""
 #: .\templates\accepting_offers\wrapper.html:14
 msgid "meta.keywords"
 msgstr ""
+
+#~ msgid "faculty"
+#~ msgstr "факультет"
