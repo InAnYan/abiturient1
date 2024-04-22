@@ -34,7 +34,7 @@ admin.site.site_title = _("admin.site.site_title")
 urlpatterns = i18n_patterns(
     path("admin/", admin.site.urls, name="admin"),
     path("univeristy_offers/", include("university_offers.urls")),
-    path("auth/", include("users_login.urls")),
+    path("auth/", include("users.urls")),
     path("pk_panel/", include("pk_panel.urls")),
     path("", include("accepting_offers.urls")),
 )

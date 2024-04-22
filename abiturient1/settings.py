@@ -44,7 +44,6 @@ if DEBUG:
 # Application definition
 
 INSTALLED_APPS = [
-    "admin_interface",
     "colorfield",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -52,12 +51,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "users.apps.UsersConfig",
     "documents.apps.DocumentsConfig",
     "persons.apps.PersonsConfig",
     "university_offers.apps.UniversityOffersConfig",
     "accepting_offers.apps.AcceptingOffersConfig",
     "pk_panel.apps.PkPanelConfig",
-    "users_login.apps.UsersLoginConfig",
     "crispy_forms",
     "crispy_bootstrap4",
     "formtools",
@@ -65,6 +64,8 @@ INSTALLED_APPS = [
     "import_export",
     "django_extensions",
 ]
+
+AUTH_USER_MODEL = "users.User"
 
 LOGIN_URL = "/panel/login"
 
