@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-19 15:28+0300\n"
+"POT-Creation-Date: 2024-04-22 13:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,74 +18,76 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\admin.py:18
-msgid "persons.admin.make_info"
-msgstr "make information about an abiturient"
-
-#: .\admin.py:29
-msgid "abiturient.report"
-msgstr "report"
-
-#: .\apps.py:8
+#: apps.py:8
 msgid "persons"
 msgstr "persons"
 
-#: .\forms.py:23
+#: forms.py:23
 msgid "persons.has_18_years"
 msgstr "I am over 18 years old at the time of signing this contract"
 
-#: .\models.py:13
+#: management/commands/add_persons.py:121
+msgid "persons.add_persons.help"
+msgstr "Add some abiturients for testing"
+
+#: models.py:13
 msgid "generic.last_name"
 msgstr "last name"
 
-#: .\models.py:17
+#: models.py:17
 msgid "generic.first_name"
 msgstr "first name"
 
-#: .\models.py:22
+#: models.py:22
 msgid "generic.patronymic"
 msgstr "patronymic"
 
-#: .\models.py:26
+#: models.py:26
 msgid "generic.telephone"
 msgstr "telephone"
 
-#: .\models.py:33
+#: models.py:33
 msgid "generic.email"
 msgstr "email"
 
-#: .\models.py:35
+#: models.py:35
 msgid "abiturient.living_address"
 msgstr "living address"
 
-#: .\models.py:38
+#: models.py:38
 msgid "persons.passport_serie"
 msgstr "passport serie"
 
-#: .\models.py:44
+#: models.py:44
 msgid "persons.passport_number"
 msgstr "passport number"
 
-#: .\models.py:46
+#: models.py:46
 msgid "persons.passport_who_give"
 msgstr "(Passport) Who give"
 
-#: .\models.py:49
+#: models.py:49
 msgid "persons.passport_when_given"
 msgstr "(Passport) when given"
 
-#: .\models.py:53
+#: models.py:53
 msgid "persons.inn"
 msgstr "TODO: INN???"
 
-#: .\models.py:60
+#: models.py:60
 msgid "persons.parent"
 msgstr "parent"
 
-#: .\models.py:71
+#: models.py:71
 msgid "abiturient"
 msgstr "abiturient"
 
-#: .\models.py:72
+#: models.py:72
 msgid "abiturient.plural"
 msgstr "abiturients"
+
+#~ msgid "persons.admin.make_info"
+#~ msgstr "make information about an abiturient"
+
+#~ msgid "abiturient.report"
+#~ msgstr "report"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-18 13:14+0300\n"
+"POT-Creation-Date: 2024-04-22 13:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\apps.py:8
+
+#: apps.py:8
 msgid "documents"
 msgstr "documents"
 
-#: .\models.py:17
+#: management/commands/add_documents.py:14
+msgid "documents.add_documents.help"
+msgstr "Add document templates"
+
+#: models.py:18
 msgid "generic.only_alpha"
 msgstr "only alphabetical characters are allowed"
 
-#: .\models.py:28
+#: models.py:29
 msgid "document"
 msgstr "document"
 
-#: .\models.py:29
+#: models.py:30
 msgid "document.plural"
 msgstr "documents"

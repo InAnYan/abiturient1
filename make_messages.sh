@@ -10,7 +10,7 @@ compile_messages () {
     cd ..
 }
 
-apps=(abiturient1 abiturients university_offers documents accepting_offers users pk_panel)
+apps=(abiturient1 persons university_offers documents accepting_offers users pk_panel)
 langs=(en uk)
 
 if [[ "$1" == "make" ]]; then
