@@ -5,27 +5,20 @@ from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
 
 
-only_alpha_space_validator = RegexValidator("([^\W\d]| )+", _("generic.only_alpha"))
-
-
 class Faculty(models.Model):
     full_name = models.CharField(
         max_length=255,
         unique=True,
         verbose_name=_("generic.full_name"),
-        validators=[only_alpha_space_validator],
     )
 
     abbreviation = models.CharField(
         max_length=255,
         unique=True,
         verbose_name=_("generic.abbreviation"),
-        validators=[only_alpha_space_validator],
     )
 
-    cipher = models.IntegerField(
-        validators=[MinValueValidator(1)], unique=True, verbose_name=_("generic.cipher")
-    )
+    cipher = models.IntegerField(unique=True, verbose_name=_("generic.cipher"))
 
     def __str__(self) -> str:
         return self.full_name
@@ -39,15 +32,11 @@ class Speciality(models.Model):
     name = models.CharField(
         max_length=255,
         verbose_name=_("generic.name"),
-        validators=[only_alpha_space_validator],
     )
 
-    code = models.IntegerField(
-        validators=[MinValueValidator(1)], verbose_name=_("generic.code")
-    )
+    code = models.IntegerField(verbose_name=_("generic.code"))
 
     specialization = models.IntegerField(
-        validators=[MinValueValidator(1)],
         null=True,
         blank=True,
         verbose_name=_("speciality.specialization"),
@@ -57,34 +46,11 @@ class Speciality(models.Model):
         Faculty, on_delete=models.PROTECT, verbose_name=_("faculty")
     )
 
-    end_of_accreditation = models.DateField(
-        null=True, blank=True, verbose_name=_("speciality.end_of_accreditation")
-    )  # TODO: ???
-
-    educational_program_name = models.CharField(
-        max_length=255,
-        verbose_name=_("speciality.educational_program_name"),
-        validators=[only_alpha_space_validator],
-    )
-
-    @property
-    def has_accreditation(self) -> str:
-        if self.end_of_accreditation:
-            return "акредитованою"
-        else:
-            return "неакредитованою"
-
     def __str__(self) -> str:
-        return (
-            self.short_label
-            + " - "
-            + self.educational_program_name
-            + " - "
-            + self.faculty.abbreviation
-        )
+        return self.code_and_name + " - " + self.faculty.abbreviation
 
     @property
-    def short_label(self) -> str:
+    def code_and_name(self) -> str:
         code = str(self.code).zfill(3)
         if self.specialization:
             code += "." + str(self.specialization).zfill(3)
@@ -94,6 +60,26 @@ class Speciality(models.Model):
     class Meta:
         verbose_name = _("speciality")
         verbose_name_plural = _("speciality.plural")
+
+
+class EducationalProgram(models.Model):
+    name = models.CharField(
+        max_length=255,
+        verbose_name=_("generic.name"),
+    )
+
+    speciality = models.ForeignKey(
+        Speciality, on_delete=models.PROTECT, verbose_name=_("speciality")
+    )
+
+    end_of_accreditation = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name=_("speciality.end_of_accreditation"),
+    )
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class UniversityOffer(models.Model):
@@ -133,8 +119,8 @@ class UniversityOffer(models.Model):
     def study_duration_months(self) -> int:
         return self.study_duration % 12
 
-    speciality = models.ForeignKey(
-        Speciality, on_delete=models.PROTECT, verbose_name=_("speciality")
+    educational_program = models.ForeignKey(
+        EducationalProgram, on_delete=models.PROTECT, verbose_name=_("speciality")
     )
 
     level = models.PositiveIntegerField(
@@ -185,7 +171,7 @@ class UniversityOffer(models.Model):
     @property
     def str_property(self) -> str:
         return (
-            str(self.speciality)
+            str(self.educational_program.speciality)
             + " - "
             + self.StudyForm(self.study_form).label
             + " - "

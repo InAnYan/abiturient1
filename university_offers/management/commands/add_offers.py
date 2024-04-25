@@ -2,7 +2,7 @@ from datetime import date
 from django.core.management.base import BaseCommand
 from django.utils.translation import gettext_lazy as _
 
-from university_offers.models import Speciality, UniversityOffer
+from university_offers.models import EducationalProgram, Speciality, UniversityOffer
 
 offers_data = [
     (
@@ -121,7 +121,9 @@ class Command(BaseCommand):
             UniversityOffer.objects.create(
                 study_begin=date.today(),
                 study_duration=12,
-                speciality=Speciality.objects.get(name=speciality_name),
+                educational_program=EducationalProgram.objects.get(
+                    name=speciality_name
+                ),
                 type=type,
                 study_form=study_form,
                 ects=60,

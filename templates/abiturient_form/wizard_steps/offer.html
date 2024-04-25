@@ -1,0 +1,120 @@
+{% extends 'abiturient_form/wizard_steps/wizard_step_wrapper.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block info %}
+  {% trans 'wizard.steps.university_offer.info' %}
+{% endblock %}
+{% block step_name %}
+  {% trans 'wizard.steps.university_offer'|capfirst %}
+{% endblock %}
+{% block content_form %}
+  <div class="form-row">
+    <div class="col">{{ wizard.form.basis|as_crispy_field }}</div>
+    <div class="col">{{ wizard.form.level|as_crispy_field }}</div>
+  </div>
+
+  <div class="form-row">
+    <div class="col">{{ wizard.form.faculty|as_crispy_field }}</div>
+    <div class="col">{{ wizard.form.speciality|as_crispy_field }}</div>
+  </div>
+
+  {{ wizard.form.educational_program_name|as_crispy_field }}
+
+  <div class="form-row">
+    <div class="col">{{ wizard.form.offer_type|as_crispy_field }}</div>
+    <div class="col">{{ wizard.form.study_form|as_crispy_field }}</div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button type="button" id="searchOffer" class="btn btn-success">{% trans 'search_offer' %}</button>
+  </div>
+
+  <div class="mb-3"></div>
+
+  <div class="alert alert-info d-none" role="alert" id="loading">
+    {% trans 'generic.loading'|capfirst %}...
+  </div>
+
+  <div class="alert alert-danger d-none" role="alert" id="noData">
+    {% trans 'offers.not_found'|capfirst %}
+  </div>
+
+  <div id="accordion">
+  </div>
+
+  {{ wizard.form.result_offer.as_hidden }}
+
+  <script>
+    const facultyElem = $("select[id$='faculty']");
+    const specialityElem = $("select[id$='speciality']");
+    const educationalProgramNameElem = $("input[id$='educational_program_name']");
+    const offerTypeElem = $("select[id$='offer_type']");
+    const studyFormElem = $("select[id$='study_form']");
+    const basisElem = $("select[id$='basis']");
+    const levelElem = $("select[id$='level']");
+
+    const searchButton = $("#searchOffer");
+    const loadingElem = $("#loading");
+    const noDataElem = $("#noData");
+    const accordionElem = $("#accordion");
+
+    searchButton.on("click", function() {
+      let faculty = facultyElem.val();
+      let speciality = specialityElem.val();
+      let educational_program_name = educationalProgramNameElem.val();
+      let offer_type = offerTypeElem.val();
+      let study_form = studyFormElem.val();
+      let basis = basisElem.val();
+      let level = levelElem.val();
+
+      loadingElem.removeClass("d-none"); 
+
+      $.ajax({
+        url: "{% url 'ajax_offers' %}",
+        data: {
+          faculty,
+          speciality,
+          educational_program_name,
+          offer_type,
+          study_form,
+          basis,
+          level
+        },
+
+        success: function (data) {
+          loadingElem.addClass("d-none");
+          accordionElem.html(data);
+
+          lastButton = null;
+          resultOffer.val("");
+
+          if (accordionElem.children().length == 0) {
+            noDataElem.removeClass("d-none");
+          } else {
+            noDataElem.addClass("d-none");
+          }
+        }
+      });
+    });
+
+    const resultOffer = $("input[id$='result_offer']");
+    let lastButton = null;
+
+    function chooseOffer(id) {
+      resultOffer.val(id);
+      
+      if (lastButton) {
+        lastButton.removeClass("btn-outline-primary");
+        lastButton.addClass("btn-primary");
+        lastButton.html("{% trans "choose_this_offer" %}");
+      }
+
+      const button = $("#buttonOffer" + id);
+      button.removeClass("btn-primary");
+      button.addClass("btn-outline-primary");
+      button.html('{% trans "chosen_offer" %}');
+      
+      lastButton = button;
+    }
+  </script>
+{% endblock %}

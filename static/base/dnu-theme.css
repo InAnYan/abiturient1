@@ -1,0 +1,17 @@
+.footer-text {
+    color: rgb(255, 255, 255, 0.6);
+}
+
+.dnu-link:hover {
+    color: rgb(255, 255, 255, 1);
+    text-decoration: none;
+}
+
+.dnu-bg-dark-blue {
+    background-color: #1A237E;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #E8EAF2;
+}

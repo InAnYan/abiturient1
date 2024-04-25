@@ -1,0 +1,11 @@
+.language-inline-form {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.language-fake-button {
+    border-style: none;
+    border-width: 0;
+    background-color: initial;
+}

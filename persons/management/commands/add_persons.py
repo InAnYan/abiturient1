@@ -86,40 +86,40 @@ def generate_inn():
 
 
 mockup_data = []
-for i in range(21):
-    first_name = random.choice(ukrainian_first_names)
-    last_name = random.choice(ukrainian_last_names)
-    patronymic = random.choice(ukrainian_patronymics)
-    phone = generate_phone_number()
-    email = generate_email(first_name, last_name)
-    living_address = generate_living_address()
-    passport_number = generate_passport_number()
-    passport_who_give = generate_passport_who_give()
-    passport_when_given = generate_passport_when_given()
-    inn = generate_inn()
-
-    mockup_data.append(
-        {
-            "first_name": first_name,
-            "last_name": last_name,
-            "patronymic": patronymic,
-            "phone": phone,
-            "email": email,
-            "living_address": living_address,
-            "passport_number": passport_number,
-            "passport_who_give": passport_who_give,
-            "passport_when_given": passport_when_given,
-            "inn": inn,
-        }
-    )
 
 
-from persons.models import Person
+from persons.models import Passport, Person
 
 
 class Command(BaseCommand):
     help = _("persons.add_persons.help")
 
     def handle(self, *args, **options):
-        for data in mockup_data:
-            Person.objects.create(**data)
+        for i in range(21):
+            first_name = random.choice(ukrainian_first_names)
+            last_name = random.choice(ukrainian_last_names)
+            patronymic = random.choice(ukrainian_patronymics)
+            phone = generate_phone_number()
+            email = generate_email(first_name, last_name)
+            living_address = generate_living_address()
+            passport_number = generate_passport_number()
+            passport_who_give = generate_passport_who_give()
+            passport_when_given = generate_passport_when_given()
+            inn = generate_inn()
+
+            passport = Passport.objects.create(
+                number=passport_number,
+                who_give=passport_who_give,
+                when_given=passport_when_given,
+                inn=inn,
+            )
+
+            Person.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                patronymic=patronymic,
+                phone=phone,
+                email=email,
+                living_address=living_address,
+                passport=passport,
+            )

@@ -23,7 +23,7 @@ def must_be_pk(fn):
 @must_be_pk
 def main(request: HttpRequest):
     accepted_offers = AcceptedOffer.objects.filter(
-        offer__speciality__faculty=request.user.faculty
+        offer__educational_program__speciality__faculty=request.user.faculty
     )
 
     if query := request.GET.get("query"):

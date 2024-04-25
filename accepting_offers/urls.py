@@ -7,7 +7,7 @@ urlpatterns = [
     path(
         "",
         views.AbiturientAndOffersWizard.as_view(),
-        name="form",
+        name="abiturient_form",
     ),
     path("done", views.done, name="done"),
 ]

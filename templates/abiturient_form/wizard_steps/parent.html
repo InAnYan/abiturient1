@@ -1,0 +1,11 @@
+{% extends "abiturient_form/wizard_steps/base/person.html" %}
+
+{% load i18n %}
+
+{% block info %}
+{% trans "wizard.steps.parent.info" %}
+{% endblock info %}
+
+{% block step_name %}
+    {% trans "wizard.steps.parent"|capfirst %}
+{% endblock step_name %}

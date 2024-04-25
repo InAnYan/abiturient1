@@ -51,33 +51,6 @@ class AcceptedOffer(models.Model):
     def __str__(self) -> str:
         return f"{self.abiturient} - {self.offer}"
 
-    def clean(self) -> None:
-        super().clean()
-
-        if not hasattr(self, "offer"):
-            return
-
-        if self.offer.type == UniversityOffer.Type.BUDGET:
-            if self.payment_type != AcceptedOffer.PaymentType.GOVERNMENTAL:
-                raise ValidationError(
-                    _("accepting_offers.validation.budget_should_be_governmental")
-                )
-            if self.payment_frequency is not None:
-                raise ValidationError(
-                    _("accepting_offers.validation.budget_should_not_have_frequency")
-                )
-        else:
-            if self.payment_type == AcceptedOffer.PaymentType.GOVERNMENTAL:
-                raise ValidationError(
-                    _(
-                        "accepting_offers.validation.not_budget_should_not_be_governmental"
-                    )
-                )
-            if self.payment_frequency is None:
-                raise ValidationError(
-                    _("accepting_offers.validation.not_budget_should_have_frequency")
-                )
-
     class Meta:
         verbose_name = _("accepted_offer")
         verbose_name_plural = _("accepted_offer.plural")

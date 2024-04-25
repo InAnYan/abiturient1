@@ -1,0 +1,9 @@
+{% extends "base/wrapper.html" %}
+{% load i18n %}
+{% block title %}
+    {% trans "done.title"|capfirst %}
+{% endblock title %}
+{% block content %}
+    <h2>{% trans "done.title"|capfirst %}</h2>
+    <p>{% trans "done.content"|capfirst %}</p>
+{% endblock content %}

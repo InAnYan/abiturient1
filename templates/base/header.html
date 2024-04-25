@@ -1,0 +1,42 @@
+{% load i18n %}
+{% load static %}
+
+  <header class="dnu-bg-dark-blue py-3">
+    <div class="pl-3 pr-3">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-auto text-left">
+          <img src="{% static 'base/dnu-logo.jpg' %}" alt="DNU logo" width="50">
+        </div>
+
+        <div class="col text-left pl-0">
+          <p class="text-white m-auto"> {% trans "dnu.name.first"|capfirst %} <br/> {% trans "dnu.name.second" %} </p>
+        </div>
+
+        <div class="col-6 text-center">
+          <span class="text-white">
+            {% block title %}
+            {% endblock title %}
+          </span>
+        </div>
+
+        <div class="col text-right">
+          <span class="text-white">
+            {% get_available_languages as LANGUAGES %}
+            {% for lang_code, lang_name in LANGUAGES %}
+                <form action="{% url 'set_language'%}" method="post" class="language-inline-form">
+                    {% csrf_token %}
+
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <input type="hidden" name="language" value="{{ lang_code }}">
+                    <button type="submit" class="language-fake-button dnu-link footer-text">{{ lang_code | upper }}</button>
+                </form>
+
+                {% if not forloop.last %}
+                 | 
+                {% endif %}
+            {% endfor %}
+          </span>
+        </div>
+      </div>
+    </div>
+</header>

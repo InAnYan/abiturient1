@@ -11,7 +11,9 @@ from django.shortcuts import redirect
 
 def user_login(request: HttpRequest):
     if request.user.is_authenticated:
-        return redirect(reverse("pk_panel"))
+        return redirect(
+            reverse("admin:index" if request.user.is_superuser else "pk_panel")
+        )
 
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -20,7 +22,9 @@ def user_login(request: HttpRequest):
             user = authenticate(username=cd["username"], password=cd["password"])
             if user is not None:
                 login(request, user)
-                return redirect(reverse("pk_panel"))
+                return redirect(
+                    reverse("admin:index" if request.user.is_superuser else "pk_panel")
+                )
             else:
                 form.add_error("password", _("auth.login.failed"))
     else:

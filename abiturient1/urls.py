@@ -16,6 +16,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
@@ -32,11 +33,12 @@ admin.site.site_title = _("admin.site.site_title")
 """
 
 urlpatterns = i18n_patterns(
-    path("admin/", admin.site.urls, name="admin"),
+    path("", lambda request: redirect("abiturient_form/"), name="index"),
+    path("admin/login", include("users.urls")),
+    path("admin/pk_panel/", include("pk_panel.urls")),
+    path("admin/django/", admin.site.urls),
     path("univeristy_offers/", include("university_offers.urls")),
-    path("auth/", include("users.urls")),
-    path("pk_panel/", include("pk_panel.urls")),
-    path("", include("accepting_offers.urls")),
+    path("abiturient_form/", include("accepting_offers.urls")),
 )
 
 urlpatterns += [

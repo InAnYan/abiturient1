@@ -1,0 +1,23 @@
+{% extends "abiturient_form/wizard_steps/wizard_step_wrapper.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content_form %}
+
+<div class="form-row">
+    <div class="col">
+        {{ wizard.form.serie | as_crispy_field }}
+    </div>
+    <div class="col">
+        {{ wizard.form.number | as_crispy_field }}
+    </div>
+</div>
+
+{{ wizard.form.who_give | as_crispy_field }}
+
+{{ wizard.form.when_given | as_crispy_field }}
+
+{{ wizard.form.inn | as_crispy_field }}
+
+{% endblock content_form %}

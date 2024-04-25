@@ -34,23 +34,11 @@ class Person(models.Model):
 
     living_address = models.TextField(verbose_name=_("abiturient.living_address"))
 
-    passport_serie = models.CharField(
-        verbose_name=_("persons.passport_serie"),
-        max_length=2,
-        null=True,
-        blank=True,
+    passport = models.OneToOneField(
+        "Passport",
+        on_delete=models.PROTECT,
+        verbose_name=_("persons.passport"),
     )
-
-    passport_number = models.IntegerField(verbose_name=_("persons.passport_number"))
-
-    passport_who_give = models.IntegerField(verbose_name=_("persons.passport_who_give"))
-
-    passport_when_given = models.DateField(
-        verbose_name=_("persons.passport_when_given"),
-        validators=[MaxValueValidator(limit_value=date.today)],
-    )
-
-    inn = models.IntegerField(verbose_name=_("persons.inn"))
 
     parent = models.ForeignKey(
         "self",
@@ -70,3 +58,27 @@ class Person(models.Model):
     class Meta:
         verbose_name = _("abiturient")
         verbose_name_plural = _("abiturient.plural")
+
+
+class Passport(models.Model):
+    serie = models.CharField(
+        verbose_name=_("persons.passport_serie"),
+        max_length=2,
+        null=True,
+        blank=True,
+    )
+
+    number = models.IntegerField(verbose_name=_("persons.passport_number"))
+
+    who_give = models.TextField(verbose_name=_("persons.passport_who_give"))
+
+    when_given = models.DateField(
+        verbose_name=_("persons.passport_when_given"),
+        validators=[MaxValueValidator(limit_value=date.today)],
+    )
+
+    inn = models.IntegerField(verbose_name=_("persons.inn"))
+
+    class Meta:
+        verbose_name = _("persons.passport")
+        verbose_name_plural = _("persons.passport.plural")

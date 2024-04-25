@@ -4,7 +4,7 @@
 export DJANGO_SUPERUSER_PASSWORD='root'
 
 # Create superuser
-python3 ./manage.py createsuperuser --no-input --username=root --email "ruslanpopov1512@gmail.com"
+python ./manage.py createsuperuser --no-input --username=root --email "ruslanpopov1512@gmail.com"
 
 commands=(
     "add_groups"
@@ -13,5 +13,5 @@ commands=(
 
 # Execute commands
 for cmd in "${commands[@]}"; do
-    python3 ./manage.py "$cmd"
+    python ./manage.py "$cmd"
 done

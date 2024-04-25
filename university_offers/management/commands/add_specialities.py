@@ -25,14 +25,10 @@ class Command(BaseCommand):
             code_list = speciality_info["code"].split(".")
             code = code_list[0]
             specialization = code_list[1] if len(code_list) > 1 else None
-            educational_program_name = speciality_info["name"]
-            end_of_accreditation = None
 
             Speciality(
                 faculty=faculty,
                 name=speciality_info["name"],
                 code=code,
                 specialization=specialization,
-                end_of_accreditation=end_of_accreditation,
-                educational_program_name=educational_program_name,
             ).save()

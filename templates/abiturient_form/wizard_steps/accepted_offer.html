@@ -1,0 +1,29 @@
+{% extends "abiturient_form/wizard_steps/wizard_step_wrapper.html" %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block info %}
+{% trans "wizard.steps.accepted_offer.info" %}
+{% endblock info %}
+{% block step_name %}
+    {% trans "wizard.steps.accepted_offer"|capfirst %}
+{% endblock step_name %}
+
+{% block content_form %}
+
+<div class="form-row">
+    <div class="col">
+        {{ wizard.form.payment_type | as_crispy_field }}
+    </div>
+    <div class="col">
+        {{ wizard.form.payment_frequency | as_crispy_field }}
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="col">
+        {{ wizard.form.accepted_year | as_crispy_field }}
+    </div>
+</div>
+
+{% endblock content_form %}

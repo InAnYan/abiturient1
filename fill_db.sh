@@ -5,6 +5,7 @@ commands=(
     "migrate"
     "add_faculties"
     "add_specialities"
+    "add_educational_programs"
     "add_offers"
     "add_persons"
     "add_accepted_offers"
@@ -12,5 +13,5 @@ commands=(
 )
 
 for cmd in "${commands[@]}"; do
-    python3 ./manage.py "$cmd"
+    python ./manage.py "$cmd"
 done

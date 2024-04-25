@@ -1,0 +1,609 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-25 12:53+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\abiturient1\settings.py:176
+msgid "English"
+msgstr "English"
+
+#: .\abiturient1\settings.py:177
+msgid "Ukrainian"
+msgstr "Ukrainian"
+
+#: .\accepting_offers\admin.py:78
+msgid "accepting_offers.admin.only_one_offer"
+msgstr "Select only one offer"
+
+#: .\accepting_offers\admin.py:88
+msgid "accepting_offers.admin.make_document"
+msgstr "Generate"
+
+#: .\accepting_offers\apps.py:8
+msgid "accepting_offers"
+msgstr "accepted offers"
+
+#: .\accepting_offers\management\commands\add_accepted_offers.py:31
+msgid "accepting_offers.add_accepted_offers.help"
+msgstr "Add accepted offers (DNU) for testing"
+
+#: .\accepting_offers\models.py:12
+msgid "accepting_offers.payment_frequency.every_semester"
+msgstr "each semester"
+
+#: .\accepting_offers\models.py:13
+msgid "accepting_offers.payment_frequency.every_year"
+msgstr "each year"
+
+#: .\accepting_offers\models.py:14
+msgid "accepting_offers.payment_frequency.every_month"
+msgstr "each month"
+
+#: .\accepting_offers\models.py:15
+msgid "accepting_offers.payment_frequency.full"
+msgstr "full"
+
+#: .\accepting_offers\models.py:18
+msgid "accepting_offers.payment_type.governmental"
+msgstr "governmental TODO"
+
+#: .\accepting_offers\models.py:19
+msgid "accepting_offers.payment_type.town"
+msgstr "town TODO"
+
+#: .\accepting_offers\models.py:20
+msgid "accepting_offers.payment_type.private"
+msgstr "private TODO"
+
+#: .\accepting_offers\models.py:21
+msgid "accepting_offers.payment_type.privileged"
+msgstr "privileged TODO"
+
+#: .\accepting_offers\models.py:24 .\persons\models.py:59
+msgid "abiturient"
+msgstr "abiturient"
+
+#: .\accepting_offers\models.py:28 .\university_offers\models.py:182
+msgid "university_offer"
+msgstr "university offer"
+
+#: .\accepting_offers\models.py:32
+msgid "generic.created_at"
+msgstr "created at"
+
+#: .\accepting_offers\models.py:36
+msgid "accepting_offers.payment_type"
+msgstr "payment type"
+
+#: .\accepting_offers\models.py:41
+msgid "accepting_offers.payment_frequency"
+msgstr "payment frequency"
+
+#: .\accepting_offers\models.py:48
+msgid "accepting_offers.accepted_year"
+msgstr "accepted year"
+
+#: .\accepting_offers\models.py:55
+msgid "accepted_offer"
+msgstr "accepted offer"
+
+#: .\accepting_offers\models.py:56
+msgid "accepted_offer.plural"
+msgstr "accepted offers"
+
+#: .\documents\apps.py:8
+msgid "documents"
+msgstr "documents"
+
+#: .\documents\management\commands\add_documents.py:14
+msgid "documents.add_documents.help"
+msgstr "add documents templates"
+
+#: .\documents\models.py:18
+msgid "generic.only_alpha"
+msgstr "only alphabetical characters are allowed"
+
+#: .\documents\models.py:29
+msgid "document"
+msgstr "document"
+
+#: .\documents\models.py:30
+msgid "document.plural"
+msgstr "documents"
+
+#: .\persons\apps.py:8
+msgid "persons"
+msgstr "persons"
+
+#: .\persons\forms.py:22
+msgid "persons.form.invalid_email"
+msgstr "Invalid email (ensure you spelled it with latin letters) TODO"
+
+#: .\persons\forms.py:34
+msgid "persons.has_18_years"
+msgstr "I am 18 years old TODO"
+
+#: .\persons\management\commands\add_persons.py:95
+msgid "persons.add_persons.help"
+msgstr "add persons for testing"
+
+#: .\persons\models.py:13
+msgid "generic.last_name"
+msgstr "last name"
+
+#: .\persons\models.py:17
+msgid "generic.first_name"
+msgstr "first name"
+
+#: .\persons\models.py:22
+msgid "generic.patronymic"
+msgstr "patronymic"
+
+#: .\persons\models.py:26
+msgid "generic.telephone"
+msgstr "telephone"
+
+#: .\persons\models.py:33
+msgid "generic.email"
+msgstr "email"
+
+#: .\persons\models.py:35
+msgid "abiturient.living_address"
+msgstr "living address"
+
+#: .\persons\models.py:40 .\persons\models.py:83
+msgid "persons.passport"
+msgstr "passport"
+
+#: .\persons\models.py:48
+msgid "persons.parent"
+msgstr "parent"
+
+#: .\persons\models.py:60
+msgid "abiturient.plural"
+msgstr "abiturients"
+
+#: .\persons\models.py:65
+msgid "persons.passport_serie"
+msgstr "passport serie"
+
+#: .\persons\models.py:71
+msgid "persons.passport_number"
+msgstr "passport number"
+
+#: .\persons\models.py:73
+msgid "persons.passport_who_give"
+msgstr "who give"
+
+#: .\persons\models.py:76
+msgid "persons.passport_when_given"
+msgstr "when given"
+
+#: .\persons\models.py:80
+msgid "persons.inn"
+msgstr "INN TODO"
+
+#: .\persons\models.py:84
+msgid "persons.passport.plural"
+msgstr "passports"
+
+#: .\templates\abiturient_form\done.html:4
+#: .\templates\abiturient_form\done.html:7
+msgid "done.title"
+msgstr "Record saved"
+
+#: .\templates\abiturient_form\done.html:8
+msgid "done.content"
+msgstr ""
+"Congratulations on completing all the necessary steps of your application "
+"journey with us!To finalize your application, we kindly request that you "
+"visit our admission office to print and sign the required documents. Our "
+"team will guide you through this process and ensure that all necessary "
+"paperwork is completed accurately.If you have chosen not to provide "
+"sensitive information through the online form, such as passport details, you "
+"can fill out these sections when you visit our admission office. Our staff "
+"will assist you in completing these sections.We appreciate your cooperation "
+"and look forward to welcoming you to DNU. If you have any questions or need "
+"further assistance, please don't hesitate to contact us.Thank you for "
+"choosing Oles Honchar Dnipro National University!"
+
+#: .\templates\abiturient_form\wizard_steps\abiturient.html:6
+msgid "wizard.steps.abiturient.info"
+msgstr ""
+"Welcome to our application portal! We're thrilled that you're considering "
+"Oles Honchar Dnipro National University for your higher education journey.In "
+"this first step, we aim to get to know you better. Your personal information "
+"helps us ensure that your application process is tailored to your unique "
+"background and needs.Please take a moment to provide accurate details about "
+"yourself. Your name, contact information, and other personal details are "
+"essential for us to stay connected with you throughout the application "
+"process and beyond.Rest assured, all information provided is kept strictly "
+"confidential and is used solely for the purpose of your application."
+
+#: .\templates\abiturient_form\wizard_steps\abiturient.html:10
+msgid "wizard.steps.abiturient"
+msgstr "abiturient information"
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_passport.html:6
+msgid "wizard.steps.abiturient_passport"
+msgstr "abiturient passport"
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_passport.html:10
+msgid "wizard.steps.abiturient_passport.info"
+msgstr ""
+"In this step, we kindly request that you provide your passport information. "
+"This helps us ensure accurate documentation for your application process."
+"However, if you prefer not to disclose this sensitive information through "
+"the online form, don't worry! You can leave this section blank for now and "
+"fill it out physically when you visit our admission office."
+
+#: .\templates\abiturient_form\wizard_steps\accepted_offer.html:6
+msgid "wizard.steps.accepted_offer.info"
+msgstr ""
+"You're almost there! In this step, we'll gather the last details needed to complete your application."
+""
+"Please take a moment to review your application summary below and ensure that all information is accurate and up-to-date. If you need to make any changes, you can do so before finalizing your submission."
+""
+"Once you're satisfied with your application details, simply click the submit button to send your application to us. Our admissions team will carefully review your submission and be in touch with any further instructions or updates."
+""
+"Thank you for choosing Oles Honchar Dnipro National University for your academic journey. We're excited to review your application and potentially welcome you to our community!"
+
+#: .\templates\abiturient_form\wizard_steps\accepted_offer.html:9
+msgid "wizard.steps.accepted_offer"
+msgstr "application details"
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:5
+msgid "wizard.steps.university_offer.info"
+msgstr ""
+"Welcome to the exciting step of choosing your university offer!To begin, "
+"please use the search form below to find offers that match your preferences. "
+"You can fill in as much information as you know (some fields are optional)."
+"Once you've entered your search criteria, simply hit the search button to "
+"generate a list of offers that meet your requirements. Take your time to "
+"review each offer carefully and select the one that best aligns with your "
+"academic and personal goals."
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:8
+msgid "wizard.steps.university_offer"
+msgstr "choosing the offer"
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:29
+msgid "search_offer"
+msgstr "search offer"
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:35
+msgid "generic.loading"
+msgstr "loading"
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:39
+msgid "offers.not_found"
+msgstr "no offers were found"
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:109
+msgid "choose_this_offer"
+msgstr "choose this offer"
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:115
+msgid "chosen_offer"
+msgstr "chosen offer"
+
+#: .\templates\abiturient_form\wizard_steps\parent.html:6
+msgid "wizard.steps.parent.info"
+msgstr ""
+"As part of our application process, we require additional information if you are under 18 years old. Please provide details about your representative, usually a parent or guardian, who will act on your behalf during the application process."
+""
+"Kindly fill in the necessary information below regarding your representative, including their name, contact details, and relationship to you. This ensures that we have the appropriate contact information for any communications or inquiries related to your application."
+
+#: .\templates\abiturient_form\wizard_steps\parent.html:10
+msgid "wizard.steps.parent"
+msgstr "representative information TODO"
+
+#: .\templates\abiturient_form\wizard_steps\parent_passport.html:6
+msgid "wizard.steps.parent_passport"
+msgstr ""
+"In this step, we kindly request that you provide passport information for the representative acting on behalf of the applicant, if applicable."
+""
+"Please fill in the necessary details regarding the representative's passport, ensuring accuracy and completeness. This information helps us verify the identity of the representative and ensures smooth processing of your application."
+""
+"If the representative prefers not to disclose sensitive information through the online form, they can choose to leave this section blank and fill it out physically when visiting our admission office."
+
+#: .\templates\abiturient_form\wizard_steps\parent_passport.html:10
+msgid "wizard.steps.parent_passport.info"
+msgstr "representative passport TODO"
+
+#: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:6
+#: .\templates\base\footer.html:7
+msgid "abiturient_form"
+msgstr "abiturient form"
+
+#: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:11
+msgid "wizard.step"
+msgstr "step"
+
+#: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:45
+msgid "wizard.previous_step"
+msgstr "previous step"
+
+#: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:47
+msgid "wizard.next"
+msgstr "next"
+
+#: .\templates\base\footer.html:8
+msgid "footer.admin.login"
+msgstr "Login (administration)"
+
+#: .\templates\base\footer.html:13
+msgid "footer.authors"
+msgstr "Popov Ruslan Oleksandrovich, Karpenko Nadiia Valeriivna, Gerasimov Volodymyr Volodymyrovych"
+
+#: .\templates\base\header.html:12
+msgid "dnu.name.first"
+msgstr "Oles Honchar"
+
+#: .\templates\base\header.html:12
+msgid "dnu.name.second"
+msgstr "Dnipro National University"
+
+#: .\templates\base\wrapper.html:15
+msgid "meta.description"
+msgstr ""
+
+#: .\templates\base\wrapper.html:16
+msgid "meta.keywords"
+msgstr ""
+
+#: .\templates\pk_panel\main.html:7
+msgid "header.pk_panel.title"
+msgstr "PK Panel TODO"
+
+#: .\templates\pk_panel\main.html:15
+msgid "pk_panel.search_description"
+msgstr "Abiturient name, speciality name, etc."
+
+#: .\templates\pk_panel\main.html:16
+msgid "generic.search"
+msgstr "search"
+
+#: .\templates\pk_panel\main.html:40
+msgid "pk_panel.generate"
+msgstr "generate"
+
+#: .\templates\pk_panel\unauthorized.html:6
+msgid "pk_panel.unauthorized.title"
+msgstr "unauthorized access"
+
+#: .\templates\pk_panel\unauthorized.html:11
+msgid "pk_panel.unauthorized.description"
+msgstr "you should be logged in as an administrator and belong to the 'pk' group."
+
+#: .\templates\pk_panel\unauthorized.html:14
+msgid "generic.login"
+msgstr "login"
+
+#: .\templates\pk_panel\unauthorized.html:15
+msgid "generic.logout_root"
+msgstr "logout (if you are root)"
+
+#: .\templates\users_login\login.html:5
+msgid "users.login.title"
+msgstr "login"
+
+#: .\templates\users_login\login.html:11 .\templates\users_login\login.html:17
+msgid "auth.login"
+msgstr "login"
+
+#: .\university_offers\apps.py:8
+msgid "university_offers"
+msgstr "university offers"
+
+#: .\university_offers\forms.py:33
+msgid "university_offer.faculty"
+msgstr "faculty"
+
+#: .\university_offers\forms.py:39
+msgid "university_offer.speciality"
+msgstr "speciality"
+
+#: .\university_offers\forms.py:44
+msgid "university_offer.educational_program_name"
+msgstr "educational program name"
+
+#: .\university_offers\forms.py:49
+msgid "university_offer.offer_type"
+msgstr "offer type"
+
+#: .\university_offers\forms.py:54 .\university_offers\models.py:141
+msgid "university_offer.study_form"
+msgstr "study form"
+
+#: .\university_offers\forms.py:59 .\university_offers\models.py:127
+msgid "university_offer.level"
+msgstr "educational level"
+
+#: .\university_offers\forms.py:64
+msgid "university_offer.basis"
+msgstr "basis of entrance TODO"
+
+#: .\university_offers\forms.py:70
+msgid "university_offer.result_offer"
+msgstr "offer"
+
+#: .\university_offers\forms.py:75
+msgid "university_offer.offer_required"
+msgstr "choose an offer"
+
+#: .\university_offers\management\commands\add_educational_programs.py:9
+msgid "university_offers.add_educational_programs.help"
+msgstr "add educational programs (DNU) for testing"
+
+#: .\university_offers\management\commands\add_faculties.py:58
+msgid "university_offers.add_faculties.help"
+msgstr "add faculties (DNU) for testing"
+
+#: .\university_offers\management\commands\add_offers.py:117
+msgid "university_offers.add_offers.help"
+msgstr "add offers (DNU) for testing"
+
+#: .\university_offers\management\commands\add_specialities.py:20
+msgid "university_offers.add_specialities.help"
+msgstr "add specialities (DNU) for testing"
+
+#: .\university_offers\models.py:12
+msgid "generic.full_name"
+msgstr "full name"
+
+#: .\university_offers\models.py:18
+msgid "generic.abbreviation"
+msgstr "abbreviation"
+
+#: .\university_offers\models.py:21
+msgid "generic.cipher"
+msgstr "cipher"
+
+#: .\university_offers\models.py:27 .\university_offers\models.py:46
+msgid "faculty"
+msgstr "faculty"
+
+#: .\university_offers\models.py:28
+msgid "faculty.plural"
+msgstr "faculties"
+
+#: .\university_offers\models.py:34 .\university_offers\models.py:68
+msgid "generic.name"
+msgstr "name"
+
+#: .\university_offers\models.py:37
+msgid "generic.code"
+msgstr "code"
+
+#: .\university_offers\models.py:42
+msgid "speciality.specialization"
+msgstr "specialization"
+
+#: .\university_offers\models.py:61 .\university_offers\models.py:72
+#: .\university_offers\models.py:123
+msgid "speciality"
+msgstr "speciality"
+
+#: .\university_offers\models.py:62
+msgid "speciality.plural"
+msgstr "specialities"
+
+#: .\university_offers\models.py:78
+msgid "speciality.end_of_accreditation"
+msgstr "end of accreditation"
+
+#: .\university_offers\models.py:87
+msgid "university_offer.type.budget"
+msgstr "budget TODO"
+
+#: .\university_offers\models.py:88
+msgid "university_offer.type.contract"
+msgstr "contract TODO"
+
+#: .\university_offers\models.py:91
+msgid "university_offer.study_form.day"
+msgstr "full-time"
+
+#: .\university_offers\models.py:92
+msgid "university_offer.study_form.over_distance"
+msgstr "distance TODO"
+
+#: .\university_offers\models.py:93
+msgid "university_offer.study_form.evening"
+msgstr "evening TODO"
+
+#: .\university_offers\models.py:96
+msgid "university_offer.level.bachelor"
+msgstr "bachelor"
+
+#: .\university_offers\models.py:97
+msgid "university_offer.level.master"
+msgstr "master"
+
+#: .\university_offers\models.py:98
+msgid "university_offer.level.aspirant"
+msgstr "aspirant TODO"
+
+#: .\university_offers\models.py:101
+msgid "university_offer.basis.school"
+msgstr "school TODO"
+
+#: .\university_offers\models.py:103
+msgid "university_offer.study_begin"
+msgstr "beginning of study"
+
+#: .\university_offers\models.py:107
+msgid "university_offer.study_duration"
+msgstr "study duration"
+
+#: .\university_offers\models.py:132
+msgid "university_offers.basis"
+msgstr "basis of entrance TODO"
+
+#: .\university_offers\models.py:137
+msgid "university_offer.type"
+msgstr "offer type"
+
+#: .\university_offers\models.py:145
+msgid "university_offer.ects"
+msgstr "ECTS"
+
+#: .\university_offers\models.py:149
+msgid "university_offer.year1_cost"
+msgstr "first year cost"
+
+#: .\university_offers\models.py:153
+msgid "university_offer.year2_cost"
+msgstr "second year cost"
+
+#: .\university_offers\models.py:157
+msgid "university_offer.year3_cost"
+msgstr "third year cost"
+
+#: .\university_offers\models.py:161
+msgid "university_offer.year4_cost"
+msgstr "fourth year cost"
+
+#: .\university_offers\models.py:183
+msgid "university_offer.plural"
+msgstr "university offers"
+
+#: .\users\admin.py:11
+msgid "users.additional_fields"
+msgstr "additional fields"
+
+#: .\users\forms.py:9
+msgid "users_login.username"
+msgstr "username"
+
+#: .\users\forms.py:11
+msgid "users_login.password"
+msgstr "password"
+
+#: .\users\management\commands\add_groups.py:9
+msgid "users.add_groups.help"
+msgstr "add user groups"
+
+#: .\users\management\commands\add_users.py:28
+msgid "users.add_users.help"
+msgstr "add users (DNU) for testing"
+
+#: .\users\views.py:29
+msgid "auth.login.failed"
+msgstr "login failed (check username and/or password)"

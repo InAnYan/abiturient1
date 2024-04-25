@@ -1,0 +1,38 @@
+{% load i18n %}
+{% load static %}
+
+{% get_current_language as CURRENT_LANGUAGE %}
+
+<!DOCTYPE html>
+<html lang="{{ CURRENT_LANGUAGE }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            {% block title %}
+            {% endblock title %}
+        </title>
+        <meta name="description" content="{% trans "meta.description" %}">
+        <meta name="keywords" content="{% trans "meta.keywords" %}">
+
+        <link rel="stylesheet" href="{% static 'base/base.css' %}">
+        <link rel="stylesheet" href="{% static 'base/dnu-theme.css' %}">
+
+        {% include "base/libraries/css.html" %}
+    </head>
+
+    <body>
+        {% include "base/libraries/scripts.html" %}
+
+        {% include "base/header.html" %}
+
+        <div class="container my-3">
+            {% block content %}
+            {% endblock content %}
+        </div>
+
+        {% include "base/footer.html" %}
+
+        {% include "base/global_scripts.html" %}
+    </body>
+</html>

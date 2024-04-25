@@ -1,0 +1,565 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-25 12:53+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: .\abiturient1\settings.py:176
+msgid "English"
+msgstr ""
+
+#: .\abiturient1\settings.py:177
+msgid "Ukrainian"
+msgstr ""
+
+#: .\accepting_offers\admin.py:78
+msgid "accepting_offers.admin.only_one_offer"
+msgstr ""
+
+#: .\accepting_offers\admin.py:88
+msgid "accepting_offers.admin.make_document"
+msgstr ""
+
+#: .\accepting_offers\apps.py:8
+msgid "accepting_offers"
+msgstr ""
+
+#: .\accepting_offers\management\commands\add_accepted_offers.py:31
+msgid "accepting_offers.add_accepted_offers.help"
+msgstr ""
+
+#: .\accepting_offers\models.py:12
+msgid "accepting_offers.payment_frequency.every_semester"
+msgstr ""
+
+#: .\accepting_offers\models.py:13
+msgid "accepting_offers.payment_frequency.every_year"
+msgstr ""
+
+#: .\accepting_offers\models.py:14
+msgid "accepting_offers.payment_frequency.every_month"
+msgstr ""
+
+#: .\accepting_offers\models.py:15
+msgid "accepting_offers.payment_frequency.full"
+msgstr ""
+
+#: .\accepting_offers\models.py:18
+msgid "accepting_offers.payment_type.governmental"
+msgstr ""
+
+#: .\accepting_offers\models.py:19
+msgid "accepting_offers.payment_type.town"
+msgstr ""
+
+#: .\accepting_offers\models.py:20
+msgid "accepting_offers.payment_type.private"
+msgstr ""
+
+#: .\accepting_offers\models.py:21
+msgid "accepting_offers.payment_type.privileged"
+msgstr ""
+
+#: .\accepting_offers\models.py:24 .\persons\models.py:59
+msgid "abiturient"
+msgstr ""
+
+#: .\accepting_offers\models.py:28 .\university_offers\models.py:182
+msgid "university_offer"
+msgstr ""
+
+#: .\accepting_offers\models.py:32
+msgid "generic.created_at"
+msgstr ""
+
+#: .\accepting_offers\models.py:36
+msgid "accepting_offers.payment_type"
+msgstr ""
+
+#: .\accepting_offers\models.py:41
+msgid "accepting_offers.payment_frequency"
+msgstr ""
+
+#: .\accepting_offers\models.py:48
+msgid "accepting_offers.accepted_year"
+msgstr ""
+
+#: .\accepting_offers\models.py:55
+msgid "accepted_offer"
+msgstr ""
+
+#: .\accepting_offers\models.py:56
+msgid "accepted_offer.plural"
+msgstr ""
+
+#: .\documents\apps.py:8
+msgid "documents"
+msgstr ""
+
+#: .\documents\management\commands\add_documents.py:14
+msgid "documents.add_documents.help"
+msgstr ""
+
+#: .\documents\models.py:18
+msgid "generic.only_alpha"
+msgstr ""
+
+#: .\documents\models.py:29
+msgid "document"
+msgstr ""
+
+#: .\documents\models.py:30
+msgid "document.plural"
+msgstr ""
+
+#: .\persons\apps.py:8
+msgid "persons"
+msgstr ""
+
+#: .\persons\forms.py:22
+msgid "persons.form.invalid_email"
+msgstr ""
+
+#: .\persons\forms.py:34
+msgid "persons.has_18_years"
+msgstr ""
+
+#: .\persons\management\commands\add_persons.py:95
+msgid "persons.add_persons.help"
+msgstr ""
+
+#: .\persons\models.py:13
+msgid "generic.last_name"
+msgstr ""
+
+#: .\persons\models.py:17
+msgid "generic.first_name"
+msgstr ""
+
+#: .\persons\models.py:22
+msgid "generic.patronymic"
+msgstr ""
+
+#: .\persons\models.py:26
+msgid "generic.telephone"
+msgstr ""
+
+#: .\persons\models.py:33
+msgid "generic.email"
+msgstr ""
+
+#: .\persons\models.py:35
+msgid "abiturient.living_address"
+msgstr ""
+
+#: .\persons\models.py:40 .\persons\models.py:83
+msgid "persons.passport"
+msgstr ""
+
+#: .\persons\models.py:48
+msgid "persons.parent"
+msgstr ""
+
+#: .\persons\models.py:60
+msgid "abiturient.plural"
+msgstr ""
+
+#: .\persons\models.py:65
+msgid "persons.passport_serie"
+msgstr ""
+
+#: .\persons\models.py:71
+msgid "persons.passport_number"
+msgstr ""
+
+#: .\persons\models.py:73
+msgid "persons.passport_who_give"
+msgstr ""
+
+#: .\persons\models.py:76
+msgid "persons.passport_when_given"
+msgstr ""
+
+#: .\persons\models.py:80
+msgid "persons.inn"
+msgstr ""
+
+#: .\persons\models.py:84
+msgid "persons.passport.plural"
+msgstr ""
+
+#: .\templates\abiturient_form\done.html:4
+#: .\templates\abiturient_form\done.html:7
+msgid "done.title"
+msgstr ""
+
+#: .\templates\abiturient_form\done.html:8
+msgid "done.content"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\abiturient.html:6
+msgid "wizard.steps.abiturient.info"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\abiturient.html:10
+msgid "wizard.steps.abiturient"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_passport.html:6
+msgid "wizard.steps.abiturient_passport"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_passport.html:10
+msgid "wizard.steps.abiturient_passport.info"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\accepted_offer.html:6
+msgid "wizard.steps.accepted_offer.info"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\accepted_offer.html:9
+msgid "wizard.steps.accepted_offer"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:5
+msgid "wizard.steps.university_offer.info"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:8
+msgid "wizard.steps.university_offer"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:29
+msgid "search_offer"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:35
+msgid "generic.loading"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:39
+msgid "offers.not_found"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:109
+msgid "choose_this_offer"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\offer.html:115
+msgid "chosen_offer"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\parent.html:6
+msgid "wizard.steps.parent.info"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\parent.html:10
+msgid "wizard.steps.parent"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\parent_passport.html:6
+msgid "wizard.steps.parent_passport"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\parent_passport.html:10
+msgid "wizard.steps.parent_passport.info"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:6
+#: .\templates\base\footer.html:7
+msgid "abiturient_form"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:11
+msgid "wizard.step"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:45
+msgid "wizard.previous_step"
+msgstr ""
+
+#: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:47
+msgid "wizard.next"
+msgstr ""
+
+#: .\templates\base\footer.html:8
+msgid "footer.admin.login"
+msgstr ""
+
+#: .\templates\base\footer.html:13
+msgid "footer.authors"
+msgstr ""
+
+#: .\templates\base\header.html:12
+msgid "dnu.name.first"
+msgstr ""
+
+#: .\templates\base\header.html:12
+msgid "dnu.name.second"
+msgstr ""
+
+#: .\templates\base\wrapper.html:15
+msgid "meta.description"
+msgstr ""
+
+#: .\templates\base\wrapper.html:16
+msgid "meta.keywords"
+msgstr ""
+
+#: .\templates\pk_panel\main.html:7
+msgid "header.pk_panel.title"
+msgstr ""
+
+#: .\templates\pk_panel\main.html:15
+msgid "pk_panel.search_description"
+msgstr ""
+
+#: .\templates\pk_panel\main.html:16
+msgid "generic.search"
+msgstr ""
+
+#: .\templates\pk_panel\main.html:40
+msgid "pk_panel.generate"
+msgstr ""
+
+#: .\templates\pk_panel\unauthorized.html:6
+msgid "pk_panel.unauthorized.title"
+msgstr ""
+
+#: .\templates\pk_panel\unauthorized.html:11
+msgid "pk_panel.unauthorized.description"
+msgstr ""
+
+#: .\templates\pk_panel\unauthorized.html:14
+msgid "generic.login"
+msgstr ""
+
+#: .\templates\pk_panel\unauthorized.html:15
+msgid "generic.logout_root"
+msgstr ""
+
+#: .\templates\users_login\login.html:5
+msgid "users.login.title"
+msgstr ""
+
+#: .\templates\users_login\login.html:11 .\templates\users_login\login.html:17
+msgid "auth.login"
+msgstr ""
+
+#: .\university_offers\apps.py:8
+msgid "university_offers"
+msgstr ""
+
+#: .\university_offers\forms.py:33
+msgid "university_offer.faculty"
+msgstr ""
+
+#: .\university_offers\forms.py:39
+msgid "university_offer.speciality"
+msgstr ""
+
+#: .\university_offers\forms.py:44
+msgid "university_offer.educational_program_name"
+msgstr ""
+
+#: .\university_offers\forms.py:49
+msgid "university_offer.offer_type"
+msgstr ""
+
+#: .\university_offers\forms.py:54 .\university_offers\models.py:141
+msgid "university_offer.study_form"
+msgstr ""
+
+#: .\university_offers\forms.py:59 .\university_offers\models.py:127
+msgid "university_offer.level"
+msgstr ""
+
+#: .\university_offers\forms.py:64
+msgid "university_offer.basis"
+msgstr ""
+
+#: .\university_offers\forms.py:70
+msgid "university_offer.result_offer"
+msgstr ""
+
+#: .\university_offers\forms.py:75
+msgid "university_offer.offer_required"
+msgstr ""
+
+#: .\university_offers\management\commands\add_educational_programs.py:9
+msgid "university_offers.add_educational_programs.help"
+msgstr ""
+
+#: .\university_offers\management\commands\add_faculties.py:58
+msgid "university_offers.add_faculties.help"
+msgstr ""
+
+#: .\university_offers\management\commands\add_offers.py:117
+msgid "university_offers.add_offers.help"
+msgstr ""
+
+#: .\university_offers\management\commands\add_specialities.py:20
+msgid "university_offers.add_specialities.help"
+msgstr ""
+
+#: .\university_offers\models.py:12
+msgid "generic.full_name"
+msgstr ""
+
+#: .\university_offers\models.py:18
+msgid "generic.abbreviation"
+msgstr ""
+
+#: .\university_offers\models.py:21
+msgid "generic.cipher"
+msgstr ""
+
+#: .\university_offers\models.py:27 .\university_offers\models.py:46
+msgid "faculty"
+msgstr ""
+
+#: .\university_offers\models.py:28
+msgid "faculty.plural"
+msgstr ""
+
+#: .\university_offers\models.py:34 .\university_offers\models.py:68
+msgid "generic.name"
+msgstr ""
+
+#: .\university_offers\models.py:37
+msgid "generic.code"
+msgstr ""
+
+#: .\university_offers\models.py:42
+msgid "speciality.specialization"
+msgstr ""
+
+#: .\university_offers\models.py:61 .\university_offers\models.py:72
+#: .\university_offers\models.py:123
+msgid "speciality"
+msgstr ""
+
+#: .\university_offers\models.py:62
+msgid "speciality.plural"
+msgstr ""
+
+#: .\university_offers\models.py:78
+msgid "speciality.end_of_accreditation"
+msgstr ""
+
+#: .\university_offers\models.py:87
+msgid "university_offer.type.budget"
+msgstr ""
+
+#: .\university_offers\models.py:88
+msgid "university_offer.type.contract"
+msgstr ""
+
+#: .\university_offers\models.py:91
+msgid "university_offer.study_form.day"
+msgstr ""
+
+#: .\university_offers\models.py:92
+msgid "university_offer.study_form.over_distance"
+msgstr ""
+
+#: .\university_offers\models.py:93
+msgid "university_offer.study_form.evening"
+msgstr ""
+
+#: .\university_offers\models.py:96
+msgid "university_offer.level.bachelor"
+msgstr ""
+
+#: .\university_offers\models.py:97
+msgid "university_offer.level.master"
+msgstr ""
+
+#: .\university_offers\models.py:98
+msgid "university_offer.level.aspirant"
+msgstr ""
+
+#: .\university_offers\models.py:101
+msgid "university_offer.basis.school"
+msgstr ""
+
+#: .\university_offers\models.py:103
+msgid "university_offer.study_begin"
+msgstr ""
+
+#: .\university_offers\models.py:107
+msgid "university_offer.study_duration"
+msgstr ""
+
+#: .\university_offers\models.py:132
+msgid "university_offers.basis"
+msgstr ""
+
+#: .\university_offers\models.py:137
+msgid "university_offer.type"
+msgstr ""
+
+#: .\university_offers\models.py:145
+msgid "university_offer.ects"
+msgstr ""
+
+#: .\university_offers\models.py:149
+msgid "university_offer.year1_cost"
+msgstr ""
+
+#: .\university_offers\models.py:153
+msgid "university_offer.year2_cost"
+msgstr ""
+
+#: .\university_offers\models.py:157
+msgid "university_offer.year3_cost"
+msgstr ""
+
+#: .\university_offers\models.py:161
+msgid "university_offer.year4_cost"
+msgstr ""
+
+#: .\university_offers\models.py:183
+msgid "university_offer.plural"
+msgstr ""
+
+#: .\users\admin.py:11
+msgid "users.additional_fields"
+msgstr ""
+
+#: .\users\forms.py:9
+msgid "users_login.username"
+msgstr ""
+
+#: .\users\forms.py:11
+msgid "users_login.password"
+msgstr ""
+
+#: .\users\management\commands\add_groups.py:9
+msgid "users.add_groups.help"
+msgstr ""
+
+#: .\users\management\commands\add_users.py:28
+msgid "users.add_users.help"
+msgstr ""
+
+#: .\users\views.py:29
+msgid "auth.login.failed"
+msgstr ""
