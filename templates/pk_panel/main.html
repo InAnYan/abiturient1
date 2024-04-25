@@ -46,14 +46,17 @@
     </div>
 </div>
 
-<script>
-  $(() => {
-    document.getElementById("query").value = $.urlParam("query").replace(/\+/g, " ");
-  });
-</script>
-
 {% endfor %}
 
 </div>
+
+<script>
+  $(() => {
+    let query = $.urlParam("query");
+    if (query) {
+      document.getElementById("query").value = query.replace(/\+/g, " ");
+    }
+  });
+</script>
 
 {% endblock content %}

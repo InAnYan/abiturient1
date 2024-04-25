@@ -13,7 +13,7 @@
         </div>
 
         <div class="col-6 text-center">
-          <span class="text-white">
+          <span class="text-white font-weight-bold" id="header-title">
             {% block title %}
             {% endblock title %}
           </span>
@@ -40,3 +40,7 @@
       </div>
     </div>
 </header>
+
+<script>
+  $("#header-title").text(document.title);
+</script>
