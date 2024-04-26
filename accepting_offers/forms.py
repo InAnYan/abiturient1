@@ -54,3 +54,7 @@ class AcceptedOfferForm(forms.ModelForm):
     class Meta:
         model = AcceptedOffer
         exclude = ("offer", "abiturient")
+
+
+class EmptyForm(forms.Form):
+    pass

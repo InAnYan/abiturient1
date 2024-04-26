@@ -29,6 +29,7 @@
 
 {{ wizard.form.living_address | as_crispy_field }}
 
-{{ wizard.form.has_18_years | as_crispy_field }}
+{% block additional_fields %}
+{% endblock additional_fields %}
 
 {% endblock content_form %}

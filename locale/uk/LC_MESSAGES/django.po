@@ -448,7 +448,7 @@ msgstr "кк"
 
 #: .\university_offers\forms.py:75
 msgid "university_offer.offer_required"
-msgstr "оберіть конкурсну пропозицію"
+msgstr "Оберіть конкурсну пропозицію"
 
 #: .\university_offers\management\commands\add_educational_programs.py:9
 msgid "university_offers.add_educational_programs.help"

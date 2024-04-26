@@ -1,0 +1,96 @@
+{% extends "abiturient_form/wizard_steps/wizard_step_wrapper.html" %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block info %}
+{% trans "wizard.steps.check.info" %}
+{% endblock info %}
+{% block step_name %}
+    {% trans "wizard.steps.check"|capfirst %}
+{% endblock step_name %}
+
+{% block content_form %}
+
+<h3>{% trans "wizard.steps.abiturient"|capfirst %}</h3>
+
+<p><strong>{% trans "generic.last_name"|capfirst %}</strong>: {{ abiturient.last_name }}. </p>
+<p><strong>{% trans "generic.first_name"|capfirst %}</strong>: {{ abiturient.first_name }}. </p>
+<p><strong>{% trans "generic.patronymic"|capfirst %}</strong>: {{ abiturient.patronymic }}. </p>
+
+<div class="mb-3"></div>
+
+<p><strong>{% trans "generic.telephone" %}</strong>: {{ abiturient.phone }}. </p>
+<p><strong>{% trans "generic.email" %}</strong>: {{ abiturient.email }}. </p>
+
+<div class="mb-3"></div>
+
+<p><strong>{% trans "abiturient.living_address" %}</strong>: {{ abiturient.living_address }}. </p>
+
+<h3>{% trans "wizard.steps.abiturient_passport"|capfirst %}</h3>
+
+{% if abiturient_passport.serie %}
+    <p><strong>{% trans "persons.passport_serie"|capfirst %}</strong>: {{ abiturient_passport.serie }}. </p>
+{% endif %}
+
+<p><strong>{% trans "persons.passport_number"|capfirst %}</strong>: {{ abiturient_passport.number }}. </p>
+
+<div class="mb-3"></div>
+
+<p><strong>{% trans "persons.passport_who_give"|capfirst %}</strong>: {{ abiturient_passport.who_give }}. </p>
+<p><strong>{% trans "persons.passport_when_given"|capfirst %}</strong>: {{ abiturient_passport.when_given }}. </p>
+
+<div class="mb-3"></div>
+
+<p><strong>{% trans "persons.inn"|capfirst %}</strong>: {{ abiturient_passport.inn }}. </p>
+
+{% if not abiturient.has_18_years %}
+    <h3>{% trans "wizard.steps.parent"|capfirst %}</h3>
+
+    <p><strong>{% trans "generic.last_name"|capfirst %}</strong>: {{ parent.last_name }}. </p>
+    <p><strong>{% trans "generic.first_name"|capfirst %}</strong>: {{ parent.first_name }}. </p>
+    <p><strong>{% trans "generic.patronymic"|capfirst %}</strong>: {{ parent.patronymic }}. </p>
+
+    <div class="mb-3"></div>
+
+    <p><strong>{% trans "generic.telephone" %}</strong>: {{ parent.phone }}. </p>
+    <p><strong>{% trans "generic.email" %}</strong>: {{ parent.email }}. </p>
+
+    <div class="mb-3"></div>
+
+    <p><strong>{% trans "abiturient.living_address" %}</strong>: {{ parent.living_address }}. </p>
+
+    <h3>{% trans "wizard.steps.parent_passport"|capfirst %}</h3>
+
+    {% if parent_passport.serie %}
+        <p><strong>{% trans "persons.passport_serie"|capfirst %}</strong>: {{ parent_passport.serie }}. </p>
+    {% endif %}
+
+    <p><strong>{% trans "persons.passport_number"|capfirst %}</strong>: {{ parent_passport.number }}. </p>
+
+    <div class="mb-3"></div>
+
+    <p><strong>{% trans "persons.passport_who_give"|capfirst %}</strong>: {{ parent_passport.who_give }}. </p>
+    <p><strong>{% trans "persons.passport_when_given"|capfirst %}</strong>: {{ parent_passport.when_given }}. </p>
+
+    <div class="mb-3"></div>
+
+    <p><strong>{% trans "persons.inn"|capfirst %}</strong>: {{ parent_passport.inn }}. </p>
+{% endif %}
+
+<h3>{% trans "wizard.steps.offer"|capfirst %}</h3>
+
+{% include "university_offers/base/offer_info.html" with offer=offer.result_offer %}
+
+<h3>{% trans "wizard.steps.accepted_offer"|capfirst %}</h3>
+
+{% if offer.result_offer.type == UniversityOffer.Type.CONTRACT %}
+    <p><strong>{% trans "accepting_offers.payment_type"|capfirst %}</strong>: {{ offer.result_offer.payment_type }}. </p>
+    <p><strong>{% trans "accepting_offers.payment_frequency"|capfirst %}</strong>: {{ offer.result_offer.payment_frequency }}. </p>
+
+    <div class="mb-3"></div>
+
+{% endif %}
+
+<p><strong>{% trans "accepting_offers.accepted_year"|capfirst %}</strong>: {{ accepted_offer.accepted_year }}. </p>
+
+{% endblock content_form %}

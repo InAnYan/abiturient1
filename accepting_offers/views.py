@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.db import transaction
 
-from accepting_offers.forms import AcceptedOfferForm
+from accepting_offers.forms import AcceptedOfferForm, EmptyForm
 from persons.forms import AbiturientForm, PassportForm, PersonForm
 
 from formtools.wizard.views import CookieWizardView
@@ -27,6 +27,7 @@ class AbiturientAndOffersWizard(CookieWizardView):
         ("parent_passport", PassportForm),
         ("offer", UniversityOfferSearchForm),
         ("accepted_offer", AcceptedOfferForm),
+        ("check", EmptyForm),
     ]
 
     def should_be_parent(self) -> bool:
@@ -43,6 +44,7 @@ class AbiturientAndOffersWizard(CookieWizardView):
         "parent_passport": should_be_parent,
         "offer": lambda _: True,
         "accepted_offer": lambda _: True,
+        "check": lambda _: True,
     }
 
     def get_template_names(self) -> list[str]:
@@ -59,6 +61,8 @@ class AbiturientAndOffersWizard(CookieWizardView):
                 return ["abiturient_form/wizard_steps/offer.html"]
             case "accepted_offer":
                 return ["abiturient_form/wizard_steps/accepted_offer.html"]
+            case "check":
+                return ["abiturient_form/wizard_steps/check.html"]
             case _:
                 raise NotImplementedError()
 
@@ -82,6 +86,27 @@ class AbiturientAndOffersWizard(CookieWizardView):
                     == UniversityOffer.Type.CONTRACT
                 }
             )
+        elif self.steps.current == "check":
+            context.update(
+                {
+                    "abiturient": self.get_cleaned_data_for_step("abiturient"),
+                    "abiturient_passport": self.get_cleaned_data_for_step(
+                        "abiturient_passport"
+                    ),
+                    "offer": self.get_cleaned_data_for_step("offer"),
+                    "accepted_offer": self.get_cleaned_data_for_step("accepted_offer"),
+                }
+            )
+
+            if not context["abiturient"]["has_18_years"]:
+                context.update(
+                    {
+                        "parent": self.get_cleaned_data_for_step("parent"),
+                        "parent_passport": self.get_cleaned_data_for_step(
+                            "parent_passport"
+                        ),
+                    }
+                )
 
         return context
 

@@ -1,0 +1,93 @@
+{% load i18n %}
+
+<p>
+  <strong>{% trans "university_offer.study_begin"|capfirst %}</strong>:
+  {{ offer.study_begin }}.
+</p>
+
+<p>
+  <strong>{% trans "university_offer.study_end"|capfirst %}</strong>:
+  {{ offer.study_end }}.
+</p>
+
+<p>
+  <strong>{% trans "university_offer.study_duration"|capfirst %}</strong>:
+  {{ offer.study_duration_years }} {% trans "generic.years" %}, {{ offer.study_duration_months }} {% trans "generic.months" %}
+</p>
+
+<p>
+  <strong>{% trans "faculty"|capfirst %}</strong>:
+  {{ offer.educational_program.speciality.faculty.full_name }}.
+</p>
+
+<p>
+  <strong>{% trans "speciality"|capfirst %}</strong>:
+  {{ offer.educational_program.speciality.code_and_name }}.
+</p>
+
+<p>
+  <strong>{% trans "educational_program_name"|capfirst %}</strong>:
+  {{ offer.educational_program.name }}.
+</p>
+
+<p>
+  <strong>{% trans "speciality.end_of_accreditation"|capfirst %}</strong>:
+  {% if offer.educational_program.end_of_accreditation %}
+      {{ offer.educational_program.end_of_accreditation }}
+  {% else %}
+      {% trans "offer.speciality.no_accreditation" %}
+  {% endif %}
+</p>
+
+<p>
+  <strong>{% trans "university_offer.level"|capfirst %}</strong>:
+  {{ offer.level }}.
+</p>
+
+<p>
+  <strong>{% trans "university_offer.basis"|capfirst %}</strong>:
+  {{ offer.basis }}.
+</p>
+
+<p>
+  <strong>{% trans "university_offer.type"|capfirst %}</strong>:
+  {{ offer.type }}.
+</p>
+
+<p>
+  <strong>{% trans "university_offer.study_form"|capfirst %}</strong>:
+  {{ offer.study_form }}.
+</p>
+
+<p>
+  <strong>{% trans "university_offer.ects"|capfirst %}</strong>:
+  {{ offer.ects }}.
+</p>
+
+{% if offer.year1_cost %}
+<p>
+  <strong>{% trans "university_offer.year1_cost"|capfirst %}</strong>:
+  {{ offer.year1_cost }}.
+</p>
+{% endif %}
+
+{% if offer.year2_cost %}
+<p>
+  <strong>{% trans "university_offer.year2_cost"|capfirst %}</strong>:
+  {{ offer.year2_cost }}.
+</p>
+{% endif %}
+
+{% if offer.year3_cost %}
+<p>
+  <strong>{% trans "university_offer.year3_cost"|capfirst %}</strong>:
+  {{ offer.year3_cost }}.
+</p>
+{% endif %}
+
+{% if offer.year4_cost %}
+<p>
+  <strong>{% trans "university_offer.year4_cost"|capfirst %}</strong>:
+  {{ offer.year4_cost }}.
+</p>
+{% endif %}

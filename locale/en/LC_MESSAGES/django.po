@@ -314,7 +314,7 @@ msgid "wizard.steps.parent"
 msgstr "representative information TODO"
 
 #: .\templates\abiturient_form\wizard_steps\parent_passport.html:6
-msgid "wizard.steps.parent_passport"
+msgid "wizard.steps.parent_passport.info"
 msgstr ""
 "In this step, we kindly request that you provide passport information for the representative acting on behalf of the applicant, if applicable."
 ""
@@ -323,7 +323,7 @@ msgstr ""
 "If the representative prefers not to disclose sensitive information through the online form, they can choose to leave this section blank and fill it out physically when visiting our admission office."
 
 #: .\templates\abiturient_form\wizard_steps\parent_passport.html:10
-msgid "wizard.steps.parent_passport.info"
+msgid "wizard.steps.parent_passport"
 msgstr "representative passport TODO"
 
 #: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:6
@@ -445,7 +445,7 @@ msgstr "offer"
 
 #: .\university_offers\forms.py:75
 msgid "university_offer.offer_required"
-msgstr "choose an offer"
+msgstr "Choose an offer"
 
 #: .\university_offers\management\commands\add_educational_programs.py:9
 msgid "university_offers.add_educational_programs.help"

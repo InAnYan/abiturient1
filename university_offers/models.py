@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.core.validators import MinValueValidator
 from dateutil.relativedelta import relativedelta
@@ -77,6 +78,13 @@ class EducationalProgram(models.Model):
         blank=True,
         verbose_name=_("speciality.end_of_accreditation"),
     )
+
+    @property
+    def has_accreditation(self) -> str:
+        if self.end_of_accreditation and self.end_of_accreditation > datetime.now():
+            return _("educational_program.has_accreditation")
+        else:
+            return _("educational_program.not_has_accreditation")
 
     def __str__(self) -> str:
         return self.name

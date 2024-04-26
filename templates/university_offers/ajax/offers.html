@@ -10,7 +10,7 @@
 
       <div id="collapse{{ offer.id }}" class="collapse" aria-labelledby="heading{{ offer.id }}" data-parent="#accordion">
         <div class="card-body">
-          BLA BLA BLA
+          {% include "university_offers/base/offer_info.html" with offer=offer %}
         </div>
       </div>
     </div>
