@@ -64,6 +64,8 @@ class UniversityOfferSearchForm(forms.Form):
         label=capitalize_lazy(_("university_offer.basis")),
     )
 
+    # It will be a hidden field, so we can't leave it required because the error message won't be shown.
+    # TODO: What if there is a method to show the error message?
     result_offer = forms.ModelChoiceField(
         queryset=UniversityOffer.objects.all(),
         required=False,

@@ -11,6 +11,8 @@
 
 {% block content_form %}
 
+{% if chosen_contract_offer %}
+
 <div class="form-row">
     <div class="col">
         {{ wizard.form.payment_type | as_crispy_field }}
@@ -19,6 +21,8 @@
         {{ wizard.form.payment_frequency | as_crispy_field }}
     </div>
 </div>
+
+{% endif %}
 
 <div class="form-row">
     <div class="col">

@@ -15,7 +15,6 @@ class AcceptedOffer(models.Model):
         FULL = 4, _("accepting_offers.payment_frequency.full")
 
     class PaymentType(models.IntegerChoices):
-        GOVERNMENTAL = 1, _("accepting_offers.payment_type.governmental")
         TOWN = 2, _("accepting_offers.payment_type.town")
         PRIVATE = 3, _("accepting_offers.payment_type.private")
         PRIVILEGED = 4, _("accepting_offers.payment_type.privileged")
@@ -33,7 +32,10 @@ class AcceptedOffer(models.Model):
     )
 
     payment_type = models.IntegerField(
-        choices=PaymentType.choices, verbose_name=_("accepting_offers.payment_type")
+        choices=PaymentType.choices,
+        verbose_name=_("accepting_offers.payment_type"),
+        blank=True,
+        null=True,
     )
 
     payment_frequency = models.IntegerField(
@@ -50,6 +52,32 @@ class AcceptedOffer(models.Model):
 
     def __str__(self) -> str:
         return f"{self.abiturient} - {self.offer}"
+
+    # This requires offer to be. But in the wizard form I cannot pass it.
+    """
+    def clean(self) -> None:
+        super().clean()
+        if self.offer.type == UniversityOffer.Type.CONTRACT:
+            if self.payment_type is None:
+                raise ValidationError(
+                    _("accepting_offers.payment_type_required_for_contract")
+                )
+            if self.payment_frequency is None:
+                raise ValidationError(
+                    _("accepting_offers.payment_frequency_required_for_contract")
+                )
+        elif self.offer.type == UniversityOffer.Type.BUDGET:
+            if self.payment_type is not None:
+                raise ValidationError(
+                    _("accepting_offers.payment_type_not_required_for_budget")
+                )
+            if self.payment_frequency is not None:
+                raise ValidationError(
+                    _("accepting_offers.payment_frequency_not_required_for_budget")
+                )
+        else:
+            raise NotImplementedError()
+    """
 
     class Meta:
         verbose_name = _("accepted_offer")

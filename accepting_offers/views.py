@@ -9,6 +9,7 @@ from persons.forms import AbiturientForm, PassportForm, PersonForm
 from formtools.wizard.views import CookieWizardView
 
 from university_offers.forms import UniversityOfferSearchForm
+from university_offers.models import UniversityOffer
 
 
 def done(request):
@@ -60,6 +61,29 @@ class AbiturientAndOffersWizard(CookieWizardView):
                 return ["abiturient_form/wizard_steps/accepted_offer.html"]
             case _:
                 raise NotImplementedError()
+
+    def get_form_initial(self, step):
+        if step == "accepted_offer":
+            offer_step = self.get_cleaned_data_for_step("offer")
+            offer = offer_step["result_offer"]
+            res = super().get_form_initial(step)
+            res["offer"] = offer
+            return res
+
+    def get_context_data(self, form, **kwargs):
+        context = super().get_context_data(form=form, **kwargs)
+
+        if self.steps.current == "accepted_offer":
+            context.update(
+                {
+                    "chosen_contract_offer": self.get_cleaned_data_for_step("offer")[
+                        "result_offer"
+                    ].type
+                    == UniversityOffer.Type.CONTRACT
+                }
+            )
+
+        return context
 
     def done(self, form_list, **kwargs):
         # That's easier.
