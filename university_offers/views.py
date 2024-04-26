@@ -14,7 +14,7 @@ def ajax_offers(request: HttpRequest) -> HttpResponse:
     )
 
     if faculty := request.GET.get("faculty"):
-        offers = offers.filter(faculty=faculty)
+        offers = offers.filter(educational_program__speciality__faculty=faculty)
 
     if speciality_id := request.GET.get("speciality"):
         speciality = Speciality.objects.get(id=speciality_id)

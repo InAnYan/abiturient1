@@ -81,7 +81,10 @@ class EducationalProgram(models.Model):
 
     @property
     def has_accreditation(self) -> str:
-        if self.end_of_accreditation and self.end_of_accreditation > datetime.now():
+        if (
+            self.end_of_accreditation
+            and self.end_of_accreditation > datetime.now().date()
+        ):
             return _("educational_program.has_accreditation")
         else:
             return _("educational_program.not_has_accreditation")
@@ -170,8 +173,38 @@ class UniversityOffer(models.Model):
     )
 
     @property
+    def year1_cost_words(self) -> str:
+        from num2words import num2words
+
+        return num2words(self.year1_cost, lang="uk")
+
+    @property
+    def year2_cost_words(self) -> str:
+        from num2words import num2words
+
+        return num2words(self.year2_cost, lang="uk")
+
+    @property
+    def year3_cost_words(self) -> str:
+        from num2words import num2words
+
+        return num2words(self.year3_cost, lang="uk")
+
+    @property
+    def year4_cost_words(self) -> str:
+        from num2words import num2words
+
+        return num2words(self.year4_cost, lang="uk")
+
+    @property
     def full_cost(self) -> int:
         return self.year1_cost + self.year2_cost + self.year3_cost + self.year4_cost
+
+    @property
+    def full_cost_words(self) -> str:
+        from num2words import num2words
+
+        return num2words(self.full_cost, lang="uk")
 
     def __str__(self) -> str:
         return self.str_property

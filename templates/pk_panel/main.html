@@ -50,6 +50,12 @@
 
 </div>
 
+<div class="d-flex justify-content-center">
+
+  <a class="btn btn-primary" href="{% url "logout" %}">{% trans "logout"|capfirst %}</a>
+
+</div>
+
 <script>
   $(() => {
     let query = $.urlParam("query");

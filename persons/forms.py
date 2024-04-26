@@ -23,6 +23,10 @@ class PersonForm(forms.ModelForm):
 
 
 class PassportForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["who_give"].widget.attrs = {"rows": 3}
+
     class Meta:
         model = Passport
         exclude = []

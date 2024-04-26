@@ -5,6 +5,8 @@ from datetime import date
 
 from django.core.validators import MaxValueValidator
 
+from django.core.validators import RegexValidator
+
 
 # TODO: INTEGER FIELD LENGTHS.
 
@@ -22,12 +24,12 @@ class Person(models.Model):
         verbose_name=_("generic.patronymic"),
     )
 
-    phone = models.IntegerField(
+    phone = models.CharField(
         verbose_name=_("generic.telephone"),
         validators=[
-            # RegexValidator("\d+", _("generic.only_numbers")),
-            # MinLengthValidator(9),
+            RegexValidator(r"^\+\d{10,12}$", _("generic.only_numbers")),
         ],
+        help_text=_("telephone.help"),
     )
 
     email = models.EmailField(verbose_name=_("generic.email"))
@@ -66,6 +68,7 @@ class Passport(models.Model):
         max_length=2,
         null=True,
         blank=True,
+        help_text=_("passport.serie.help"),
     )
 
     number = models.IntegerField(verbose_name=_("persons.passport_number"))
@@ -77,7 +80,9 @@ class Passport(models.Model):
         validators=[MaxValueValidator(limit_value=date.today)],
     )
 
-    inn = models.IntegerField(verbose_name=_("persons.inn"))
+    inn = models.CharField(
+        verbose_name=_("persons.inn"), validators=[RegexValidator(r"^\d{12}$")]
+    )
 
     class Meta:
         verbose_name = _("persons.passport")

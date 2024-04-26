@@ -58,6 +58,60 @@
     const noDataElem = $("#noData");
     const accordionElem = $("#accordion");
 
+    const cookiesValList = [
+      ["faculty", facultyElem],
+      ["speciality", specialityElem],
+      ["educational_program_name", educationalProgramNameElem],
+      ["offer_type", offerTypeElem],
+      ["study_form", studyFormElem],
+      ["basis", basisElem],
+      ["level", levelElem]
+    ];
+
+    const cookiesHtmlList = [
+      ["accordion", accordionElem]
+    ];
+
+    for (const [key, elem] of cookiesValList) {
+      elem.on("change", function() {
+        Cookies.set(key, elem.val());
+      })
+    }
+
+    for (const [key, elem] of cookiesHtmlList) {
+      elem.on("change", function() {
+        Cookies.set(key, elem.html());
+      })
+    }
+
+    $(() => {
+      for (const [key, elem] of cookiesValList) {
+        restoreVal(key, elem);
+      }
+
+      for (const [key, elem] of cookiesHtmlList) {
+        restoreHtml(key, elem);
+      }
+
+      chooseOffer({{ wizard.form.result_offer.value }});
+    });
+
+    function restoreVal(key, elem) {
+      let cookie = Cookies.get(key);
+
+      if (cookie) {
+        elem.val(cookie);
+      }
+    }
+
+    function restoreHtml(key, elem) {
+      let cookie = Cookies.get(key);
+
+      if (cookie) {
+        elem.html(cookie);
+      }
+    }
+
     searchButton.on("click", function() {
       let faculty = facultyElem.val();
       let speciality = specialityElem.val();
@@ -87,6 +141,7 @@
 
           lastButton = null;
           resultOffer.val("");
+          Cookies.set("accordion", accordionElem.html());
 
           if (accordionElem.children().length == 0) {
             noDataElem.removeClass("d-none");

@@ -11,3 +11,4 @@ django-import-export
 python-dateutil
 django-extensions
 thefuzz
+num2words

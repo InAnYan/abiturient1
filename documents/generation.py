@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from accepting_offers.models import AcceptedOffer
 from documents.models import Document
 from university_offers.models import UniversityOffer
+from django.utils.translation import gettext_lazy as _
 
 from docxtpl import DocxTemplate
 
@@ -14,16 +15,21 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
     offer = accepted_offer.offer
     abiturient = accepted_offer.abiturient
     parent = abiturient.parent
-    speciality = offer.speciality
+    educational_program = offer.educational_program
+    speciality = educational_program.speciality
+    faculty = speciality.faculty
 
     offer.study_form = UniversityOffer.StudyForm(offer.study_form).label
     offer.type = UniversityOffer.Type(offer.type).label
     offer.level = UniversityOffer.Level(offer.level).label
     offer.basis = UniversityOffer.Basis(offer.basis).label
 
-    accepted_offer.payment_type = AcceptedOffer.PaymentType(
-        accepted_offer.payment_type
-    ).label
+    if accepted_offer.payment_type:
+        accepted_offer.payment_type = AcceptedOffer.PaymentType(
+            accepted_offer.payment_type
+        ).label
+    else:
+        accepted_offer.payment_type = _("accepting_offers.payment_type.governmental")
 
     doc = DocxTemplate(path)
     context = {
@@ -32,6 +38,8 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
         "abiturient": abiturient,
         "parent": parent,
         "speciality": speciality,
+        "educational_program": educational_program,
+        "faculty": faculty,
     }
     doc.render(context)
     doc.save(out)

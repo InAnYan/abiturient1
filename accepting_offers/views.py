@@ -112,7 +112,8 @@ class AbiturientAndOffersWizard(CookieWizardView):
 
     def done(self, form_list, **kwargs):
         # That's easier.
-        if len(form_list) == 4:
+        # And don't forget about empty check form.
+        if len(form_list) == 5:
             abiturient_form: AbiturientForm = form_list[0]
             abiturient_passport_form: PassportForm = form_list[1]
             offer_form: UniversityOfferSearchForm = form_list[2]
