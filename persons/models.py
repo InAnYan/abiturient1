@@ -8,9 +8,6 @@ from django.core.validators import MaxValueValidator
 from django.core.validators import RegexValidator
 
 
-# TODO: INTEGER FIELD LENGTHS.
-
-
 class Person(models.Model):
     last_name = models.CharField(max_length=255, verbose_name=_("generic.last_name"))
 
@@ -30,6 +27,7 @@ class Person(models.Model):
             RegexValidator(r"^\+\d{10,12}$", _("generic.only_numbers")),
         ],
         help_text=_("telephone.help"),
+        max_length=12,
     )
 
     email = models.EmailField(verbose_name=_("generic.email"))
@@ -81,7 +79,9 @@ class Passport(models.Model):
     )
 
     inn = models.CharField(
-        verbose_name=_("persons.inn"), validators=[RegexValidator(r"^\d{12}$")]
+        max_length=12,
+        verbose_name=_("persons.inn"),
+        validators=[RegexValidator(r"^\d{12}$")],
     )
 
     class Meta:
