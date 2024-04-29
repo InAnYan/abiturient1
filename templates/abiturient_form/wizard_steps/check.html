@@ -36,16 +36,25 @@
     <p><strong>{% trans "persons.passport_serie"|capfirst %}</strong>: {{ abiturient_passport.serie }}. </p>
 {% endif %}
 
-<p><strong>{% trans "persons.passport_number"|capfirst %}</strong>: {{ abiturient_passport.number }}. </p>
+{% if abiturient_passport.number %}
+    <p><strong>{% trans "persons.passport_number"|capfirst %}</strong>: {{ abiturient_passport.number }}. </p>
+{% endif %}
 
 <div class="mb-3"></div>
 
-<p><strong>{% trans "persons.passport_who_give"|capfirst %}</strong>: {{ abiturient_passport.who_give }}. </p>
-<p><strong>{% trans "persons.passport_when_given"|capfirst %}</strong>: {{ abiturient_passport.when_given }}. </p>
+{% if abiturient_passport.who_give %}
+    <p><strong>{% trans "persons.passport_who_give"|capfirst %}</strong>: {{ abiturient_passport.who_give }}. </p>
+{% endif %}
+
+{% if abiturient_passport.when_given %}
+    <p><strong>{% trans "persons.passport_when_given"|capfirst %}</strong>: {{ abiturient_passport.when_given }}. </p>
+{% endif %}
 
 <div class="mb-3"></div>
 
-<p><strong>{% trans "persons.inn"|capfirst %}</strong>: {{ abiturient_passport.inn }}. </p>
+{% if abiturient_passport.inn %}
+    <p><strong>{% trans "persons.inn"|capfirst %}</strong>: {{ abiturient_passport.inn }}. </p>
+{% endif %}
 
 {% if not abiturient.has_18_years %}
     <h3>{% trans "wizard.steps.parent"|capfirst %}</h3>
@@ -69,16 +78,25 @@
         <p><strong>{% trans "persons.passport_serie"|capfirst %}</strong>: {{ parent_passport.serie }}. </p>
     {% endif %}
 
-    <p><strong>{% trans "persons.passport_number"|capfirst %}</strong>: {{ parent_passport.number }}. </p>
+    {% if parent_passport.number %}
+        <p><strong>{% trans "persons.passport_number"|capfirst %}</strong>: {{ parent_passport.number }}. </p>
+    {% endif %}
 
     <div class="mb-3"></div>
 
-    <p><strong>{% trans "persons.passport_who_give"|capfirst %}</strong>: {{ parent_passport.who_give }}. </p>
-    <p><strong>{% trans "persons.passport_when_given"|capfirst %}</strong>: {{ parent_passport.when_given }}. </p>
+    {% if parent_passport.who_give %}
+        <p><strong>{% trans "persons.passport_who_give"|capfirst %}</strong>: {{ parent_passport.who_give }}. </p>
+    {% endif %}
+
+    {% if parent_passport.when_given %}
+        <p><strong>{% trans "persons.passport_when_given"|capfirst %}</strong>: {{ parent_passport.when_given }}. </p>
+    {% endif %}
 
     <div class="mb-3"></div>
 
-    <p><strong>{% trans "persons.inn"|capfirst %}</strong>: {{ parent_passport.inn }}. </p>
+    {% if parent_passport.inn %}
+        <p><strong>{% trans "persons.inn"|capfirst %}</strong>: {{ parent_passport.inn }}. </p>
+    {% endif %}
 {% endif %}
 
 <h3>{% trans "wizard.steps.offer"|capfirst %}</h3>
