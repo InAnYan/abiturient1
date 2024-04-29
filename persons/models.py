@@ -1,3 +1,4 @@
+from signal import valid_signals
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -24,10 +25,10 @@ class Person(models.Model):
     phone = models.CharField(
         verbose_name=_("generic.telephone"),
         validators=[
-            RegexValidator(r"^\+\d{10,12}$", _("generic.only_numbers")),
+            RegexValidator(r"^\+\d{10,13}$", _("generic.only_numbers")),
         ],
         help_text=_("telephone.help"),
-        max_length=12,
+        max_length=13,
     )
 
     email = models.EmailField(verbose_name=_("generic.email"))
@@ -69,19 +70,25 @@ class Passport(models.Model):
         help_text=_("passport.serie.help"),
     )
 
-    number = models.IntegerField(verbose_name=_("persons.passport_number"))
+    number = models.IntegerField(
+        verbose_name=_("persons.passport_number"),
+        validators=[MaxValueValidator(999999999)],
+    )
 
-    who_give = models.TextField(verbose_name=_("persons.passport_who_give"))
+    who_give = models.TextField(
+        verbose_name=_("persons.passport_who_give"),
+        help_text=_("passport.who_give.help"),
+    )
 
     when_given = models.DateField(
         verbose_name=_("persons.passport_when_given"),
         validators=[MaxValueValidator(limit_value=date.today)],
     )
 
-    inn = models.CharField(
-        max_length=12,
+    inn = models.IntegerField(
         verbose_name=_("persons.inn"),
-        validators=[RegexValidator(r"^\d{12}$")],
+        validators=[MaxValueValidator(999999999999)],
+        help_text=_("persons.inn.help"),
     )
 
     class Meta:

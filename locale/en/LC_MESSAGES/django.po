@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-26 12:05+0300\n"
+"POT-Creation-Date: 2024-04-29 08:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgstr "private TODO"
 msgid "accepting_offers.payment_type.privileged"
 msgstr "privileged TODO"
 
-#: .\accepting_offers\models.py:23 .\persons\models.py:61
+#: .\accepting_offers\models.py:23 .\persons\models.py:60
 msgid "abiturient"
 msgstr "abiturient"
 
@@ -161,73 +161,75 @@ msgstr "I am 18 years old TODO"
 msgid "persons.add_persons.help"
 msgstr "add persons for testing"
 
-#: .\persons\models.py:15
+#: .\persons\models.py:13
 #: .\templates\abiturient_form\wizard_steps\check.html:16
 #: .\templates\abiturient_form\wizard_steps\check.html:49
 msgid "generic.last_name"
 msgstr "last name"
 
-#: .\persons\models.py:19
+#: .\persons\models.py:17
 #: .\templates\abiturient_form\wizard_steps\check.html:17
 #: .\templates\abiturient_form\wizard_steps\check.html:50
 msgid "generic.first_name"
 msgstr "first name"
 
-#: .\persons\models.py:24
+#: .\persons\models.py:22
 #: .\templates\abiturient_form\wizard_steps\check.html:18
 #: .\templates\abiturient_form\wizard_steps\check.html:51
 msgid "generic.patronymic"
 msgstr "patronymic"
 
-#: .\persons\models.py:28
+#: .\persons\models.py:26
 #: .\templates\abiturient_form\wizard_steps\check.html:22
 #: .\templates\abiturient_form\wizard_steps\check.html:55
 msgid "generic.telephone"
 msgstr "telephone"
 
-#: .\persons\models.py:30
-#, fuzzy
-#| msgid "generic.last_name"
+#: .\persons\models.py:28
 msgid "generic.only_numbers"
-msgstr "last name"
+msgstr "Wrong format (refer to the help text)"
 
-#: .\persons\models.py:32
+#: .\persons\models.py:30
 msgid "telephone.help"
 msgstr ""
+"Write the phone number in the following form: +380123456789 (start with +, "
+"then area code, then the rest of the number)"
 
-#: .\persons\models.py:35
+#: .\persons\models.py:34
 #: .\templates\abiturient_form\wizard_steps\check.html:23
 #: .\templates\abiturient_form\wizard_steps\check.html:56
 msgid "generic.email"
 msgstr "email"
 
-#: .\persons\models.py:37
+#: .\persons\models.py:36
 #: .\templates\abiturient_form\wizard_steps\check.html:27
 #: .\templates\abiturient_form\wizard_steps\check.html:60
 msgid "abiturient.living_address"
 msgstr "living address"
 
-#: .\persons\models.py:42 .\persons\models.py:88
+#: .\persons\models.py:41 .\persons\models.py:95
 msgid "persons.passport"
 msgstr "passport"
 
-#: .\persons\models.py:50
+#: .\persons\models.py:49
 msgid "persons.parent"
 msgstr "parent"
 
-#: .\persons\models.py:62
+#: .\persons\models.py:61
 msgid "abiturient.plural"
 msgstr "abiturients"
 
-#: .\persons\models.py:67
+#: .\persons\models.py:66
 #: .\templates\abiturient_form\wizard_steps\check.html:32
 #: .\templates\abiturient_form\wizard_steps\check.html:65
 msgid "persons.passport_serie"
 msgstr "passport serie"
 
-#: .\persons\models.py:71
+#: .\persons\models.py:70
 msgid "passport.serie.help"
-msgstr "If you have an ID card, leave this field empty. If you have a book-passport TODO fill this field."
+msgstr ""
+"If you have an ID card, leave this field empty. If you have a book-passport "
+"TODO fill this field."
 
 #: .\persons\models.py:74
 #: .\templates\abiturient_form\wizard_steps\check.html:35
@@ -235,25 +237,34 @@ msgstr "If you have an ID card, leave this field empty. If you have a book-passp
 msgid "persons.passport_number"
 msgstr "passport number"
 
-#: .\persons\models.py:76
+#: .\persons\models.py:79
 #: .\templates\abiturient_form\wizard_steps\check.html:39
 #: .\templates\abiturient_form\wizard_steps\check.html:72
 msgid "persons.passport_who_give"
 msgstr "who give"
 
-#: .\persons\models.py:79
+#: .\persons\models.py:80
+msgid "passport.who_give.help"
+msgstr ""
+"If you have an ID card, this will have numbers. If you have a book-passport (TODO), this will have a text."
+
+#: .\persons\models.py:84
 #: .\templates\abiturient_form\wizard_steps\check.html:40
 #: .\templates\abiturient_form\wizard_steps\check.html:73
 msgid "persons.passport_when_given"
 msgstr "when given"
 
-#: .\persons\models.py:84
+#: .\persons\models.py:89
 #: .\templates\abiturient_form\wizard_steps\check.html:44
 #: .\templates\abiturient_form\wizard_steps\check.html:77
 msgid "persons.inn"
-msgstr "INN TODO"
+msgstr "Registration number of the taxpayer's account card TODO"
 
-#: .\persons\models.py:89
+#: .\persons\models.py:91
+msgid "persons.inn.help"
+msgstr "Also known as individual tax number"
+
+#: .\persons\models.py:96
 msgid "persons.passport.plural"
 msgstr "passports"
 
@@ -265,29 +276,40 @@ msgstr "Record saved"
 #: .\templates\abiturient_form\done.html:8
 msgid "done.content"
 msgstr ""
-"Congratulations on completing all the necessary steps of your application "
-"journey with us!To finalize your application, we kindly request that you "
-"visit our admission office to print and sign the required documents. Our "
-"team will guide you through this process and ensure that all necessary "
-"paperwork is completed accurately.If you have chosen not to provide "
-"sensitive information through the online form, such as passport details, you "
+"Congratulations on completing all the necessary steps of your application journey with us!\n"
+""
+"To finalize your application, we kindly request that you "
+"visit our admission office to print and sign the required documents.\n"
+""
+"Our team will guide you through this process and ensure that all necessary "
+"paperwork is completed accurately.\n"
+""
+"If you have chosen not to provide sensitive information through the online form, such as passport details, you "
 "can fill out these sections when you visit our admission office. Our staff "
-"will assist you in completing these sections.We appreciate your cooperation "
-"and look forward to welcoming you to DNU. If you have any questions or need "
-"further assistance, please don't hesitate to contact us.Thank you for "
-"choosing Oles Honchar Dnipro National University!"
+"will assist you in completing these sections.\n"
+""
+"We appreciate your cooperation and look forward to welcoming you to DNU.\n"
+""
+"If you have any questions or need further assistance, please don't hesitate to contact us.\n"
+"Thank you for choosing Oles Honchar Dnipro National University!"
 
 #: .\templates\abiturient_form\wizard_steps\abiturient.html:7
 msgid "wizard.steps.abiturient.info"
 msgstr ""
-"Welcome to our application portal! We're thrilled that you're considering "
-"Oles Honchar Dnipro National University for your higher education journey.In "
-"this first step, we aim to get to know you better. Your personal information "
+"Welcome to our application portal!\n"
+""
+"We're thrilled that you're considering Oles Honchar Dnipro National University for your higher education journey.\n"
+""
+"In this first step, we aim to get to know you better. Your personal information "
 "helps us ensure that your application process is tailored to your unique "
-"background and needs.Please take a moment to provide accurate details about "
+"background and needs.\n"
+""
+"Please take a moment to provide accurate details about "
 "yourself. Your name, contact information, and other personal details are "
 "essential for us to stay connected with you throughout the application "
-"process and beyond.Rest assured, all information provided is kept strictly "
+"process and beyond.\n"
+""
+"Rest assured, all information provided is kept strictly "
 "confidential and is used solely for the purpose of your application."
 
 #: .\templates\abiturient_form\wizard_steps\abiturient.html:11
@@ -303,8 +325,10 @@ msgstr "abiturient passport"
 #: .\templates\abiturient_form\wizard_steps\abiturient_passport.html:10
 msgid "wizard.steps.abiturient_passport.info"
 msgstr ""
-"In this step, we kindly request that you provide your passport information. "
-"This helps us ensure accurate documentation for your application process."
+"In this step, we kindly request that you provide your passport information.\n"
+""
+"This helps us ensure accurate documentation for your application process.\n"
+""
 "However, if you prefer not to disclose this sensitive information through "
 "the online form, don't worry! You can leave this section blank for now and "
 "fill it out physically when you visit our admission office."
@@ -312,15 +336,21 @@ msgstr ""
 #: .\templates\abiturient_form\wizard_steps\accepted_offer.html:6
 msgid "wizard.steps.accepted_offer.info"
 msgstr ""
-"You're almost there! In this step, we'll gather the last details needed to "
-"complete your application.Please take a moment to review your application "
-"summary below and ensure that all information is accurate and up-to-date. If "
-"you need to make any changes, you can do so before finalizing your "
-"submission.Once you're satisfied with your application details, simply click "
+"You're almost there!\n"
+""
+"In this step, we'll gather the last details needed to "
+"complete your application. Please take a moment to review your application "
+"summary below and ensure that all information is accurate and up-to-date.\n"
+""
+"If you need to make any changes, you can do so before finalizing your "
+"submission.\n"
+""
+"Once you're satisfied with your application details, simply click "
 "the submit button to send your application to us. Our admissions team will "
 "carefully review your submission and be in touch with any further "
-"instructions or updates.Thank you for choosing Oles Honchar Dnipro National "
-"University for your academic journey. We're excited to review your "
+"instructions or updates.\n"
+""
+"Thank you for choosing Oles Honchar Dnipro National University for your academic journey. We're excited to review your "
 "application and potentially welcome you to our community!"
 
 #: .\templates\abiturient_form\wizard_steps\accepted_offer.html:9
@@ -331,15 +361,23 @@ msgstr "application details"
 #: .\templates\abiturient_form\wizard_steps\check.html:6
 msgid "wizard.steps.check.info"
 msgstr ""
-"Welcome to the final review step!"
+"Welcome to the final review step!\n"
 ""
-"Here, you'll find all the information you've provided throughout the application process. Please take a moment to carefully review each section and ensure that all details are accurate and up-to-date."
+"Here, you'll find all the information "
+"you've provided throughout the application process. Please take a moment to "
+"carefully review each section and ensure that all details are accurate and "
+"up-to-date.\n"
 ""
-"If you notice any mistakes or discrepancies, don't worry! You can navigate back to previous steps to make any necessary corrections. Simply click on the corresponding step to return and update your information."
+"If you notice any mistakes or discrepancies, don't worry! You can "
+"navigate back to previous steps to make any necessary corrections. Simply "
+"click on the corresponding step to return and update your information.\n"
 ""
-"It's essential that your application reflects your true qualifications and experiences, so we appreciate your attention to detail during this review process."
+"It's essential that your application reflects your true qualifications and "
+"experiences, so we appreciate your attention to detail during this review "
+"process.\n"
 ""
-"Once you're satisfied with all the information, proceed to the final submission step to complete your application."
+"Once you're satisfied with all the information, proceed to the final "
+"submission step to complete your application."
 
 #: .\templates\abiturient_form\wizard_steps\check.html:9
 msgid "wizard.steps.check"
@@ -356,20 +394,21 @@ msgid "wizard.steps.parent_passport"
 msgstr "representative passport TODO"
 
 #: .\templates\abiturient_form\wizard_steps\check.html:80
-#, fuzzy
-#| msgid "wizard.steps.accepted_offer"
 msgid "wizard.steps.offer"
-msgstr "application details"
+msgstr "offer info"
 
 #: .\templates\abiturient_form\wizard_steps\offer.html:5
 msgid "wizard.steps.university_offer.info"
 msgstr ""
-"Welcome to the exciting step of choosing your university offer!To begin, "
-"please use the search form below to find offers that match your preferences. "
-"You can fill in as much information as you know (some fields are optional)."
+"Welcome to the exciting step of choosing your university offer!\n"
+""
+"To begin, please use the search form below to find offers that match your preferences.\n"
+""
+"You can fill in as much information as you know (some fields are optional).\n"
+""
 "Once you've entered your search criteria, simply hit the search button to "
-"generate a list of offers that meet your requirements. Take your time to "
-"review each offer carefully and select the one that best aligns with your "
+"generate a list of offers that meet your requirements.\n"
+"Take your time to review each offer carefully and select the one that best aligns with your "
 "academic and personal goals."
 
 #: .\templates\abiturient_form\wizard_steps\offer.html:8
@@ -400,22 +439,30 @@ msgstr "chosen offer"
 msgid "wizard.steps.parent.info"
 msgstr ""
 "As part of our application process, we require additional information if you "
-"are under 18 years old. Please provide details about your representative, "
-"usually a parent or guardian, who will act on your behalf during the "
-"application process.Kindly fill in the necessary information below regarding "
-"your representative, including their name, contact details, and relationship "
-"to you. This ensures that we have the appropriate contact information for "
+"are under 18 years old.\n"
+""
+"Please provide details about your representative, usually a parent or guardian, who will act on your behalf during the "
+"application process.\n"
+""
+"Kindly fill in the necessary information below regarding "
+"your representative, including their name, and contact details.\n"
+""
+"This ensures that we have the appropriate contact information for "
 "any communications or inquiries related to your application."
 
 #: .\templates\abiturient_form\wizard_steps\parent_passport.html:10
 msgid "wizard.steps.parent_passport.info"
 msgstr ""
 "In this step, we kindly request that you provide passport information for "
-"the representative acting on behalf of the applicant, if applicable.Please "
-"fill in the necessary details regarding the representative's passport, "
-"ensuring accuracy and completeness. This information helps us verify the "
-"identity of the representative and ensures smooth processing of your "
-"application.If the representative prefers not to disclose sensitive "
+"the representative acting on behalf of the applicant, if applicable.\n"
+""
+"Please fill in the necessary details regarding the representative's passport, "
+"ensuring accuracy and completeness.\n"
+""
+"This information helps us verify the identity of the representative and ensures smooth processing of your "
+"application.\n"
+""
+"If the representative prefers not to disclose sensitive "
 "information through the online form, they can choose to leave this section "
 "blank and fill it out physically when visiting our admission office."
 
