@@ -1,12 +1,17 @@
 {% extends 'abiturient_form/wizard_steps/wizard_step_wrapper.html' %}
+
 {% load i18n %}
 {% load crispy_forms_tags %}
+
 {% block info %}
-  {% trans 'wizard.steps.university_offer.info' %}
+  {% trans 'wizard.steps.university_offer.info' as info %}
+  {{ info|linebreaksbr }}
 {% endblock %}
+
 {% block step_name %}
   {% trans 'wizard.steps.university_offer'|capfirst %}
 {% endblock %}
+
 {% block content_form %}
   <div class="form-row">
     <div class="col">{{ wizard.form.basis|as_crispy_field }}</div>
@@ -14,19 +19,17 @@
   </div>
 
   <div class="form-row">
-    <div class="col">{{ wizard.form.faculty|as_crispy_field }}</div>
-    <div class="col">{{ wizard.form.speciality|as_crispy_field }}</div>
-  </div>
-
-  {{ wizard.form.educational_program_name|as_crispy_field }}
-
-  <div class="form-row">
     <div class="col">{{ wizard.form.offer_type|as_crispy_field }}</div>
     <div class="col">{{ wizard.form.study_form|as_crispy_field }}</div>
   </div>
 
+  {{ wizard.form.speciality|as_crispy_field }}
+  {{ wizard.form.faculty|as_crispy_field }}
+
+  {{ wizard.form.educational_program_name|as_crispy_field }}
+
   <div class="d-flex justify-content-center">
-    <button type="button" id="searchOffer" class="btn btn-success">{% trans 'search_offer' %}</button>
+    <button type="button" id="searchOffer" class="btn btn-success">{% trans 'search_offer'|capfirst %}</button>
   </div>
 
   <div class="mb-3"></div>
@@ -167,7 +170,7 @@
       const button = $("#buttonOffer" + id);
       button.removeClass("btn-primary");
       button.addClass("btn-outline-primary");
-      button.html('{% trans "chosen_offer" %}');
+      button.html('{% trans "chosen_offer"|capfirst %}');
       
       lastButton = button;
     }

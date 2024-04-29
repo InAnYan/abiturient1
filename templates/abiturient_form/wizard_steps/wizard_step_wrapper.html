@@ -16,10 +16,12 @@
         </h3>
     </div>
     
-    <p class="mb-4">
-    {% block info %}
-    {% endblock info %}
-    </p>
+    <div class="alert alert-primary" role="alert">
+        {% block info %}
+        {% endblock info %}
+    </div>
+
+    <div class="mb-3"></div>
 
     {% if wizard.form.non_field_errors %}
         <div>

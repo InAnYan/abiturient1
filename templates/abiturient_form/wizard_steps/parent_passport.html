@@ -7,5 +7,6 @@
 {% endblock step_name %}
 
 {% block info %}
-  {% trans "wizard.steps.parent_passport.info" %}
+  {% trans "wizard.steps.parent_passport.info" as info %}
+  {{ info|linebreaksbr }}
 {% endblock info %}

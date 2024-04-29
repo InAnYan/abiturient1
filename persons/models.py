@@ -73,22 +73,30 @@ class Passport(models.Model):
     number = models.IntegerField(
         verbose_name=_("persons.passport_number"),
         validators=[MaxValueValidator(999999999)],
+        null=True,
+        blank=True,
     )
 
     who_give = models.TextField(
         verbose_name=_("persons.passport_who_give"),
         help_text=_("passport.who_give.help"),
+        null=True,
+        blank=True,
     )
 
     when_given = models.DateField(
         verbose_name=_("persons.passport_when_given"),
         validators=[MaxValueValidator(limit_value=date.today)],
+        null=True,
+        blank=True,
     )
 
     inn = models.IntegerField(
         verbose_name=_("persons.inn"),
         validators=[MaxValueValidator(999999999999)],
         help_text=_("persons.inn.help"),
+        null=True,
+        blank=True,
     )
 
     class Meta:

@@ -2,12 +2,12 @@
 
 <p>
   <strong>{% trans "university_offer.study_begin"|capfirst %}</strong>:
-  {{ offer.study_begin }}.
+  {{ offer.study_begin }}
 </p>
 
 <p>
   <strong>{% trans "university_offer.study_end"|capfirst %}</strong>:
-  {{ offer.study_end }}.
+  {{ offer.study_end }}
 </p>
 
 <p>
@@ -41,22 +41,22 @@
 
 <p>
   <strong>{% trans "university_offer.level"|capfirst %}</strong>:
-  {{ offer.level }}.
+  {{ offer.get_level_display }}.
 </p>
 
 <p>
   <strong>{% trans "university_offer.basis"|capfirst %}</strong>:
-  {{ offer.basis }}.
+  {{ offer.get_basis_display }}.
 </p>
 
 <p>
   <strong>{% trans "university_offer.type"|capfirst %}</strong>:
-  {{ offer.type }}.
+  {{ offer.get_type_display }}.
 </p>
 
 <p>
   <strong>{% trans "university_offer.study_form"|capfirst %}</strong>:
-  {{ offer.study_form }}.
+  {{ offer.get_study_form_display }}.
 </p>
 
 <p>

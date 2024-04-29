@@ -47,7 +47,7 @@ msgstr "Поставте тип оплати, оскільки ви вибрал
 
 #: .\accepting_offers\forms.py:32
 msgid "accepting_offers.payment_frequency_required_for_contract"
-msgstr "Поставте частоту оплати, оскільки ви вибрал контрактну пропозицію"
+msgstr "Поставте частоту оплати, оскільки ви вибрали контрактну пропозицію"
 
 #: .\accepting_offers\forms.py:41
 msgid "accepting_offers.payment_type_not_required_for_budget"
@@ -154,7 +154,7 @@ msgstr "люди"
 
 #: .\persons\forms.py:22
 msgid "persons.form.invalid_email"
-msgstr "неправильна електронна пошта (використовуйте лише латинські літери)"
+msgstr "Неправильна електронна пошта (використовуйте лише латинські літери)"
 
 #: .\persons\forms.py:38
 msgid "persons.has_18_years"

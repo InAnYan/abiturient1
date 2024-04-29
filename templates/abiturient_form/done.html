@@ -5,5 +5,6 @@
 {% endblock title %}
 {% block content %}
     <h2>{% trans "done.title"|capfirst %}</h2>
-    <p>{% trans "done.content"|capfirst %}</p>
+    {% trans "done.content"|capfirst as content %}
+    <p>{{ content|linebreaksbr }}</p>
 {% endblock content %}

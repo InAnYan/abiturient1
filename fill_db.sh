@@ -1,8 +1,6 @@
 #!/bin/bash
 
 commands=(
-    "makemigrations"
-    "migrate"
     "add_faculties"
     "add_specialities"
     "add_educational_programs"

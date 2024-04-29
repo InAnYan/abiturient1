@@ -4,7 +4,8 @@
 {% load crispy_forms_tags %}
 
 {% block info %}
-{% trans "wizard.steps.abiturient.info" %}
+{% trans "wizard.steps.abiturient.info" as info %}
+{{ info|linebreaksbr }}
 {% endblock info %}
 
 {% block step_name %}

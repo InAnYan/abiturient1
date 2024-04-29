@@ -3,7 +3,8 @@
 {% load i18n %}
 
 {% block info %}
-{% trans "wizard.steps.parent.info" %}
+    {% trans "wizard.steps.parent.info" as info %}
+    {{ info|linebreaksbr }}
 {% endblock info %}
 
 {% block step_name %}

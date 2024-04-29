@@ -1,11 +1,17 @@
+{% load i18n %}
+
 {% for offer in offers %}
     <div class="card">
       <div class="card-header" id="heading{{ offer.id }}">
-        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ offer.id }}" aria-expanded="true" aria-controls="collapse{{ offer.id }}">
-          {{ offer }}
+        <div class="d-flex">
+          <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ offer.id }}" aria-expanded="true" aria-controls="collapse{{ offer.id }}">
+            {{ offer }}
+          </button>
 
-          <button id="buttonOffer{{ offer.id }}" type="button" class="btn btn-primary" onclick="chooseOffer({{ offer.id }})">Choose me</button>
-        </button>
+          <button id="buttonOffer{{ offer.id }}" type="button" class="btn btn-primary ml-auto" onclick="chooseOffer({{ offer.id }})">
+            {% trans "choose_this_offer"|capfirst %}
+          </button>
+        </div>
       </div>
 
       <div id="collapse{{ offer.id }}" class="collapse" aria-labelledby="heading{{ offer.id }}" data-parent="#accordion">
