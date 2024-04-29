@@ -25,4 +25,8 @@
             }
         });
     });
+
+    $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+        jqXHR.setRequestHeader('X-CSRFToken', "{{ csrf_token }}");
+    });
 </script>

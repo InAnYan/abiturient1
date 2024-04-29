@@ -71,19 +71,9 @@
       ["level", levelElem]
     ];
 
-    const cookiesHtmlList = [
-      ["accordion", accordionElem]
-    ];
-
     for (const [key, elem] of cookiesValList) {
       elem.on("change", function() {
         Cookies.set(key, elem.val());
-      })
-    }
-
-    for (const [key, elem] of cookiesHtmlList) {
-      elem.on("change", function() {
-        Cookies.set(key, elem.html());
       })
     }
 
@@ -92,11 +82,10 @@
         restoreVal(key, elem);
       }
 
-      for (const [key, elem] of cookiesHtmlList) {
-        restoreHtml(key, elem);
+      let accordionDataCookie = Cookies.get("accordion");
+      if (accordionDataCookie) {
+        fillAccordion(JSON.parse(accordionDataCookie));
       }
-
-      chooseOffer({{ wizard.form.result_offer.value }});
     });
 
     function restoreVal(key, elem) {
@@ -107,12 +96,27 @@
       }
     }
 
-    function restoreHtml(key, elem) {
-      let cookie = Cookies.get(key);
+    function fillAccordion(jsonData) {
+      $.ajax({
+        type: "POST",
+        url: "{% url 'offers_json_to_html' %}",
+        data: JSON.stringify(jsonData),
+        contentType: "application/json",
+        success: function (data) {
+          accordionElem.html(data);
 
-      if (cookie) {
-        elem.html(cookie);
-      }
+          loadingElem.addClass("d-none");
+
+          if (accordionElem.children().length == 0) {
+            noDataElem.removeClass("d-none");
+          } else {
+            noDataElem.addClass("d-none");
+          }
+
+          // This is a little stupid.
+          chooseOffer({{ wizard.form.result_offer.value }});
+        }
+      });
     }
 
     searchButton.on("click", function() {
@@ -126,8 +130,11 @@
 
       loadingElem.removeClass("d-none"); 
 
+      lastButton = null;
+      resultOffer.val("");
+
       $.ajax({
-        url: "{% url 'ajax_offers' %}",
+        url: "{% url 'offers_json' %}",
         data: {
           faculty,
           speciality,
@@ -139,18 +146,9 @@
         },
 
         success: function (data) {
-          loadingElem.addClass("d-none");
-          accordionElem.html(data);
+          Cookies.set("accordion", JSON.stringify(data));
 
-          lastButton = null;
-          resultOffer.val("");
-          Cookies.set("accordion", accordionElem.html());
-
-          if (accordionElem.children().length == 0) {
-            noDataElem.removeClass("d-none");
-          } else {
-            noDataElem.addClass("d-none");
-          }
+          fillAccordion(data);
         }
       });
     });
