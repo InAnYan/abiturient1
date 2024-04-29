@@ -208,7 +208,7 @@ msgstr "електронна пошта"
 #: .\templates\abiturient_form\wizard_steps\check.html:31
 #: .\templates\abiturient_form\wizard_steps\check.html:64
 msgid "abiturient.living_address"
-msgstr "адреса проживання (реєсрації)"
+msgstr "адреса проживання (реєстрації)"
 
 #: .\persons\models.py:41 .\persons\models.py:103
 msgid "persons.passport"
@@ -461,15 +461,15 @@ msgstr "форма для абітурієнта"
 
 #: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:11
 msgid "wizard.step"
-msgstr "шаг"
+msgstr "крок"
 
 #: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:47
 msgid "wizard.previous_step"
-msgstr "попередній шаг"
+msgstr "попередній крок"
 
 #: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:49
 msgid "wizard.next"
-msgstr "наступний шаг"
+msgstr "наступний крок"
 
 #: .\templates\base\footer.html:8
 msgid "footer.admin.login"
@@ -478,7 +478,7 @@ msgstr "вхід (для адміністрації)"
 #: .\templates\base\footer.html:13
 msgid "footer.authors"
 msgstr ""
-"Попов Руслан Олександрович, Карпенко Надія Валеріївна, Герасімов Володимир "
+"Попов Руслан Олександрович, Карпенко Надія Валеріївна, Герасимов Володимир "
 "Володимирович"
 
 #: .\templates\base\header.html:12

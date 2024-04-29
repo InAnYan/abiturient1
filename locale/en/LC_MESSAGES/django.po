@@ -468,7 +468,7 @@ msgstr "Login (administration)"
 #: .\templates\base\footer.html:13
 msgid "footer.authors"
 msgstr ""
-"Popov Ruslan Oleksandrovich, Karpenko Nadiia Valeriivna, Gerasimov Volodymyr "
+"Popov Ruslan Oleksandrovich, Karpenko Nadiia Valeriivna, Gerasymov Volodymyr "
 "Volodymyrovych"
 
 #: .\templates\base\header.html:12

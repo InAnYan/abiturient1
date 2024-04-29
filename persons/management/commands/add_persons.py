@@ -4,6 +4,8 @@ from django.utils.translation import gettext_lazy as _
 import random
 from datetime import datetime, timedelta
 
+from university_offers.models import UniversityOffer
+
 ukrainian_first_names = [
     "Андрій",
     "Олександр",
@@ -95,7 +97,7 @@ class Command(BaseCommand):
     help = _("persons.add_persons.help")
 
     def handle(self, *args, **options):
-        for i in range(21):
+        for i in range(UniversityOffer.objects.all().count()):
             first_name = random.choice(ukrainian_first_names)
             last_name = random.choice(ukrainian_last_names)
             patronymic = random.choice(ukrainian_patronymics)
