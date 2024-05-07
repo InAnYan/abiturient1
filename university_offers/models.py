@@ -73,12 +73,7 @@ class EducationalProgram(models.Model):
         Speciality, on_delete=models.PROTECT, verbose_name=_("speciality")
     )
 
-    end_of_accreditation = models.DateField(
-        null=True,
-        blank=True,
-        verbose_name=_("speciality.end_of_accreditation"),
-    )
-
+    """
     @property
     def has_accreditation(self) -> str:
         if (
@@ -88,6 +83,7 @@ class EducationalProgram(models.Model):
             return _("educational_program.has_accreditation")
         else:
             return _("educational_program.not_has_accreditation")
+    """
 
     def __str__(self) -> str:
         return self.name
@@ -222,3 +218,27 @@ class UniversityOffer(models.Model):
     class Meta:
         verbose_name = _("university_offer")
         verbose_name_plural = _("university_offer.plural")
+
+
+class Accreditation(models.Model):
+    educational_program = models.ForeignKey(
+        EducationalProgram,
+        on_delete=models.CASCADE,
+        verbose_name=_("university_offer.educational_program"),
+    )
+
+    level = models.PositiveIntegerField(
+        choices=UniversityOffer.Level.choices, verbose_name=_("accreditation.level")
+    )
+
+    end_of_accreditation = models.DateField(
+        verbose_name=_("accreditation.end_of_accreditation")
+    )
+
+    description = models.CharField(
+        max_length=255, verbose_name=_("accreditation.description")
+    )
+
+    class Meta:
+        verbose_name = _("accreditation")
+        verbose_name_plural = _("accreditation.plural")
