@@ -82,6 +82,18 @@ json_accreditation = [
         'level': "phd",
     },
     {
+        'speciality_code': "072",
+        'speciality_name': "Фінанси, банківська справа, страхування та фондовий ринок",
+        'educational_program_name': "Фінанси, банківська справа, страхування та фондовий ринок",
+        'level': "bachelor",
+    },
+    {
+        'speciality_code': "072",
+        'speciality_name': "Фінанси, банківська справа, страхування та фондовий ринок",
+        'educational_program_name': "Фінанси, банківська справа, страхування та фондовий ринок",
+        'level': "master",
+    },
+    {
         'speciality_code': "073",
         'speciality_name': "Менеджмент",
         'educational_program_name': "Менеджмент",
@@ -252,6 +264,7 @@ json_accreditation = [
         'speciality_code': "014",
         'speciality_name': "Середня освіта",
         'educational_program_name': "Середня освіта (Біологія та здоров'я людини)",
+        "speciality_specialization": "Середня освіта (Біологія та здоров'я людини)",
         'accrediation_end': "01.07.2026",
         'level': "master",
         'accreditation_number': "1187",
@@ -287,7 +300,8 @@ json_accreditation = [
     {
         'speciality_code': "016",
         'speciality_name': "Спеціальна освіта",
-        'educational_program_name': "Логопедія",
+        'speciality_specialization': "Логопедія",
+        'educational_program_name': "Спеціальна освіта",
         'accrediation_end': "01.07.2025",
         'level': "master",
         'accreditation_number': "0495201",
@@ -479,7 +493,7 @@ json_accreditation = [
     {
         'speciality_code': "061",
         'speciality_name': "Журналістика",
-        'educational_program_name': "Реклама і зв`язки з громадськістю",
+        'educational_program_name': "Реклама і зв'язки з громадськістю",
         'accreditation_end': "01.07.2025",
         'level': "master",
         'accreditation_number': "04010063",
@@ -554,19 +568,19 @@ json_accreditation = [
     },
     {
         'speciality_code': "091",
-        'speciality_name': "Біологія",
+        'speciality_name': "Біологія та біохімія",
         'educational_program_name': "Біохімія та фізіологія",
         'level': "master",
     },
     {
         'speciality_code': "091",
-        'speciality_name': "Біологія",
+        'speciality_name': "Біологія та біохімія",
         'educational_program_name': "Системна біологія та гідробіоресурси",
         'level': "master",
     },
     {
         'speciality_code': "101",
-        'speciality_name': "Природничі науки",
+        'speciality_name': "Екологія",
         'educational_program_name': "Екологія",
         'accreditation_end': "01.07.2025",
         'level': "master",
@@ -576,7 +590,7 @@ json_accreditation = [
     },
     {
         'speciality_code': "101",
-        'speciality_name': "Природничі науки",
+        'speciality_name': "Екологія",
         'educational_program_name': "Промислова екологія та охорона екосистем",
         'accreditation_end': "01.07.2025",
         'level': "master",
@@ -586,7 +600,7 @@ json_accreditation = [
     },
     {
         'speciality_code': "102",
-        'speciality_name': "Природничі науки",
+        'speciality_name': "Хімія",
         'educational_program_name': "Хімія",
         'accreditation_end': "01.07.2025",
         'level': "master",
@@ -596,7 +610,7 @@ json_accreditation = [
     },
     {
         'speciality_code': "103",
-        'speciality_name': "Природничі науки",
+        'speciality_name': "Екологія",
         'educational_program_name': "Науки про Землю",
         'accreditation_end': "01.07.2025",
         'level': "master",
@@ -606,7 +620,7 @@ json_accreditation = [
     },
     {
         'speciality_code': "104",
-        'speciality_name': "Природничі науки",
+        'speciality_name': "Фізика та астрономія",
         'educational_program_name': "Фізика та астрономія",
         'accreditation_end': "01.07.2025",
         'level': "master",
@@ -616,7 +630,7 @@ json_accreditation = [
     },
     {
         'speciality_code': "106",
-        'speciality_name': "Природничі науки",
+        'speciality_name': "Географія",
         'educational_program_name': "Географія",
         'accreditation_end': "28.01.2025",
         'level': "master",
@@ -625,7 +639,7 @@ json_accreditation = [
     },
     {
         'speciality_code': "111",
-        'speciality_name': "Математика та статистика",
+        'speciality_name': "Математика",
         'educational_program_name': "Математика",
         'accreditation_end': "01.07.2025",
         'level': "master",
@@ -820,7 +834,7 @@ json_accreditation = [
     {
         'speciality_code': "174",
         'speciality_name': "Автоматизація, комп'ютерно-інтегровані технології та робототехніка",
-        'educational_program_name': "Автоматизація та комп`ютерно-інтегровані технології",
+        'educational_program_name': "Автоматизація та комп'ютерно-інтегровані технології",
         'accrediation_end': "01.07.2025",
         'level': "master",
         'accreditation_number': "04017904",
@@ -936,8 +950,8 @@ json_accreditation = [
     {
         'speciality_code': "014",
         'speciality_name': "Середня освіта",
-        'speciality_specialization': "Біологія та здоров'я людини",
-        'educational_program_name': "Середня освіта (Біологія та здоров'я людини)",
+        'educational_program_name': "Біологія та здоров'я людини",
+        'speciality_specialization': "Середня освіта (Біологія та здоров'я людини)",
         'accrediation_end': "01.07.2025",
         'level': "bachelor",
         'accreditation_number': "04009183",
@@ -1679,7 +1693,7 @@ json_accreditation = [
     {
         'speciality_code': "174",
         'speciality_name': "Автоматизація, комп'ютерно-інтегровані технології та робототехніка",
-        'educational_program_name': "Автоматизація та комп`ютерно-інтегровані технології",
+        'educational_program_name': "Автоматизація та комп'ютерно-інтегровані технології",
         'accrediation_end': "неакредитовано",
         'level': "bachelor",
     },
@@ -1743,13 +1757,14 @@ json_accreditation = [
     },
     {
         'speciality_code': "229",
-        'speciality_name': "Громадське здоров`я",
+        'speciality_name': "Громадське здоров'я",
         'level': "bachelor",
+        "educational_program_name": "Громадське здоров'я",
     },
     {
         'speciality_code': "231",
         'speciality_name': "Соціальна робота",
-        'speciality_specialization': "Соціальна робота",
+        'educational_program_name': "Соціальна робота",
         'accrediation_end': "01.07.2025",
         'level': "bachelor",
         'accreditation_number': "0495192",
@@ -1759,7 +1774,7 @@ json_accreditation = [
     {
         'speciality_code': "241",
         'speciality_name': "Готельно-ресторанна справа",
-        'speciality_specialization': "Готельно-ресторанна справа",
+        'educational_program_name': "Готельно-ресторанна справа",
         'level': "bachelor",
     },
     {
@@ -1767,6 +1782,12 @@ json_accreditation = [
         'speciality_name': "Туризм і рекреація",
         'educational_program_name': "Міжнародний туризм",
         'level': "bachelor",
+    },
+    {
+        'speciality_code': "242",
+        'speciality_name': "Туризм і рекреація",
+        'educational_program_name': "Міжнародний туристичний бізнес",
+        'level': "master",
     },
     {
         'speciality_code': "281",
@@ -1802,13 +1823,13 @@ json_offers = [
         'study_form': 'DAY',
         'study_duration': 16,
         'type': 'відкрита',
-        'educational_program_name': 'Середня освіта (Біологія та здоров’я людини)',
+        'educational_program_name': "Середня освіта (Біологія та здоров'я людини)",
         'faculty': 'Біолого-екологічний факультет',
         'basis': 'NRK67',
         'speciality_code': 14,
         'speciality_name': 'Середня освіта',
         'specialization_code': 5,
-        'specialization_name': 'Середня освіта (Біологія та здоров’я людини)',
+        'specialization_name': "Середня освіта (Біологія та здоров'я людини)",
     },
     {
         'study_form': 'DAY',
@@ -2052,7 +2073,7 @@ json_offers = [
         'study_form': 'DAY',
         'study_duration': 16,
         'type': 'відкрита',
-        'educational_program_name': 'Реклама і зв’язки з громадськістю',
+        'educational_program_name': "Реклама і зв'язки з громадськістю",
         'faculty': 'Факультет систем і засобів масової комунікації',
         'basis': 'NRK67',
         'speciality_code': 61,
@@ -2224,7 +2245,7 @@ json_offers = [
         'study_form': 'DAY',
         'study_duration': 16,
         'type': 'фіксована',
-        'educational_program_name': 'Комп’ютерна механіка',
+        'educational_program_name': "Комп'ютерна механіка",
         'faculty': 'Механіко-математичний факультет',
         'basis': 'NRK67',
         'speciality_code': 113,
@@ -2295,7 +2316,7 @@ json_offers = [
         'study_duration': 16,
         'type': 'фіксована',
         'educational_program_name': 'Фізика та астрономія',
-        'faculty': 'Факультет фізики, електроніки та комп’ютерних систем',
+        'faculty': "Факультет фізики, електроніки та комп'ютерних систем",
         'basis': 'NRK67',
         'speciality_code': 104,
         'speciality_name': 'Фізика та астрономія',
@@ -2304,28 +2325,28 @@ json_offers = [
         'study_form': 'DAY',
         'study_duration': 16,
         'type': 'відкрита',
-        'educational_program_name': 'Комп’ютерні науки',
-        'faculty': 'Факультет фізики, електроніки та комп’ютерних систем',
+        'educational_program_name': "Комп'ютерні науки",
+        'faculty': "Факультет фізики, електроніки та комп'ютерних систем",
         'basis': 'NRK67',
         'speciality_code': 122,
-        'speciality_name': 'Комп’ютерні науки',
+        'speciality_name': "Комп'ютерні науки",
     },
     {
         'study_form': 'DAY',
         'study_duration': 16,
         'type': 'відкрита',
-        'educational_program_name': 'Комп’ютерна інженерія',
-        'faculty': 'Факультет фізики, електроніки та комп’ютерних систем',
+        'educational_program_name': "Комп'ютерна інженерія",
+        'faculty': "Факультет фізики, електроніки та комп'ютерних систем",
         'basis': 'NRK67',
         'speciality_code': 123,
-        'speciality_name': 'Комп’ютерна інженерія',
+        'speciality_name': "Комп'ютерна інженерія",
     },
     {
         'study_form': 'DAY',
         'study_duration': 16,
         'type': 'фіксована',
         'educational_program_name': 'Мікро- та наносистемна техніка',
-        'faculty': 'Факультет фізики, електроніки та комп’ютерних систем',
+        'faculty': "Факультет фізики, електроніки та комп'ютерних систем",
         'basis': 'NRK67',
         'speciality_code': 176,
         'speciality_name': 'Мікро- та наносистемна техніка',
@@ -2335,7 +2356,7 @@ json_offers = [
         'study_duration': 16,
         'type': 'фіксована',
         'educational_program_name': 'Телекомунікації та радіотехніка',
-        'faculty': 'Факультет фізики, електроніки та комп’ютерних систем',
+        'faculty': "Факультет фізики, електроніки та комп'ютерних систем",
         'basis': 'NRK67',
         'speciality_code': 172,
         'speciality_name': 'Електронні комунікації та радіотехніка',
@@ -2394,11 +2415,11 @@ json_offers = [
         'study_form': 'DAY',
         'study_duration': 16,
         'type': 'фіксована',
-        'educational_program_name': 'Автоматизація та комп’ютерно-інтегровані технології',
+        'educational_program_name': "Автоматизація та комп'ютерно-інтегровані технології",
         'faculty': 'Фізико-технічний факультет',
         'basis': 'NRK67',
         'speciality_code': 174,
-        'speciality_name': 'Автоматизація, комп’ютерно-інтегровані технології та робототехніка',
+        'speciality_name': "Автоматизація, комп'ютерно-інтегровані технології та робототехніка",
     },
     {
         'study_form': 'DAY',
@@ -2572,25 +2593,25 @@ json_offers = [
         'study_form': 'DAY',
         'study_duration': 22,
         'type': 'відкрита',
-        'educational_program_name': 'Середня освіта (Біологія та здоров’я людини)',
+        'educational_program_name': "Середня освіта (Біологія та здоров'я людини)",
         'faculty': 'Біолого-екологічний факультет',
         'basis': 'NRK5',
         'speciality_code': 14,
         'speciality_name': 'Середня освіта',
         'specialization_code': 5,
-        'specialization_name': 'Середня освіта (Біологія та здоров’я людини)',
+        'specialization_name': "Середня освіта (Біологія та здоров'я людини)",
     },
     {
         'study_form': 'DAY',
         'study_duration': 34,
         'type': 'відкрита',
-        'educational_program_name': 'Середня освіта (Біологія та здоров’я людини)',
+        'educational_program_name': "Середня освіта (Біологія та здоров'я людини)",
         'faculty': 'Біолого-екологічний факультет',
         'basis': 'NRK5',
         'speciality_code': 14,
         'speciality_name': 'Середня освіта',
         'specialization_code': 5,
-        'specialization_name': 'Середня освіта (Біологія та здоров’я людини)',
+        'specialization_name': "Середня освіта (Біологія та здоров'я людини)",
     },
     {
         'study_form': 'DAY',
@@ -2746,18 +2767,18 @@ json_offers = [
         'study_form': 'DAY',
         'study_duration': 34,
         'type': 'відкрита',
-        'educational_program_name': 'Комп’ютерна інженерія',
-        'faculty': 'Факультет фізики, електроніки та комп’ютерних систем',
+        'educational_program_name': "Комп'ютерна інженерія",
+        'faculty': "Факультет фізики, електроніки та комп'ютерних систем",
         'basis': 'NRK5',
         'speciality_code': 123,
-        'speciality_name': 'Комп’ютерна інженерія',
+        'speciality_name': "Комп'ютерна інженерія",
     },
     {
         'study_form': 'DAY',
         'study_duration': 34,
         'type': 'відкрита',
         'educational_program_name': 'Мікро- та наносистемна техніка',
-        'faculty': 'Факультет фізики, електроніки та комп’ютерних систем',
+        'faculty': "Факультет фізики, електроніки та комп'ютерних систем",
         'basis': 'NRK5',
         'speciality_code': 176,
         'speciality_name': 'Мікро - та наносистемна техніка',
@@ -2766,18 +2787,18 @@ json_offers = [
         'study_form': 'DAY',
         'study_duration': 34,
         'type': 'відкрита',
-        'educational_program_name': 'Комп’ютерні науки',
-        'faculty': 'Факультет фізики, електроніки та комп’ютерних систем',
+        'educational_program_name': "Комп'ютерні науки",
+        'faculty': "Факультет фізики, електроніки та комп'ютерних систем",
         'basis': 'NRK5',
         'speciality_code': 122,
-        'speciality_name': 'Комп’ютерні науки',
+        'speciality_name': "Комп'ютерні науки",
     },
     {
         'study_form': 'DAY',
         'study_duration': 34,
         'type': 'відкрита',
-        'educational_program_name': 'Інфокомунікації та системи зв’язку',
-        'faculty': 'Факультет фізики, електроніки та комп’ютерних систем',
+        'educational_program_name': "Інфокомунікації та системи зв'язку",
+        'faculty': "Факультет фізики, електроніки та комп'ютерних систем",
         'basis': 'NRK5',
         'speciality_code': 172,
         'speciality_name': 'Електронні комунікації та радіотехніка',
@@ -3977,7 +3998,6 @@ json_offers = [
 ]
 
 
-
 def pretty_print(name, data):
     print(f"{name} = [")
 
@@ -4102,4 +4122,23 @@ for item in json_offers:
         case "nrk5":
             item["basis"] = "NRK5"
 
-pretty_print('json_offers', json_offers)
+
+for item in json_offers:
+    to_find = None
+
+    match item["basis"]:
+        case "PZSO" | "NRK5":
+            level = "bachelor"
+        case "NRK67":
+            level = "master"
+
+    for item2 in json_accreditation:
+        if item2["level"] == level and item["educational_program_name"] == item2["educational_program_name"] and item["speciality_name"] == item2["speciality_name"]:
+            if "speciality_specialization" in item2 and "specialization_name" in item:
+                if item["specialization_name"] == item2["speciality_specialization"]:
+                    to_find = item2
+            else:
+                to_find = item2
+
+    if to_find == None and item["educational_program_name"] != "Біосистеми та ландшафтний дизайн" and item["educational_program_name"] != 'Фізична терапія, ерготерапія':
+        raise Exception("not find")
