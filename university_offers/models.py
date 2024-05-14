@@ -2,6 +2,7 @@ from datetime import datetime
 from django.db import models
 from django.core.validators import MinValueValidator
 from dateutil.relativedelta import relativedelta
+from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
 
@@ -19,8 +20,6 @@ class Faculty(models.Model):
         verbose_name=_("generic.abbreviation"),
     )
 
-    cipher = models.IntegerField(unique=True, verbose_name=_("generic.cipher"))
-
     def __str__(self) -> str:
         return self.full_name
 
@@ -30,22 +29,48 @@ class Faculty(models.Model):
 
 
 class Speciality(models.Model):
+    code = models.IntegerField(verbose_name=_("generic.code"))
+
     name = models.CharField(
         max_length=255,
         verbose_name=_("generic.name"),
     )
 
-    code = models.IntegerField(verbose_name=_("generic.code"))
-
-    specialization = models.IntegerField(
-        null=True,
-        blank=True,
-        verbose_name=_("speciality.specialization"),
-    )
-
     faculty = models.ForeignKey(
         Faculty, on_delete=models.PROTECT, verbose_name=_("faculty")
     )
+
+    specialization_code = models.IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_("speciality.specialization_code"),
+    )
+
+    specialization_name = models.IntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_("speciality.specialization_name"),
+    )
+
+    def clean(self) -> None:
+        super().clean()
+
+        if self.specialization_code:
+            if not self.specialization_name:
+                raise ValidationError(
+                    _(
+                        "speciality.specialization_name_required_for_specialization_code"
+                    )
+                )
+
+        if self.specialization_name:
+            if not self.specialization_code:
+                raise ValidationError(
+                    _(
+                        "speciality.specialization_code_required_for_specialization_name"
+                    )
+                )
+
 
     def __str__(self) -> str:
         return self.code_and_name + " - " + self.faculty.abbreviation
@@ -89,6 +114,33 @@ class EducationalProgram(models.Model):
         return self.name
 
 
+class EducationalLevel(models.IntegerChoices):
+    BACHELOR = 1, _("university_offer.level.bachelor")
+    MASTER = 2, _("university_offer.level.master")
+    ASPIRANT = 3, _("university_offer.level.aspirant")
+
+
+class Accreditation(models.Model):
+    educational_program = models.ForeignKey(
+        EducationalProgram, on_delete=models.PROTECT, verbose_name=_("educational_program")
+    )
+
+    level = models.IntegerField(
+        choices=EducationalLevel.choices,
+        verbose_name=_("educational_level"),
+    )
+
+    end_date = models.DateField(verbose_name=_("accreditation.end_date"))
+
+    number = models.PositiveIntegerField(verbose_name=_("accreditation.number"))
+
+    serie = models.CharField(max_length=2, null=True, blank=True, verbose_name=_("accreditation.serie"))
+
+    class Meta:
+        verbose_name = _("accreditation")
+        verbose_name_plural = _("accreditation.plural")
+
+
 class UniversityOffer(models.Model):
     class Type(models.IntegerChoices):
         BUDGET = 1, _("university_offer.type.budget")
@@ -99,10 +151,6 @@ class UniversityOffer(models.Model):
         OVER_DISTANCE = 2, _("university_offer.study_form.over_distance")
         EVENING = 3, _("university_offer.study_form.evening")
 
-    class Level(models.IntegerChoices):
-        BACHELOR = 1, _("university_offer.level.bachelor")
-        MASTER = 2, _("university_offer.level.master")
-        ASPIRANT = 3, _("university_offer.level.aspirant")
 
     class Basis(models.IntegerChoices):
         SCHOOL = 1, _("university_offer.basis.school")
@@ -131,7 +179,7 @@ class UniversityOffer(models.Model):
     )
 
     level = models.PositiveIntegerField(
-        choices=Level.choices, verbose_name=_("university_offer.level")
+        choices=EducationalLevel.choices, verbose_name=_("university_offer.level")
     )
 
     basis = models.PositiveIntegerField(
@@ -219,26 +267,3 @@ class UniversityOffer(models.Model):
         verbose_name = _("university_offer")
         verbose_name_plural = _("university_offer.plural")
 
-
-class Accreditation(models.Model):
-    educational_program = models.ForeignKey(
-        EducationalProgram,
-        on_delete=models.CASCADE,
-        verbose_name=_("university_offer.educational_program"),
-    )
-
-    level = models.PositiveIntegerField(
-        choices=UniversityOffer.Level.choices, verbose_name=_("accreditation.level")
-    )
-
-    end_of_accreditation = models.DateField(
-        verbose_name=_("accreditation.end_of_accreditation")
-    )
-
-    description = models.CharField(
-        max_length=255, verbose_name=_("accreditation.description")
-    )
-
-    class Meta:
-        verbose_name = _("accreditation")
-        verbose_name_plural = _("accreditation.plural")
