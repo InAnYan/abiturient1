@@ -21,6 +21,8 @@ names = [
     "zlata",
     "snezhana",
     "ulyana",
+    "larisa",
+    "anastasia",
 ]
 
 

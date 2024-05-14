@@ -4,7 +4,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.utils.functional import lazy
 
-from university_offers.models import Faculty, Speciality, UniversityOffer
+from university_offers.models import EducationalLevel, Faculty, Speciality, UniversityOffer
 
 
 capitalize_lazy = lazy(lambda s: s.capitalize(), str)
@@ -55,7 +55,7 @@ class UniversityOfferSearchForm(forms.Form):
     )
 
     level = forms.ChoiceField(
-        choices=UniversityOffer.Level.choices,
+        choices=EducationalLevel.choices,
         label=capitalize_lazy(_("university_offer.level")),
     )
 

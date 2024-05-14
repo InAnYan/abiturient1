@@ -51,6 +51,16 @@ faculties_data = [
         "abbreviation": "ФМТДР",
         "cipher": 14,
     },
+    {
+        "full_name": "Навчально-методичний центр заочної та вечірньої форм навчання",
+        "abbreviation": "НМЦЗВФН",
+        "cipher": 0000,
+    },
+    {
+        "full_name": "Навчально-методичний центр післядипломної освіти",
+        "abbreviation": "НМЦПДО",
+        "cipher": 0000,
+    },
 ]
 
 
@@ -59,4 +69,5 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         for faculty_data in faculties_data:
+            del faculty_data["cipher"]
             Faculty(**faculty_data).save()

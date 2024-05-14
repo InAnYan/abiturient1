@@ -46,40 +46,14 @@ class Speciality(models.Model):
         verbose_name=_("speciality.specialization_code"),
     )
 
-    specialization_name = models.IntegerField(
-        null=True,
-        blank=True,
-        verbose_name=_("speciality.specialization_name"),
-    )
-
-    def clean(self) -> None:
-        super().clean()
-
-        if self.specialization_code:
-            if not self.specialization_name:
-                raise ValidationError(
-                    _(
-                        "speciality.specialization_name_required_for_specialization_code"
-                    )
-                )
-
-        if self.specialization_name:
-            if not self.specialization_code:
-                raise ValidationError(
-                    _(
-                        "speciality.specialization_code_required_for_specialization_name"
-                    )
-                )
-
-
     def __str__(self) -> str:
-        return self.code_and_name + " - " + self.faculty.abbreviation
+        return self.faculty.abbreviation + " - " + self.code_and_name
 
     @property
     def code_and_name(self) -> str:
         code = str(self.code).zfill(3)
-        if self.specialization:
-            code += "." + str(self.specialization).zfill(3)
+        if self.specialization_code:
+            code += "." + str(self.specialization_code).zfill(3)
 
         return code + " " + self.name
 
@@ -111,16 +85,20 @@ class EducationalProgram(models.Model):
     """
 
     def __str__(self) -> str:
-        return self.name
+        return f"{self.speciality} - {self.name}"
 
 
 class EducationalLevel(models.IntegerChoices):
     BACHELOR = 1, _("university_offer.level.bachelor")
     MASTER = 2, _("university_offer.level.master")
-    ASPIRANT = 3, _("university_offer.level.aspirant")
+    PHD = 3, _("university_offer.level.aspirant")
 
 
 class Accreditation(models.Model):
+    class Type(models.IntegerChoices):
+        SPECIALITY = 1, _("accreditation.type.speciality")
+        EDUCATIONAL_PROGRAM = 2, _("accreditation.type.educational_program")
+
     educational_program = models.ForeignKey(
         EducationalProgram, on_delete=models.PROTECT, verbose_name=_("educational_program")
     )
@@ -136,6 +114,36 @@ class Accreditation(models.Model):
 
     serie = models.CharField(max_length=2, null=True, blank=True, verbose_name=_("accreditation.serie"))
 
+    type = models.PositiveIntegerField(
+        choices=Type.choices,
+        verbose_name=_("accreditation.type"), 
+    )
+
+    def __str__(self) -> str:
+        return f"{self.serie + " " if self.serie else " "}{self.number} - {self.educational_program}"
+
+    @property
+    def ukr_sentence(self) -> str:
+        work = "Сертифікат про акредитацію"
+        work += " "
+        match self.type:
+            case self.Type.EDUCATIONAL_PROGRAM:
+                work += "освітньої програми"
+            case self.Type.SPECIALITY:
+                work += "спеціальності"
+            case _:
+                raise Exception("It can't be: " + self.Type(self.type).label)
+        work += " "
+        if self.serie:
+            work += self.serie
+            work += " "
+        work += str(self.number)
+        work += ", "
+        work += "дійсний до"
+        work += " "
+        work += self.end_date.strftime("%d.%m.%Y")
+        return work
+
     class Meta:
         verbose_name = _("accreditation")
         verbose_name_plural = _("accreditation.plural")
@@ -149,11 +157,12 @@ class UniversityOffer(models.Model):
     class StudyForm(models.IntegerChoices):
         DAY = 1, _("university_offer.study_form.day")
         OVER_DISTANCE = 2, _("university_offer.study_form.over_distance")
-        EVENING = 3, _("university_offer.study_form.evening")
-
+        DISTANCE = 3, _("university_offer.study_form.distance")
 
     class Basis(models.IntegerChoices):
-        SCHOOL = 1, _("university_offer.basis.school")
+        PZSO = 1, _("university_offer.basis.pzso")
+        NRK_5 = 2, _("university_offer.basis.nrk_5")
+        NRK_6_7 = 3, _("university_offer.basis.nrk_6_7")
 
     study_begin = models.DateField(verbose_name=_("university_offer.study_begin"))
 
@@ -185,7 +194,6 @@ class UniversityOffer(models.Model):
     basis = models.PositiveIntegerField(
         choices=Basis.choices,
         verbose_name=_("university_offers.basis"),
-        default=Basis.SCHOOL,
     )
 
     type = models.PositiveIntegerField(
@@ -256,7 +264,7 @@ class UniversityOffer(models.Model):
     @property
     def str_property(self) -> str:
         return (
-            str(self.educational_program.speciality)
+            str(self.educational_program)
             + " - "
             + self.StudyForm(self.study_form).label
             + " - "
@@ -266,4 +274,3 @@ class UniversityOffer(models.Model):
     class Meta:
         verbose_name = _("university_offer")
         verbose_name_plural = _("university_offer.plural")
-
