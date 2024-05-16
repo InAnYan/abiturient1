@@ -15,19 +15,23 @@ from docxtpl import DocxTemplate
 from tempfile import NamedTemporaryFile
 
 
-only_alpha_space_validator = RegexValidator("([^\W]| )+", _("generic.only_alpha"))
+only_alpha_space_validator = RegexValidator(
+    "([^\W]| )+", _("Only alphabetical characters are allowed")
+)
 
 
 class Document(models.Model):
-    name = models.CharField(max_length=255, validators=[only_alpha_space_validator])
-    file = models.FileField(upload_to="documents")
+    name = models.CharField(
+        max_length=255, validators=[only_alpha_space_validator], verbose_name=_("Name")
+    )
+    file = models.FileField(upload_to="documents", verbose_name=_("File"))
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = _("document")
-        verbose_name_plural = _("document.plural")
+        verbose_name = _("Document")
+        verbose_name_plural = _("Documents")
 
     def clean(self):
         super().clean()
@@ -91,7 +95,7 @@ class Document(models.Model):
             offer=test_offer,
             created_at=date.today(),
             payment_type=AcceptedOffer.PaymentType.PRIVATE,
-            payment_frequency=AcceptedOffer.PaymentFrequency.EVERY_SEMESTER,
+            payment_frequency=AcceptedOffer.PaymentFrequency.EACH_SEMESTER,
             accepted_year=1,
         )
 
@@ -114,4 +118,4 @@ class Document(models.Model):
             os.unlink(filled_file.name)
 
         except Exception as e:
-            raise ValidationError("Got an error: " + str(e))
+            raise ValidationError(e)

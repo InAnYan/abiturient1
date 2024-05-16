@@ -1,10 +1,10 @@
 {% extends "base/wrapper.html" %}
 {% load i18n %}
 {% block title %}
-    {% trans "done.title"|capfirst %}
+    {% trans "Record saved"|capfirst %}
 {% endblock title %}
 {% block content %}
-    <h2>{% trans "done.title"|capfirst %}</h2>
+    <h2>{% trans "Record saved"|capfirst %}</h2>
     {% trans "done.content"|capfirst as content %}
     <p>{{ content|linebreaksbr }}</p>
 {% endblock content %}

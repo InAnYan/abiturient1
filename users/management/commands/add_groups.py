@@ -6,7 +6,7 @@ from django.contrib.auth.models import Group
 
 
 class Command(BaseCommand):
-    help = _("users.add_groups.help")
+    help = _("Add user groups (PK)")
 
     def handle(self, *args, **options):
         Group.objects.create(name="pk")

@@ -4,7 +4,12 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.utils.functional import lazy
 
-from university_offers.models import EducationalLevel, Faculty, Speciality, UniversityOffer
+from university_offers.models import (
+    EducationalLevel,
+    Faculty,
+    Speciality,
+    UniversityOffer,
+)
 
 
 capitalize_lazy = lazy(lambda s: s.capitalize(), str)
@@ -30,51 +35,51 @@ class UniversityOfferSearchForm(forms.Form):
     faculty = forms.ModelChoiceField(
         queryset=Faculty.objects.all(),
         required=False,
-        label=capitalize_lazy(_("university_offer.faculty")),
+        label=_("Faculty"),
     )
 
     speciality = forms.ChoiceField(
         choices=lambda: make_speciality_choices(),
         required=False,
-        label=capitalize_lazy(_("university_offer.speciality")),
+        label=_("Speciality"),
     )
 
     educational_program_name = forms.CharField(
         required=False,
-        label=capitalize_lazy(_("university_offer.educational_program_name")),
+        label=_("Name of educational program"),
     )
 
     offer_type = forms.ChoiceField(
         choices=UniversityOffer.Type.choices,
-        label=capitalize_lazy(_("university_offer.offer_type")),
+        label=_("Offer type"),
+        help_text=_("Budget or contract"),
     )
 
     study_form = forms.ChoiceField(
         choices=UniversityOffer.StudyForm.choices,
-        label=capitalize_lazy(_("university_offer.study_form")),
+        label=_("Study form"),
     )
 
     level = forms.ChoiceField(
         choices=EducationalLevel.choices,
-        label=capitalize_lazy(_("university_offer.level")),
+        label=_("Educational level"),
     )
 
     basis = forms.ChoiceField(
         choices=UniversityOffer.Basis.choices,
-        label=capitalize_lazy(_("university_offer.basis")),
+        label=_("Basis"),
     )
 
     # It will be a hidden field, so we can't leave it required because the error message won't be shown.
-    # TODO: What if there is a method to show the error message?
     result_offer = forms.ModelChoiceField(
         queryset=UniversityOffer.objects.all(),
         required=False,
-        label=capitalize_lazy(_("university_offer.result_offer")),
+        label=_("Result offer (you are not supposed to see this)"),
     )
 
     def clean_result_offer(self):
         if not self.cleaned_data["result_offer"]:
-            self.add_error(None, _("university_offer.offer_required"))
+            self.add_error(None, _("Please, choose an offer"))
         return self.cleaned_data["result_offer"]
 
     """

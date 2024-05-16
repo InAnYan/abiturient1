@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block title %}
-{% trans "pk_panel.unauthorized.title"|capfirst %}
+{% trans "Unauthorized access"|capfirst %}
 {% endblock title %}
 
 {% block content %}
@@ -11,6 +11,6 @@
 {% trans "pk_panel.unauthorized.description"|capfirst %}
 </p>
 
-<a href="{% url "login" %}" class="btn btn-primary" role="button">{% trans "generic.login"|capfirst %}</a>
-<a href="{% url "logout" %}" class="btn btn-primary" role="button">{% trans "generic.logout_root"|capfirst %}</a>
+<a href="{% url "login" %}" class="btn btn-primary" role="button">{% trans "Login" %}</a>
+<a href="{% url "logout" %}" class="btn btn-primary" role="button">{% trans "Logout" %}</a>
 {% endblock content %}

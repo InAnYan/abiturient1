@@ -27,7 +27,7 @@ names = [
 
 
 class Command(BaseCommand):
-    help = _("users.add_users.help")
+    help = _("Add users for testing (for different faculties of DNU)")
 
     def handle(self, *args, **options):
         pk_group = Group.objects.get(name="pk")

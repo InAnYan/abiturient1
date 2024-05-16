@@ -11,7 +11,7 @@ documents_path = BASE_DIR / "documents" / "documents_templates"
 
 
 class Command(BaseCommand):
-    help = _("documents.add_documents.help")
+    help = _("Add document templates")
 
     def handle(self, *args, **options):
         for file in os.listdir(documents_path):

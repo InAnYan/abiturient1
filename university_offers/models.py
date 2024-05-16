@@ -1,49 +1,47 @@
-from datetime import datetime
 from django.db import models
 from django.core.validators import MinValueValidator
 from dateutil.relativedelta import relativedelta
-from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
-from django.core.validators import RegexValidator
 
 
 class Faculty(models.Model):
     full_name = models.CharField(
         max_length=255,
         unique=True,
-        verbose_name=_("generic.full_name"),
+        verbose_name=_("Full name"),
     )
 
     abbreviation = models.CharField(
         max_length=255,
         unique=True,
-        verbose_name=_("generic.abbreviation"),
+        verbose_name=_("Abbreviation"),
     )
 
     def __str__(self) -> str:
         return self.full_name
 
     class Meta:
-        verbose_name = _("faculty")
-        verbose_name_plural = _("faculty.plural")
+        verbose_name = _("Faculty")
+        verbose_name_plural = _("Faculties")
 
 
 class Speciality(models.Model):
-    code = models.IntegerField(verbose_name=_("generic.code"))
-
-    name = models.CharField(
-        max_length=255,
-        verbose_name=_("generic.name"),
-    )
-
-    faculty = models.ForeignKey(
-        Faculty, on_delete=models.PROTECT, verbose_name=_("faculty")
-    )
+    code = models.IntegerField(verbose_name=_("Code"))
 
     specialization_code = models.IntegerField(
         null=True,
         blank=True,
-        verbose_name=_("speciality.specialization_code"),
+        verbose_name=_("Specialization code"),
+        help_text=_("If there is a specialization, fill the specialization code and leave name to be the name of the specialization")
+    )
+
+    name = models.CharField(
+        max_length=255,
+        verbose_name=_("Name"),
+    )
+
+    faculty = models.ForeignKey(
+        Faculty, on_delete=models.PROTECT, verbose_name=_("Faculty")
     )
 
     def __str__(self) -> str:
@@ -58,65 +56,53 @@ class Speciality(models.Model):
         return code + " " + self.name
 
     class Meta:
-        verbose_name = _("speciality")
-        verbose_name_plural = _("speciality.plural")
+        verbose_name = _("Speciality")
+        verbose_name_plural = _("Specialities")
 
 
 class EducationalProgram(models.Model):
     name = models.CharField(
         max_length=255,
-        verbose_name=_("generic.name"),
+        verbose_name=_("Name"),
     )
 
     speciality = models.ForeignKey(
-        Speciality, on_delete=models.PROTECT, verbose_name=_("speciality")
+        Speciality, on_delete=models.PROTECT, verbose_name=_("Speciality")
     )
-
-    """
-    @property
-    def has_accreditation(self) -> str:
-        if (
-            self.end_of_accreditation
-            and self.end_of_accreditation > datetime.now().date()
-        ):
-            return _("educational_program.has_accreditation")
-        else:
-            return _("educational_program.not_has_accreditation")
-    """
 
     def __str__(self) -> str:
         return f"{self.speciality} - {self.name}"
 
 
 class EducationalLevel(models.IntegerChoices):
-    BACHELOR = 1, _("university_offer.level.bachelor")
-    MASTER = 2, _("university_offer.level.master")
-    PHD = 3, _("university_offer.level.aspirant")
+    BACHELOR = 1, _("Bachelor")
+    MASTER = 2, _("Master")
+    PHD = 3, _("PhD")
 
 
 class Accreditation(models.Model):
     class Type(models.IntegerChoices):
-        SPECIALITY = 1, _("accreditation.type.speciality")
-        EDUCATIONAL_PROGRAM = 2, _("accreditation.type.educational_program")
+        SPECIALITY = 1, _("Speciality")
+        EDUCATIONAL_PROGRAM = 2, _("Educational program")
 
     educational_program = models.ForeignKey(
-        EducationalProgram, on_delete=models.PROTECT, verbose_name=_("educational_program")
+        EducationalProgram, on_delete=models.PROTECT, verbose_name=_("Educational program")
     )
 
     level = models.IntegerField(
         choices=EducationalLevel.choices,
-        verbose_name=_("educational_level"),
+        verbose_name=_("Educational level"),
     )
 
-    end_date = models.DateField(verbose_name=_("accreditation.end_date"))
+    end_date = models.DateField(verbose_name=_("End of accreditation"))
 
-    number = models.PositiveIntegerField(verbose_name=_("accreditation.number"))
+    number = models.PositiveIntegerField(verbose_name=_("Accreditation number"))
 
-    serie = models.CharField(max_length=2, null=True, blank=True, verbose_name=_("accreditation.serie"))
+    serie = models.CharField(max_length=2, null=True, blank=True, verbose_name=_("Accreditation serie"))
 
     type = models.PositiveIntegerField(
         choices=Type.choices,
-        verbose_name=_("accreditation.type"), 
+        verbose_name=_("Accreditation type"), 
     )
 
     def __str__(self) -> str:
@@ -145,30 +131,31 @@ class Accreditation(models.Model):
         return work
 
     class Meta:
-        verbose_name = _("accreditation")
-        verbose_name_plural = _("accreditation.plural")
+        verbose_name = _("Accreditation")
+        verbose_name_plural = _("Accreditations")
 
 
 class UniversityOffer(models.Model):
     class Type(models.IntegerChoices):
-        BUDGET = 1, _("university_offer.type.budget")
-        CONTRACT = 2, _("university_offer.type.contract")
+        BUDGET = 1, _("Budget")
+        CONTRACT = 2, _("Contract")
 
     class StudyForm(models.IntegerChoices):
-        DAY = 1, _("university_offer.study_form.day")
-        OVER_DISTANCE = 2, _("university_offer.study_form.over_distance")
-        DISTANCE = 3, _("university_offer.study_form.distance")
+        DAY = 1, _("Full-time")
+        OVER_DISTANCE = 2, _("Part-time")
+        DISTANCE = 3, _("Distance")
 
     class Basis(models.IntegerChoices):
-        PZSO = 1, _("university_offer.basis.pzso")
-        NRK_5 = 2, _("university_offer.basis.nrk_5")
-        NRK_6_7 = 3, _("university_offer.basis.nrk_6_7")
+        PZSO = 1, _("CGSE")
+        NRK_5 = 2, _("NFQ5")
+        NRK_6_7 = 3, _("NFQ6 or NFQ7")
 
-    study_begin = models.DateField(verbose_name=_("university_offer.study_begin"))
+    study_begin = models.DateField(verbose_name=_("Beginning of study"))
 
     study_duration = models.IntegerField(
         validators=[MinValueValidator(1)],
-        verbose_name=_("university_offer.study_duration"),
+        verbose_name=_("Study duration"),
+        help_text=_("In months")
     )
 
     @property
@@ -184,44 +171,45 @@ class UniversityOffer(models.Model):
         return self.study_duration % 12
 
     educational_program = models.ForeignKey(
-        EducationalProgram, on_delete=models.PROTECT, verbose_name=_("speciality")
+        EducationalProgram, on_delete=models.PROTECT, verbose_name=_("Educational program")
     )
 
     level = models.PositiveIntegerField(
-        choices=EducationalLevel.choices, verbose_name=_("university_offer.level")
+        choices=EducationalLevel.choices, verbose_name=_("Educational level")
     )
 
     basis = models.PositiveIntegerField(
         choices=Basis.choices,
-        verbose_name=_("university_offers.basis"),
+        verbose_name=_("Basis"),
     )
 
     type = models.PositiveIntegerField(
-        choices=Type.choices, verbose_name=_("university_offer.type")
+        choices=Type.choices, verbose_name=_("Offer type"),
+        help_text=_("Budget or contract"),
     )
 
     study_form = models.PositiveIntegerField(
-        choices=StudyForm.choices, verbose_name=_("university_offer.study_form")
+        choices=StudyForm.choices, verbose_name=_("Study form")
     )
 
     ects = models.IntegerField(
-        validators=[MinValueValidator(1)], verbose_name=_("university_offer.ects")
+        validators=[MinValueValidator(1)], verbose_name=_("ECTS")
     )
 
     year1_cost = models.PositiveIntegerField(
-        verbose_name=_("university_offer.year1_cost"), default=0
+        verbose_name=_("Year 1 cost"), default=0
     )
 
     year2_cost = models.PositiveIntegerField(
-        verbose_name=_("university_offer.year2_cost"), default=0
+        verbose_name=_("Year 2 cost"), default=0
     )
 
     year3_cost = models.PositiveIntegerField(
-        verbose_name=_("university_offer.year3_cost"), default=0
+        verbose_name=_("Year 3 cost"), default=0
     )
 
     year4_cost = models.PositiveIntegerField(
-        verbose_name=_("university_offer.year4_cost"), default=0
+        verbose_name=_("Year 4 cost"), default=0
     )
 
     @property
@@ -272,5 +260,5 @@ class UniversityOffer(models.Model):
         )
 
     class Meta:
-        verbose_name = _("university_offer")
-        verbose_name_plural = _("university_offer.plural")
+        verbose_name = _("University offer")
+        verbose_name_plural = _("University offers")

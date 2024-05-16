@@ -65,7 +65,7 @@ faculties_data = [
 
 
 class Command(BaseCommand):
-    help = _("university_offers.add_faculties.help")
+    help = _("add DNU faculties (2024)")
 
     def handle(self, *args, **options):
         for faculty_data in faculties_data:

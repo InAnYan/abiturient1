@@ -26,7 +26,9 @@ def user_login(request: HttpRequest):
                     reverse("admin:index" if request.user.is_superuser else "pk_panel")
                 )
             else:
-                form.add_error("password", _("auth.login.failed"))
+                form.add_error(
+                    "password", _("Login failed (check the username and/or password)")
+                )
     else:
         form = LoginForm()
     return render(request, "users_login/login.html", {"form": form})

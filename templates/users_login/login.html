@@ -2,19 +2,19 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% block title %}
-{% trans "users.login.title"|capfirst %}
+{% trans "Login" %}
 {% endblock title %}
 {% block content %}
 
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">{% trans "auth.login"|capfirst %}</h5>
+    <h5 class="card-title">{% trans "Login" %}</h5>
     <form method="post">
       {% csrf_token %}
       <p class="card-text">
           {{ form|crispy }}
       </p>
-      <button type="submit" class="btn btn-primary">{% trans "auth.login"|capfirst %}</a>
+      <button type="submit" class="btn btn-primary">{% trans "Login" %}</a>
     </form>
   </div>
 </div>

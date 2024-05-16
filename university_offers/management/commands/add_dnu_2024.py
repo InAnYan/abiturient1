@@ -7,16 +7,27 @@ import json
 
 
 from abiturient1.settings import BASE_DIR
-from university_offers.models import Accreditation, EducationalLevel, EducationalProgram, Faculty, Speciality, UniversityOffer
+from university_offers.models import (
+    Accreditation,
+    EducationalLevel,
+    EducationalProgram,
+    Faculty,
+    Speciality,
+    UniversityOffer,
+)
 
 
 class Command(BaseCommand):
-    help = _("university_offers.add_dnu_2024.help")
+    help = _("Add educational programs, accreditations, and offers for DNU 2024")
 
     def handle(self, *args, **options):
         with open(
-            BASE_DIR / "university_offers" / "management" / "commands" / "accreditations_offers_joined.json",
-            encoding="utf-8"
+            BASE_DIR
+            / "university_offers"
+            / "management"
+            / "commands"
+            / "accreditations_offers_joined.json",
+            encoding="utf-8",
         ) as fin:
             data = json.load(fin)
 
@@ -36,22 +47,21 @@ class Command(BaseCommand):
         return Faculty.objects.get(full_name=item["faculty"])
 
     def load_speciality(self, item: Dict[str, Any], faculty: Faculty) -> Speciality:
-        q = Speciality.objects.filter(
-            code=item["speciality_code"],
-            faculty=faculty
-        )
+        q = Speciality.objects.filter(code=item["speciality_code"], faculty=faculty)
 
         if "specialization_code" in item:
-            q = q.filter(
-                specialization_code=item["specialization_code"]
-            )
+            q = q.filter(specialization_code=item["specialization_code"])
 
         if q:
             return q.get()
 
         obj = Speciality(
             code=item["speciality_code"],
-            name=item["specialization_name"] if "specialization_name" in item else item["speciality_name"],
+            name=(
+                item["specialization_name"]
+                if "specialization_name" in item
+                else item["speciality_name"]
+            ),
             faculty=faculty,
         )
 
@@ -61,10 +71,11 @@ class Command(BaseCommand):
         obj.save()
         return obj
 
-    def load_program(self, item: Dict[str, Any], speciality: Speciality) -> EducationalProgram:
+    def load_program(
+        self, item: Dict[str, Any], speciality: Speciality
+    ) -> EducationalProgram:
         q = EducationalProgram.objects.filter(
-            speciality=speciality,
-            name=item["educational_program_name"]
+            speciality=speciality, name=item["educational_program_name"]
         )
 
         if q:
@@ -85,7 +96,7 @@ class Command(BaseCommand):
                 level=self.to_level(item["basis"]),
                 end_date=self.to_date(item["accreditation_end"]),
                 number=int(item["accreditation_number"]),
-                type=self.to_acc_type(item["accreditation_type"])
+                type=self.to_acc_type(item["accreditation_type"]),
             )
 
             if "accreditation_serie" in item:
@@ -99,7 +110,7 @@ class Command(BaseCommand):
                     level=self.to_level(item["basis"]),
                     end_date=self.to_date(item["accreditation_end"]),
                     number=int(item["accreditation_number"]),
-                    type=self.to_acc_type(item["accreditation_type"])
+                    type=self.to_acc_type(item["accreditation_type"]),
                 )
 
                 if "accreditation_serie" in item:

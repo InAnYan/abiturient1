@@ -4,7 +4,6 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.utils.functional import lazy
 
-from persons.models import Person
 from accepting_offers.models import AcceptedOffer
 from university_offers.models import Speciality, UniversityOffer
 
@@ -16,37 +15,25 @@ class AcceptedOfferForm(forms.ModelForm):
         cleaned_data = super().clean()
         if self.initial["offer"].type == UniversityOffer.Type.CONTRACT:
             if (
-                "payment_type" not in cleaned_data
-                or cleaned_data["payment_type"] is None
-            ):
-                self.add_error(
-                    None,
-                    _("accepting_offers.payment_type_required_for_contract"),
-                )
-            if (
                 "payment_frequency" not in cleaned_data
                 or cleaned_data["payment_frequency"] is None
             ):
                 self.add_error(
                     None,
-                    _("accepting_offers.payment_frequency_required_for_contract"),
+                    _(
+                        "Please, set payment frequency because you chose a contract offer"
+                    ),
                 )
         elif self.initial["offer"].type == UniversityOffer.Type.BUDGET:
-            if (
-                "payment_type" in cleaned_data
-                and cleaned_data["payment_type"] is not None
-            ):
-                self.add_error(
-                    None,
-                    _("accepting_offers.payment_type_not_required_for_budget"),
-                )
             if (
                 "payment_frequency" in cleaned_data
                 and cleaned_data["payment_frequency"] is not None
             ):
                 self.add_error(
                     None,
-                    _("accepting_offers.payment_frequency_not_required_for_budget"),
+                    _(
+                        "Please, leave the payment frequency blank because you chose a budget offer"
+                    ),
                 )
         else:
             raise NotImplementedError()
