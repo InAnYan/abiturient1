@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <strong>{% trans "Daculty" %}</strong>:
+  <strong>{% trans "Faculty" %}</strong>:
   {{ offer.educational_program.speciality.faculty.full_name }}.
 </p>
 
@@ -31,12 +31,13 @@
 </p>
 
 <p>
-  <strong>{% trans "End of accreditation" %}</strong>:
-  {% if offer.educational_program.end_of_accreditation %}
-      {{ offer.educational_program.end_of_accreditation }}
-  {% else %}
-      {% trans "no accreditation" %}
-  {% endif %}
+  <strong>{% trans "Accreditations" %}</strong>:
+
+  <ul>
+    {% for accreditation in offer.educational_program.accreditation_set %}
+      <li>{{ accreditation.get_level_label }}: {{ accreditation.ukr_sentence }}.</li>
+    {% endfor %}
+  </ul>
 </p>
 
 <p>

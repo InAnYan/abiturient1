@@ -33,7 +33,7 @@ PASSPORT_AUTHORITY_HELP = "If you have an ID card, this field should contain num
 
 
 class SensitiveInformation(models.Model):
-    serie = models.CharField(
+    passport_serie = models.CharField(
         verbose_name=_("Passport serie"),
         max_length=2,
         null=True,
@@ -41,21 +41,21 @@ class SensitiveInformation(models.Model):
         help_text=_(PASSPORT_SERIE_HELP),
     )
 
-    number = models.IntegerField(
+    passport_number = models.IntegerField(
         verbose_name=_("Passport number"),
         validators=[MaxValueValidator(999999999)],
         null=True,
         blank=True,
     )
 
-    authority = models.TextField(
+    passport_authority = models.TextField(
         verbose_name=_("Authority"),
         help_text=_(PASSPORT_AUTHORITY_HELP),
         null=True,
         blank=True,
     )
 
-    issue_date = models.DateField(
+    passport_issue_date = models.DateField(
         verbose_name=_("Date of issue"),
         validators=[MaxValueValidator(limit_value=date.today)],
         null=True,
