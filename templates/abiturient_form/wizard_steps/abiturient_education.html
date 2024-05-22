@@ -5,30 +5,26 @@
 {% load crispy_forms_tags %}
 
 {% block info %}
-    {% trans "wizard.steps.accepted_offer.info" as info %}
+    {% trans "wizard.steps.abiturient_education.info" as info %}
     {{ info|linebreaksbr }}
 {% endblock info %}
 
 {% block step_name %}
-    {% trans "wizard.steps.accepted_offer.title"|capfirst %}
+    {% trans "wizard.steps.abiturient_education.title"|capfirst %}
 {% endblock step_name %}
 
 {% block content_form %}
 
-{% if chosen_contract_offer %}
-
 <div class="form-row">
-    <div class="col">
-        {{ wizard.form.payment_frequency | as_crispy_field }}
-    </div>
+  {{ wizard.form.education_institution | as_crispy_field }}
 </div>
 
-{% endif %}
+<div class="form-row">
+  {{ wizard.form.education_place | as_crispy_field }}
+</div>
 
 <div class="form-row">
-    <div class="col">
-        {{ wizard.form.accepted_year | as_crispy_field }}
-    </div>
+  {{ wizard.form.education_end | as_crispy_field }}
 </div>
 
 {% endblock content_form %}

@@ -1,16 +1,24 @@
 from datetime import date, datetime, timedelta
-from email.mime import base
 from django.db import models
 from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
-import jinja2
 
-from persons.models import Person
+from abiturients.models import (
+    Abiturient,
+    AbiturientRepresentative,
+    ContactInformation,
+    SensitiveInformation,
+)
 from accepting_offers.models import AcceptedOffer
-from university_offers.models import Faculty, Speciality, UniversityOffer
-
-from docxtpl import DocxTemplate
+from university_offers.models import (
+    Accreditation,
+    EducationalLevel,
+    EducationalProgram,
+    Faculty,
+    Speciality,
+    UniversityOffer,
+)
 
 from tempfile import NamedTemporaryFile
 
@@ -36,39 +44,50 @@ class Document(models.Model):
     def clean(self):
         super().clean()
 
-        test_parent = Person(
-            last_name="ParentTest",
-            first_name="ParentTest",
-            patronymic="ParentTest",
-            phone=1111111111,
-            email="Parenta@a.com",
-            living_address="Parentasd",
-            passport_serie="AE",
-            passport_number=123456789,
-            passport_who_give=1234,
-            passport_when_given=datetime.today() - timedelta(days=5),
-            inn=123456789123,
-        )
-
-        test_abiturient = Person(
+        test_contact = ContactInformation(
             last_name="Test",
             first_name="Test",
             patronymic="Test",
-            phone=1111111111,
-            email="a@a.com",
-            living_address="asd",
-            passport_serie="AE",
-            passport_number=123456789,
-            passport_who_give=1234,
-            passport_when_given=datetime.today() - timedelta(days=5),
-            inn=123456789123,
-            parent=test_parent,
+            phone_number="+380123456789",
+        )
+
+        test_sensitive = SensitiveInformation(
+            passport_serie="Test",
+            passport_number=123456,
+            passport_authority="Test",
+            passport_issue_date=date.today(),
+            rntrc=123456789,
+        )
+
+        test_representative = AbiturientRepresentative(
+            contact_information=test_contact,
+            sensitive_information=test_sensitive,
+        )
+
+        test_abiturient = Abiturient(
+            contact_information=test_contact,
+            birth_date=date.today(),
+            birth_country="Test",
+            birth_town="Test",
+            nationality="Test",
+            education_institution="Test",
+            education_place="Test",
+            education_end=date.today(),
+            work="Test",
+            marital_status=Abiturient.MartialStatus.SINGLE,
+            foreign_language="Test",
+            email="Test",
+            living_address="Test",
+            registered_address="Test",
+            mother_contact_information=test_contact,
+            father_contact_information=test_contact,
+            sensitive_information=test_sensitive,
+            representative=test_representative,
         )
 
         test_faculty = Faculty(
             full_name="Test",
             abbreviation="Test",
-            cipher=1,
         )
 
         test_speciality = Speciality(
@@ -79,22 +98,34 @@ class Document(models.Model):
             educational_program_name="asd",
         )
 
+        test_program = EducationalProgram(name="Test", speciality=test_speciality)
+
+        test_program.accreditation_set = [
+            Accreditation(
+                educational_program=test_program,
+                level=EducationalLevel.BACHELOR,
+                end_date=datetime.today(),
+                number=213,
+                type=Accreditation.Type.EDUCATIONAL_PROGRAM,
+            ),
+        ]
+
         test_offer = UniversityOffer(
             study_begin=date.today(),
             study_duration=311,
+            educational_program=test_program,
             speciality=test_speciality,
             type=UniversityOffer.Type.CONTRACT,
             study_form=UniversityOffer.StudyForm.DAY,
             ects=60,
             level=UniversityOffer.Level.BACHELOR,
-            basis=UniversityOffer.Basis.SCHOOL,
+            basis=UniversityOffer.Basis.PZSO,
         )
 
         test_object = AcceptedOffer(
             abiturient=test_abiturient,
             offer=test_offer,
             created_at=date.today(),
-            payment_type=AcceptedOffer.PaymentType.PRIVATE,
             payment_frequency=AcceptedOffer.PaymentFrequency.EACH_SEMESTER,
             accepted_year=1,
         )

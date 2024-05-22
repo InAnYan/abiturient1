@@ -14,7 +14,6 @@ from django.utils import formats
 def generate_document(accepted_offer: AcceptedOffer, path: str, out):
     offer = accepted_offer.offer
     abiturient = accepted_offer.abiturient
-    parent = abiturient.parent
     educational_program = offer.educational_program
     speciality = educational_program.speciality
     faculty = speciality.faculty
@@ -24,19 +23,11 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
     offer.level = UniversityOffer.Level(offer.level).label
     offer.basis = UniversityOffer.Basis(offer.basis).label
 
-    if accepted_offer.payment_type:
-        accepted_offer.payment_type = AcceptedOffer.PaymentType(
-            accepted_offer.payment_type
-        ).label
-    else:
-        accepted_offer.payment_type = _("accepting_offers.payment_type.governmental")
-
     doc = DocxTemplate(path)
     context = {
         "accepted_offer": accepted_offer,
         "offer": offer,
         "abiturient": abiturient,
-        "parent": parent,
         "speciality": speciality,
         "educational_program": educational_program,
         "faculty": faculty,

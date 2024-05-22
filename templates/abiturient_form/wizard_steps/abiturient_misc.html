@@ -1,0 +1,34 @@
+{% extends "abiturient_form/wizard_steps/wizard_step_wrapper.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block info %}
+    {% trans "wizard.steps.abiturient_misc.info" as info %}
+    {{ info|linebreaksbr }}
+{% endblock info %}
+
+{% block step_name %}
+    {% trans "wizard.steps.abiturient_misc.title"|capfirst %}
+{% endblock step_name %}
+
+{% block content_form %}
+
+<div class="form-row">
+  {{ wizard.form.work | as_crispy_field }}
+</div>
+
+<div class="form-row">
+  {{ wizard.form.martial_status | as_crispy_field }}
+</div>
+
+<div class="form-row">
+  {{ wizard.form.living_address | as_crispy_field }}
+</div>
+
+<div class="form-row">
+  {{ wizard.form.registered_address | as_crispy_field }}
+</div>
+
+{% endblock content_form %}

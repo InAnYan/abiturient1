@@ -1,0 +1,40 @@
+{% extends "abiturient_form/wizard_steps/wizard_step_wrapper.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block info %}
+    {% trans "wizard.steps.representative_sensitive.info" as info %}
+    {{ info|linebreaksbr }}
+{% endblock info %}
+
+{% block step_name %}
+    {% trans "wizard.steps.representative_sensitive.title"|capfirst %}
+{% endblock step_name %}
+
+{% block content_form %}
+
+<div class="form-row">
+  <div class="col">
+    {{ wizard.form.passport_serie | as_crispy_field }}
+  </div>
+
+  <div class="col">
+    {{ wizard.form.passport_number | as_crispy_field }}
+  </div>
+</div>
+
+<div class="form-row">
+  {{ wizard.form.passport_authority | as_crispy_field }}
+</div>
+
+<div class="form-row">
+  {{ wizard.form.passport_issue_date | as_crispy_field }}
+</div>
+
+<div class="form-row">
+  {{ wizard.form.rntrc | as_crispy_field }}
+</div>
+
+{% endblock content_form %}

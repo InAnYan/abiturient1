@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, timedelta
 from tabnanny import verbose
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -6,22 +6,29 @@ from django.core.validators import RegexValidator
 from django.core.validators import MaxValueValidator
 
 
-TELEPHONE_HELP = "Write the phone number in the following form: +380123456789 (start with +, then area code, then the rest of the number)"
-
-
 class ContactInformation(models.Model):
     last_name = models.CharField(max_length=255, verbose_name=_("Last name"))
     first_name = models.CharField(max_length=255, verbose_name=_("First name"))
-    patronymic = models.CharField(max_length=255, verbose_name=_("Patronymic"))
+    patronymic = models.CharField(
+        max_length=255, verbose_name=_("Patronymic"), blank=True, null=True
+    )
 
     phone_number = models.CharField(
         verbose_name=_("Phone number"),
         validators=[
             RegexValidator(r"^\+\d{10,13}$", _("Wrong phone number format")),
         ],
-        help_text=_(TELEPHONE_HELP),
+        help_text=_(
+            "Write the phone number in the following form: +380123456789 (start with +, then area code, then the rest of the number)"
+        ),
         max_length=13,
     )
+
+    @property
+    def full_name(self) -> str:
+        return f"{self.last_name} {self.first_name}" + (
+            f" {self.patronymic}" if self.patronymic else ""
+        )
 
     class Meta:
         verbose_name = _("Contact information")
@@ -77,6 +84,22 @@ class SensitiveInformation(models.Model):
         verbose_name_plural = _("Sensitive informations")
 
 
+class AbiturientRepresentative(models.Model):
+    contact_information = models.OneToOneField(
+        ContactInformation,
+        on_delete=models.CASCADE,
+        verbose_name=_("Contact information"),
+    )
+
+    living_address = models.TextField(verbose_name=_("Living address"))
+
+    sensitive_information = models.OneToOneField(
+        SensitiveInformation,
+        on_delete=models.CASCADE,
+        verbose_name=_("Sensitive information"),
+    )
+
+
 class Abiturient(models.Model):
     contact_information = models.OneToOneField(
         ContactInformation,
@@ -102,7 +125,7 @@ class Abiturient(models.Model):
 
     education_end = models.DateField(verbose_name=_("Education end date"))
 
-    job = models.TextField(verbose_name=_("Job"), blank=True, null=True)
+    work = models.TextField(verbose_name=_("Work"), blank=True, null=True)
 
     class MartialStatus(models.IntegerChoices):
         SINGLE = 1, _("Single")
@@ -118,8 +141,8 @@ class Abiturient(models.Model):
 
     email = models.EmailField(verbose_name=_("Email"))
 
-    home_address = models.TextField(verbose_name=_("Home address"))
     living_address = models.TextField(verbose_name=_("Living address"))
+    registered_address = models.TextField(verbose_name=_("Registered address"))
 
     mother_contact_information = models.OneToOneField(
         ContactInformation,
@@ -141,6 +164,16 @@ class Abiturient(models.Model):
         SensitiveInformation,
         on_delete=models.CASCADE,
         verbose_name=_("Sensitive information"),
+    )
+
+    representative = models.OneToOneField(
+        AbiturientRepresentative,
+        on_delete=models.CASCADE,
+        verbose_name=_("Representative"),
         blank=True,
         null=True,
     )
+
+    class Meta:
+        verbose_name = _("Abiturient")
+        verbose_name_plural = _("Abiturients")

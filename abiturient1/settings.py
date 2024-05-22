@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "users.apps.UsersConfig",
     "documents.apps.DocumentsConfig",
-    "persons.apps.PersonsConfig",
+    "abiturients.apps.AbiturientsConfig",
     "university_offers.apps.UniversityOffersConfig",
     "accepting_offers.apps.AcceptingOffersConfig",
     "pk_panel.apps.PkPanelConfig",
