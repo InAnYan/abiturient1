@@ -108,7 +108,7 @@ class Accreditation(models.Model):
     )
 
     def __str__(self) -> str:
-        return f"{self.serie + " " if self.serie else " "}{self.number} - {self.educational_program}"
+        return f"{self.serie + ' ' if self.serie else ' '}{self.number} - {self.educational_program}"
 
     @property
     def ukr_sentence(self) -> str:
