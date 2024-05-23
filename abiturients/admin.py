@@ -1,3 +1,13 @@
 from django.contrib import admin
 
-# Register your models here.
+from abiturients.models import (
+    Abiturient,
+    AbiturientRepresentative,
+    ContactInformation,
+    SensitiveInformation,
+)
+
+admin.site.register(Abiturient)
+admin.site.register(ContactInformation)
+admin.site.register(SensitiveInformation)
+admin.site.register(AbiturientRepresentative)
