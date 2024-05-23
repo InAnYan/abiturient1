@@ -26,14 +26,14 @@ class AcceptedOffer(models.Model):
 
     payment_frequency = models.IntegerField(
         choices=PaymentFrequency.choices,
-        verbose_name=_("Patment frequency"),
+        verbose_name=_("Payment frequency"),
         blank=True,
         null=True,
     )
 
     accepted_year = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(4)],
-        verbose_name=_("accepting_offers.accepted_year"),
+        verbose_name=_("Accepted year"),
     )
 
     def __str__(self) -> str:

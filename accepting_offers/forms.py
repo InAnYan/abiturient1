@@ -1,11 +1,20 @@
+from datetime import date
 from typing import Any
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
 
-from abiturients.models import Abiturient, ContactInformation, SensitiveInformation
+from abiturients.models import (
+    PASSPORT_AUTHORITY_HELP,
+    PASSPORT_SERIE_HELP,
+    Abiturient,
+    ContactInformation,
+    SensitiveInformation,
+)
 from accepting_offers.models import AcceptedOffer
 from university_offers.models import UniversityOffer
+
+from django.core.validators import MaxValueValidator
 
 
 class AbiturientBasicInformationForm(forms.Form):
@@ -143,26 +152,57 @@ class AbiturientSensitiveInformationForm(forms.ModelForm):
         exclude = []
 
 
-class RepresentativeContactForm(forms.ModelForm):
+class RepresentativeForm(forms.Form):
+    last_name = forms.CharField(max_length=255, label=_("Last name"))
+    first_name = forms.CharField(max_length=255, label=_("First name"))
+    patronymic = forms.CharField(max_length=255, label=_("Patronymic"), required=False)
+
+    phone_number = forms.CharField(
+        label=_("Phone number"),
+        validators=[
+            RegexValidator(r"^\+\d{10,13}$", _("Wrong phone number format")),
+        ],
+        help_text=_(
+            "Write the phone number in the following form: +380123456789 (start with +, then area code, then the rest of the number)"
+        ),
+        max_length=13,
+    )
+
     living_address = forms.CharField(label=_("Living address"))
 
-    class Meta:
-        model = ContactInformation
-        exclude = []
+    passport_serie = forms.CharField(
+        max_length=2,
+        label=_("Passport serie"),
+        required=False,
+        help_text=_(PASSPORT_SERIE_HELP),
+    )
 
-    field_order = [
-        "last_name",
-        "first_name",
-        "patronymic",
-        "phone_number",
-        "living_address",
-    ]
+    passport_number = forms.IntegerField(
+        label=_("Passport number"),
+        validators=[MaxValueValidator(999999999)],
+        required=False,
+    )
 
+    passport_authority = forms.CharField(
+        label=_("Authority"),
+        required=False,
+        help_text=_(PASSPORT_AUTHORITY_HELP),
+    )
 
-class RepresentativeSensitiveInformationForm(forms.ModelForm):
-    class Meta:
-        model = SensitiveInformation
-        exclude = []
+    passport_issue_date = forms.DateField(
+        label=_("Date of issue"),
+        validators=[MaxValueValidator(limit_value=date.today)],
+        required=False,
+    )
+
+    rntrc = forms.IntegerField(
+        label=_("RNTRC"),
+        validators=[MaxValueValidator(999999999999)],
+        required=False,
+        help_text=_(
+            "Registration number of the taxpayer's account card (a local equivalent of the taxpayer's identification number)"
+        ),
+    )
 
 
 class EmptyForm(forms.Form):

@@ -120,34 +120,34 @@
 
 
 {% if not has_18_years %}
-    <h3>{% trans "wizard.steps.representative_contact.title" %}</h3>
+    <h3>{% trans "wizard.steps.representative.title" %}</h3>
 
-    <p><strong>{% trans "Representative last name" %}</strong>: {{ representative_contact.last_name }}. </p>
-    <p><strong>{% trans "Representative first name" %}</strong>: {{ representative_contact.first_name }}. </p>
+    <p><strong>{% trans "Representative last name" %}</strong>: {{ representative.last_name }}. </p>
+    <p><strong>{% trans "Representative first name" %}</strong>: {{ representative.first_name }}. </p>
     {% if abiturient_parents.mother_patronymic %}
-        <p><strong>{% trans "Representative patronymic" %}</strong>: {{ representative_contact.patronymic }}. </p>
+        <p><strong>{% trans "Representative patronymic" %}</strong>: {{ representative.patronymic }}. </p>
     {% endif %}
 
     <div class="mb-3"></div>
 
-    <p><strong>{% trans "Representative phone number" %}</strong>: {{ representative_contact.phone_number }}. </p>
-
-
-    <h3>{% trans "wizard.steps.representative_sensitive.title" %}</h3>
-
-    <p><strong>{% trans "Passport serie" %}</strong>: {% firstof representative_sensitive.passport_serie '—' %}. </p>
-
-    <p><strong>{% trans "Passport number" %}</strong>: {% firstof representative_sensitive.passport_number '—' %}. </p>
+    <p><strong>{% trans "Representative phone number" %}</strong>: {{ representative.phone_number }}. </p>
+    <p><strong>{% trans "Representative living address" %}</strong>: {{ representative.living_address }}. </p>
 
     <div class="mb-3"></div>
 
-    <p><strong>{% trans "Passport authority" %}</strong>: {% firstof representative_sensitive.passport_authority '—' %}. </p>
+    <p><strong>{% trans "Passport serie" %}</strong>: {% firstof representative.passport_serie '—' %}. </p>
 
-    <p><strong>{% trans "Passport issue date" %}</strong>: {% firstof representative_sensitive.passport_issue_date '—' %}. </p>
+    <p><strong>{% trans "Passport number" %}</strong>: {% firstof representative.passport_number '—' %}. </p>
 
     <div class="mb-3"></div>
 
-    <p><strong>{% trans "RNTRC" %}</strong>: {% firstof representative_sensitive.rntrc '—' %}. </p>
+    <p><strong>{% trans "Passport authority" %}</strong>: {% firstof representative.passport_authority '—' %}. </p>
+
+    <p><strong>{% trans "Passport issue date" %}</strong>: {% firstof representative.passport_issue_date '—' %}. </p>
+
+    <div class="mb-3"></div>
+
+    <p><strong>{% trans "RNTRC" %}</strong>: {% firstof representative.rntrc '—' %}. </p>
 {% endif %}
 
 {% endblock content_form %}

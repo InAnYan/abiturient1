@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-16 12:44+0300\n"
+"POT-Creation-Date: 2024-05-23 16:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,251 +26,323 @@ msgstr "English"
 msgid "Ukrainian"
 msgstr "Ukrainian"
 
-#: .\abiturients\models.py:13
+#: .\abiturients\models.py:9 .\accepting_offers\forms.py:21
+#: .\accepting_offers\forms.py:156
+#: .\templates\abiturient_form\wizard_steps\check.html:21
 msgid "Last name"
-msgstr ""
+msgstr "Last name"
 
-#: .\abiturients\models.py:14
+#: .\abiturients\models.py:10 .\accepting_offers\forms.py:22
+#: .\accepting_offers\forms.py:157
+#: .\templates\abiturient_form\wizard_steps\check.html:22
 msgid "First name"
-msgstr ""
+msgstr "First name"
 
-#: .\abiturients\models.py:15
-#, fuzzy
-#| msgid "generic.patronymic"
+#: .\abiturients\models.py:12 .\accepting_offers\forms.py:23
+#: .\accepting_offers\forms.py:158
+#: .\templates\abiturient_form\wizard_steps\check.html:24
 msgid "Patronymic"
-msgstr "patronymic"
+msgstr "Patronymic"
 
-#: .\abiturients\models.py:18
+#: .\abiturients\models.py:16 .\accepting_offers\forms.py:26
+#: .\accepting_offers\forms.py:161
+#: .\templates\abiturient_form\wizard_steps\check.html:29
 msgid "Phone number"
-msgstr ""
+msgstr "Phone number"
 
-#: .\abiturients\models.py:20
+#: .\abiturients\models.py:18 .\accepting_offers\forms.py:28
+#: .\accepting_offers\forms.py:123 .\accepting_offers\forms.py:140
+#: .\accepting_offers\forms.py:163
 msgid "Wrong phone number format"
-msgstr ""
+msgstr "Wrong phone number format"
 
-#: .\abiturients\models.py:27 .\abiturients\models.py:84
+#: .\abiturients\models.py:21 .\accepting_offers\forms.py:31
+#: .\accepting_offers\forms.py:126 .\accepting_offers\forms.py:143
+#: .\accepting_offers\forms.py:166
+msgid ""
+"Write the phone number in the following form: +380123456789 (start with +, "
+"then area code, then the rest of the number)"
+msgstr ""
+"Write the phone number in the following form: +380123456789 (start with +, "
+"then area code, then the rest of the number)"
+
+#: .\abiturients\models.py:36 .\abiturients\models.py:93
+#: .\abiturients\models.py:109
 msgid "Contact information"
-msgstr ""
-
-#: .\abiturients\models.py:28
-msgid "Contact informations"
-msgstr ""
+msgstr "Contact information"
 
 #: .\abiturients\models.py:37
-#, fuzzy
-#| msgid "passport.serie.help"
+msgid "Contact informations"
+msgstr "Contact informations"
+
+#: .\abiturients\models.py:46 .\accepting_offers\forms.py:175
+#: .\templates\abiturient_form\wizard_steps\check.html:107
+#: .\templates\abiturient_form\wizard_steps\check.html:138
 msgid "Passport serie"
-msgstr ""
-"If you have an ID card, leave this field empty. If you have a book-passport "
-"TODO fill this field."
+msgstr "Passport serie"
 
-#: .\abiturients\models.py:45
-#, fuzzy
-#| msgid "persons.passport_number"
+#: .\abiturients\models.py:54 .\accepting_offers\forms.py:181
+#: .\templates\abiturient_form\wizard_steps\check.html:109
+#: .\templates\abiturient_form\wizard_steps\check.html:140
 msgid "Passport number"
-msgstr "passport number"
+msgstr "Passport number"
 
-#: .\abiturients\models.py:52
+#: .\abiturients\models.py:61 .\accepting_offers\forms.py:187
 msgid "Authority"
-msgstr ""
+msgstr "Authority"
 
-#: .\abiturients\models.py:59
+#: .\abiturients\models.py:68 .\accepting_offers\forms.py:193
 msgid "Date of issue"
-msgstr ""
+msgstr "Date of issue"
 
-#: .\abiturients\models.py:66
+#: .\abiturients\models.py:75 .\accepting_offers\forms.py:199
+#: .\templates\abiturient_form\wizard_steps\check.html:119
+#: .\templates\abiturient_form\wizard_steps\check.html:150
 msgid "RNTRC"
-msgstr ""
+msgstr "RNTRC"
 
-#: .\abiturients\models.py:69
+#: .\abiturients\models.py:78 .\accepting_offers\forms.py:203
 msgid ""
 "Registration number of the taxpayer's account card (a local equivalent of "
 "the taxpayer's identification number)"
 msgstr ""
+"Registration number of the taxpayer's account card (a local equivalent of "
+"the taxpayer's identification number)"
 
-#: .\abiturients\models.py:76 .\abiturients\models.py:143
+#: .\abiturients\models.py:85 .\abiturients\models.py:101
+#: .\abiturients\models.py:171
 msgid "Sensitive information"
-msgstr ""
+msgstr "Sensitive information"
 
-#: .\abiturients\models.py:77
+#: .\abiturients\models.py:86
 msgid "Sensitive informations"
-msgstr ""
+msgstr "Sensitive informations"
 
-#: .\abiturients\models.py:87
-msgid "Date of birth"
-msgstr ""
-
-#: .\abiturients\models.py:88
-msgid "Birth country"
-msgstr ""
-
-#: .\abiturients\models.py:89
-msgid "Birth town"
-msgstr ""
-
-#: .\abiturients\models.py:92
-msgid "Nationality"
-msgstr ""
-
-#: .\abiturients\models.py:96
-msgid "Educational institution"
-msgstr ""
-
-#: .\abiturients\models.py:100
-msgid "Education place"
-msgstr ""
-
-#: .\abiturients\models.py:103
-msgid "Education end date"
-msgstr ""
-
-#: .\abiturients\models.py:105
-msgid "Job"
-msgstr ""
-
-#: .\abiturients\models.py:108
-msgid "Single"
-msgstr ""
-
-#: .\abiturients\models.py:109
-msgid "Married"
-msgstr ""
-
-#: .\abiturients\models.py:112
-msgid "Marital status"
-msgstr ""
-
-#: .\abiturients\models.py:116
-msgid "Foreign language"
-msgstr ""
-
-#: .\abiturients\models.py:119
-msgid "Email"
-msgstr ""
-
-#: .\abiturients\models.py:121
-msgid "Home address"
-msgstr ""
-
-#: .\abiturients\models.py:122
-#, fuzzy
-#| msgid "abiturient.living_address"
+#: .\abiturients\models.py:96 .\abiturients\models.py:147
+#: .\accepting_offers\forms.py:72 .\accepting_offers\forms.py:171
+#: .\templates\abiturient_form\wizard_steps\check.html:65
 msgid "Living address"
-msgstr "living address"
+msgstr "Living address"
 
-#: .\abiturients\models.py:127
-msgid "Mother's contact information"
-msgstr ""
+#: .\abiturients\models.py:113 .\accepting_offers\forms.py:44
+msgid "Date of birth"
+msgstr "Date of birth"
+
+#: .\abiturients\models.py:114 .\accepting_offers\forms.py:40
+#: .\templates\abiturient_form\wizard_steps\check.html:35
+msgid "Birth country"
+msgstr "Birth country"
+
+#: .\abiturients\models.py:115 .\accepting_offers\forms.py:41
+#: .\templates\abiturient_form\wizard_steps\check.html:36
+msgid "Birth town"
+msgstr "Birth town"
+
+#: .\abiturients\models.py:118 .\accepting_offers\forms.py:48
+#: .\templates\abiturient_form\wizard_steps\check.html:42
+msgid "Nationality"
+msgstr "Nationality"
+
+#: .\abiturients\models.py:122 .\accepting_offers\forms.py:58
+#: .\templates\abiturient_form\wizard_steps\check.html:51
+msgid "Educational institution"
+msgstr "Educational institution"
+
+#: .\abiturients\models.py:126 .\accepting_offers\forms.py:60
+#: .\templates\abiturient_form\wizard_steps\check.html:52
+msgid "Education place"
+msgstr "Education place"
+
+#: .\abiturients\models.py:129 .\accepting_offers\forms.py:62
+#: .\templates\abiturient_form\wizard_steps\check.html:53
+msgid "Education end date"
+msgstr "Education end date"
+
+#: .\abiturients\models.py:131 .\accepting_offers\forms.py:67
+#: .\templates\abiturient_form\wizard_steps\check.html:59
+msgid "Work"
+msgstr "Work"
+
+#: .\abiturients\models.py:134
+msgid "Single"
+msgstr "Single"
 
 #: .\abiturients\models.py:135
+msgid "Married"
+msgstr "Married"
+
+#: .\abiturients\models.py:138
+msgid "Marital status"
+msgstr "Marital status"
+
+#: .\abiturients\models.py:142
+msgid "Foreign language"
+msgstr "Foreign language"
+
+#: .\abiturients\models.py:145 .\accepting_offers\forms.py:36
+#: .\templates\abiturient_form\wizard_steps\check.html:30
+msgid "Email"
+msgstr "Email"
+
+#: .\abiturients\models.py:148 .\accepting_offers\forms.py:73
+#: .\templates\abiturient_form\wizard_steps\check.html:66
+msgid "Registered address"
+msgstr "Registered address"
+
+#: .\abiturients\models.py:153
+msgid "Mother's contact information"
+msgstr "Mother's contact information"
+
+#: .\abiturients\models.py:162
 msgid "Father's contact information"
-msgstr ""
+msgstr "Father's contact information"
+
+#: .\abiturients\models.py:177
+msgid "Representative"
+msgstr "Representative"
+
+#: .\abiturients\models.py:186 .\accepting_offers\models.py:18
+msgid "Abiturient"
+msgstr "Abiturient"
+
+#: .\abiturients\models.py:187
+msgid "Abiturients"
+msgstr "Abiturients"
 
 #: .\accepting_offers\apps.py:8 .\accepting_offers\models.py:70
-#, fuzzy
-#| msgid "accepted_offer"
 msgid "Accepted offers"
-msgstr "accepted offer"
+msgstr "Accepted offers"
 
-#: .\accepting_offers\forms.py:24
+#: .\accepting_offers\forms.py:52
+msgid "What foreign language do you know?"
+msgstr "What foreign language do you know?"
+
+#: .\accepting_offers\forms.py:69
+#: .\templates\abiturient_form\wizard_steps\check.html:61
+msgid "Martial status"
+msgstr "Martial status"
+
+#: .\accepting_offers\forms.py:90
 msgid "Please, set payment frequency because you chose a contract offer"
-msgstr ""
+msgstr "Please, set payment frequency because you chose a contract offer"
 
-#: .\accepting_offers\forms.py:35
+#: .\accepting_offers\forms.py:101
 msgid ""
 "Please, leave the payment frequency blank because you chose a budget offer"
 msgstr ""
+"Please, leave the payment frequency blank because you chose a budget offer"
+
+#: .\accepting_offers\forms.py:113
+#: .\templates\abiturient_form\wizard_steps\check.html:96
+msgid "Father last name"
+msgstr "Father last name"
+
+#: .\accepting_offers\forms.py:114
+#: .\templates\abiturient_form\wizard_steps\check.html:97
+msgid "Father first name"
+msgstr "Father first name"
+
+#: .\accepting_offers\forms.py:116
+#: .\templates\abiturient_form\wizard_steps\check.html:99
+msgid "Father patronymic"
+msgstr "Father patronymic"
+
+#: .\accepting_offers\forms.py:128
+#: .\templates\abiturient_form\wizard_steps\check.html:102
+msgid "Father phone number"
+msgstr "Father phone number"
+
+#: .\accepting_offers\forms.py:131
+#: .\templates\abiturient_form\wizard_steps\check.html:88
+msgid "Mother last name"
+msgstr "Mother last name"
+
+#: .\accepting_offers\forms.py:132
+#: .\templates\abiturient_form\wizard_steps\check.html:89
+msgid "Mother first name"
+msgstr "Mother first name"
+
+#: .\accepting_offers\forms.py:134
+#: .\templates\abiturient_form\wizard_steps\check.html:91
+msgid "Mother patronymic"
+msgstr "Mother patronymic"
+
+#: .\accepting_offers\forms.py:145
+#: .\templates\abiturient_form\wizard_steps\check.html:94
+msgid "Mother phone number"
+msgstr "Mother phone number"
 
 #: .\accepting_offers\models.py:12
 msgid "Each semester"
-msgstr ""
+msgstr "Each semester"
 
 #: .\accepting_offers\models.py:13
 msgid "Each year"
-msgstr ""
+msgstr "Each year"
 
 #: .\accepting_offers\models.py:14
-#, fuzzy
-#| msgid "generic.months"
 msgid "Each month"
-msgstr "months"
+msgstr "Each months"
 
 #: .\accepting_offers\models.py:15
 msgid "Full payment"
-msgstr ""
+msgstr "Full payment"
 
-#: .\accepting_offers\models.py:18
-#, fuzzy
-#| msgid "abiturient"
-msgid "Abiturient"
-msgstr "abiturient"
-
-#: .\accepting_offers\models.py:22 .\university_offers\models.py:263
-#, fuzzy
-#| msgid "university_offer"
+#: .\accepting_offers\models.py:22 .\university_offers\models.py:269
 msgid "University offer"
-msgstr "university offer"
+msgstr "University offer"
 
 #: .\accepting_offers\models.py:25
 msgid "Created at"
-msgstr ""
+msgstr "Created at"
 
 #: .\accepting_offers\models.py:29
-msgid "Patment frequency"
-msgstr ""
+#: .\templates\abiturient_form\wizard_steps\check.html:77
+msgid "Payment frequency"
+msgstr "Payment frequency"
 
 #: .\accepting_offers\models.py:36
-#: .\templates\abiturient_form\wizard_steps\check.html:116
-msgid "accepting_offers.accepted_year"
-msgstr "accepted year"
+#: .\templates\abiturient_form\wizard_steps\check.html:83
+msgid "Accepted year"
+msgstr "Accepted year"
 
 #: .\accepting_offers\models.py:69
-#, fuzzy
-#| msgid "accepted_offer"
 msgid "Accepted offer"
-msgstr "accepted offer"
+msgstr "Accepted offer"
 
-#: .\documents\apps.py:8 .\documents\models.py:34
-#, fuzzy
-#| msgid "documents"
+#: .\documents\apps.py:8 .\documents\models.py:42
 msgid "Documents"
-msgstr "documents"
-
-#: .\documents\generation.py:32
-msgid "accepting_offers.payment_type.governmental"
-msgstr "governmental TODO"
+msgstr "Documents"
 
 #: .\documents\management\commands\add_documents.py:14
 msgid "Add document templates"
-msgstr ""
-
-#: .\documents\models.py:19
-msgid "Only alphabetical characters are allowed"
-msgstr ""
-
-#: .\documents\models.py:25 .\university_offers\models.py:40
-#: .\university_offers\models.py:66
-msgid "Name"
-msgstr ""
+msgstr "Add document templates"
 
 #: .\documents\models.py:27
-msgid "File"
-msgstr ""
+msgid "Only alphabetical characters are allowed"
+msgstr "Only alphabetical characters are allowed"
 
-#: .\documents\models.py:33
-#, fuzzy
-#| msgid "document"
+#: .\documents\models.py:33 .\university_offers\models.py:42
+#: .\university_offers\models.py:68
+msgid "Name"
+msgstr "Name"
+
+#: .\documents\models.py:35
+msgid "File"
+msgstr "File"
+
+#: .\documents\models.py:41
 msgid "Document"
-msgstr "document"
+msgstr "Document"
 
 #: .\pk_panel\apps.py:8
 msgid "Addmision office panel"
-msgstr ""
+msgstr "Addmision office panel"
 
 #: .\templates\abiturient_form\done.html:4
 #: .\templates\abiturient_form\done.html:7
 msgid "Record saved"
-msgstr ""
+msgstr "Record saved"
 
 #: .\templates\abiturient_form\done.html:8
 msgid "done.content"
@@ -290,33 +362,91 @@ msgstr ""
 "to contact us.\n"
 "Thank you for choosing Oles Honchar Dnipro National University!"
 
-#: .\templates\abiturient_form\wizard_steps\abiturient.html:7
-msgid "wizard.steps.abiturient.info"
+#: .\templates\abiturient_form\wizard_steps\abiturient_basic.html:8
+msgid "wizard.steps.abiturient_basic.info"
 msgstr ""
-"Welcome to our application portal!\n"
-"We're thrilled that you're considering Oles Honchar Dnipro National "
-"University for your higher education journey.\n"
-"In this first step, we aim to get to know you better. Your personal "
-"information helps us ensure that your application process is tailored to "
-"your unique background and needs.\n"
-"Please take a moment to provide accurate details about yourself. Your name, "
-"contact information, and other personal details are essential for us to stay "
-"connected with you throughout the application process and beyond.\n"
-"Rest assured, all information provided is kept strictly confidential and is "
-"used solely for the purpose of your application."
+"Welcome to the website of Oles Honchar Dnipro National University!\n"
+"This site will help you fill out all the necessary documents for admission "
+"quickly and conveniently. By filling out the forms on our website, you will "
+"be able to automatically create the documents you need to submit to the "
+"university.\n"
+"At this stage, please enter your contact information: full name, phone "
+"number and e-mail. This information is required so that we can contact you "
+"if necessary and provide you with important information regarding your "
+"admission."
 
-#: .\templates\abiturient_form\wizard_steps\abiturient.html:12
-#: .\templates\abiturient_form\wizard_steps\check.html:18
-msgid "wizard.steps.abiturient"
-msgstr "abiturient information"
+#: .\templates\abiturient_form\wizard_steps\abiturient_basic.html:13
+#: .\templates\abiturient_form\wizard_steps\check.html:19
+msgid "wizard.steps.abiturient_basic.title"
+msgstr "First step"
 
-#: .\templates\abiturient_form\wizard_steps\abiturient_passport.html:6
+#: .\templates\abiturient_form\wizard_steps\abiturient_birth.html:8
+msgid "wizard.steps.abiturient_birth.info"
+msgstr ""
+"At this stage, we will ask you to provide additional information about "
+"yourself. This information will help us to better understand your needs and "
+"ensure the most comfortable application process.\n"
+"Please fill in the following fields: Place of birth, Date of birth, "
+"Nationality (can be left blank), Foreign language proficiency (please "
+"specify the languages you speak)\n"
+"This information is required to complete your admission documents and for "
+"university statistical purposes."
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_birth.html:13
 #: .\templates\abiturient_form\wizard_steps\check.html:33
-msgid "wizard.steps.abiturient_passport"
-msgstr "abiturient passport"
+msgid "wizard.steps.abiturient_birth.title"
+msgstr "Birth information"
 
-#: .\templates\abiturient_form\wizard_steps\abiturient_passport.html:10
-msgid "wizard.steps.abiturient_passport.info"
+#: .\templates\abiturient_form\wizard_steps\abiturient_education.html:8
+msgid "wizard.steps.abiturient_education.info"
+msgstr ""
+"At this stage, we collect information about your previous education. This "
+"will help us to verify your academic achievements and prepare the necessary "
+"documents for admission.\n"
+"Please fill in the following fields: Name of educational institution, "
+"Address of educational institution, Year of graduation\n"
+"This information is required to confirm your previous education and to "
+"further process your application."
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_education.html:13
+#: .\templates\abiturient_form\wizard_steps\check.html:49
+msgid "wizard.steps.abiturient_education.title"
+msgstr "Information about education"
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_misc.html:8
+msgid "wizard.steps.abiturient_misc.info"
+msgstr ""
+"At this stage, we collect additional information that will help us better "
+"understand your situation and prepare the necessary documents for "
+"admission.\n"
+"Please fill in the following fields: Employment (if you are employed, please "
+"indicate your current place of work), Marital status (married, single, "
+"etc.), Address of residence, Address of registration\n"
+"This information will help us to clarify your current situation and provide "
+"you with the necessary support during the admission process."
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_misc.html:13
+#: .\templates\abiturient_form\wizard_steps\check.html:56
+msgid "wizard.steps.abiturient_misc.title"
+msgstr "Additional information"
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_parents.html:8
+msgid "wizard.steps.abiturient_parents.info"
+msgstr ""
+"At this stage, we ask you to provide information about your parents. This "
+"will help us to better understand your family situation and provide the "
+"necessary support during the admission process.\n"
+"This information is important to us so that we can communicate effectively "
+"with your parents if necessary and provide them with all the information "
+"they need about your studies."
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_parents.html:13
+#: .\templates\abiturient_form\wizard_steps\check.html:86
+msgid "wizard.steps.abiturient_parents.title"
+msgstr "Information about parents"
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_sensitive.html:8
+msgid "wizard.steps.abiturient_sensitive.info"
 msgstr ""
 "In this step, we kindly request that you provide your passport information.\n"
 "This helps us ensure accurate documentation for your application process.\n"
@@ -324,8 +454,30 @@ msgstr ""
 "the online form, don't worry! You can leave this section blank for now and "
 "fill it out physically when you visit our admission office."
 
+#: .\templates\abiturient_form\wizard_steps\abiturient_sensitive.html:13
+#: .\templates\abiturient_form\wizard_steps\check.html:105
+msgid "wizard.steps.abiturient_sensitive.title"
+msgstr "Passport information"
+
 #: .\templates\abiturient_form\wizard_steps\accepted_offer.html:8
 msgid "wizard.steps.accepted_offer.info"
+msgstr ""
+"At this stage, we ask you to provide additional details about your "
+"application. This information is necessary to clarify the terms of your "
+"study at the university.\n"
+"Please complete the course of enrollment (1-4).\n"
+"If you have chosen a contractual study offer, please indicate how often you "
+"plan to pay for your studies.\n"
+"This information is important for the correct processing of your application "
+"and preparation of all necessary documents."
+
+#: .\templates\abiturient_form\wizard_steps\accepted_offer.html:13
+#: .\templates\abiturient_form\wizard_steps\check.html:74
+msgid "wizard.steps.accepted_offer.title"
+msgstr "Application details"
+
+#: .\templates\abiturient_form\wizard_steps\check.html:8
+msgid "wizard.steps.check.info"
 msgstr ""
 "You're almost there!\n"
 "In this step, we'll gather the last details needed to complete your "
@@ -341,147 +493,94 @@ msgstr ""
 "academic journey. We're excited to review your application and potentially "
 "welcome you to our community!"
 
-#: .\templates\abiturient_form\wizard_steps\accepted_offer.html:13
-#: .\templates\abiturient_form\wizard_steps\check.html:106
-msgid "wizard.steps.accepted_offer"
-msgstr "application details"
-
-#: .\templates\abiturient_form\wizard_steps\check.html:8
-msgid "wizard.steps.check.info"
-msgstr ""
-"Welcome to the final review step!\n"
-"Here, you'll find all the information you've provided throughout the "
-"application process. Please take a moment to carefully review each section "
-"and ensure that all details are accurate and up-to-date.\n"
-"If you notice any mistakes or discrepancies, don't worry! You can navigate "
-"back to previous steps to make any necessary corrections. Simply click on "
-"the corresponding step to return and update your information.\n"
-"It's essential that your application reflects your true qualifications and "
-"experiences, so we appreciate your attention to detail during this review "
-"process.\n"
-"Once you're satisfied with all the information, proceed to the final "
-"submission step to complete your application."
-
 #: .\templates\abiturient_form\wizard_steps\check.html:13
-msgid "wizard.steps.check"
+msgid "wizard.steps.check.title"
 msgstr "Check information"
 
-#: .\templates\abiturient_form\wizard_steps\check.html:20
-#: .\templates\abiturient_form\wizard_steps\check.html:62
-msgid "generic.last_name"
-msgstr "last name"
-
-#: .\templates\abiturient_form\wizard_steps\check.html:21
-#: .\templates\abiturient_form\wizard_steps\check.html:63
-msgid "generic.first_name"
-msgstr "first name"
-
-#: .\templates\abiturient_form\wizard_steps\check.html:22
-#: .\templates\abiturient_form\wizard_steps\check.html:64
-msgid "generic.patronymic"
-msgstr "patronymic"
-
-#: .\templates\abiturient_form\wizard_steps\check.html:26
-#: .\templates\abiturient_form\wizard_steps\check.html:68
-msgid "generic.telephone"
-msgstr "telephone"
-
-#: .\templates\abiturient_form\wizard_steps\check.html:27
-#: .\templates\abiturient_form\wizard_steps\check.html:69
-msgid "generic.email"
-msgstr "email"
-
-#: .\templates\abiturient_form\wizard_steps\check.html:31
-#: .\templates\abiturient_form\wizard_steps\check.html:73
-msgid "abiturient.living_address"
-msgstr "living address"
-
-#: .\templates\abiturient_form\wizard_steps\check.html:36
-#: .\templates\abiturient_form\wizard_steps\check.html:78
-msgid "persons.passport_serie"
-msgstr "passport serie"
-
 #: .\templates\abiturient_form\wizard_steps\check.html:40
-#: .\templates\abiturient_form\wizard_steps\check.html:82
-msgid "persons.passport_number"
-msgstr "passport number"
+msgid "Birth date"
+msgstr "Birth date"
 
-#: .\templates\abiturient_form\wizard_steps\check.html:46
-#: .\templates\abiturient_form\wizard_steps\check.html:88
-msgid "persons.passport_who_give"
-msgstr "who give"
+#: .\templates\abiturient_form\wizard_steps\check.html:45
+msgid "What foreign language do you know"
+msgstr "What foreign language do you know"
 
-#: .\templates\abiturient_form\wizard_steps\check.html:50
-#: .\templates\abiturient_form\wizard_steps\check.html:92
-msgid "persons.passport_when_given"
-msgstr "when given"
+#: .\templates\abiturient_form\wizard_steps\check.html:69
+#: .\templates\abiturient_form\wizard_steps\offer.html:12
+msgid "wizard.steps.offer.title"
+msgstr "Choose offer"
 
-#: .\templates\abiturient_form\wizard_steps\check.html:56
-#: .\templates\abiturient_form\wizard_steps\check.html:98
-msgid "persons.inn"
-msgstr "Registration number of the taxpayer's account card TODO"
+#: .\templates\abiturient_form\wizard_steps\check.html:113
+#: .\templates\abiturient_form\wizard_steps\check.html:144
+msgid "Passport authority"
+msgstr "Passport authority"
 
-#: .\templates\abiturient_form\wizard_steps\check.html:60
-#: .\templates\abiturient_form\wizard_steps\parent.html:11
-msgid "wizard.steps.parent"
-msgstr "representative information TODO"
+#: .\templates\abiturient_form\wizard_steps\check.html:115
+#: .\templates\abiturient_form\wizard_steps\check.html:146
+msgid "Passport issue date"
+msgstr "Passport issue date"
 
-#: .\templates\abiturient_form\wizard_steps\check.html:75
-#: .\templates\abiturient_form\wizard_steps\parent_passport.html:6
-msgid "wizard.steps.parent_passport"
-msgstr "representative passport TODO"
+#: .\templates\abiturient_form\wizard_steps\check.html:123
+#: .\templates\abiturient_form\wizard_steps\representative.html:13
+msgid "wizard.steps.representative.title"
+msgstr "Representative information"
 
-#: .\templates\abiturient_form\wizard_steps\check.html:102
-msgid "wizard.steps.offer"
-msgstr "offer info"
+#: .\templates\abiturient_form\wizard_steps\check.html:125
+msgid "Representative last name"
+msgstr "Representative last name"
 
-#: .\templates\abiturient_form\wizard_steps\check.html:109
-msgid "accepting_offers.payment_type"
-msgstr "payment type"
+#: .\templates\abiturient_form\wizard_steps\check.html:126
+msgid "Representative first name"
+msgstr "Representative first name"
 
-#: .\templates\abiturient_form\wizard_steps\check.html:110
-msgid "accepting_offers.payment_frequency"
-msgstr "payment frequency"
+#: .\templates\abiturient_form\wizard_steps\check.html:128
+msgid "Representative patronymic"
+msgstr "Representative patronymic"
+
+#: .\templates\abiturient_form\wizard_steps\check.html:133
+msgid "Representative phone number"
+msgstr "Representative phone number"
+
+#: .\templates\abiturient_form\wizard_steps\check.html:134
+msgid "Representative living address"
+msgstr "Representative living address"
 
 #: .\templates\abiturient_form\wizard_steps\offer.html:7
-msgid "wizard.steps.university_offer.info"
+msgid "wizard.steps.offer.info"
 msgstr ""
-"Welcome to the exciting step of choosing your university offer!\n"
-"To begin, please use the search form below to find offers that match your "
-"preferences.\n"
-"You can fill in as much information as you know (some fields are optional).\n"
-"Once you've entered your search criteria, simply hit the search button to "
-"generate a list of offers that meet your requirements.\n"
-"Take your time to review each offer carefully and select the one that best "
-"aligns with your academic and personal goals."
-
-#: .\templates\abiturient_form\wizard_steps\offer.html:12
-msgid "wizard.steps.university_offer"
-msgstr "choosing the offer"
+"At this stage, you need to select the study offer under which you wish to "
+"study at Oles Honchar Dnipro National University.\n"
+"Please select the offer that matches the one you have chosen in the EDBO. "
+"Use the available search criteria and click the “Search” button. Select the "
+"offer that meets your needs and desires. Not all fields are required, so "
+"don't worry if you forget to specify something.\n"
+"This choice is an important step in your admission process, so please check "
+"carefully whether your choice matches what you have already selected in the "
+"EDBO system."
 
 #: .\templates\abiturient_form\wizard_steps\offer.html:32
 msgid "search_offer"
-msgstr "search offer"
+msgstr "Search offer"
 
 #: .\templates\abiturient_form\wizard_steps\offer.html:38
 msgid "generic.loading"
-msgstr "loading"
+msgstr "Loading"
 
 #: .\templates\abiturient_form\wizard_steps\offer.html:42
 msgid "offers.not_found"
-msgstr "no offers were found"
+msgstr "No offers were found"
 
 #: .\templates\abiturient_form\wizard_steps\offer.html:165
 #: .\templates\university_offers\ajax\offers.html:12
 msgid "choose_this_offer"
-msgstr "choose this offer"
+msgstr "Choose this offer"
 
 #: .\templates\abiturient_form\wizard_steps\offer.html:171
 msgid "chosen_offer"
-msgstr "chosen offer"
+msgstr "Chosen offer"
 
-#: .\templates\abiturient_form\wizard_steps\parent.html:6
-msgid "wizard.steps.parent.info"
+#: .\templates\abiturient_form\wizard_steps\representative.html:8
+msgid "wizard.steps.representative.info"
 msgstr ""
 "As part of our application process, we require additional information if you "
 "are under 18 years old.\n"
@@ -492,44 +591,29 @@ msgstr ""
 "This ensures that we have the appropriate contact information for any "
 "communications or inquiries related to your application."
 
-#: .\templates\abiturient_form\wizard_steps\parent_passport.html:10
-msgid "wizard.steps.parent_passport.info"
-msgstr ""
-"In this step, we kindly request that you provide passport information for "
-"the representative acting on behalf of the applicant, if applicable.\n"
-"Please fill in the necessary details regarding the representative's "
-"passport, ensuring accuracy and completeness.\n"
-"This information helps us verify the identity of the representative and "
-"ensures smooth processing of your application.\n"
-"If the representative prefers not to disclose sensitive information through "
-"the online form, they can choose to leave this section blank and fill it out "
-"physically when visiting our admission office."
-
 #: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:6
 msgid "abiturient_form"
-msgstr "abiturient form"
+msgstr "Abiturient form"
 
 #: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:11
 msgid "wizard.step"
-msgstr "step"
+msgstr "Step"
 
 #: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:47
 msgid "wizard.previous_step"
-msgstr "previous step"
+msgstr "Previous step"
 
 #: .\templates\abiturient_form\wizard_steps\wizard_step_wrapper.html:49
 msgid "wizard.next"
-msgstr "next"
+msgstr "Next"
 
 #: .\templates\base\footer.html:7
-#, fuzzy
-#| msgid "abiturient"
 msgid "Form for abiturients"
-msgstr "abiturient"
+msgstr "Form for abiturients"
 
 #: .\templates\base\footer.html:8
 msgid "Administration"
-msgstr ""
+msgstr "Administration"
 
 #: .\templates\base\footer.html:13
 msgid "footer.authors"
@@ -555,610 +639,294 @@ msgstr ""
 
 #: .\templates\pk_panel\main.html:7
 msgid "Admission office panel"
-msgstr ""
+msgstr "Admission office panel"
 
 #: .\templates\pk_panel\main.html:15
-#, fuzzy
-#| msgid "speciality"
 msgid "Name, speciality, etc."
-msgstr "speciality"
+msgstr "Name, speciality, etc."
 
 #: .\templates\pk_panel\main.html:16
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 #: .\templates\pk_panel\main.html:40
-#, fuzzy
-#| msgid "generic.name"
 msgid "Generate"
-msgstr "name"
+msgstr "Generate"
 
 #: .\templates\pk_panel\main.html:55
 msgid "logout"
-msgstr "logout"
+msgstr "Logout"
 
 #: .\templates\pk_panel\unauthorized.html:6
 msgid "Unauthorized access"
-msgstr ""
+msgstr "Unauthorized access"
 
 #: .\templates\pk_panel\unauthorized.html:11
 msgid "pk_panel.unauthorized.description"
 msgstr ""
-"you should be logged in as an administrator and belong to the 'pk' group."
+"You should be logged in as an administrator and belong to the 'pk' group."
 
 #: .\templates\pk_panel\unauthorized.html:14
 #: .\templates\users_login\login.html:5 .\templates\users_login\login.html:11
 #: .\templates\users_login\login.html:17
 msgid "Login"
-msgstr ""
+msgstr "Login"
 
 #: .\templates\pk_panel\unauthorized.html:15
-#, fuzzy
-#| msgid "logout"
 msgid "Logout"
-msgstr "logout"
+msgstr "Logout"
 
 #: .\templates\university_offers\base\offer_info.html:4
-#: .\university_offers\models.py:153
+#: .\university_offers\models.py:155
 msgid "Beginning of study"
-msgstr ""
+msgstr "Beginning of study"
 
 #: .\templates\university_offers\base\offer_info.html:9
 msgid "Study end"
-msgstr ""
+msgstr "Study end"
 
 #: .\templates\university_offers\base\offer_info.html:14
-#: .\university_offers\models.py:157
+#: .\university_offers\models.py:159
 msgid "Study duration"
-msgstr ""
+msgstr "Study duration"
 
 #: .\templates\university_offers\base\offer_info.html:15
 msgid "years"
-msgstr ""
+msgstr "years"
 
 #: .\templates\university_offers\base\offer_info.html:15
-#, fuzzy
-#| msgid "generic.months"
 msgid "months"
 msgstr "months"
 
 #: .\templates\university_offers\base\offer_info.html:19
-#, fuzzy
-#| msgid "faculty"
-msgid "Daculty"
-msgstr "faculty"
+#: .\university_offers\forms.py:38 .\university_offers\models.py:26
+#: .\university_offers\models.py:46
+msgid "Faculty"
+msgstr "Faculty"
 
 #: .\templates\university_offers\base\offer_info.html:24
-#: .\university_offers\forms.py:44 .\university_offers\models.py:59
-#: .\university_offers\models.py:70 .\university_offers\models.py:85
-#, fuzzy
-#| msgid "speciality"
+#: .\university_offers\forms.py:44 .\university_offers\models.py:61
+#: .\university_offers\models.py:72 .\university_offers\models.py:87
 msgid "Speciality"
-msgstr "speciality"
+msgstr "Speciality"
 
 #: .\templates\university_offers\base\offer_info.html:29
 #: .\university_offers\forms.py:49
-#, fuzzy
-#| msgid "educational_program_name"
 msgid "Name of educational program"
-msgstr "educational program name"
+msgstr "Name of educational program"
 
 #: .\templates\university_offers\base\offer_info.html:34
-#: .\university_offers\models.py:97
-#, fuzzy
-#| msgid "speciality.end_of_accreditation"
-msgid "End of accreditation"
-msgstr "end of accreditation"
+#: .\university_offers\models.py:137
+msgid "Accreditations"
+msgstr "Accreditations"
 
-#: .\templates\university_offers\base\offer_info.html:38
-#, fuzzy
-#| msgid "speciality.end_of_accreditation"
-msgid "no accreditation"
-msgstr "end of accreditation"
+#: .\templates\university_offers\base\offer_info.html:39
+msgid "No accreditation"
+msgstr "No accreditation"
 
-#: .\templates\university_offers\base\offer_info.html:43
-#: .\university_offers\forms.py:65 .\university_offers\models.py:94
-#: .\university_offers\models.py:178
+#: .\templates\university_offers\base\offer_info.html:44
+#: .\university_offers\forms.py:65 .\university_offers\models.py:96
+#: .\university_offers\models.py:180
 msgid "Educational level"
-msgstr ""
+msgstr "Educational level"
 
-#: .\templates\university_offers\base\offer_info.html:48
-#: .\university_offers\forms.py:70 .\university_offers\models.py:183
+#: .\templates\university_offers\base\offer_info.html:49
+#: .\university_offers\forms.py:70 .\university_offers\models.py:185
 msgid "Basis"
-msgstr ""
+msgstr "Basis"
 
-#: .\templates\university_offers\base\offer_info.html:53
-#: .\university_offers\forms.py:54 .\university_offers\models.py:187
+#: .\templates\university_offers\base\offer_info.html:54
+#: .\university_offers\forms.py:54 .\university_offers\models.py:189
 msgid "Offer type"
-msgstr ""
+msgstr "Offer type"
 
-#: .\templates\university_offers\base\offer_info.html:58
-#: .\university_offers\forms.py:60 .\university_offers\models.py:192
+#: .\templates\university_offers\base\offer_info.html:59
+#: .\university_offers\forms.py:60 .\university_offers\models.py:194
 msgid "Study form"
-msgstr ""
+msgstr "Study form"
 
-#: .\templates\university_offers\base\offer_info.html:63
-#: .\university_offers\models.py:196
+#: .\templates\university_offers\base\offer_info.html:64
+#: .\university_offers\models.py:198
 msgid "ECTS"
-msgstr ""
+msgstr "ECTS"
 
-#: .\templates\university_offers\base\offer_info.html:69
-#: .\university_offers\models.py:200
+#: .\templates\university_offers\base\offer_info.html:70
+#: .\university_offers\models.py:202
 msgid "Year 1 cost"
-msgstr ""
+msgstr "Year 1 cost"
 
-#: .\templates\university_offers\base\offer_info.html:76
-#: .\university_offers\models.py:204
+#: .\templates\university_offers\base\offer_info.html:77
+#: .\university_offers\models.py:206
 msgid "Year 2 cost"
-msgstr ""
+msgstr "Year 2 cost"
 
-#: .\templates\university_offers\base\offer_info.html:83
-#: .\university_offers\models.py:208
+#: .\templates\university_offers\base\offer_info.html:84
+#: .\university_offers\models.py:210
 msgid "Year 3 cost"
-msgstr ""
+msgstr "Year 3 cost"
 
-#: .\templates\university_offers\base\offer_info.html:90
-#: .\university_offers\models.py:212
+#: .\templates\university_offers\base\offer_info.html:91
+#: .\university_offers\models.py:214
 msgid "Year 4 cost"
-msgstr ""
+msgstr "Year 4 cost"
 
-#: .\university_offers\apps.py:8 .\university_offers\models.py:264
-#, fuzzy
-#| msgid "university_offers"
+#: .\university_offers\apps.py:8 .\university_offers\models.py:270
 msgid "University offers"
-msgstr "university offers"
+msgstr "University offers"
 
-#: .\university_offers\forms.py:38 .\university_offers\models.py:24
-#: .\university_offers\models.py:44
-#, fuzzy
-#| msgid "faculty"
-msgid "Faculty"
-msgstr "faculty"
-
-#: .\university_offers\forms.py:55 .\university_offers\models.py:188
+#: .\university_offers\forms.py:55 .\university_offers\models.py:190
 msgid "Budget or contract"
-msgstr ""
+msgstr "Budget or contract"
 
 #: .\university_offers\forms.py:77
 msgid "Result offer (you are not supposed to see this)"
-msgstr ""
+msgstr "Result offer (you are not supposed to see this)"
 
 #: .\university_offers\forms.py:82
-#, fuzzy
-#| msgid "chosen_offer"
 msgid "Please, choose an offer"
-msgstr "chosen offer"
+msgstr "Please, choose an offer"
 
 #: .\university_offers\management\commands\add_dnu_2024.py:21
-#, fuzzy
-#| msgid "educational_program.has_accreditation"
 msgid "Add educational programs, accreditations, and offers for DNU 2024"
-msgstr "has accreditation"
+msgstr "Add educational programs, accreditations, and offers for DNU 2024"
 
 #: .\university_offers\management\commands\add_faculties.py:68
 msgid "add DNU faculties (2024)"
-msgstr ""
+msgstr "Add DNU faculties (2024)"
 
-#: .\university_offers\models.py:11
+#: .\university_offers\models.py:13
 msgid "Full name"
-msgstr ""
+msgstr "Full name"
 
-#: .\university_offers\models.py:17
-#, fuzzy
-#| msgid "generic.abbreviation"
+#: .\university_offers\models.py:19
 msgid "Abbreviation"
-msgstr "abbreviation"
+msgstr "Abbreviation"
 
-#: .\university_offers\models.py:25
-#, fuzzy
-#| msgid "faculty"
+#: .\university_offers\models.py:27
 msgid "Faculties"
-msgstr "faculty"
+msgstr "Faculties"
 
-#: .\university_offers\models.py:29
+#: .\university_offers\models.py:31
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
-#: .\university_offers\models.py:34
+#: .\university_offers\models.py:36
 msgid "Specialization code"
-msgstr ""
+msgstr "Specialization code"
 
-#: .\university_offers\models.py:35
+#: .\university_offers\models.py:37
 msgid ""
 "If there is a specialization, fill the specialization code and leave name to "
 "be the name of the specialization"
 msgstr ""
+"If there is a specialization, fill the specialization code and leave name to "
+"be the name of the specialization"
 
-#: .\university_offers\models.py:60
-#, fuzzy
-#| msgid "speciality"
+#: .\university_offers\models.py:62
 msgid "Specialities"
-msgstr "speciality"
-
-#: .\university_offers\models.py:78
-msgid "Bachelor"
-msgstr ""
-
-#: .\university_offers\models.py:79
-msgid "Master"
-msgstr ""
+msgstr "Specialities"
 
 #: .\university_offers\models.py:80
-msgid "PhD"
-msgstr ""
+msgid "Bachelor"
+msgstr "Bachelor"
 
-#: .\university_offers\models.py:86 .\university_offers\models.py:89
-#: .\university_offers\models.py:174
-#, fuzzy
-#| msgid "educational_program_name"
+#: .\university_offers\models.py:81
+msgid "Master"
+msgstr "Master"
+
+#: .\university_offers\models.py:82
+msgid "PhD"
+msgstr "PhD"
+
+#: .\university_offers\models.py:88 .\university_offers\models.py:91
+#: .\university_offers\models.py:176
 msgid "Educational program"
-msgstr "educational program name"
+msgstr "Educational program"
 
 #: .\university_offers\models.py:99
-msgid "Accreditation number"
-msgstr ""
+msgid "End of accreditation"
+msgstr "End of accreditation"
 
 #: .\university_offers\models.py:101
+msgid "Accreditation number"
+msgstr "Accreditation number"
+
+#: .\university_offers\models.py:103
 msgid "Accreditation serie"
-msgstr ""
+msgstr "Accreditation serie"
 
-#: .\university_offers\models.py:105
+#: .\university_offers\models.py:107
 msgid "Accreditation type"
-msgstr ""
+msgstr "Accreditation type"
 
-#: .\university_offers\models.py:134
+#: .\university_offers\models.py:136
 msgid "Accreditation"
-msgstr ""
+msgstr "Accreditation"
 
-#: .\university_offers\models.py:135
-msgid "Accreditations"
-msgstr ""
-
-#: .\university_offers\models.py:140
+#: .\university_offers\models.py:142
 msgid "Budget"
-msgstr ""
+msgstr "Budget"
 
-#: .\university_offers\models.py:141
+#: .\university_offers\models.py:143
 msgid "Contract"
-msgstr ""
-
-#: .\university_offers\models.py:144
-msgid "Full-time"
-msgstr ""
-
-#: .\university_offers\models.py:145
-msgid "Part-time"
-msgstr ""
+msgstr "Contract"
 
 #: .\university_offers\models.py:146
+msgid "Full-time"
+msgstr "Full-time"
+
+#: .\university_offers\models.py:147
+msgid "Part-time"
+msgstr "Part-time"
+
+#: .\university_offers\models.py:148
 msgid "Distance"
-msgstr ""
-
-#: .\university_offers\models.py:149
-msgid "CGSE"
-msgstr ""
-
-#: .\university_offers\models.py:150
-msgid "NFQ5"
-msgstr ""
+msgstr "Distance"
 
 #: .\university_offers\models.py:151
-msgid "NFQ6 or NFQ7"
-msgstr ""
+msgid "CGSE"
+msgstr "CGSE"
 
-#: .\university_offers\models.py:158
-#, fuzzy
-#| msgid "generic.months"
+#: .\university_offers\models.py:152
+msgid "NFQ5"
+msgstr "NFQ5"
+
+#: .\university_offers\models.py:153
+msgid "NFQ6 or NFQ7"
+msgstr "NFQ6 or NFQ7"
+
+#: .\university_offers\models.py:160
 msgid "In months"
-msgstr "months"
+msgstr "In months"
 
 #: .\users\admin.py:11
 msgid "users.additional_fields"
-msgstr "additional fields"
+msgstr "Additional fields"
 
 #: .\users\apps.py:8 .\users\models.py:17
 msgid "Users"
-msgstr ""
+msgstr "Users"
 
 #: .\users\forms.py:6
-#, fuzzy
-#| msgid "generic.name"
 msgid "Username"
-msgstr "name"
+msgstr "Username"
 
 #: .\users\forms.py:7
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 #: .\users\management\commands\add_groups.py:9
 msgid "Add user groups (PK)"
-msgstr ""
+msgstr "Add user groups (PK)"
 
 #: .\users\management\commands\add_users.py:30
 msgid "Add users for testing (for different faculties of DNU)"
-msgstr ""
+msgstr "Add users for testing (for different faculties of DNU)"
 
 #: .\users\models.py:16
 msgid "User"
-msgstr ""
+msgstr "User"
 
 #: .\users\views.py:30
 msgid "Login failed (check the username and/or password)"
-msgstr ""
-
-#~ msgid "accepting_offers.admin.only_one_offer"
-#~ msgstr "Select only one offer"
-
-#~ msgid "accepting_offers.admin.make_document"
-#~ msgstr "Generate"
-
-#~ msgid "accepting_offers"
-#~ msgstr "accepted offers"
-
-#~ msgid "accepting_offers.payment_type_required_for_contract"
-#~ msgstr "Set payment type for contract offers"
-
-#~ msgid "accepting_offers.payment_frequency_required_for_contract"
-#~ msgstr "Set payment frequency for contract offers"
-
-#~ msgid "accepting_offers.payment_type_not_required_for_budget"
-#~ msgstr "Unset payment type for budget offers"
-
-#~ msgid "accepting_offers.payment_frequency_not_required_for_budget"
-#~ msgstr "Unset payment frequency for budget offers"
-
-#~ msgid "accepting_offers.add_accepted_offers.help"
-#~ msgstr "Add accepted offers (DNU) for testing"
-
-#~ msgid "accepting_offers.payment_frequency.every_semester"
-#~ msgstr "each semester"
-
-#~ msgid "accepting_offers.payment_frequency.every_year"
-#~ msgstr "each year"
-
-#~ msgid "accepting_offers.payment_frequency.every_month"
-#~ msgstr "each month"
-
-#~ msgid "accepting_offers.payment_frequency.full"
-#~ msgstr "full"
-
-#~ msgid "accepting_offers.payment_type.town"
-#~ msgstr "town TODO"
-
-#~ msgid "accepting_offers.payment_type.private"
-#~ msgstr "private TODO"
-
-#~ msgid "accepting_offers.payment_type.privileged"
-#~ msgstr "privileged TODO"
-
-#~ msgid "university_offer"
-#~ msgstr "university offer"
-
-#~ msgid "generic.created_at"
-#~ msgstr "created at"
-
-#~ msgid "accepted_offer.plural"
-#~ msgstr "accepted offers"
-
-#~ msgid "documents.add_documents.help"
-#~ msgstr "add documents templates"
-
-#~ msgid "generic.only_alpha"
-#~ msgstr "only alphabetical characters are allowed"
-
-#~ msgid "document.plural"
-#~ msgstr "documents"
-
-#~ msgid "persons"
-#~ msgstr "persons"
-
-#~ msgid "persons.form.invalid_email"
-#~ msgstr "Invalid email (ensure you spelled it with latin letters) TODO"
-
-#~ msgid "persons.has_18_years"
-#~ msgstr "I am 18 years old TODO"
-
-#~ msgid "persons.add_persons.help"
-#~ msgstr "add persons for testing"
-
-#~ msgid "generic.only_numbers"
-#~ msgstr "Wrong format (refer to the help text)"
-
-#~ msgid "telephone.help"
-#~ msgstr ""
-#~ "Write the phone number in the following form: +380123456789 (start with "
-#~ "+, then area code, then the rest of the number)"
-
-#~ msgid "persons.passport"
-#~ msgstr "passport"
-
-#~ msgid "persons.parent"
-#~ msgstr "parent"
-
-#~ msgid "abiturient.plural"
-#~ msgstr "abiturients"
-
-#~ msgid "passport.who_give.help"
-#~ msgstr ""
-#~ "If you have an ID card, this will have numbers. If you have a book-"
-#~ "passport (TODO), this will have a text."
-
-#~ msgid "persons.inn.help"
-#~ msgstr "Also known as individual tax number"
-
-#~ msgid "persons.passport.plural"
-#~ msgstr "passports"
-
-#~ msgid "done.title"
-#~ msgstr "Record saved"
-
-#~ msgid "footer.admin.login"
-#~ msgstr "Login (administration)"
-
-#~ msgid "header.pk_panel.title"
-#~ msgstr "PK Panel TODO"
-
-#~ msgid "pk_panel.search_description"
-#~ msgstr "Abiturient name, speciality name, etc."
-
-#~ msgid "generic.search"
-#~ msgstr "search"
-
-#~ msgid "pk_panel.generate"
-#~ msgstr "generate"
-
-#~ msgid "pk_panel.unauthorized.title"
-#~ msgstr "unauthorized access"
-
-#~ msgid "generic.login"
-#~ msgstr "login"
-
-#~ msgid "generic.logout_root"
-#~ msgstr "logout (if you are root)"
-
-#~ msgid "university_offer.study_begin"
-#~ msgstr "beginning of study"
-
-#~ msgid "university_offer.study_end"
-#~ msgstr "end of study"
-
-#~ msgid "university_offer.study_duration"
-#~ msgstr "study duration"
-
-#~ msgid "generic.years"
-#~ msgstr "years"
-
-#~ msgid "offer.speciality.no_accreditation"
-#~ msgstr "no accreditation"
-
-#~ msgid "university_offer.level"
-#~ msgstr "educational level"
-
-#~ msgid "university_offer.basis"
-#~ msgstr "basis of entrance TODO"
-
-#~ msgid "university_offer.type"
-#~ msgstr "offer type"
-
-#~ msgid "university_offer.study_form"
-#~ msgstr "study form"
-
-#~ msgid "university_offer.ects"
-#~ msgstr "ECTS"
-
-#~ msgid "university_offer.year1_cost"
-#~ msgstr "first year cost"
-
-#~ msgid "university_offer.year2_cost"
-#~ msgstr "second year cost"
-
-#~ msgid "university_offer.year3_cost"
-#~ msgstr "third year cost"
-
-#~ msgid "university_offer.year4_cost"
-#~ msgstr "fourth year cost"
-
-#~ msgid "users.login.title"
-#~ msgstr "login"
-
-#~ msgid "auth.login"
-#~ msgstr "login"
-
-#~ msgid "university_offer.faculty"
-#~ msgstr "faculty"
-
-#~ msgid "university_offer.speciality"
-#~ msgstr "speciality"
-
-#~ msgid "university_offer.educational_program_name"
-#~ msgstr "educational program name"
-
-#~ msgid "university_offer.offer_type"
-#~ msgstr "offer type"
-
-#~ msgid "university_offer.result_offer"
-#~ msgstr "offer"
-
-#~ msgid "university_offer.offer_required"
-#~ msgstr "Choose an offer"
-
-#~ msgid "university_offers.add_educational_programs.help"
-#~ msgstr "add educational programs (DNU) for testing"
-
-#~ msgid "university_offers.add_faculties.help"
-#~ msgstr "add faculties (DNU) for testing"
-
-#~ msgid "university_offers.add_offers.help"
-#~ msgstr "add offers (DNU) for testing"
-
-#~ msgid "university_offers.add_specialities.help"
-#~ msgstr "add specialities (DNU) for testing"
-
-#~ msgid "generic.full_name"
-#~ msgstr "full name"
-
-#~ msgid "generic.cipher"
-#~ msgstr "cipher"
-
-#~ msgid "faculty.plural"
-#~ msgstr "faculties"
-
-#~ msgid "generic.code"
-#~ msgstr "code"
-
-#~ msgid "speciality.specialization"
-#~ msgstr "specialization"
-
-#~ msgid "speciality.plural"
-#~ msgstr "specialities"
-
-#~ msgid "educational_program.not_has_accreditation"
-#~ msgstr "does not have accreditation"
-
-#~ msgid "university_offer.type.budget"
-#~ msgstr "budget TODO"
-
-#~ msgid "university_offer.type.contract"
-#~ msgstr "contract TODO"
-
-#~ msgid "university_offer.study_form.day"
-#~ msgstr "full-time"
-
-#~ msgid "university_offer.study_form.over_distance"
-#~ msgstr "distance TODO"
-
-#~ msgid "university_offer.study_form.evening"
-#~ msgstr "evening TODO"
-
-#~ msgid "university_offer.level.bachelor"
-#~ msgstr "bachelor"
-
-#~ msgid "university_offer.level.master"
-#~ msgstr "master"
-
-#~ msgid "university_offer.level.aspirant"
-#~ msgstr "aspirant TODO"
-
-#~ msgid "university_offer.basis.school"
-#~ msgstr "school TODO"
-
-#~ msgid "university_offers.basis"
-#~ msgstr "basis of entrance TODO"
-
-#~ msgid "university_offer.plural"
-#~ msgstr "university offers"
-
-#~ msgid "users_login.username"
-#~ msgstr "username"
-
-#~ msgid "users_login.password"
-#~ msgstr "password"
-
-#~ msgid "users.add_groups.help"
-#~ msgstr "add user groups"
-
-#~ msgid "users.add_users.help"
-#~ msgstr "add users (DNU) for testing"
-
-#~ msgid "auth.login.failed"
-#~ msgstr "login failed (check username and/or password)"
+msgstr "Login failed (check the username and/or password)"

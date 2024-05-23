@@ -19,8 +19,7 @@ from accepting_offers.forms import (
     AbiturientSensitiveInformationForm,
     AcceptedOfferForm,
     EmptyForm,
-    RepresentativeContactForm,
-    RepresentativeSensitiveInformationForm,
+    RepresentativeForm,
 )
 
 from formtools.wizard.views import CookieWizardView
@@ -46,8 +45,7 @@ form_list_str = [
     "accepted_offer",
     "abiturient_parents",
     "abiturient_sensitive",
-    "representative_contact",
-    "representative_sensitive",
+    "representative",
     "check",
 ]
 
@@ -62,8 +60,7 @@ class AbiturientAndOffersWizard(CookieWizardView):
         ("accepted_offer", AcceptedOfferForm),
         ("abiturient_parents", AbiturientParentsForm),
         ("abiturient_sensitive", AbiturientSensitiveInformationForm),
-        ("representative_contact", RepresentativeContactForm),
-        ("representative_sensitive", RepresentativeSensitiveInformationForm),
+        ("representative", RepresentativeForm),
         ("check", EmptyForm),
     ]
 
@@ -87,8 +84,7 @@ class AbiturientAndOffersWizard(CookieWizardView):
         "accepted_offer": lambda _: True,
         "abiturient_parents": lambda _: True,
         "abiturient_sensitive": lambda _: True,
-        "representative_contact": should_be_parent,
-        "representative_sensitive": should_be_parent,
+        "representative": should_be_parent,
         "check": lambda _: True,
     }
 
@@ -117,18 +113,18 @@ class AbiturientAndOffersWizard(CookieWizardView):
             )
         elif self.steps.current == "check":
             context.update(
-                {k: self.get_cleaned_data_for_step(k) for k in form_list_str[:7]}
+                {
+                    k: self.get_cleaned_data_for_step(k)
+                    for k in form_list_str[: len(form_list_str) - 2]
+                }
             )
 
             if self.should_be_parent():
                 context["has_18_years"] = False
                 context.update(
                     {
-                        "representative_contact": self.get_cleaned_data_for_step(
-                            "representative_contact"
-                        ),
-                        "representative_sensitive": self.get_cleaned_data_for_step(
-                            "representative_sensitive"
+                        "representative": self.get_cleaned_data_for_step(
+                            "representative"
                         ),
                     }
                 )
@@ -138,46 +134,6 @@ class AbiturientAndOffersWizard(CookieWizardView):
         return context
 
     def done(self, form_list, **kwargs):
-        """
-        # That's easier.
-        # And don't forget about empty check form.
-        if len(form_list) == 5:
-            abiturient_form: AbiturientForm = form_list[0]
-            abiturient_passport_form: PassportForm = form_list[1]
-            offer_form: UniversityOfferSearchForm = form_list[2]
-            accepted_offer_form: AcceptedOfferForm = form_list[3]
-
-            with transaction.atomic():
-                abiturient_form.instance.passport = abiturient_passport_form.save()
-                abiturient = abiturient_form.save()
-
-                accepted_offer_form.instance.abiturient = abiturient
-                accepted_offer_form.instance.offer = offer_form.cleaned_data[
-                    "result_offer"
-                ]
-                accepted_offer_form.save()
-        else:
-            abiturient_form: AbiturientForm = form_list[0]
-            abiturient_passport_form: PassportForm = form_list[1]
-            parent_form: PersonForm = form_list[2]
-            parent_passport_form: PassportForm = form_list[3]
-            offer_form: UniversityOfferSearchForm = form_list[4]
-            accepted_offer_form: AcceptedOfferForm = form_list[5]
-
-            with transaction.atomic():
-                parent_form.instance.passport = parent_passport_form.save()
-
-                abiturient_form.instance.passport = abiturient_passport_form.save()
-                abiturient_form.instance.parent = parent_form.save()
-                abiturient = abiturient_form.save()
-
-                accepted_offer_form.instance.abiturient = abiturient
-                accepted_offer_form.instance.offer = offer_form.cleaned_data[
-                    "result_offer"
-                ]
-                accepted_offer_form.save()
-        """
-
         abiturient_basic: AbiturientBasicInformationForm = form_list[0]
         abiturient_birth: AbiturientBirthInformationForm = form_list[1]
         abiturient_education: AbiturientEducationForm = form_list[2]
@@ -188,13 +144,9 @@ class AbiturientAndOffersWizard(CookieWizardView):
         abiturient_sensitive: AbiturientSensitiveInformationForm = form_list[7]
 
         if len(form_list) > 9:
-            representative_contact: RepresentativeContactForm = form_list[8]
-            representative_sensitive: RepresentativeSensitiveInformationForm = (
-                form_list[9]
-            )
+            representative: RepresentativeForm = None  # form_list[8]
         else:
-            representative_contact = None
-            representative_sensitive = None
+            representative = None
 
         abiturient = Abiturient(
             contact_information=ContactInformation.objects.create(
@@ -242,29 +194,25 @@ class AbiturientAndOffersWizard(CookieWizardView):
             ),
         )
 
-        if representative_contact is not None and representative_sensitive is not None:
+        if representative is not None:
             abiturient.representative = AbiturientRepresentative(
                 contact_information=ContactInformation(
-                    last_name=representative_contact.cleaned_data["last_name"],
-                    first_name=representative_contact.cleaned_data["first_name"],
-                    patronymic=representative_contact.cleaned_data["patronymic"],
-                    phone_number=representative_contact.cleaned_data["phone_number"],
+                    last_name=representative.cleaned_data["last_name"],
+                    first_name=representative.cleaned_data["first_name"],
+                    patronymic=representative.cleaned_data["patronymic"],
+                    phone_number=representative.cleaned_data["phone_number"],
                 ),
-                living_address=representative_sensitive.cleaned_data["living_address"],
+                living_address=representative.cleaned_data["living_address"],
                 sensitive_information=SensitiveInformation(
-                    passport_serie=representative_sensitive.cleaned_data[
-                        "passport_serie"
-                    ],
-                    passport_number=representative_sensitive.cleaned_data[
-                        "passport_number"
-                    ],
-                    passport_authority=representative_sensitive.cleaned_data[
+                    passport_serie=representative.cleaned_data["passport_serie"],
+                    passport_number=representative.cleaned_data["passport_number"],
+                    passport_authority=representative.cleaned_data[
                         "passport_authority"
                     ],
-                    passport_issue_date=representative_sensitive.cleaned_data[
+                    passport_issue_date=representative.cleaned_data[
                         "passport_issue_date"
                     ],
-                    rntrc=representative_sensitive.cleaned_data["rntrc"],
+                    rntrc=representative.cleaned_data["rntrc"],
                 ),
             )
 
