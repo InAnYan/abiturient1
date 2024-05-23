@@ -1,9 +1,8 @@
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from django.db import models
 from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
-from httpx import delete
 
 from abiturients.models import (
     Abiturient,
