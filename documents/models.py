@@ -3,6 +3,7 @@ from django.db import models
 from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
+from httpx import delete
 
 from abiturients.models import (
     Abiturient,
@@ -51,6 +52,8 @@ class Document(models.Model):
             phone_number="+380123456789",
         )
 
+        test_contact.save()
+
         test_sensitive = SensitiveInformation(
             passport_serie="Test",
             passport_number=123456,
@@ -59,10 +62,14 @@ class Document(models.Model):
             rntrc=123456789,
         )
 
+        test_sensitive.save()
+
         test_representative = AbiturientRepresentative(
             contact_information=test_contact,
             sensitive_information=test_sensitive,
         )
+
+        test_representative.save()
 
         test_abiturient = Abiturient(
             contact_information=test_contact,
@@ -74,7 +81,7 @@ class Document(models.Model):
             education_place="Test",
             education_end=date.today(),
             work="Test",
-            marital_status=Abiturient.MartialStatus.SINGLE,
+            martial_status=Abiturient.MartialStatus.SINGLE,
             foreign_language="Test",
             email="Test",
             living_address="Test",
@@ -85,42 +92,49 @@ class Document(models.Model):
             representative=test_representative,
         )
 
+        test_abiturient.save()
+
         test_faculty = Faculty(
             full_name="Test",
             abbreviation="Test",
         )
 
+        test_faculty.save()
+
         test_speciality = Speciality(
             name="Test",
             code=1,
-            specialization=1,
             faculty=test_faculty,
-            educational_program_name="asd",
         )
+
+        test_speciality.save()
 
         test_program = EducationalProgram(name="Test", speciality=test_speciality)
 
-        test_program.accreditation_set = [
-            Accreditation(
-                educational_program=test_program,
-                level=EducationalLevel.BACHELOR,
-                end_date=datetime.today(),
-                number=213,
-                type=Accreditation.Type.EDUCATIONAL_PROGRAM,
-            ),
-        ]
+        test_program.save()
+
+        test_accreditation = Accreditation(
+            educational_program=test_program,
+            level=EducationalLevel.BACHELOR,
+            end_date=datetime.today(),
+            number=213,
+            type=Accreditation.Type.EDUCATIONAL_PROGRAM,
+        )
+
+        test_accreditation.save()
 
         test_offer = UniversityOffer(
             study_begin=date.today(),
             study_duration=311,
             educational_program=test_program,
-            speciality=test_speciality,
             type=UniversityOffer.Type.CONTRACT,
             study_form=UniversityOffer.StudyForm.DAY,
             ects=60,
-            level=UniversityOffer.Level.BACHELOR,
+            level=EducationalLevel.BACHELOR,
             basis=UniversityOffer.Basis.PZSO,
         )
+
+        test_offer.save()
 
         test_object = AcceptedOffer(
             abiturient=test_abiturient,
@@ -129,6 +143,8 @@ class Document(models.Model):
             payment_frequency=AcceptedOffer.PaymentFrequency.EACH_SEMESTER,
             accepted_year=1,
         )
+
+        test_object.save()
 
         try:
             template_file = NamedTemporaryFile(delete=False, suffix=".docx")
@@ -150,3 +166,15 @@ class Document(models.Model):
 
         except Exception as e:
             raise ValidationError(e)
+
+        finally:
+            test_object.delete()
+            test_offer.delete()
+            test_accreditation.delete()
+            test_program.delete()
+            test_speciality.delete()
+            test_faculty.delete()
+            test_abiturient.delete()
+            test_representative.delete()
+            test_sensitive.delete()
+            test_contact.delete()

@@ -33,11 +33,11 @@
 <p>
   <strong>{% trans "Accreditations" %}</strong>:
 
-  <ul>
-    {% for accreditation in offer.educational_program.accreditation_set %}
-      <li>{{ accreditation.get_level_label }}: {{ accreditation.ukr_sentence }}.</li>
-    {% endfor %}
-  </ul>
+  {% if offer.get_accreditation %}
+    {{ offer.get_accreditation.ukr_sentence }}. 
+  {% else %}
+    {% trans "No accreditation" %}.
+  {% endif %}
 </p>
 
 <p>

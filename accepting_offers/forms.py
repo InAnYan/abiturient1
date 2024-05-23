@@ -3,7 +3,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
 
-from abiturients.models import ContactInformation, SensitiveInformation
+from abiturients.models import Abiturient, ContactInformation, SensitiveInformation
 from accepting_offers.models import AcceptedOffer
 from university_offers.models import UniversityOffer
 
@@ -31,7 +31,9 @@ class AbiturientBirthInformationForm(forms.Form):
     birth_country = forms.CharField(max_length=255, label=_("Birth country"))
     birth_town = forms.CharField(max_length=255, label=_("Birth town"))
 
-    birth_date = forms.DateField(label=_("Date of birth"))
+    birth_date = forms.DateField(
+        label=_("Date of birth"), widget=forms.TextInput(attrs={"type": "date"})
+    )
 
     nationality = forms.CharField(
         max_length=255, label=_("Nationality"), required=False
@@ -46,15 +48,17 @@ class AbiturientEducationForm(forms.Form):
     education_institution = forms.CharField(
         max_length=255, label=_("Educational institution")
     )
-    education_place = forms.TextInput(label=_("Education place"))
-    education_end = forms.DateField(label=_("Education end date"))
+    education_place = forms.CharField(label=_("Education place"))
+    education_end = forms.DateField(
+        label=_("Education end date"), widget=forms.TextInput(attrs={"type": "date"})
+    )
 
 
 class AbiturientMiscInformationForm(forms.Form):
     work = forms.CharField(label=_("Work"), required=False)
     martial_status = forms.ChoiceField(
         label=_("Martial status"),
-        choices=AcceptedOffer.MartialStatus.choices,
+        choices=Abiturient.MartialStatus.choices,
     )
     living_address = forms.CharField(label=_("Living address"))
     registered_address = forms.CharField(label=_("Registered address"))

@@ -30,6 +30,9 @@ class ContactInformation(models.Model):
             f" {self.patronymic}" if self.patronymic else ""
         )
 
+    def __str__(self) -> str:
+        return self.full_name + " - " + self.phone_number
+
     class Meta:
         verbose_name = _("Contact information")
         verbose_name_plural = _("Contact informations")
@@ -105,6 +108,7 @@ class Abiturient(models.Model):
         ContactInformation,
         on_delete=models.CASCADE,
         verbose_name=_("Contact information"),
+        related_name="abiturient",
     )
 
     birth_date = models.DateField(verbose_name=_("Date of birth"))
@@ -131,7 +135,7 @@ class Abiturient(models.Model):
         SINGLE = 1, _("Single")
         MARRIED = 2, _("Married")
 
-    marital_status = models.IntegerField(
+    martial_status = models.IntegerField(
         verbose_name=_("Marital status"), choices=MartialStatus.choices
     )
 
@@ -150,6 +154,7 @@ class Abiturient(models.Model):
         verbose_name=_("Mother's contact information"),
         blank=True,
         null=True,
+        related_name="mother",
     )
 
     father_contact_information = models.OneToOneField(
@@ -158,6 +163,7 @@ class Abiturient(models.Model):
         verbose_name=_("Father's contact information"),
         blank=True,
         null=True,
+        related_name="father",
     )
 
     sensitive_information = models.OneToOneField(
@@ -173,6 +179,9 @@ class Abiturient(models.Model):
         blank=True,
         null=True,
     )
+
+    def __str__(self) -> str:
+        return self.contact_information.full_name
 
     class Meta:
         verbose_name = _("Abiturient")

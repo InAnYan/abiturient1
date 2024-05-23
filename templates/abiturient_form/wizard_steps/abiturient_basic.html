@@ -30,11 +30,15 @@
 </div>
 
 <div class="form-row">
-  {{ wizard.form.phone_number | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.phone_number | as_crispy_field }}
+  </div>
 </div>
 
 <div class="form-row">
-  {{ wizard.form.email | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.email | as_crispy_field }}
+  </div>
 </div>
 
 {% endblock content_form %}

@@ -1,3 +1,5 @@
+from optparse import Option
+from typing import Optional
 from django.db import models
 from django.core.validators import MinValueValidator
 from dateutil.relativedelta import relativedelta
@@ -258,6 +260,10 @@ class UniversityOffer(models.Model):
             + " - "
             + self.Type(self.type).label
         )
+
+    @property
+    def get_accreditation(self) -> Optional["Accreditation"]:
+        return self.educational_program.accreditation_set.filter(level=self.level).first()
 
     class Meta:
         verbose_name = _("University offer")

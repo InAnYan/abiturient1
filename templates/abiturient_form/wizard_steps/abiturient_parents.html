@@ -30,7 +30,9 @@
 </div>
 
 <div class="form-row">
-  {{ wizard.form.mother_phone | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.mother_phone | as_crispy_field }}
+  </div>
 </div>
 
 <hr>
@@ -50,7 +52,9 @@
 </div>
 
 <div class="form-row">
-  {{ wizard.form.father_phone | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.father_phone | as_crispy_field }}
+  </div>
 </div>
 
 {% endblock content_form %}

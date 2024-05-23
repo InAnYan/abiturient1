@@ -16,19 +16,27 @@
 {% block content_form %}
 
 <div class="form-row">
-  {{ wizard.form.work | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.work | as_crispy_field }}
+  </div>
 </div>
 
 <div class="form-row">
-  {{ wizard.form.martial_status | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.martial_status | as_crispy_field }}
+  </div>
 </div>
 
 <div class="form-row">
-  {{ wizard.form.living_address | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.living_address | as_crispy_field }}
+  </div>
 </div>
 
 <div class="form-row">
-  {{ wizard.form.registered_address | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.registered_address | as_crispy_field }}
+  </div>
 </div>
 
 {% endblock content_form %}

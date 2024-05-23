@@ -3,7 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from accepting_offers.models import AcceptedOffer
 from documents.models import Document
-from university_offers.models import UniversityOffer
+from university_offers.models import EducationalLevel, UniversityOffer
 from django.utils.translation import gettext_lazy as _
 
 from docxtpl import DocxTemplate
@@ -20,7 +20,7 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
 
     offer.study_form = UniversityOffer.StudyForm(offer.study_form).label
     offer.type = UniversityOffer.Type(offer.type).label
-    offer.level = UniversityOffer.Level(offer.level).label
+    offer.level = EducationalLevel(offer.level).label
     offer.basis = UniversityOffer.Basis(offer.basis).label
 
     doc = DocxTemplate(path)

@@ -20,8 +20,7 @@ def offers_json(request: HttpRequest) -> HttpResponse:
     if speciality_id := request.GET.get("speciality"):
         speciality = Speciality.objects.get(id=speciality_id)
         offers = offers.filter(
-            educational_program__speciality__code=speciality.code,
-            educational_program__speciality__specialization=speciality.specialization,
+            educational_program__speciality__code=speciality.code
         )
 
     if educational_program_name := request.GET.get("educational_program_name"):

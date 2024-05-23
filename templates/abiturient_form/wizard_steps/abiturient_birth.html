@@ -36,7 +36,9 @@
 </div>
 
 <div class="form-row">
-  {{ wizard.form.foreign_language | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.foreign_language | as_crispy_field }}
+  </div>
 </div>
 
 {% endblock content_form %}

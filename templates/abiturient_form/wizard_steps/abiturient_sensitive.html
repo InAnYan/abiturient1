@@ -26,15 +26,21 @@
 </div>
 
 <div class="form-row">
-  {{ wizard.form.passport_authority | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.passport_authority | as_crispy_field }}
+  </div>
 </div>
 
 <div class="form-row">
-  {{ wizard.form.passport_issue_date | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.passport_issue_date | as_crispy_field }}
+  </div>
 </div>
 
 <div class="form-row">
-  {{ wizard.form.rntrc | as_crispy_field }}
+  <div class="col">
+    {{ wizard.form.rntrc | as_crispy_field }}
+  </div>
 </div>
 
 {% endblock content_form %}

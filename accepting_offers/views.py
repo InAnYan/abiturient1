@@ -14,6 +14,7 @@ from accepting_offers.forms import (
     AbiturientBasicInformationForm,
     AbiturientBirthInformationForm,
     AbiturientEducationForm,
+    AbiturientMiscInformationForm,
     AbiturientParentsForm,
     AbiturientSensitiveInformationForm,
     AcceptedOfferForm,
@@ -56,7 +57,7 @@ class AbiturientAndOffersWizard(CookieWizardView):
         ("abiturient_basic", AbiturientBasicInformationForm),
         ("abiturient_birth", AbiturientBirthInformationForm),
         ("abiturient_education", AbiturientEducationForm),
-        ("abiturient_misc", AbiturientBirthInformationForm),
+        ("abiturient_misc", AbiturientMiscInformationForm),
         ("offer", UniversityOfferSearchForm),
         ("accepted_offer", AcceptedOfferForm),
         ("abiturient_parents", AbiturientParentsForm),
@@ -73,7 +74,9 @@ class AbiturientAndOffersWizard(CookieWizardView):
         if not abiturient_birth:
             return True
 
-        return datetime.today() - abiturient_birth < timedelta(days=365.25 * 18)
+        return date.today() - abiturient_birth["birth_date"] < timedelta(
+            days=365.25 * 18
+        )
 
     condition_dict = {
         "abiturient_basic": lambda _: True,
@@ -184,7 +187,7 @@ class AbiturientAndOffersWizard(CookieWizardView):
         abiturient_parents: AbiturientParentsForm = form_list[6]
         abiturient_sensitive: AbiturientSensitiveInformationForm = form_list[7]
 
-        if len(form_list) > 8:
+        if len(form_list) > 9:
             representative_contact: RepresentativeContactForm = form_list[8]
             representative_sensitive: RepresentativeSensitiveInformationForm = (
                 form_list[9]
@@ -203,8 +206,8 @@ class AbiturientAndOffersWizard(CookieWizardView):
             birth_date=abiturient_birth.cleaned_data["birth_date"],
             birth_country=abiturient_birth.cleaned_data["birth_country"],
             birth_town=abiturient_birth.cleaned_data["birth_town"],
-            nationality=abiturient_misc.cleaned_data["nationality"],
-            foreign_language=abiturient_misc.cleaned_data["foreign_language"],
+            nationality=abiturient_birth.cleaned_data["nationality"],
+            foreign_language=abiturient_birth.cleaned_data["foreign_language"],
             education_institution=abiturient_education.cleaned_data[
                 "education_institution"
             ],
@@ -218,13 +221,13 @@ class AbiturientAndOffersWizard(CookieWizardView):
                 last_name=abiturient_parents.cleaned_data["mother_last_name"],
                 first_name=abiturient_parents.cleaned_data["mother_first_name"],
                 patronymic=abiturient_parents.cleaned_data["mother_patronymic"],
-                phone_number=abiturient_parents.cleaned_data["mother_phone_number"],
+                phone_number=abiturient_parents.cleaned_data["mother_phone"],
             ),
             father_contact_information=ContactInformation.objects.create(
                 last_name=abiturient_parents.cleaned_data["father_last_name"],
                 first_name=abiturient_parents.cleaned_data["father_first_name"],
                 patronymic=abiturient_parents.cleaned_data["father_patronymic"],
-                phone_number=abiturient_parents.cleaned_data["father_phone_number"],
+                phone_number=abiturient_parents.cleaned_data["father_phone"],
             ),
             sensitive_information=SensitiveInformation.objects.create(
                 passport_serie=abiturient_sensitive.cleaned_data["passport_serie"],
