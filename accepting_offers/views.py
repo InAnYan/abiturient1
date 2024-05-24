@@ -2,7 +2,7 @@ from datetime import date, datetime, timedelta
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from django.db import transaction
+from formtools.wizard.views import SessionWizardView
 
 from abiturients.models import (
     Abiturient,
@@ -50,7 +50,7 @@ form_list_str = [
 ]
 
 
-class AbiturientAndOffersWizard(CookieWizardView):
+class AbiturientAndOffersWizard(SessionWizardView):
     form_list = [
         ("abiturient_basic", AbiturientBasicInformationForm),
         ("abiturient_birth", AbiturientBirthInformationForm),
@@ -227,3 +227,4 @@ class AbiturientAndOffersWizard(CookieWizardView):
         )
 
         return HttpResponseRedirect(reverse("done"))
+
