@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-23 16:08+0300\n"
+"POT-Creation-Date: 2024-05-30 13:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,21 +75,37 @@ msgstr "Contact information"
 msgid "Contact informations"
 msgstr "Contact informations"
 
-#: .\abiturients\models.py:46 .\accepting_offers\forms.py:175
+#: .\abiturients\models.py:42 .\accepting_offers\forms.py:175
 #: .\templates\abiturient_form\wizard_steps\check.html:107
 #: .\templates\abiturient_form\wizard_steps\check.html:138
 msgid "Passport serie"
 msgstr "Passport serie"
 
-#: .\abiturients\models.py:54 .\accepting_offers\forms.py:181
+#: .\abiturients\models.py:47
+msgid ""
+"If you have an ID card, leave this field empty. If you have a book-passport, "
+"then fill this field."
+msgstr ""
+"If you have an ID card, leave this field empty. If you have a book-passport, "
+"then fill this field."
+
+#: .\abiturients\models.py:52 .\accepting_offers\forms.py:181
 #: .\templates\abiturient_form\wizard_steps\check.html:109
 #: .\templates\abiturient_form\wizard_steps\check.html:140
 msgid "Passport number"
 msgstr "Passport number"
 
-#: .\abiturients\models.py:61 .\accepting_offers\forms.py:187
+#: .\abiturients\models.py:59 .\accepting_offers\forms.py:187
 msgid "Authority"
 msgstr "Authority"
+
+#: .\abiturients\models.py:61
+msgid ""
+"If you have an ID card, this field should contain numbers. If you have a "
+"book-passport, this field should contain a text (description)."
+msgstr ""
+"If you have an ID card, this field should contain numbers. If you have a "
+"book-passport, this field should contain a text (description)."
 
 #: .\abiturients\models.py:68 .\accepting_offers\forms.py:193
 msgid "Date of issue"

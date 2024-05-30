@@ -34,7 +34,9 @@ class Speciality(models.Model):
         null=True,
         blank=True,
         verbose_name=_("Specialization code"),
-        help_text=_("If there is a specialization, fill the specialization code and leave name to be the name of the specialization")
+        help_text=_(
+            "If there is a specialization, fill the specialization code and leave name to be the name of the specialization"
+        ),
     )
 
     name = models.CharField(
@@ -75,6 +77,10 @@ class EducationalProgram(models.Model):
     def __str__(self) -> str:
         return f"{self.speciality} - {self.name}"
 
+    class Meta:
+        verbose_name = _("Educational program")
+        verbose_name_plural = _("Educational programs")
+
 
 class EducationalLevel(models.IntegerChoices):
     BACHELOR = 1, _("Bachelor")
@@ -88,7 +94,9 @@ class Accreditation(models.Model):
         EDUCATIONAL_PROGRAM = 2, _("Educational program")
 
     educational_program = models.ForeignKey(
-        EducationalProgram, on_delete=models.PROTECT, verbose_name=_("Educational program")
+        EducationalProgram,
+        on_delete=models.PROTECT,
+        verbose_name=_("Educational program"),
     )
 
     level = models.IntegerField(
@@ -100,11 +108,13 @@ class Accreditation(models.Model):
 
     number = models.PositiveIntegerField(verbose_name=_("Accreditation number"))
 
-    serie = models.CharField(max_length=2, null=True, blank=True, verbose_name=_("Accreditation serie"))
+    serie = models.CharField(
+        max_length=2, null=True, blank=True, verbose_name=_("Accreditation serie")
+    )
 
     type = models.PositiveIntegerField(
         choices=Type.choices,
-        verbose_name=_("Accreditation type"), 
+        verbose_name=_("Accreditation type"),
     )
 
     def __str__(self) -> str:
@@ -157,7 +167,7 @@ class UniversityOffer(models.Model):
     study_duration = models.IntegerField(
         validators=[MinValueValidator(1)],
         verbose_name=_("Study duration"),
-        help_text=_("In months")
+        help_text=_("In months"),
     )
 
     @property
@@ -173,7 +183,9 @@ class UniversityOffer(models.Model):
         return self.study_duration % 12
 
     educational_program = models.ForeignKey(
-        EducationalProgram, on_delete=models.PROTECT, verbose_name=_("Educational program")
+        EducationalProgram,
+        on_delete=models.PROTECT,
+        verbose_name=_("Educational program"),
     )
 
     level = models.PositiveIntegerField(
@@ -186,7 +198,8 @@ class UniversityOffer(models.Model):
     )
 
     type = models.PositiveIntegerField(
-        choices=Type.choices, verbose_name=_("Offer type"),
+        choices=Type.choices,
+        verbose_name=_("Offer type"),
         help_text=_("Budget or contract"),
     )
 
@@ -198,21 +211,13 @@ class UniversityOffer(models.Model):
         validators=[MinValueValidator(1)], verbose_name=_("ECTS")
     )
 
-    year1_cost = models.PositiveIntegerField(
-        verbose_name=_("Year 1 cost"), default=0
-    )
+    year1_cost = models.PositiveIntegerField(verbose_name=_("Year 1 cost"), default=0)
 
-    year2_cost = models.PositiveIntegerField(
-        verbose_name=_("Year 2 cost"), default=0
-    )
+    year2_cost = models.PositiveIntegerField(verbose_name=_("Year 2 cost"), default=0)
 
-    year3_cost = models.PositiveIntegerField(
-        verbose_name=_("Year 3 cost"), default=0
-    )
+    year3_cost = models.PositiveIntegerField(verbose_name=_("Year 3 cost"), default=0)
 
-    year4_cost = models.PositiveIntegerField(
-        verbose_name=_("Year 4 cost"), default=0
-    )
+    year4_cost = models.PositiveIntegerField(verbose_name=_("Year 4 cost"), default=0)
 
     @property
     def year1_cost_words(self) -> str:
@@ -263,7 +268,9 @@ class UniversityOffer(models.Model):
 
     @property
     def get_accreditation(self) -> Optional["Accreditation"]:
-        return self.educational_program.accreditation_set.filter(level=self.level).first()
+        return self.educational_program.accreditation_set.filter(
+            level=self.level
+        ).first()
 
     class Meta:
         verbose_name = _("University offer")

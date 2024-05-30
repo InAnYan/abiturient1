@@ -37,17 +37,15 @@ class ContactInformation(models.Model):
         verbose_name_plural = _("Contact informations")
 
 
-PASSPORT_SERIE_HELP = "If you have an ID card, leave this field empty. If you have a book-passport, then fill this field."
-PASSPORT_AUTHORITY_HELP = "If you have an ID card, this field should contain numbers. If you have a book-passport, this field should contain a text (description)."
-
-
 class SensitiveInformation(models.Model):
     passport_serie = models.CharField(
         verbose_name=_("Passport serie"),
         max_length=2,
         null=True,
         blank=True,
-        help_text=_(PASSPORT_SERIE_HELP),
+        help_text=_(
+            "If you have an ID card, leave this field empty. If you have a book-passport, then fill this field."
+        ),
     )
 
     passport_number = models.IntegerField(
@@ -59,7 +57,9 @@ class SensitiveInformation(models.Model):
 
     passport_authority = models.TextField(
         verbose_name=_("Authority"),
-        help_text=_(PASSPORT_AUTHORITY_HELP),
+        help_text=_(
+            "If you have an ID card, this field should contain numbers. If you have a book-passport, this field should contain a text (description)."
+        ),
         null=True,
         blank=True,
     )
@@ -100,6 +100,10 @@ class AbiturientRepresentative(models.Model):
         on_delete=models.CASCADE,
         verbose_name=_("Sensitive information"),
     )
+
+    class Meta:
+        verbose_name = _("Abiturient representative")
+        verbose_name_plural = _("Abiturient representatives")
 
 
 class Abiturient(models.Model):

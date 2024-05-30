@@ -5,10 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
 
 from abiturients.models import (
-    PASSPORT_AUTHORITY_HELP,
-    PASSPORT_SERIE_HELP,
     Abiturient,
-    ContactInformation,
     SensitiveInformation,
 )
 from accepting_offers.models import AcceptedOffer
@@ -174,7 +171,9 @@ class RepresentativeForm(forms.Form):
         max_length=2,
         label=_("Passport serie"),
         required=False,
-        help_text=_(PASSPORT_SERIE_HELP),
+        help_text=_(
+            "If you have an ID card, leave this field empty. If you have a book-passport, then fill this field."
+        ),
     )
 
     passport_number = forms.IntegerField(
@@ -186,7 +185,9 @@ class RepresentativeForm(forms.Form):
     passport_authority = forms.CharField(
         label=_("Authority"),
         required=False,
-        help_text=_(PASSPORT_AUTHORITY_HELP),
+        help_text=_(
+            "If you have an ID card, this field should contain numbers. If you have a book-passport, this field should contain a text (description)."
+        ),
     )
 
     passport_issue_date = forms.DateField(
