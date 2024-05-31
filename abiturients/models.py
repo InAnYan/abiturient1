@@ -274,7 +274,7 @@ class Abiturient(models.Model):
     )
 
     def __str__(self) -> str:
-        return self.contact_information.full_name
+        return self.full_name
 
     class Meta:
         verbose_name = _("Abiturient")

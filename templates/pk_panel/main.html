@@ -37,7 +37,7 @@
         {% for document in documents %}
         
         <a role="button" class="btn btn-primary" href="{% url "gen_doc" %}?offer_id={{ offer.id }}&doc_id={{ document.id }}">
-            {% trans "Generate" %} {{ document.name|lowerfirst }}
+            {% trans "Generate" %} "{{ document.name }}"
         </a>
 
         {% endfor %}

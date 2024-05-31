@@ -62,11 +62,11 @@ class Document(models.Model):
             first_name="Test",
             patronymic="Test",
             phone_number="+380123456789",
-
             birth_date=date.today(),
             birth_country="Test",
             birth_town="Test",
             nationality="Test",
+            gender=Abiturient.Gender.MALE,
             education_institution="Test",
             education_place="Test",
             education_end=date.today(),
@@ -76,25 +76,19 @@ class Document(models.Model):
             email="Test",
             living_address="Test",
             registered_address="Test",
-
-
             mother_last_name="Test",
             mother_first_name="Test",
             mother_patronymic="Test",
             mother_phone_number="+380123456789",
-
-
             father_last_name="Test",
             father_first_name="Test",
             father_patronymic="Test",
             father_phone_number="+380123456789",
-
             passport_serie="Test",
             passport_number=123456,
             passport_authority="Test",
             passport_issue_date=date.today(),
             rntrc=123456789,
-
             representative=test_representative,
         )
 

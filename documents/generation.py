@@ -18,6 +18,7 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
     educational_program = offer.educational_program
     speciality = educational_program.speciality
     faculty = speciality.faculty
+    representative = abiturient.representative
 
     """
     offer.study_form = UniversityOffer.StudyForm(offer.study_form).label
@@ -36,6 +37,9 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
         "speciality": speciality,
         "educational_program": educational_program,
         "faculty": faculty,
+        "representative": representative,
+        "Abiturient": Abiturient,
+        "UniversityOffer": UniversityOffer,
     }
     doc.render(context)
     doc.save(out)

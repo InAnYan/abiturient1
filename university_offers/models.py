@@ -212,6 +212,10 @@ class UniversityOffer(models.Model):
     )
 
     @property
+    def get_study_form_label(self) -> str:
+        return self.StudyForm(self.study_form).label
+
+    @property
     def study_form_o(self) -> str:
         match self.study_form:
             case self.StudyForm.DAY:
@@ -287,6 +291,13 @@ class UniversityOffer(models.Model):
         return self.educational_program.accreditation_set.filter(
             level=self.level
         ).first()
+
+    @property
+    def has_accreditation_s(self) -> str:
+        if self.get_accreditation:
+            return "акредитованою"
+
+        return "не акредитованою"
 
     class Meta:
         verbose_name = _("University offer")
