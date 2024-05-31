@@ -144,16 +144,12 @@ msgid "Living address"
 msgstr "Адреса проживання"
 
 #: .\abiturients\models.py:105
-#, fuzzy
-#| msgid "Representative"
 msgid "Abiturient representative"
 msgstr "Законний представник"
 
 #: .\abiturients\models.py:106
-#, fuzzy
-#| msgid "Representative"
 msgid "Abiturient representatives"
-msgstr "Законний представник"
+msgstr "Законні представники"
 
 #: .\abiturients\models.py:117 .\accepting_offers\forms.py:41
 msgid "Date of birth"
@@ -868,13 +864,11 @@ msgstr "Спеціальності"
 #: .\university_offers\models.py:81 .\university_offers\models.py:94
 #: .\university_offers\models.py:99 .\university_offers\models.py:188
 msgid "Educational program"
-msgstr "Назва освітньої програми"
+msgstr "Освітня програма"
 
 #: .\university_offers\models.py:82
-#, fuzzy
-#| msgid "Educational program"
 msgid "Educational programs"
-msgstr "Назва освітньої програми"
+msgstr "Освітні програми"
 
 #: .\university_offers\models.py:86
 msgid "Bachelor"
