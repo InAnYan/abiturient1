@@ -7,8 +7,6 @@ from formtools.wizard.views import SessionWizardView
 from abiturients.models import (
     Abiturient,
     AbiturientRepresentative,
-    ContactInformation,
-    SensitiveInformation,
 )
 from accepting_offers.forms import (
     AbiturientBasicInformationForm,
@@ -21,8 +19,6 @@ from accepting_offers.forms import (
     EmptyForm,
     RepresentativeForm,
 )
-
-from formtools.wizard.views import CookieWizardView
 
 from accepting_offers.models import AcceptedOffer
 from university_offers.forms import UniversityOfferSearchForm
@@ -149,12 +145,10 @@ class AbiturientAndOffersWizard(SessionWizardView):
             representative = None
 
         abiturient = Abiturient(
-            contact_information=ContactInformation.objects.create(
-                last_name=abiturient_basic.cleaned_data["last_name"],
-                first_name=abiturient_basic.cleaned_data["first_name"],
-                patronymic=abiturient_basic.cleaned_data["patronymic"],
-                phone_number=abiturient_basic.cleaned_data["phone_number"],
-            ),
+            last_name=abiturient_basic.cleaned_data["last_name"],
+            first_name=abiturient_basic.cleaned_data["first_name"],
+            patronymic=abiturient_basic.cleaned_data["patronymic"],
+            phone_number=abiturient_basic.cleaned_data["phone_number"],
             birth_date=abiturient_birth.cleaned_data["birth_date"],
             birth_country=abiturient_birth.cleaned_data["birth_country"],
             birth_town=abiturient_birth.cleaned_data["birth_town"],
@@ -169,51 +163,35 @@ class AbiturientAndOffersWizard(SessionWizardView):
             martial_status=abiturient_misc.cleaned_data["martial_status"],
             living_address=abiturient_misc.cleaned_data["living_address"],
             registered_address=abiturient_misc.cleaned_data["registered_address"],
-            mother_contact_information=ContactInformation.objects.create(
-                last_name=abiturient_parents.cleaned_data["mother_last_name"],
-                first_name=abiturient_parents.cleaned_data["mother_first_name"],
-                patronymic=abiturient_parents.cleaned_data["mother_patronymic"],
-                phone_number=abiturient_parents.cleaned_data["mother_phone"],
-            ),
-            father_contact_information=ContactInformation.objects.create(
-                last_name=abiturient_parents.cleaned_data["father_last_name"],
-                first_name=abiturient_parents.cleaned_data["father_first_name"],
-                patronymic=abiturient_parents.cleaned_data["father_patronymic"],
-                phone_number=abiturient_parents.cleaned_data["father_phone"],
-            ),
-            sensitive_information=SensitiveInformation.objects.create(
-                passport_serie=abiturient_sensitive.cleaned_data["passport_serie"],
-                passport_number=abiturient_sensitive.cleaned_data["passport_number"],
-                passport_authority=abiturient_sensitive.cleaned_data[
-                    "passport_authority"
-                ],
-                passport_issue_date=abiturient_sensitive.cleaned_data[
-                    "passport_issue_date"
-                ],
-                rntrc=abiturient_sensitive.cleaned_data["rntrc"],
-            ),
+            mother_last_name=abiturient_parents.cleaned_data["mother_last_name"],
+            mother_first_name=abiturient_parents.cleaned_data["mother_first_name"],
+            mother_patronymic=abiturient_parents.cleaned_data["mother_patronymic"],
+            mother_phone_number=abiturient_parents.cleaned_data["mother_phone"],
+            father_last_name=abiturient_parents.cleaned_data["father_last_name"],
+            father_first_name=abiturient_parents.cleaned_data["father_first_name"],
+            father_patronymic=abiturient_parents.cleaned_data["father_patronymic"],
+            father_phone_number=abiturient_parents.cleaned_data["father_phone"],
+            passport_serie=abiturient_sensitive.cleaned_data["passport_serie"],
+            passport_number=abiturient_sensitive.cleaned_data["passport_number"],
+            passport_authority=abiturient_sensitive.cleaned_data["passport_authority"],
+            passport_issue_date=abiturient_sensitive.cleaned_data[
+                "passport_issue_date"
+            ],
+            rntrc=abiturient_sensitive.cleaned_data["rntrc"],
         )
 
         if representative is not None:
             abiturient.representative = AbiturientRepresentative(
-                contact_information=ContactInformation(
-                    last_name=representative.cleaned_data["last_name"],
-                    first_name=representative.cleaned_data["first_name"],
-                    patronymic=representative.cleaned_data["patronymic"],
-                    phone_number=representative.cleaned_data["phone_number"],
-                ),
+                last_name=representative.cleaned_data["last_name"],
+                first_name=representative.cleaned_data["first_name"],
+                patronymic=representative.cleaned_data["patronymic"],
+                phone_number=representative.cleaned_data["phone_number"],
                 living_address=representative.cleaned_data["living_address"],
-                sensitive_information=SensitiveInformation(
-                    passport_serie=representative.cleaned_data["passport_serie"],
-                    passport_number=representative.cleaned_data["passport_number"],
-                    passport_authority=representative.cleaned_data[
-                        "passport_authority"
-                    ],
-                    passport_issue_date=representative.cleaned_data[
-                        "passport_issue_date"
-                    ],
-                    rntrc=representative.cleaned_data["rntrc"],
-                ),
+                passport_serie=representative.cleaned_data["passport_serie"],
+                passport_number=representative.cleaned_data["passport_number"],
+                passport_authority=representative.cleaned_data["passport_authority"],
+                passport_issue_date=representative.cleaned_data["passport_issue_date"],
+                rntrc=representative.cleaned_data["rntrc"],
             )
 
         abiturient.save()
@@ -227,4 +205,3 @@ class AbiturientAndOffersWizard(SessionWizardView):
         )
 
         return HttpResponseRedirect(reverse("done"))
-

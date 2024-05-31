@@ -7,8 +7,6 @@ from django.core.validators import RegexValidator
 from abiturients.models import (
     Abiturient,
     AbiturientRepresentative,
-    ContactInformation,
-    SensitiveInformation,
 )
 from accepting_offers.models import AcceptedOffer
 from university_offers.models import (
@@ -44,16 +42,12 @@ class Document(models.Model):
     def clean(self):
         super().clean()
 
-        test_contact = ContactInformation(
+        test_representative = AbiturientRepresentative(
             last_name="Test",
             first_name="Test",
             patronymic="Test",
             phone_number="+380123456789",
-        )
-
-        test_contact.save()
-
-        test_sensitive = SensitiveInformation(
+            living_address="Somewhere",
             passport_serie="Test",
             passport_number=123456,
             passport_authority="Test",
@@ -61,17 +55,14 @@ class Document(models.Model):
             rntrc=123456789,
         )
 
-        test_sensitive.save()
-
-        test_representative = AbiturientRepresentative(
-            contact_information=test_contact,
-            sensitive_information=test_sensitive,
-        )
-
         test_representative.save()
 
         test_abiturient = Abiturient(
-            contact_information=test_contact,
+            last_name="Test",
+            first_name="Test",
+            patronymic="Test",
+            phone_number="+380123456789",
+
             birth_date=date.today(),
             birth_country="Test",
             birth_town="Test",
@@ -85,9 +76,25 @@ class Document(models.Model):
             email="Test",
             living_address="Test",
             registered_address="Test",
-            mother_contact_information=test_contact,
-            father_contact_information=test_contact,
-            sensitive_information=test_sensitive,
+
+
+            mother_last_name="Test",
+            mother_first_name="Test",
+            mother_patronymic="Test",
+            mother_phone_number="+380123456789",
+
+
+            father_last_name="Test",
+            father_first_name="Test",
+            father_patronymic="Test",
+            father_phone_number="+380123456789",
+
+            passport_serie="Test",
+            passport_number=123456,
+            passport_authority="Test",
+            passport_issue_date=date.today(),
+            rntrc=123456789,
+
             representative=test_representative,
         )
 
@@ -175,5 +182,3 @@ class Document(models.Model):
             test_faculty.delete()
             test_abiturient.delete()
             test_representative.delete()
-            test_sensitive.delete()
-            test_contact.delete()

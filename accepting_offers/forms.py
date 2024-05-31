@@ -3,10 +3,11 @@ from typing import Any
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
+from httpx import request
+from pkg_resources import require
 
 from abiturients.models import (
     Abiturient,
-    SensitiveInformation,
 )
 from accepting_offers.models import AcceptedOffer
 from university_offers.models import UniversityOffer
@@ -38,7 +39,9 @@ class AbiturientBirthInformationForm(forms.Form):
     birth_town = forms.CharField(max_length=255, label=_("Birth town"))
 
     birth_date = forms.DateField(
-        label=_("Date of birth"), widget=forms.TextInput(attrs={"type": "date"})
+        label=_("Date of birth"),
+        widget=forms.TextInput(attrs={"type": "date"}),
+        validators=[MaxValueValidator(date.today)],
     )
 
     nationality = forms.CharField(
@@ -107,13 +110,16 @@ class AcceptedOfferForm(forms.ModelForm):
 
 
 class AbiturientParentsForm(forms.Form):
-    father_last_name = forms.CharField(max_length=255, label=_("Father last name"))
-    father_first_name = forms.CharField(max_length=255, label=_("Father first name"))
+    father_last_name = forms.CharField(
+        max_length=255, label=_("Father last name"), required=False
+    )
+    father_first_name = forms.CharField(
+        max_length=255, label=_("Father first name"), required=False
+    )
     father_patronymic = forms.CharField(
         max_length=255, label=_("Father patronymic"), required=False
     )
 
-    # NOO! Code duplication...
     father_phone = forms.CharField(
         max_length=13,
         validators=[
@@ -123,10 +129,15 @@ class AbiturientParentsForm(forms.Form):
             "Write the phone number in the following form: +380123456789 (start with +, then area code, then the rest of the number)"
         ),
         label=_("Father phone number"),
+        required=False,
     )
 
-    mother_last_name = forms.CharField(max_length=255, label=_("Mother last name"))
-    mother_first_name = forms.CharField(max_length=255, label=_("Mother first name"))
+    mother_last_name = forms.CharField(
+        max_length=255, label=_("Mother last name"), required=False
+    )
+    mother_first_name = forms.CharField(
+        max_length=255, label=_("Mother first name"), required=False
+    )
     mother_patronymic = forms.CharField(
         max_length=255, label=_("Mother patronymic"), required=False
     )
@@ -140,13 +151,48 @@ class AbiturientParentsForm(forms.Form):
             "Write the phone number in the following form: +380123456789 (start with +, then area code, then the rest of the number)"
         ),
         label=_("Mother phone number"),
+        required=False,
     )
 
 
-class AbiturientSensitiveInformationForm(forms.ModelForm):
-    class Meta:
-        model = SensitiveInformation
-        exclude = []
+class AbiturientSensitiveInformationForm(forms.Form):
+    passport_serie = forms.CharField(
+        label=_("Passport serie"),
+        max_length=2,
+        required=False,
+        help_text=_(
+            "If you have an ID card, leave this field empty. If you have a book-passport, then fill this field."
+        ),
+    )
+
+    passport_number = forms.IntegerField(
+        label=_("Passport number"),
+        validators=[MaxValueValidator(999999999)],
+        required=False,
+    )
+
+    passport_authority = forms.CharField(
+        label=_("Authority"),
+        help_text=_(
+            "If you have an ID card, this field should contain numbers. If you have a book-passport, this field should contain a text (description)."
+        ),
+        required=False,
+    )
+
+    passport_issue_date = forms.DateField(
+        label=_("Date of issue"),
+        validators=[MaxValueValidator(limit_value=date.today)],
+        required=False,
+    )
+
+    rntrc = forms.IntegerField(
+        label=_("RNTRC"),
+        validators=[MaxValueValidator(999999999999)],
+        help_text=_(
+            "Registration number of the taxpayer's account card (a local equivalent of the taxpayer's identification number)"
+        ),
+        required=False,
+    )
 
 
 class RepresentativeForm(forms.Form):
