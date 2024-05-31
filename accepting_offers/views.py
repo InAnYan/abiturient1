@@ -153,6 +153,7 @@ class AbiturientAndOffersWizard(SessionWizardView):
             birth_country=abiturient_birth.cleaned_data["birth_country"],
             birth_town=abiturient_birth.cleaned_data["birth_town"],
             nationality=abiturient_birth.cleaned_data["nationality"],
+            gender=abiturient_birth.cleaned_data["gender"],
             foreign_language=abiturient_birth.cleaned_data["foreign_language"],
             education_institution=abiturient_education.cleaned_data[
                 "education_institution"
@@ -177,6 +178,9 @@ class AbiturientAndOffersWizard(SessionWizardView):
             passport_issue_date=abiturient_sensitive.cleaned_data[
                 "passport_issue_date"
             ],
+            passport_expiry_date=abiturient_sensitive.cleaned_data[
+                "passport_expiry_date"
+            ],
             rntrc=abiturient_sensitive.cleaned_data["rntrc"],
         )
 
@@ -191,6 +195,9 @@ class AbiturientAndOffersWizard(SessionWizardView):
                 passport_number=representative.cleaned_data["passport_number"],
                 passport_authority=representative.cleaned_data["passport_authority"],
                 passport_issue_date=representative.cleaned_data["passport_issue_date"],
+                passport_expiry_date=representative.cleaned_data[
+                    "passport_expiry_date"
+                ],
                 rntrc=representative.cleaned_data["rntrc"],
             )
 

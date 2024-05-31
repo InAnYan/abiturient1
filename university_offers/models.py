@@ -53,11 +53,15 @@ class Speciality(models.Model):
 
     @property
     def code_and_name(self) -> str:
+        return self.code_with_specialization + " " + self.name
+
+    @property
+    def code_with_specialization(self) -> str:
         code = str(self.code).zfill(3)
         if self.specialization_code:
             code += "." + str(self.specialization_code).zfill(3)
 
-        return code + " " + self.name
+        return code
 
     class Meta:
         verbose_name = _("Speciality")
@@ -206,6 +210,18 @@ class UniversityOffer(models.Model):
     study_form = models.PositiveIntegerField(
         choices=StudyForm.choices, verbose_name=_("Study form")
     )
+
+    @property
+    def study_form_o(self) -> str:
+        match self.study_form:
+            case self.StudyForm.DAY:
+                return "денної"
+            case self.StudyForm.OVER_DISTANCE:
+                return "заочної"
+            case self.StudyForm.DISTANCE:
+                return "дистанційної"
+            case _:
+                raise Exception("It can't be: " + self.StudyForm(self.study_form).label)
 
     ects = models.IntegerField(
         validators=[MinValueValidator(1)], verbose_name=_("ECTS")

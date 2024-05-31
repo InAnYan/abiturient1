@@ -2,7 +2,7 @@ from datetime import date
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class AbiturientRepresentative(models.Model):
@@ -58,6 +58,14 @@ class AbiturientRepresentative(models.Model):
         blank=True,
     )
 
+    passport_expiry_date = models.DateField(
+        verbose_name=_("Date of expiry"),
+        validators=[MinValueValidator(limit_value=date.today)],
+        null=True,
+        blank=True,
+        help_text=_("Only for ID-card"),
+    )
+
     rntrc = models.IntegerField(
         verbose_name=_("RNTRC"),
         validators=[MaxValueValidator(999999999999)],
@@ -98,7 +106,7 @@ class Abiturient(models.Model):
     )
 
     @property
-    def abiturient_full_name(self) -> str:
+    def full_name(self) -> str:
         return f"{self.last_name} {self.first_name}" + (
             f" {self.patronymic}" if self.patronymic else ""
         )
@@ -112,6 +120,12 @@ class Abiturient(models.Model):
     nationality = models.CharField(
         max_length=255, verbose_name=_("Nationality"), blank=True, null=True
     )
+
+    class Gender(models.IntegerChoices):
+        MALE = 1, _("Male")
+        FEMALE = 2, _("Female")
+
+    gender = models.IntegerField(verbose_name=_("Gender"), choices=Gender.choices)
 
     education_institution = models.CharField(
         max_length=255, verbose_name=_("Educational institution")
@@ -152,6 +166,12 @@ class Abiturient(models.Model):
         max_length=255, verbose_name=_("Mother's patronymic"), blank=True, null=True
     )
 
+    @property
+    def mother_full_name(self) -> str:
+        return f"{self.mother_last_name} {self.mother_first_name}" + (
+            f" {self.mother_patronymic}" if self.mother_patronymic else ""
+        )
+
     mother_phone_number = models.CharField(
         verbose_name=_("Mother's phone number"),
         validators=[
@@ -174,6 +194,12 @@ class Abiturient(models.Model):
     father_patronymic = models.CharField(
         max_length=255, verbose_name=_("Father's patronymic"), blank=True, null=True
     )
+
+    @property
+    def father_full_name(self) -> str:
+        return f"{self.father_last_name} {self.father_first_name}" + (
+            f" {self.father_patronymic}" if self.father_patronymic else ""
+        )
 
     father_phone_number = models.CharField(
         verbose_name=_("Father's phone number"),
@@ -219,6 +245,14 @@ class Abiturient(models.Model):
         validators=[MaxValueValidator(limit_value=date.today)],
         null=True,
         blank=True,
+    )
+
+    passport_expiry_date = models.DateField(
+        verbose_name=_("Date of expiry"),
+        validators=[MinValueValidator(limit_value=date.today)],
+        null=True,
+        blank=True,
+        help_text=_("Only for ID-card"),
     )
 
     rntrc = models.IntegerField(

@@ -3,8 +3,6 @@ from typing import Any
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
-from httpx import request
-from pkg_resources import require
 
 from abiturients.models import (
     Abiturient,
@@ -12,7 +10,7 @@ from abiturients.models import (
 from accepting_offers.models import AcceptedOffer
 from university_offers.models import UniversityOffer
 
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class AbiturientBasicInformationForm(forms.Form):
@@ -46,6 +44,11 @@ class AbiturientBirthInformationForm(forms.Form):
 
     nationality = forms.CharField(
         max_length=255, label=_("Nationality"), required=False
+    )
+
+    gender = forms.ChoiceField(
+        label=_("Gender"),
+        choices=Abiturient.Gender.choices,
     )
 
     foreign_language = forms.CharField(
@@ -185,6 +188,13 @@ class AbiturientSensitiveInformationForm(forms.Form):
         required=False,
     )
 
+    passport_expiry_date = forms.DateField(
+        label=_("Date of expiry"),
+        validators=[MinValueValidator(limit_value=date.today)],
+        required=False,
+        help_text=_("Only for ID-card"),
+    )
+
     rntrc = forms.IntegerField(
         label=_("RNTRC"),
         validators=[MaxValueValidator(999999999999)],
@@ -240,6 +250,13 @@ class RepresentativeForm(forms.Form):
         label=_("Date of issue"),
         validators=[MaxValueValidator(limit_value=date.today)],
         required=False,
+    )
+
+    passport_expiry_date = forms.DateField(
+        label=_("Date of expiry"),
+        validators=[MinValueValidator(limit_value=date.today)],
+        required=False,
+        help_text=_("Only for ID-card"),
     )
 
     rntrc = forms.IntegerField(
