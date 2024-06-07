@@ -1,6 +1,28 @@
 [
     {
         "study_form": "DAY",
+        "study_duration": 46,
+        "type": "небюджетна",
+        "educational_program_name": "Глобальний трейдинг та міжнародний бізнес",
+        "faculty": "Факультет економіки",
+        "basis": "PZSO",
+        "speciality_code": 5,
+        "accreditation_serie": "НД",
+        "accreditation_end": "01.07.2025",
+        "accreditation_type": "speciality"
+    },
+    {
+        "study_form": "DAY",
+        "study_duration": 46,
+        "type": "небюджетна",
+        "educational_program_name": "Захист і карантин рослин",
+        "faculty": "Біолого-екологічний факультет",
+        "speciality_code": 202,
+        "speciality_name": "Захист і карантин рослин",
+        "basis": "PZSO"
+    },
+    {
+        "study_form": "DAY",
         "study_duration": 16,
         "type": "відкрита",
         "educational_program_name": "Середня освіта (Біологія та здоров'я людини)",
@@ -66,7 +88,10 @@
         "faculty": "Біолого-екологічний факультет",
         "basis": "NRK67",
         "speciality_code": 162,
-        "speciality_name": "Біотехнології та біоінженерія"
+        "speciality_name": "Біотехнології та біоінженерія",
+        "accreditation_end": "12.12.2024",
+        "accreditation_number": "7732",
+        "accreditation_type": "educational_program"
     },
     {
         "study_form": "DAY",
@@ -1107,7 +1132,10 @@
         "faculty": "Факультет економіки",
         "basis": "NRK5",
         "speciality_code": 241,
-        "speciality_name": "Готельно-ресторанна справа"
+        "speciality_name": "Готельно-ресторанна справа",
+        "accreditation_end": "28.05.2025",
+        "accreditation_number": "8428",
+        "accreditation_type": "educational_program"
     },
     {
         "study_form": "DAY",
@@ -1217,8 +1245,8 @@
         "basis": "NRK5",
         "speciality_code": 126,
         "speciality_name": "Інформаційні системи та технології",
-        "accreditation_number": "0",
-        "accreditation_end": "30.05.2024",
+        "accreditation_number": "7904",
+        "accreditation_end": "14.05.2025",
         "accreditation_type": "educational_program"
     },
     {
@@ -1375,7 +1403,10 @@
         "faculty": "Фізико-технічний факультет",
         "basis": "NRK5",
         "speciality_code": 183,
-        "speciality_name": "Технології захисту навколишнього середовища"
+        "speciality_name": "Технології захисту навколишнього середовища",
+        "accreditation_type": "educational_program",
+        "accreditation_end": "14.05.2025",
+        "accreditation_number": "7969"
     },
     {
         "study_form": "DAY",
@@ -1408,7 +1439,7 @@
         "study_form": "OVER_DISTANCE",
         "study_duration": 34,
         "type": "відкрита",
-        "educational_program_name": "Спеціальна освіта: олігофренопедагогіка та логопедія",
+        "educational_program_name": "Спеціальна освіта: логопедія та корекційна психопедагогіка",
         "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
         "basis": "NRK5",
         "speciality_code": 16,
@@ -1686,8 +1717,8 @@
         "speciality_code": 106,
         "speciality_name": "Географія",
         "basis": "PZSO",
-        "accreditation_number": "0",
-        "accreditation_end": "30.05.2024",
+        "accreditation_number": "8160",
+        "accreditation_end": "01.07.2029",
         "accreditation_type": "educational_program"
     },
     {
@@ -1898,7 +1929,7 @@
         "study_form": "DAY",
         "study_duration": 47,
         "type": "відкрита",
-        "educational_program_name": "Спеціальна освіта: олігофренопедагогіка та логопедія",
+        "educational_program_name": "Спеціальна освіта: логопедія та корекційна психопедагогіка",
         "faculty": "Факультет психології та спеціальної освіти",
         "speciality_code": 16,
         "speciality_name": "Спеціальна освіта",
@@ -2158,7 +2189,10 @@
         "faculty": "Факультет економіки",
         "speciality_code": 241,
         "speciality_name": "Готельно-ресторанна справа",
-        "basis": "PZSO"
+        "basis": "PZSO",
+        "accreditation_end": "28.05.2025",
+        "accreditation_number": "8428",
+        "accreditation_type": "educational_program"
     },
     {
         "study_form": "DAY",
@@ -2168,7 +2202,10 @@
         "faculty": "Факультет економіки",
         "speciality_code": 242,
         "speciality_name": "Туризм і рекреація",
-        "basis": "PZSO"
+        "basis": "PZSO",
+        "accreditation_end": "27.02.2025",
+        "accreditation_number": "7731",
+        "accreditation_type": "educational_program"
     },
     {
         "study_form": "DAY",
@@ -2363,8 +2400,8 @@
         "speciality_code": 126,
         "speciality_name": "Інформаційні системи та технології",
         "basis": "PZSO",
-        "accreditation_number": "0",
-        "accreditation_end": "30.05.2024",
+        "accreditation_number": "7904",
+        "accreditation_end": "14.05.2025",
         "accreditation_type": "educational_program"
     },
     {
@@ -2599,7 +2636,10 @@
         "faculty": "Фізико-технічний факультет",
         "speciality_code": 183,
         "speciality_name": "Технології захисту навколишнього середовища",
-        "basis": "PZSO"
+        "basis": "PZSO",
+        "accreditation_type": "educational_program",
+        "accreditation_end": "14.05.2025",
+        "accreditation_number": "7969"
     },
     {
         "study_form": "DAY",
@@ -2640,7 +2680,10 @@
         "speciality_name": "Терапія та реабілітація",
         "specialization_code": 1,
         "specialization_name": "Фізична терапія",
-        "basis": "PZSO"
+        "basis": "PZSO",
+        "accreditation_type": "educational_program",
+        "accreditation_end": "14.05.2025",
+        "accreditation_number": "8273"
     },
     {
         "study_form": "DAY",
@@ -2758,7 +2801,7 @@
         "study_form": "OVER_DISTANCE",
         "study_duration": 47,
         "type": "відкрита",
-        "educational_program_name": "Спеціальна освіта: олігофренопедагогіка та логопедія",
+        "educational_program_name": "Спеціальна освіта: логопедія та корекційна психопедагогіка",
         "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
         "speciality_code": 16,
         "speciality_name": "Спеціальна освіта",
