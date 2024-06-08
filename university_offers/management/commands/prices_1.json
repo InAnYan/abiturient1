@@ -16,18 +16,6 @@
     {
         "faculty": "Біолого-екологічний факультет",
         "study_form": "DAY",
-        "educational_program_name": "Біохімія та фізіологія",
-        "year1_cost": 22000,
-        "year2_cost": 26000,
-        "year3_cost": 29000,
-        "year4_cost": 29000,
-        "basis": "PZSO",
-        "speciality_code": 91,
-        "speciality_name": "Біологія та біохімія"
-    },
-    {
-        "faculty": "Біолого-екологічний факультет",
-        "study_form": "DAY",
         "educational_program_name": "Мікробіологія та вірусологія",
         "year1_cost": 22000,
         "year2_cost": 26000,
@@ -64,18 +52,6 @@
     {
         "faculty": "Біолого-екологічний факультет",
         "study_form": "DAY",
-        "educational_program_name": "Біоінформатика",
-        "year1_cost": 22000,
-        "year2_cost": 26000,
-        "year3_cost": 29000,
-        "year4_cost": 29000,
-        "basis": "PZSO",
-        "speciality_code": 91,
-        "speciality_name": "Біологія та біохімія"
-    },
-    {
-        "faculty": "Біолого-екологічний факультет",
-        "study_form": "DAY",
         "educational_program_name": "Екологія",
         "year1_cost": 22000,
         "year2_cost": 26000,
@@ -96,18 +72,6 @@
         "basis": "PZSO",
         "speciality_code": 162,
         "speciality_name": "Біотехнології та біоінженерія"
-    },
-    {
-        "faculty": "Біолого-екологічний факультет",
-        "study_form": "DAY",
-        "educational_program_name": "Захист і карантин рослин",
-        "year1_cost": 18000,
-        "year2_cost": 22000,
-        "year3_cost": 24000,
-        "year4_cost": 24000,
-        "basis": "PZSO",
-        "speciality_code": 202,
-        "speciality_name": "Захист і карантин рослин"
     },
     {
         "faculty": "Хімічний факультет",
@@ -227,18 +191,6 @@
         "faculty": "Історичний факультет",
         "study_form": "DAY",
         "educational_program_name": "Історія та археологія",
-        "year1_cost": 22000,
-        "year2_cost": 26000,
-        "year3_cost": 29000,
-        "year4_cost": 29000,
-        "basis": "PZSO",
-        "speciality_code": 32,
-        "speciality_name": "Історія та археологія"
-    },
-    {
-        "faculty": "Історичний факультет",
-        "study_form": "DAY",
-        "educational_program_name": "Європейські студії та американістика",
         "year1_cost": 22000,
         "year2_cost": 26000,
         "year3_cost": 29000,
@@ -526,54 +478,6 @@
     {
         "faculty": "Факультет суспільних наук і міжнародних відносин",
         "study_form": "DAY",
-        "educational_program_name": "Культурологія: менеджмент культурних процесів",
-        "year1_cost": 22000,
-        "year2_cost": 26000,
-        "year3_cost": 29000,
-        "year4_cost": 29000,
-        "basis": "PZSO",
-        "speciality_code": 34,
-        "speciality_name": "Культурологія"
-    },
-    {
-        "faculty": "Факультет суспільних наук і міжнародних відносин",
-        "study_form": "DAY",
-        "educational_program_name": "Політична соціологія та політичний менеджмент",
-        "year1_cost": 27000,
-        "year2_cost": 30000,
-        "year3_cost": 33000,
-        "year4_cost": 33000,
-        "basis": "PZSO",
-        "speciality_code": 52,
-        "speciality_name": "Політологія"
-    },
-    {
-        "faculty": "Факультет суспільних наук і міжнародних відносин",
-        "study_form": "DAY",
-        "educational_program_name": "Політологія",
-        "year1_cost": 27000,
-        "year2_cost": 30000,
-        "year3_cost": 33000,
-        "year4_cost": 33000,
-        "basis": "PZSO",
-        "speciality_code": 52,
-        "speciality_name": "Політологія"
-    },
-    {
-        "faculty": "Факультет суспільних наук і міжнародних відносин",
-        "study_form": "DAY",
-        "educational_program_name": "Соціологія",
-        "year1_cost": 27000,
-        "year2_cost": 30000,
-        "year3_cost": 33000,
-        "year4_cost": 33000,
-        "basis": "PZSO",
-        "speciality_code": 54,
-        "speciality_name": "Соціологія"
-    },
-    {
-        "faculty": "Факультет суспільних наук і міжнародних відносин",
-        "study_form": "DAY",
         "educational_program_name": "Публічне управління, медіація, електронне врядування",
         "year1_cost": 27000,
         "year2_cost": 30000,
@@ -611,18 +515,6 @@
         "faculty": "Факультет економіки",
         "study_form": "DAY",
         "educational_program_name": "Цифрова й інформаційна економіка",
-        "year1_cost": 27000,
-        "year2_cost": 30000,
-        "year3_cost": 33000,
-        "year4_cost": 33000,
-        "basis": "PZSO",
-        "speciality_code": 51,
-        "speciality_name": "Економіка"
-    },
-    {
-        "faculty": "Факультет економіки",
-        "study_form": "DAY",
-        "educational_program_name": "Глобальний трейдинг та міжнародний бізнес",
         "year1_cost": 27000,
         "year2_cost": 30000,
         "year3_cost": 33000,
@@ -1105,20 +997,6 @@
     {
         "faculty": "Факультет медичних технологій діагностики та реабілітації",
         "study_form": "DAY",
-        "educational_program_name": "Медсестринство",
-        "year1_cost": 27000,
-        "year2_cost": 30000,
-        "year3_cost": 33000,
-        "year4_cost": 33000,
-        "basis": "PZSO",
-        "speciality_code": 223,
-        "speciality_name": "Медсестринство",
-        "specialization_code": 1,
-        "specialization_name": "Медсестринство"
-    },
-    {
-        "faculty": "Факультет медичних технологій діагностики та реабілітації",
-        "study_form": "DAY",
         "educational_program_name": "Технології медичної діагностики та лікування",
         "year1_cost": 27000,
         "year2_cost": 30000,
@@ -1171,20 +1049,6 @@
     {
         "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
         "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Середня освіта: Українська мова і література",
-        "year1_cost": 14000,
-        "year2_cost": 14000,
-        "year3_cost": 14000,
-        "year4_cost": 14000,
-        "basis": "PZSO",
-        "speciality_code": 14,
-        "speciality_name": "Середня освіта",
-        "specialization_code": 1,
-        "specialization_name": "Середня освіта (Українська мова і література)"
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
         "educational_program_name": "Спеціальна освіта: логопедія та корекційна психопедагогіка",
         "year1_cost": 14000,
         "year2_cost": 14000,
@@ -1199,20 +1063,6 @@
     {
         "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
         "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Українська мова та література",
-        "year1_cost": 14000,
-        "year2_cost": 14000,
-        "year3_cost": 14000,
-        "year4_cost": 14000,
-        "basis": "PZSO",
-        "speciality_code": 35,
-        "speciality_name": "Філологія",
-        "specialization_code": 1,
-        "specialization_name": "Українська мова та література"
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
         "educational_program_name": "Англійська та друга західноєвропейська мови і літератури",
         "year1_cost": 18000,
         "year2_cost": 18000,
@@ -1223,66 +1073,6 @@
         "speciality_name": "Філологія",
         "specialization_code": 41,
         "specialization_name": "Германські мови та літератури (переклад включно), перша - англійська"
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Психологія",
-        "year1_cost": 18000,
-        "year2_cost": 18000,
-        "year3_cost": 18000,
-        "year4_cost": 18000,
-        "basis": "PZSO",
-        "speciality_code": 53,
-        "speciality_name": "Психологія"
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Журналістика",
-        "year1_cost": 18000,
-        "year2_cost": 18000,
-        "year3_cost": 18000,
-        "year4_cost": 18000,
-        "basis": "PZSO",
-        "speciality_code": 61,
-        "speciality_name": "Журналістика"
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Міжнародний менеджмент",
-        "year1_cost": 18000,
-        "year2_cost": 18000,
-        "year3_cost": 18000,
-        "year4_cost": 18000,
-        "basis": "PZSO",
-        "speciality_code": 73,
-        "speciality_name": "Менеджмент"
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Економіка підприємства та організація бізнесу",
-        "year1_cost": 18000,
-        "year2_cost": 18000,
-        "year3_cost": 18000,
-        "year4_cost": 18000,
-        "basis": "PZSO",
-        "speciality_code": 76,
-        "speciality_name": "Підприємництво та торгівля"
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Право",
-        "year1_cost": 18000,
-        "year2_cost": 18000,
-        "year3_cost": 18000,
-        "year4_cost": 18000,
-        "basis": "PZSO",
-        "speciality_code": 81,
-        "speciality_name": "Право"
     },
     {
         "faculty": "Біолого-екологічний факультет",
@@ -1332,15 +1122,6 @@
         "basis": "NRK5",
         "speciality_code": 181,
         "speciality_name": "Харчові технології"
-    },
-    {
-        "faculty": "Хімічний факультет",
-        "study_form": "DAY",
-        "educational_program_name": "Хімічний аналіз та експертиза матеріалів",
-        "year1_cost": 18000,
-        "basis": "NRK5",
-        "speciality_code": 102,
-        "speciality_name": "Хімія"
     },
     {
         "faculty": "Хімічний факультет",
@@ -1559,15 +1340,6 @@
         "speciality_name": "Психологія"
     },
     {
-        "faculty": "Факультет медичних технологій діагностики та реабілітації",
-        "study_form": "DISTANCE",
-        "educational_program_name": "Медсестринство",
-        "year1_cost": 18000,
-        "basis": "NRK5",
-        "speciality_code": 223,
-        "speciality_name": "Медсестринство"
-    },
-    {
         "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
         "study_form": "OVER_DISTANCE",
         "educational_program_name": "Спеціальна освіта: логопедія та корекційна психопедагогіка",
@@ -1577,15 +1349,6 @@
         "speciality_name": "Спеціальна освіта",
         "specialization_code": 1,
         "specialization_name": "Спеціальна освіта (Логопедія)"
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Економіка підприємства та організація бізнесу",
-        "year1_cost": 14000,
-        "basis": "NRK5",
-        "speciality_code": 76,
-        "speciality_name": "Підприємництво та торгівля"
     },
     {
         "faculty": "Біолого-екологічний факультет",
@@ -1724,7 +1487,7 @@
         "year2_cost": 14000
     },
     {
-        "faculty": "Історичний факультет",
+        "faculty": "Факультет української й іноземної філології та мистецтвознавства",
         "study_form": "DAY",
         "educational_program_name": "Дизайн візуального середовища",
         "basis": "NRK67",
@@ -1736,7 +1499,7 @@
         "year2_cost": 17500
     },
     {
-        "faculty": "Історичний факультет",
+        "faculty": "Факультет української й іноземної філології та мистецтвознавства",
         "study_form": "DAY",
         "educational_program_name": "Українська мова та література",
         "basis": "NRK67",
@@ -1748,7 +1511,7 @@
         "year2_cost": 14000
     },
     {
-        "faculty": "Історичний факультет",
+        "faculty": "Факультет української й іноземної філології та мистецтвознавства",
         "study_form": "DAY",
         "educational_program_name": "Переклад з англійської та німецької мов",
         "basis": "NRK67",
@@ -1760,7 +1523,7 @@
         "year2_cost": 17500
     },
     {
-        "faculty": "Історичний факультет",
+        "faculty": "Факультет української й іноземної філології та мистецтвознавства",
         "study_form": "DAY",
         "educational_program_name": "Англійська та друга західноєвропейська мови і літератури",
         "basis": "NRK67",
@@ -1772,7 +1535,7 @@
         "year2_cost": 17500
     },
     {
-        "faculty": "Історичний факультет",
+        "faculty": "Факультет української й іноземної філології та мистецтвознавства",
         "study_form": "DAY",
         "educational_program_name": "Китайська та англійська мови і літератури",
         "basis": "NRK67",
@@ -2220,29 +1983,6 @@
         "year2_cost": 14000
     },
     {
-        "faculty": "Факультет медичних технологій діагностики та реабілітації",
-        "study_form": "DAY",
-        "educational_program_name": "Фізична терапія, ерготерапія",
-        "basis": "NRK67",
-        "speciality_code": 227,
-        "speciality_name": "Терапія та реабілітація",
-        "specialization_code": 1,
-        "specialization_name": "Фізична терапія",
-        "year1_cost": 35000,
-        "year2_cost": 17500
-    },
-    {
-        "faculty": "Факультет медичних технологій діагностики та реабілітації",
-        "study_form": "DISTANCE",
-        "educational_program_name": "Медсестринство",
-        "semester4_cost": "14 000",
-        "basis": "NRK67",
-        "speciality_code": 223,
-        "speciality_name": "Медсестринство",
-        "year1_cost": 20000,
-        "year2_cost": 10000
-    },
-    {
         "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
         "study_form": "OVER_DISTANCE",
         "educational_program_name": "Спеціальна освіта",
@@ -2255,80 +1995,6 @@
         "year2_cost": 10000
     },
     {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Українська мова та література",
-        "basis": "NRK67",
-        "speciality_code": 35,
-        "speciality_name": "Філологія",
-        "specialization_code": 1,
-        "specialization_name": "Українська мова та література",
-        "year1_cost": 16000,
-        "year2_cost": 10000
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Англійська та друга західноєвропейська мови і літератури",
-        "basis": "NRK67",
-        "speciality_code": 35,
-        "speciality_name": "Філологія",
-        "specialization_code": 41,
-        "specialization_name": "Германські мови та літератури (переклад включно), перша - англійська",
-        "year1_cost": 20000,
-        "year2_cost": 14000
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Кризова та реабілітаційна психологія",
-        "basis": "NRK67",
-        "speciality_code": 53,
-        "speciality_name": "Психологія",
-        "year1_cost": 20000,
-        "year2_cost": 14000
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Психологія",
-        "basis": "NRK67",
-        "speciality_code": 53,
-        "speciality_name": "Психологія",
-        "year1_cost": 20000,
-        "year2_cost": 14000
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Міжнародний менеджмент",
-        "basis": "NRK67",
-        "speciality_code": 73,
-        "speciality_name": "Менеджмент",
-        "year1_cost": 20000,
-        "year2_cost": 14000
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Економіка підприємства та управління бізнесом",
-        "basis": "NRK67",
-        "speciality_code": 76,
-        "speciality_name": "Підприємництво та торгівля",
-        "year1_cost": 20000,
-        "year2_cost": 14000
-    },
-    {
-        "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Право",
-        "basis": "NRK67",
-        "speciality_code": 81,
-        "speciality_name": "Право",
-        "year1_cost": 20000,
-        "year2_cost": 14000
-    },
-    {
         "faculty": "Навчально-методичний центр післядипломної освіти",
         "study_form": "DAY",
         "educational_program_name": "Бізнес-адміністрування",
@@ -2337,25 +2003,5 @@
         "speciality_name": "Менеджмент",
         "year1_cost": 35000,
         "year2_cost": 17500
-    },
-    {
-        "faculty": "Навчально-методичний центр післядипломної освіти",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Бізнес-адміністрування",
-        "basis": "NRK67",
-        "speciality_code": 73,
-        "speciality_name": "Менеджмент",
-        "year1_cost": 20000,
-        "year2_cost": 14000
-    },
-    {
-        "faculty": "Навчально-методичний центр післядипломної освіти",
-        "study_form": "OVER_DISTANCE",
-        "educational_program_name": "Публічне управління та адміністрування",
-        "basis": "NRK67",
-        "speciality_code": 281,
-        "speciality_name": "Публічне управління та адміністрування",
-        "year1_cost": 20000,
-        "year2_cost": 14000
     }
 ]

@@ -10,7 +10,11 @@
         "speciality_name": "Економіка",
         "accreditation_serie": "НД",
         "accreditation_end": "01.07.2025",
-        "accreditation_type": "speciality"
+        "accreditation_type": "speciality",
+        "year1_cost": 27000,
+        "year2_cost": 30000,
+        "year3_cost": 33000,
+        "year4_cost": 33000
     },
     {
         "study_form": "DAY",
@@ -20,7 +24,11 @@
         "faculty": "Біолого-екологічний факультет",
         "speciality_code": 202,
         "speciality_name": "Захист і карантин рослин",
-        "basis": "PZSO"
+        "basis": "PZSO",
+        "year1_cost": 18000,
+        "year2_cost": 22000,
+        "year3_cost": 24000,
+        "year4_cost": 24000
     },
     {
         "study_form": "DAY",
@@ -826,7 +834,7 @@
         "study_duration": 17,
         "type": "фіксована",
         "educational_program_name": "Технології медичної діагностики та лікування",
-        "faculty": "Фізико-технічний факультет",
+        "faculty": "Факультет медичних технологій діагностики та реабілітації",
         "basis": "NRK67",
         "speciality_code": 224,
         "speciality_name": "Технології медичної діагностики та лікування",
@@ -859,7 +867,9 @@
         "speciality_code": 227,
         "speciality_name": "Терапія та реабілітація",
         "specialization_code": 1,
-        "specialization_name": "Фізична терапія"
+        "specialization_name": "Фізична терапія",
+        "year1_cost": 35000,
+        "year2_cost": 17500
     },
     {
         "study_form": "DISTANCE",
@@ -872,7 +882,9 @@
         "speciality_name": "Медсестринство",
         "accreditation_number": "2978",
         "accreditation_end": "01.07.2027",
-        "accreditation_type": "educational_program"
+        "accreditation_type": "educational_program",
+        "year1_cost": 20000,
+        "year2_cost": 10000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -884,7 +896,7 @@
         "speciality_code": 16,
         "speciality_name": "Спеціальна освіта",
         "specialization_code": 1,
-        "specialization_name": "Логопедія",
+        "specialization_name": "Спеціальна освіта (Логопедія)",
         "accreditation_number": "0495201",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
@@ -904,7 +916,9 @@
         "accreditation_number": "0495246",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 16000,
+        "year2_cost": 10000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -920,7 +934,9 @@
         "accreditation_number": "0495246",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 20000,
+        "year2_cost": 14000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -934,7 +950,9 @@
         "accreditation_number": "0495247",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 20000,
+        "year2_cost": 14000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -948,7 +966,9 @@
         "accreditation_number": "04010060",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "educational_program",
-        "accreditation_serie": "УД"
+        "accreditation_serie": "УД",
+        "year1_cost": 20000,
+        "year2_cost": 14000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -962,7 +982,9 @@
         "accreditation_number": "0495213",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 20000,
+        "year2_cost": 14000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -972,7 +994,9 @@
         "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
         "basis": "NRK67",
         "speciality_code": 76,
-        "speciality_name": "Підприємництво та торгівля"
+        "speciality_name": "Підприємництво та торгівля",
+        "year1_cost": 20000,
+        "year2_cost": 14000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -986,7 +1010,9 @@
         "accreditation_number": "04010065",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "educational_program",
-        "accreditation_serie": "УД"
+        "accreditation_serie": "УД",
+        "year1_cost": 20000,
+        "year2_cost": 14000
     },
     {
         "study_form": "DAY",
@@ -1014,7 +1040,9 @@
         "accreditation_number": "0495213",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 20000,
+        "year2_cost": 14000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -1027,14 +1055,16 @@
         "speciality_name": "Публічне управління та адміністрування",
         "accreditation_number": "963",
         "accreditation_end": "01.07.2026",
-        "accreditation_type": "educational_program"
+        "accreditation_type": "educational_program",
+        "year1_cost": 20000,
+        "year2_cost": 14000
     },
     {
         "study_form": "DAY",
         "study_duration": 22,
         "type": "відкрита",
         "educational_program_name": "Середня освіта (Біологія та здоров'я людини)",
-        "faculty": "Біолого-екологічний факультет",
+        "faculty": "Біол1го-екологічний факультет",
         "basis": "NRK5",
         "speciality_code": 14,
         "speciality_name": "Середня освіта",
@@ -1109,7 +1139,8 @@
         "faculty": "Хімічний факультет",
         "basis": "NRK5",
         "speciality_code": 102,
-        "speciality_name": "Хімія"
+        "speciality_name": "Хімія",
+        "year1_cost": 18000
     },
     {
         "study_form": "DAY",
@@ -1430,7 +1461,8 @@
         "speciality_name": "Медсестринство",
         "accreditation_number": "1719",
         "accreditation_end": "01.07.2026",
-        "accreditation_type": "educational_program"
+        "accreditation_type": "educational_program",
+        "year1_cost": 18000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -1452,7 +1484,8 @@
         "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
         "basis": "NRK5",
         "speciality_code": 76,
-        "speciality_name": "Підприємництво та торгівля"
+        "speciality_name": "Підприємництво та торгівля",
+        "year1_cost": 14000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -1462,7 +1495,8 @@
         "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
         "basis": "NRK5",
         "speciality_code": 76,
-        "speciality_name": "Підприємництво та торгівля"
+        "speciality_name": "Підприємництво та торгівля",
+        "year1_cost": 14000
     },
     {
         "study_form": "DAY",
@@ -1488,7 +1522,11 @@
         "faculty": "Біолого-екологічний факультет",
         "speciality_code": 91,
         "speciality_name": "Біологія та біохімія",
-        "basis": "PZSO"
+        "basis": "PZSO",
+        "year1_cost": 22000,
+        "year2_cost": 26000,
+        "year3_cost": 29000,
+        "year4_cost": 29000
     },
     {
         "study_form": "DAY",
@@ -1528,7 +1566,11 @@
         "faculty": "Біолого-екологічний факультет",
         "speciality_code": 91,
         "speciality_name": "Біологія та біохімія",
-        "basis": "PZSO"
+        "basis": "PZSO",
+        "year1_cost": 22000,
+        "year2_cost": 26000,
+        "year3_cost": 29000,
+        "year4_cost": 29000
     },
     {
         "study_form": "DAY",
@@ -1703,7 +1745,11 @@
         "accreditation_number": "0495148",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 22000,
+        "year2_cost": 26000,
+        "year3_cost": 29000,
+        "year4_cost": 29000
     },
     {
         "study_form": "DAY",
@@ -2022,7 +2068,11 @@
         "faculty": "Факультет суспільних наук і міжнародних відносин",
         "speciality_code": 34,
         "speciality_name": "Культурологія",
-        "basis": "PZSO"
+        "basis": "PZSO",
+        "year1_cost": 22000,
+        "year2_cost": 26000,
+        "year3_cost": 29000,
+        "year4_cost": 29000
     },
     {
         "study_form": "DAY",
@@ -2036,7 +2086,11 @@
         "accreditation_number": "0495152",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 27000,
+        "year2_cost": 30000,
+        "year3_cost": 33000,
+        "year4_cost": 33000
     },
     {
         "study_form": "DAY",
@@ -2050,7 +2104,11 @@
         "accreditation_number": "0495152",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 27000,
+        "year2_cost": 30000,
+        "year3_cost": 33000,
+        "year4_cost": 33000
     },
     {
         "study_form": "DAY",
@@ -2064,7 +2122,11 @@
         "accreditation_number": "0495154",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 27000,
+        "year2_cost": 30000,
+        "year3_cost": 33000,
+        "year4_cost": 33000
     },
     {
         "study_form": "DAY",
@@ -2577,7 +2639,7 @@
         "study_form": "DAY",
         "study_duration": 47,
         "type": "відкрита",
-        "educational_program_name": "'Проектування, виробництво та експлуатація безпілотних систем і комплексів",
+        "educational_program_name": "Проектування, виробництво і експлуатація безпілотних систем і комплексів",
         "faculty": "Фізико-технічний факультет",
         "speciality_code": 134,
         "speciality_name": "Авіаційна та ракетно-космічна техніка",
@@ -2651,7 +2713,11 @@
         "basis": "PZSO",
         "accreditation_number": "1719",
         "accreditation_end": "01.07.2026",
-        "accreditation_type": "educational_program"
+        "accreditation_type": "educational_program",
+        "year1_cost": 27000,
+        "year2_cost": 30000,
+        "year3_cost": 33000,
+        "year4_cost": 33000
     },
     {
         "study_form": "DAY",
@@ -2708,7 +2774,11 @@
         "accreditation_number": "0495153",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 18000,
+        "year2_cost": 18000,
+        "year3_cost": 18000,
+        "year4_cost": 18000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -2722,7 +2792,11 @@
         "accreditation_number": "0495157",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 18000,
+        "year2_cost": 18000,
+        "year3_cost": 18000,
+        "year4_cost": 18000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -2736,7 +2810,11 @@
         "accreditation_number": "0495160",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 18000,
+        "year2_cost": 18000,
+        "year3_cost": 18000,
+        "year4_cost": 18000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -2746,7 +2824,11 @@
         "faculty": "Навчально-методичний центр заочної та вечірньої форм навчання",
         "speciality_code": 76,
         "speciality_name": "Підприємництво та торгівля",
-        "basis": "PZSO"
+        "basis": "PZSO",
+        "year1_cost": 18000,
+        "year2_cost": 18000,
+        "year3_cost": 18000,
+        "year4_cost": 18000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -2760,7 +2842,11 @@
         "accreditation_number": "0495163",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 18000,
+        "year2_cost": 18000,
+        "year3_cost": 18000,
+        "year4_cost": 18000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -2771,7 +2857,7 @@
         "speciality_code": 14,
         "speciality_name": "Середня освіта",
         "specialization_code": 21,
-        "specialization_name": "Англійська мова та зарубіжна література",
+        "specialization_name": "Середня освіта (Мова та зарубіжна література (англійська))",
         "basis": "PZSO",
         "accreditation_number": "0495138",
         "accreditation_end": "01.07.2025",
@@ -2792,7 +2878,11 @@
         "accreditation_number": "0495137",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 14000,
+        "year2_cost": 14000,
+        "year3_cost": 14000,
+        "year4_cost": 14000
     },
     {
         "study_form": "OVER_DISTANCE",
@@ -2820,7 +2910,11 @@
         "accreditation_number": "0495150",
         "accreditation_end": "01.07.2025",
         "accreditation_type": "speciality",
-        "accreditation_serie": "НД"
+        "accreditation_serie": "НД",
+        "year1_cost": 14000,
+        "year2_cost": 14000,
+        "year3_cost": 14000,
+        "year4_cost": 14000
     },
     {
         "study_form": "OVER_DISTANCE",
