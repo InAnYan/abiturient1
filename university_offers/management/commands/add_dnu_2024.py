@@ -26,7 +26,7 @@ class Command(BaseCommand):
             / "university_offers"
             / "management"
             / "commands"
-            / "accreditations_offers_joined.json",
+            / "offers_3.json",
             encoding="utf-8",
         ) as fin:
             data = json.load(fin)
@@ -44,7 +44,11 @@ class Command(BaseCommand):
         self.make_offer(item, program).save()
 
     def load_faculty(self, item: Dict[str, Any]) -> Faculty:
-        return Faculty.objects.get(full_name=item["faculty"])
+        res = list(Faculty.objects.filter(full_name=item["faculty"]))
+        if len(res) != 1:
+            print(res)
+            raise Exception("something with faculty: " + item["faculty"])
+        return res[0]
 
     def load_speciality(self, item: Dict[str, Any], faculty: Faculty) -> Speciality:
         q = Speciality.objects.filter(code=item["speciality_code"], faculty=faculty)
@@ -119,7 +123,12 @@ class Command(BaseCommand):
                 obj.save()
 
     def make_offer(self, item: Dict[str, Any], program: EducationalProgram):
-        cost = 12400 if item["type"] == "небюджетна" else 0
+        costs = [0, 0, 0, 0]
+
+        for i in range(0, len(costs)):
+            if f"year{i + 1}_cost" in item:
+                costs[i] = item[f"year{i + 1}_cost"]
+
         return UniversityOffer.objects.create(
             study_begin=datetime.datetime.now(),
             study_duration=item["study_duration"],
@@ -129,10 +138,10 @@ class Command(BaseCommand):
             type=self.to_offer_type(item["type"]),
             study_form=self.to_study_form(item["study_form"]),
             ects=0,
-            year1_cost=cost,
-            year2_cost=cost,
-            year3_cost=cost,
-            year4_cost=cost,
+            year1_cost=costs[0],
+            year2_cost=costs[1],
+            year3_cost=costs[2],
+            year4_cost=costs[3],
         )
 
     def to_level(self, basis: str) -> EducationalLevel:
