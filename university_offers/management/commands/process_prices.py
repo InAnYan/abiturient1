@@ -1,3 +1,4 @@
+import code
 import json
 
 with open("prices.json", encoding="utf-8") as fin:
@@ -34,9 +35,12 @@ with open("prices.json", encoding="utf-8") as fin:
                     specialization_code = None
                     specialization_name = f"Середня освіта {code_and_specialization}"
                 else:
-                    specialization_code, specialization_name = (
-                        code_and_specialization.split(".")
-                    )
+                    _, code_and_specialization = code_and_specialization.split(".")
+
+                    space = code_and_specialization.find(" ")
+                    specialization_code = code_and_specialization[:space]
+                    specialization_name = code_and_specialization[space + 1 :]
+
                 if specialization_code:
                     entry["specialization_code"] = int(specialization_code.strip())
                 entry["specialization_name"] = specialization_name.strip()
