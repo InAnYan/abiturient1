@@ -32,45 +32,49 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
     """
 
     if not abiturient.passport_serie:
-        abiturient.passport_serie = "____"
+        abiturient.passport_serie = " " * 4
 
     if not abiturient.passport_number:
-        abiturient.passport_number = "______________"  # type: ignore
+        abiturient.passport_number = " " * 13  # type: ignore
 
     if not abiturient.passport_authority:
-        abiturient.passport_authority = "_____________________________________________________________________________"
+        abiturient.passport_authority = " " * 63
 
     if not abiturient.rntrc:
-        abiturient.rntrc = "______________"  # type: ignore
+        abiturient.rntrc = " " * 13  # type: ignore
 
     if not abiturient.representative:
         abiturient.representative = AbiturientRepresentative(
-            last_name="_________",
-            first_name="_________",
-            patronymic="_________",
+            last_name="asd",
+            first_name="asd",
             phone_number="+380123456789",
             email="a@a.com",
-            living_address="__________________________________________________",
+            living_address="asd",
         )
 
         representative = abiturient.representative
 
-        representative.phone_number = "_____________"  # type: ignore
-        representative.email = "_______________"  # type: ignore
+        representative.first_name = " " * 7
+        representative.last_name = " " * 7
+        representative.patronymic = " " * 7
+        representative.living_address = " " * 31
+
+        representative.phone_number = " " * 13
+        representative.email = " " * 17
 
     assert representative
 
     if not representative.passport_serie:
-        representative.passport_serie = "____"
+        representative.passport_serie = " " * 4
 
     if not representative.passport_number:
-        representative.passport_number = "______________"  # type: ignore
+        representative.passport_number = " " * 13  # type: ignore
 
     if not representative.passport_authority:
-        representative.passport_authority = "_____________________________________________________________________________"
+        representative.passport_authority = " " * 63
 
     if not representative.rntrc:
-        representative.rntrc = "______________"  # type: ignore
+        representative.rntrc = " " * 13  # type: ignore
 
     doc = DocxTemplate(path)
     context = {

@@ -82,17 +82,12 @@ class AbiturientRepresentative(models.Model):
 
     @property
     def passport_info(self) -> str:
-        return generate_passport_info(
-            self.passport_serie,
-            self.passport_number,
-            self.passport_authority,
-            self.passport_issue_date,
-        )
+        return generate_passport_info(self)
 
     @property
     def full_name(self) -> str:
         if self.is_blank_full_name():
-            return "_________________________________________________"
+            return "                                                 "
         else:
             return f"{self.last_name} {self.first_name}" + (
                 f" {self.patronymic}" if self.patronymic else ""
@@ -101,18 +96,13 @@ class AbiturientRepresentative(models.Model):
     @property
     def name_init(self) -> str:
         if self.is_blank_full_name():
-            return "________________"
+            return "                "
         else:
             return f"{self.last_name} {self.first_name[0]}.{self.patronymic[0] + '.' if self.patronymic else ''}"
 
     def is_blank_full_name(self) -> bool:
-        return all(
-            map(
-                lambda c: c == "_",
-                self.last_name
-                + self.first_name
-                + (self.patronymic if self.patronymic else ""),
-            )
+        return (
+            not f"{self.last_name} {self.first_name} {self.patronymic if self.patronymic else ''}".strip()
         )
 
     class Meta:
@@ -316,7 +306,7 @@ class Abiturient(models.Model):
         if self.passport_issue_date:
             return self.passport_issue_date.strftime("%d.%m.%Y")
         else:
-            return "______________"
+            return "              "
 
     passport_expiry_date = models.DateField(
         verbose_name=_("Date of expiry"),
@@ -331,7 +321,7 @@ class Abiturient(models.Model):
         if self.passport_expiry_date:
             return self.passport_expiry_date.strftime("%d.%m.%Y")
         else:
-            return "______________"
+            return "              "
 
     @property
     def passport_type(self) -> str:
@@ -340,7 +330,7 @@ class Abiturient(models.Model):
         elif self.passport_number:
             return "ID-картка"
         else:
-            return "______________"
+            return "              "
 
     rntrc = models.IntegerField(
         verbose_name=_("RNTRC"),
@@ -362,12 +352,7 @@ class Abiturient(models.Model):
 
     @property
     def passport_info(self) -> str:
-        return generate_passport_info(
-            self.passport_serie,
-            self.passport_number,
-            self.passport_authority,
-            self.passport_issue_date,
-        )
+        return generate_passport_info(self)
 
     def __str__(self) -> str:
         return self.full_name
@@ -375,18 +360,13 @@ class Abiturient(models.Model):
     @property
     def name_init(self) -> str:
         if self.is_blank_full_name():
-            return "________________"
+            return "                "
         else:
             return f"{self.last_name} {self.first_name[0]}.{self.patronymic[0] + '.' if self.patronymic else ''}"
 
     def is_blank_full_name(self) -> bool:
-        return all(
-            map(
-                lambda c: c == "_",
-                self.last_name
-                + self.first_name
-                + (self.patronymic if self.patronymic else ""),
-            )
+        return (
+            not f"{self.last_name} {self.first_name} {self.patronymic if self.patronymic else ''}".strip()
         )
 
     class Meta:
@@ -394,9 +374,6 @@ class Abiturient(models.Model):
         verbose_name_plural = _("Abiturients")
 
 
-def generate_passport_info(
-    passport_serie, passport_number, passport_authority, passport_issue_date
-) -> str:
+def generate_passport_info(self) -> str:
     # God, forgive me for this code style (and function parameter).
-    res = f"cерія: {passport_serie}, номер: {passport_number}, виданий: {passport_authority}, дата видачі: {passport_issue_date.strftime(UKRAINIAN_DATE_FORMAT) if isinstance(passport_issue_date, datetime) else passport_issue_date}"
-    return res
+    return f"cерія: {self.passport_serie}, номер: {self.passport_number}, виданий: {self.passport_authority}, дата видачі: {self.passport_issue_date_str}"
