@@ -1,9 +1,12 @@
+from locale import currency
 from optparse import Option
 from typing import Optional
 from django.db import models
 from django.core.validators import MinValueValidator
 from dateutil.relativedelta import relativedelta
 from django.utils.translation import gettext_lazy as _
+
+from abiturient1.settings import UKRAINIAN_DATE_FORMAT
 
 
 class Faculty(models.Model):
@@ -168,6 +171,10 @@ class UniversityOffer(models.Model):
 
     study_begin = models.DateField(verbose_name=_("Beginning of study"))
 
+    @property
+    def study_begin_str(self) -> str:
+        return self.study_begin.strftime(UKRAINIAN_DATE_FORMAT)
+
     study_duration = models.IntegerField(
         validators=[MinValueValidator(1)],
         verbose_name=_("Study duration"),
@@ -177,6 +184,10 @@ class UniversityOffer(models.Model):
     @property
     def study_end(self):
         return self.study_begin + relativedelta(months=self.study_duration)
+
+    @property
+    def study_end_str(self) -> str:
+        return self.study_end.strftime(UKRAINIAN_DATE_FORMAT)
 
     @property
     def study_duration_years(self) -> int:
@@ -241,27 +252,19 @@ class UniversityOffer(models.Model):
 
     @property
     def year1_cost_words(self) -> str:
-        from num2words import num2words
-
-        return num2words(self.year1_cost, lang="uk")
+        return generate_currency_str(self.year1_cost)
 
     @property
     def year2_cost_words(self) -> str:
-        from num2words import num2words
-
-        return num2words(self.year2_cost, lang="uk")
+        return generate_currency_str(self.year2_cost)
 
     @property
     def year3_cost_words(self) -> str:
-        from num2words import num2words
-
-        return num2words(self.year3_cost, lang="uk")
+        return generate_currency_str(self.year3_cost)
 
     @property
     def year4_cost_words(self) -> str:
-        from num2words import num2words
-
-        return num2words(self.year4_cost, lang="uk")
+        return generate_currency_str(self.year4_cost)
 
     @property
     def full_cost(self) -> int:
@@ -269,9 +272,7 @@ class UniversityOffer(models.Model):
 
     @property
     def full_cost_words(self) -> str:
-        from num2words import num2words
-
-        return num2words(self.full_cost, lang="uk")
+        return generate_currency_str(self.full_cost)
 
     def __str__(self) -> str:
         return self.str_property
@@ -299,6 +300,19 @@ class UniversityOffer(models.Model):
 
         return "не акредитованою"
 
+    @property
+    def money_source(self) -> str:
+        if self.type == UniversityOffer.Type.BUDGET:
+            return "за державним замовленням"
+        else:
+            return "навчання за кошти фізичних або юридичних осіб"
+
     class Meta:
         verbose_name = _("University offer")
         verbose_name_plural = _("University offers")
+
+
+def generate_currency_str(num: int) -> str:
+    from num2words import num2words
+
+    return num2words(num, lang="uk", to="currency", currency="UAH").split(",")[1]

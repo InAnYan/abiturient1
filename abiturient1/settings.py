@@ -41,6 +41,9 @@ if DEBUG:
     INTERNAL_IPS += ["0.0.0.0", "172.20.0.1"]
 
 
+UKRAINIAN_DATE_FORMAT = "%d.%m.%Y"
+
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -190,6 +190,7 @@ class AbiturientAndOffersWizard(SessionWizardView):
                 first_name=representative.cleaned_data["first_name"],
                 patronymic=representative.cleaned_data["patronymic"],
                 phone_number=representative.cleaned_data["phone_number"],
+                email=representative.cleaned_data["email"],
                 living_address=representative.cleaned_data["living_address"],
                 passport_serie=representative.cleaned_data["passport_serie"],
                 passport_number=representative.cleaned_data["passport_number"],

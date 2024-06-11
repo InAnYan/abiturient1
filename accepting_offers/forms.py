@@ -221,6 +221,8 @@ class RepresentativeForm(forms.Form):
         max_length=13,
     )
 
+    email = forms.EmailField(label=_("Email"))
+
     living_address = forms.CharField(label=_("Living address"))
 
     passport_serie = forms.CharField(

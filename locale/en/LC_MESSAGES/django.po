@@ -942,15 +942,15 @@ msgstr "Contract"
 
 #: .\university_offers\models.py:160
 msgid "Full-time"
-msgstr "Full-time"
+msgstr "full-time"
 
 #: .\university_offers\models.py:161
 msgid "Part-time"
-msgstr "Part-time"
+msgstr "part-time"
 
 #: .\university_offers\models.py:162
 msgid "Distance"
-msgstr "Distance"
+msgstr "distance"
 
 #: .\university_offers\models.py:165
 msgid "CGSE"

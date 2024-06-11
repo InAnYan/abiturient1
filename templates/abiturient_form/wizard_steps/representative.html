@@ -31,6 +31,10 @@
 
 <div class="form-row">
   <div class="col">
+    {{ wizard.form.email | as_crispy_field }}
+  </div>
+
+  <div class="col">
     {{ wizard.form.phone_number | as_crispy_field }}
   </div>
 </div>

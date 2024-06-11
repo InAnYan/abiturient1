@@ -951,15 +951,15 @@ msgstr "Контракт"
 
 #: .\university_offers\models.py:160
 msgid "Full-time"
-msgstr "Денна"
+msgstr "денна"
 
 #: .\university_offers\models.py:161
 msgid "Part-time"
-msgstr "Заочна"
+msgstr "заочна"
 
 #: .\university_offers\models.py:162
 msgid "Distance"
-msgstr "Дистанційна"
+msgstr "дистанційна"
 
 #: .\university_offers\models.py:165
 msgid "CGSE"

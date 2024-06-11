@@ -1,10 +1,12 @@
 from datetime import datetime
+import re
 
 from django.http import HttpResponse
-from abiturients.models import Abiturient
+from abiturient1.settings import UKRAINIAN_DATE_FORMAT
+from abiturients.models import Abiturient, AbiturientRepresentative
 from accepting_offers.models import AcceptedOffer
 from documents.models import Document
-from university_offers.models import EducationalLevel, UniversityOffer
+from university_offers.models import UniversityOffer
 from django.utils.translation import gettext_lazy as _
 
 from docxtpl import DocxTemplate
@@ -28,6 +30,47 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
 
     abiturient.gender = Abiturient.Gender(abiturient.gender).label
     """
+
+    if not abiturient.passport_serie:
+        abiturient.passport_serie = "____"
+
+    if not abiturient.passport_number:
+        abiturient.passport_number = "______________"  # type: ignore
+
+    if not abiturient.passport_authority:
+        abiturient.passport_authority = "_____________________________________________________________________________"
+
+    if not abiturient.rntrc:
+        abiturient.rntrc = "______________"  # type: ignore
+
+    if not abiturient.representative:
+        abiturient.representative = AbiturientRepresentative(
+            last_name="_________",
+            first_name="_________",
+            patronymic="_________",
+            phone_number="+380123456789",
+            email="a@a.com",
+            living_address="__________________________________________________",
+        )
+
+        representative = abiturient.representative
+
+        representative.phone_number = "_____________"  # type: ignore
+        representative.email = "_______________"  # type: ignore
+
+    assert representative
+
+    if not representative.passport_serie:
+        representative.passport_serie = "____"
+
+    if not representative.passport_number:
+        representative.passport_number = "______________"  # type: ignore
+
+    if not representative.passport_authority:
+        representative.passport_authority = "_____________________________________________________________________________"
+
+    if not representative.rntrc:
+        representative.rntrc = "______________"  # type: ignore
 
     doc = DocxTemplate(path)
     context = {
