@@ -13,7 +13,7 @@ class AbiturientRepresentative(models.Model):
     patronymic = models.CharField(
         max_length=255, verbose_name=_("Patronymic"), blank=True, null=True
     )
-    
+
     email = models.EmailField(verbose_name=_("Email"))
 
     phone_number = models.CharField(
@@ -82,7 +82,12 @@ class AbiturientRepresentative(models.Model):
 
     @property
     def passport_info(self) -> str:
-        return generate_passport_info(self.passport_serie, self.passport_number, self.passport_authority, self.passport_issue_date)
+        return generate_passport_info(
+            self.passport_serie,
+            self.passport_number,
+            self.passport_authority,
+            self.passport_issue_date,
+        )
 
     @property
     def full_name(self) -> str:
@@ -100,9 +105,15 @@ class AbiturientRepresentative(models.Model):
         else:
             return f"{self.last_name} {self.first_name[0]}.{self.patronymic[0] + '.' if self.patronymic else ''}"
 
-
     def is_blank_full_name(self) -> bool:
-        return all(map(lambda c: c == '_', self.last_name + self.first_name + (self.patronymic if self.patronymic else "")))
+        return all(
+            map(
+                lambda c: c == "_",
+                self.last_name
+                + self.first_name
+                + (self.patronymic if self.patronymic else ""),
+            )
+        )
 
     class Meta:
         verbose_name = _("Abiturient representative")
@@ -351,7 +362,12 @@ class Abiturient(models.Model):
 
     @property
     def passport_info(self) -> str:
-        return generate_passport_info(self.passport_serie, self.passport_number, self.passport_authority, self.passport_issue_date)
+        return generate_passport_info(
+            self.passport_serie,
+            self.passport_number,
+            self.passport_authority,
+            self.passport_issue_date,
+        )
 
     def __str__(self) -> str:
         return self.full_name
@@ -361,17 +377,26 @@ class Abiturient(models.Model):
         if self.is_blank_full_name():
             return "________________"
         else:
-            return f"{self.last_name} {self.first_name[0]}.{self.patronymic[0] + "." if self.patronymic else ""}"
+            return f"{self.last_name} {self.first_name[0]}.{self.patronymic[0] + '.' if self.patronymic else ''}"
 
     def is_blank_full_name(self) -> bool:
-        return all(map(lambda c: c == '_', self.last_name + self.first_name + (self.patronymic if self.patronymic else "")))
+        return all(
+            map(
+                lambda c: c == "_",
+                self.last_name
+                + self.first_name
+                + (self.patronymic if self.patronymic else ""),
+            )
+        )
 
     class Meta:
         verbose_name = _("Abiturient")
         verbose_name_plural = _("Abiturients")
 
 
-def generate_passport_info(passport_serie, passport_number, passport_authority, passport_issue_date) -> str:
+def generate_passport_info(
+    passport_serie, passport_number, passport_authority, passport_issue_date
+) -> str:
     # God, forgive me for this code style (and function parameter).
     res = f"cерія: {passport_serie}, номер: {passport_number}, виданий: {passport_authority}, дата видачі: {passport_issue_date.strftime(UKRAINIAN_DATE_FORMAT) if isinstance(passport_issue_date, datetime) else passport_issue_date}"
     return res
