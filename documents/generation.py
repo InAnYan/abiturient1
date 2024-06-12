@@ -2,7 +2,6 @@ from datetime import datetime
 import re
 
 from django.http import HttpResponse
-from abiturient1.settings import UKRAINIAN_DATE_FORMAT
 from abiturients.models import Abiturient, AbiturientRepresentative
 from accepting_offers.models import AcceptedOffer
 from documents.models import Document

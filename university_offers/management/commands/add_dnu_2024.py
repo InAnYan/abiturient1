@@ -129,6 +129,23 @@ class Command(BaseCommand):
             if f"year{i + 1}_cost" in item:
                 costs[i] = item[f"year{i + 1}_cost"]
 
+        match item["study_duration"]:
+            case 46:
+                ects = 240
+            case 34:
+                ects = 180
+            case 22:
+                ects = 120
+            case 10:
+                ects = 60
+            case 16:
+                ects = 90
+            case 17:
+                ects = 666
+            
+            case _:
+                raise Exception(f"Unknown study duration {item["study_duration"]} for {item}")
+
         return UniversityOffer.objects.create(
             study_begin=datetime.datetime.now(),
             study_duration=item["study_duration"],
@@ -137,7 +154,7 @@ class Command(BaseCommand):
             basis=self.to_basis(item["basis"]),
             type=self.to_offer_type(item["type"]),
             study_form=self.to_study_form(item["study_form"]),
-            ects=0,
+            ects=ects,
             year1_cost=costs[0],
             year2_cost=costs[1],
             year3_cost=costs[2],
