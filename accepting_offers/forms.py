@@ -39,7 +39,9 @@ class AbiturientBirthInformationForm(forms.Form):
     birth_date = forms.DateField(
         label=_("Date of birth"),
         widget=forms.TextInput(attrs={"type": "date"}),
-        validators=[MaxValueValidator(date.today)],
+        validators=[
+            MaxValueValidator(date.today, _("Date of birth cannot be in the future"))
+        ],
     )
 
     nationality = forms.CharField(
@@ -62,8 +64,26 @@ class AbiturientEducationForm(forms.Form):
     )
     education_place = forms.CharField(label=_("Education place"))
     education_end = forms.DateField(
-        label=_("Education end date"), widget=forms.TextInput(attrs={"type": "date"})
+        label=_("Education end date"),
+        widget=forms.TextInput(attrs={"type": "date"}),
+        validators=[
+            MaxValueValidator(
+                date.today, _("Education end date cannot be in the future")
+            )
+        ],
     )
+
+    hidden_birth_date = forms.DateField(required=False)
+
+    def clean_education_end(self) -> date:
+        res = self.cleaned_data["education_end"]
+
+        if res < self.initial["hidden_birth_date"]:
+            raise forms.ValidationError(
+                _("Education end date cannot be before birth date")
+            )
+
+        return res
 
 
 class AbiturientMiscInformationForm(forms.Form):
@@ -76,12 +96,10 @@ class AbiturientMiscInformationForm(forms.Form):
     registered_address = forms.CharField(label=_("Registered address"))
 
 
-# University offer search form.
-
-
 class AcceptedOfferForm(forms.ModelForm):
     def clean(self) -> dict[str, Any]:
         cleaned_data = super().clean()
+
         if self.initial["offer"].type == UniversityOffer.Type.CONTRACT:
             if (
                 "payment_frequency" not in cleaned_data
@@ -106,6 +124,8 @@ class AcceptedOfferForm(forms.ModelForm):
                 )
         else:
             raise NotImplementedError()
+
+        return cleaned_data
 
     class Meta:
         model = AcceptedOffer
@@ -159,6 +179,8 @@ class AbiturientParentsForm(forms.Form):
 
 
 class AbiturientSensitiveInformationForm(forms.Form):
+    hidden_birth_date = forms.DateField(required=False)
+
     passport_serie = forms.CharField(
         label=_("Passport serie"),
         max_length=2,
@@ -184,16 +206,50 @@ class AbiturientSensitiveInformationForm(forms.Form):
 
     passport_issue_date = forms.DateField(
         label=_("Date of issue"),
-        validators=[MaxValueValidator(limit_value=date.today)],
+        validators=[
+            MaxValueValidator(
+                limit_value=date.today,
+                message=_("Passport issue date cannot be in the future"),
+            )
+        ],
+        widget=forms.TextInput(attrs={"type": "date"}),
         required=False,
     )
 
+    def clean_passport_issue_date(self) -> date:
+        res = self.cleaned_data["passport_issue_date"]
+
+        if res < self.initial["hidden_birth_date"]:
+            raise forms.ValidationError(
+                _("Passport issue date cannot be before birth date")
+            )
+
+        return res
+
     passport_expiry_date = forms.DateField(
         label=_("Date of expiry"),
-        validators=[MinValueValidator(limit_value=date.today)],
         required=False,
+        widget=forms.TextInput(attrs={"type": "date"}),
         help_text=_("Only for ID-card"),
     )
+
+    def clean_passport_expiry_date(self) -> date | None:
+        if (
+            "passport_expiry_date" not in self.cleaned_data
+            or not self.cleaned_data["passport_expiry_date"]
+            or "passport_issue_date" not in self.cleaned_data
+            or not self.cleaned_data["passport_issue_date"]
+        ):
+            return None
+
+        res = self.cleaned_data["passport_expiry_date"]
+
+        if res < self.cleaned_data["passport_issue_date"]:
+            raise forms.ValidationError(
+                _("Passport expiry date cannot be before passport issue date")
+            )
+
+        return res
 
     rntrc = forms.IntegerField(
         label=_("RNTRC"),
@@ -250,16 +306,40 @@ class RepresentativeForm(forms.Form):
 
     passport_issue_date = forms.DateField(
         label=_("Date of issue"),
-        validators=[MaxValueValidator(limit_value=date.today)],
+        validators=[
+            MaxValueValidator(
+                limit_value=date.today,
+                message=_("Passport issue date cannot be in the future"),
+            )
+        ],
+        widget=forms.TextInput(attrs={"type": "date"}),
         required=False,
     )
 
     passport_expiry_date = forms.DateField(
         label=_("Date of expiry"),
-        validators=[MinValueValidator(limit_value=date.today)],
         required=False,
+        widget=forms.TextInput(attrs={"type": "date"}),
         help_text=_("Only for ID-card"),
     )
+
+    def clean_passport_expiry_date(self) -> date | None:
+        if (
+            "passport_expiry_date" not in self.cleaned_data
+            or not self.cleaned_data["passport_expiry_date"]
+            or "passport_issue_date" not in self.cleaned_data
+            or not self.cleaned_data["passport_issue_date"]
+        ):
+            return None
+
+        res = self.cleaned_data["passport_expiry_date"]
+
+        if res < self.cleaned_data["passport_issue_date"]:
+            raise forms.ValidationError(
+                _("Passport expiry date cannot be before passport issue date")
+            )
+
+        return res
 
     rntrc = forms.IntegerField(
         label=_("RNTRC"),

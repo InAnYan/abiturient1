@@ -90,9 +90,24 @@ class AbiturientAndOffersWizard(SessionWizardView):
     def get_form_initial(self, step):
         if step == "accepted_offer":
             offer_step = self.get_cleaned_data_for_step("offer")
+            assert offer_step
             offer = offer_step["result_offer"]
             res = super().get_form_initial(step)
             res["offer"] = offer
+            return res
+
+        if step == "abiturient_education":
+            res = super().get_form_initial(step)
+            res["hidden_birth_date"] = self.get_cleaned_data_for_step(
+                "abiturient_birth"
+            )["birth_date"]
+            return res
+
+        if step == "abiturient_sensitive":
+            res = super().get_form_initial(step)
+            res["hidden_birth_date"] = self.get_cleaned_data_for_step(
+                "abiturient_birth"
+            )["birth_date"]
             return res
 
     def get_context_data(self, form, **kwargs):
@@ -140,7 +155,7 @@ class AbiturientAndOffersWizard(SessionWizardView):
         abiturient_sensitive: AbiturientSensitiveInformationForm = form_list[7]
 
         if len(form_list) > 9:
-            representative: RepresentativeForm = None  # form_list[8]
+            representative: RepresentativeForm | None = None  # form_list[8]
         else:
             representative = None
 

@@ -36,7 +36,7 @@ class Command(BaseCommand):
             education_institution="Слобожанський ліцей Слобожанської селищної ради",
             education_place="смт. Слобожанське, вул. Теплична 1",
             education_end=datetime.date(2023, 5, 31),
-            word="",
+            work="",
             martial_status=Abiturient.MartialStatus.SINGLE,
             foreign_language="англійська",
             email="ruslanpopov1512@gmail.com",
@@ -59,14 +59,12 @@ class Command(BaseCommand):
 
         abiturient.save()
 
-        offer = (
-            UniversityOffer.objects.get(
-                level=EducationalLevel.BACHELOR,
-                basis=UniversityOffer.Basis.PZSO,
-                type=UniversityOffer.Type.BUDGET,
-                study_form=UniversityOffer.StudyForm.DAY,
-                educational_program__name="Комп'ютерна інженерія",
-            ),
+        offer = UniversityOffer.objects.get(
+            level=EducationalLevel.BACHELOR,
+            basis=UniversityOffer.Basis.PZSO,
+            type=UniversityOffer.Type.BUDGET,
+            study_form=UniversityOffer.StudyForm.DAY,
+            educational_program__name="Комп'ютерна інженерія",
         )
 
         accepted_offer = AcceptedOffer(

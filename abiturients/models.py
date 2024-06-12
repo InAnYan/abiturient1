@@ -135,7 +135,10 @@ class Abiturient(models.Model):
         )
 
     birth_date = models.DateField(
-        verbose_name=_("Date of birth"), validators=[MaxValueValidator(date.today)]
+        verbose_name=_("Date of birth"),
+        validators=[
+            MaxValueValidator(date.today, _("Date of birth cannot be in the future"))
+        ],
     )
 
     @property
