@@ -1,12 +1,9 @@
-from locale import currency
-from optparse import Option
 from typing import Optional
-from xml.dom import ValidationErr
 from django.db import models
 from django.core.validators import MinValueValidator
 from dateutil.relativedelta import relativedelta
+from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
-from pydantic import ValidationError
 
 from abiturient1.settings import UKRAINIAN_DATE_FORMAT
 
