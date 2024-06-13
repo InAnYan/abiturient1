@@ -67,7 +67,10 @@ class AbiturientBirthInformationForm(forms.Form):
     )
 
     foreign_language = forms.CharField(
-        max_length=255, label=_("What foreign language do you know?"), required=False
+        max_length=255,
+        label=_("What foreign language do you know?"),
+        required=False,
+        help_text=_("Use nominative case"),
     )
 
 

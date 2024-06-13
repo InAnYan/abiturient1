@@ -38,12 +38,12 @@
 </p>
 
 <p>
-  <strong>{% trans "Accreditations" %}</strong>:
+  <strong>{% trans "Accreditation" %}</strong>:
 
   {% if offer.get_accreditation %}
     {{ offer.get_accreditation.ukr_sentence }}. 
   {% else %}
-    {% trans "No accreditation" %}.
+    {% trans "no accreditation" %}.
   {% endif %}
 </p>
 
