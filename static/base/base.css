@@ -10,7 +10,7 @@
     background-color: initial;
 }
 
-br {
+.alert-primary br {
     display: block;
     content: "";
     margin-bottom: 10px;

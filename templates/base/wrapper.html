@@ -21,15 +21,17 @@
         <link rel="stylesheet" href="{% static 'base/dnu-theme.css' %}">
     </head>
 
-    <body>
+    <body class="d-flex flex-column vh-100">
         {% include "base/libraries/scripts.html" %}
 
         {% include "base/header.html" %}
 
-        <div class="container my-3">
-            {% block content %}
-            {% endblock content %}
-        </div>
+        <main class="flex-shrink-0">
+            <div class="container my-3">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </main>
 
         {% include "base/footer.html" %}
         {% include "base/global_scripts.html" %}
