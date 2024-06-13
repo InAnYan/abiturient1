@@ -5,6 +5,10 @@
 {% endblock title %}
 {% block content %}
     <h2>{% trans "Record saved"|capfirst %}</h2>
+
     {% trans "done.content"|capfirst as content %}
-    <p>{{ content|linebreaksbr }}</p>
+
+    <div class="alert alert-primary">
+        <p>{{ content|linebreaksbr }}</p>
+    </div>
 {% endblock content %}

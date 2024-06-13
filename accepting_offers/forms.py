@@ -216,13 +216,14 @@ class AbiturientSensitiveInformationForm(forms.Form):
         required=False,
     )
 
-    def clean_passport_issue_date(self) -> date:
+    def clean_passport_issue_date(self) -> date | None:
         res = self.cleaned_data["passport_issue_date"]
 
-        if res < self.initial["hidden_birth_date"]:
-            raise forms.ValidationError(
-                _("Passport issue date cannot be before birth date")
-            )
+        if res:
+            if res < self.initial["hidden_birth_date"]:
+                raise forms.ValidationError(
+                    _("Passport issue date cannot be before birth date")
+                )
 
         return res
 
