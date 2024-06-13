@@ -1,4 +1,4 @@
-from typing import List
+from typing import Iterable, List
 from django import template
 
 from documents.models import Document
@@ -18,7 +18,9 @@ def lowerfirst(value):
 
 
 @register.filter
-def filter_documents(docs: List[Document], offer: UniversityOffer) -> List[Document]:
+def filter_documents(
+    docs: Iterable[Document], offer: UniversityOffer
+) -> Iterable[Document]:
     res = []
 
     for doc in docs:

@@ -91,13 +91,25 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
     doc.save(out)
 
 
-def generate_document_filename(accepted_offer: AcceptedOffer, doc: Document) -> str:
+def generate_document_filename(
+    accepted_offer: AcceptedOffer, doc_name: str | None = None
+) -> str:
+    # Please, forgive me for this function.
+    # If you specify doc_name, you will generate a docx document
+    # If doc_name is None, you will generate a zip
+
     abiturient = accepted_offer.abiturient
 
     now = datetime.now()
     formatted_now = formats.date_format(now, "SHORT_DATETIME_FORMAT")
 
-    return doc.name + "_" + abiturient.full_name + "_" + formatted_now + '.docx"'
+    return (
+        (doc_name + " " if doc_name else "")
+        + abiturient.full_name
+        + " "
+        + formatted_now
+        + (".docx" if doc_name else ".zip")
+    ).replace(":", "_")
 
 
 # Source: https://medium.com/@JeremyLaine/non-ascii-content-disposition-header-in-django-3a20acc05f0d
@@ -128,7 +140,7 @@ def generate_document_response(accepted_offer: AcceptedOffer, doc: Document):
         )
     )
 
-    filename = generate_document_filename(accepted_offer, doc)
+    filename = generate_document_filename(accepted_offer, doc.name)
 
     add_content_disposition_header(response, filename)
 

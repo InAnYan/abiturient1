@@ -1,13 +1,23 @@
 from django.http import (
     HttpRequest,
+    HttpResponse,
     HttpResponseBadRequest,
 )
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 
 from accepting_offers.models import AcceptedOffer
-from documents.generation import generate_document_response
+from documents.generation import (
+    add_content_disposition_header,
+    generate_document,
+    generate_document_filename,
+    generate_document_response,
+)
 from documents.models import Document
+from pk_panel.templatetags.pk_panel_extras import filter_documents
+
+import io
+import zipfile
 
 
 def must_be_pk(fn):
@@ -69,3 +79,35 @@ def gen_doc(request: HttpRequest):
     doc = Document.objects.get(id=doc_id)
 
     return generate_document_response(offer, doc)
+
+
+@must_be_pk
+def gen_all_docs(request: HttpRequest):
+    offer_id = request.GET.get("offer_id")
+
+    if not offer_id:
+        return HttpResponseBadRequest("offer_id is required")
+
+    offer = AcceptedOffer.objects.get(id=offer_id)
+
+    docs = filter_documents(Document.objects.all(), offer.offer)
+
+    zip_buffer = io.BytesIO()
+
+    with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zip_file:
+        for doc in docs:
+            file_name = generate_document_filename(offer, doc.name)
+
+            byte_string = io.BytesIO()
+
+            generate_document(offer, doc.file.path, byte_string)
+
+            zip_file.writestr(file_name, byte_string.getvalue())
+
+    response = HttpResponse(content_type="application/zip")
+
+    add_content_disposition_header(response, generate_document_filename(offer))
+
+    response.content = zip_buffer.getvalue()
+
+    return response
