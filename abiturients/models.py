@@ -87,22 +87,34 @@ class AbiturientRepresentative(models.Model):
     @property
     def full_name(self) -> str:
         if self.is_blank_full_name():
-            return "                                                 "
+            return "_________________________________________________"
         else:
             return f"{self.last_name} {self.first_name}" + (
                 f" {self.patronymic}" if self.patronymic else ""
             )
 
     @property
+    def fl_name(self) -> str:
+        if self.is_blank_full_name():
+            return "________________"
+        else:
+            return f"{self.first_name} {self.last_name}"
+
+    @property
     def name_init(self) -> str:
         if self.is_blank_full_name():
-            return "                "
+            return "________________"
         else:
             return f"{self.last_name} {self.first_name[0]}.{self.patronymic[0] + '.' if self.patronymic else ''}"
 
     def is_blank_full_name(self) -> bool:
-        return (
-            not f"{self.last_name} {self.first_name} {self.patronymic if self.patronymic else ''}".strip()
+        return all(
+            map(
+                lambda c: c == "_",
+                self.last_name
+                + self.first_name
+                + (self.patronymic if self.patronymic else ""),
+            )
         )
 
     class Meta:
@@ -309,7 +321,7 @@ class Abiturient(models.Model):
         if self.passport_issue_date:
             return self.passport_issue_date.strftime("%d.%m.%Y")
         else:
-            return "              "
+            return "______________"
 
     passport_expiry_date = models.DateField(
         verbose_name=_("Date of expiry"),
@@ -324,7 +336,7 @@ class Abiturient(models.Model):
         if self.passport_expiry_date:
             return self.passport_expiry_date.strftime("%d.%m.%Y")
         else:
-            return "              "
+            return "______________"
 
     @property
     def passport_type(self) -> str:
@@ -333,7 +345,7 @@ class Abiturient(models.Model):
         elif self.passport_number:
             return "ID-картка"
         else:
-            return "              "
+            return "______________"
 
     rntrc = models.IntegerField(
         verbose_name=_("RNTRC"),
@@ -363,14 +375,26 @@ class Abiturient(models.Model):
     @property
     def name_init(self) -> str:
         if self.is_blank_full_name():
-            return "                "
+            return "________________"
         else:
             return f"{self.last_name} {self.first_name[0]}.{self.patronymic[0] + '.' if self.patronymic else ''}"
 
     def is_blank_full_name(self) -> bool:
-        return (
-            not f"{self.last_name} {self.first_name} {self.patronymic if self.patronymic else ''}".strip()
+        return all(
+            map(
+                lambda c: c == "_",
+                self.last_name
+                + self.first_name
+                + (self.patronymic if self.patronymic else ""),
+            )
         )
+
+    @property
+    def fl_name(self) -> str:
+        if self.is_blank_full_name():
+            return "________________"
+        else:
+            return f"{self.first_name} {self.last_name}"
 
     class Meta:
         verbose_name = _("Abiturient")

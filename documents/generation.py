@@ -31,16 +31,16 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
     """
 
     if not abiturient.passport_serie:
-        abiturient.passport_serie = " " * 4
+        abiturient.passport_serie = "_" * 4
 
     if not abiturient.passport_number:
-        abiturient.passport_number = " " * 13  # type: ignore
+        abiturient.passport_number = "_" * 13  # type: ignore
 
     if not abiturient.passport_authority:
-        abiturient.passport_authority = " " * 63
+        abiturient.passport_authority = "_" * 63
 
     if not abiturient.rntrc:
-        abiturient.rntrc = " " * 13  # type: ignore
+        abiturient.rntrc = "_" * 13  # type: ignore
 
     if not abiturient.representative:
         abiturient.representative = AbiturientRepresentative(
@@ -53,27 +53,27 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
 
         representative = abiturient.representative
 
-        representative.first_name = " " * 7
-        representative.last_name = " " * 7
-        representative.patronymic = " " * 7
-        representative.living_address = " " * 31
+        representative.first_name = "_" * 7
+        representative.last_name = "_" * 7
+        representative.patronymic = "_" * 7
+        representative.living_address = "_" * 31
 
-        representative.phone_number = " " * 13
-        representative.email = " " * 17
+        representative.phone_number = "_" * 13
+        representative.email = "_" * 17
 
     assert representative
 
     if not representative.passport_serie:
-        representative.passport_serie = " " * 4
+        representative.passport_serie = "_" * 4
 
     if not representative.passport_number:
-        representative.passport_number = " " * 13  # type: ignore
+        representative.passport_number = "_" * 13  # type: ignore
 
     if not representative.passport_authority:
-        representative.passport_authority = " " * 63
+        representative.passport_authority = "_" * 63
 
     if not representative.rntrc:
-        representative.rntrc = " " * 13  # type: ignore
+        representative.rntrc = "_" * 13  # type: ignore
 
     doc = DocxTemplate(path)
     context = {

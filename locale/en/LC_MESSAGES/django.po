@@ -173,11 +173,11 @@ msgstr "Nationality"
 
 #: .\abiturients\models.py:125
 msgid "Male"
-msgstr "Male"
+msgstr "male"
 
 #: .\abiturients\models.py:126
 msgid "Female"
-msgstr "Female"
+msgstr "female"
 
 #: .\abiturients\models.py:128 .\accepting_offers\forms.py:50
 #: .\templates\abiturient_form\wizard_steps\check.html:48
@@ -934,11 +934,11 @@ msgstr "Accreditation"
 
 #: .\university_offers\models.py:156
 msgid "Budget"
-msgstr "Budget"
+msgstr "budget"
 
 #: .\university_offers\models.py:157
 msgid "Contract"
-msgstr "Contract"
+msgstr "contract"
 
 #: .\university_offers\models.py:160
 msgid "Full-time"
