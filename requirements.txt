@@ -12,3 +12,4 @@ python-dateutil
 django-extensions
 thefuzz
 num2words
+django-widget-tweaks

@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "import_export",
     "django_extensions",
+    "widget_tweaks",
 ]
 
 AUTH_USER_MODEL = "users.User"
