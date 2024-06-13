@@ -58,7 +58,12 @@ class Speciality(models.Model):
     )
 
     def __str__(self) -> str:
-        return self.faculty.abbreviation + " - " + self.code_and_name_s
+        return (
+            self.faculty.abbreviation
+            + " - "
+            + self.code_and_name
+            + (f"({self.code_and_name_s})" if self.specialization_code else "")
+        )
 
     @property
     def code_and_name(self) -> str:

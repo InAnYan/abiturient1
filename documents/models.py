@@ -30,7 +30,15 @@ class Document(models.Model):
     name = models.CharField(
         max_length=255, validators=[only_alpha_space_validator], verbose_name=_("Name")
     )
+
     file = models.FileField(upload_to="documents", verbose_name=_("File"))
+
+    only_for_contract = models.BooleanField(
+        verbose_name=_("Only for contract offers"), default=False
+    )
+    only_for_full_time = models.BooleanField(
+        verbose_name=_("Only for full-time offers"), default=False
+    )
 
     def __str__(self):
         return self.name

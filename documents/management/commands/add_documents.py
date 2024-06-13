@@ -18,5 +18,12 @@ class Command(BaseCommand):
             with open(os.path.join(documents_path, file), "rb") as f:
                 doc = Document()
                 doc.name = file[:-5]
+
+                if doc.name == "Контракт":
+                    doc.only_for_contract = True
+
+                if doc.name == "Анкета 2":
+                    doc.only_for_full_time = True
+
                 doc.file.save(doc.name, f)
                 doc.save()

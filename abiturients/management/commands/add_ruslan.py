@@ -59,19 +59,43 @@ class Command(BaseCommand):
 
         abiturient.save()
 
-        offer = UniversityOffer.objects.get(
-            level=EducationalLevel.BACHELOR,
-            basis=UniversityOffer.Basis.PZSO,
-            type=UniversityOffer.Type.BUDGET,
-            study_form=UniversityOffer.StudyForm.DAY,
-            educational_program__name="Комп'ютерна інженерія",
-        )
+        offers = [
+            UniversityOffer.objects.get(
+                level=EducationalLevel.BACHELOR,
+                basis=UniversityOffer.Basis.PZSO,
+                type=UniversityOffer.Type.BUDGET,
+                study_form=UniversityOffer.StudyForm.DAY,
+                educational_program__name="Комп'ютерна інженерія",
+            ),
+            UniversityOffer.objects.get(
+                level=EducationalLevel.BACHELOR,
+                basis=UniversityOffer.Basis.PZSO,
+                type=UniversityOffer.Type.CONTRACT,
+                study_form=UniversityOffer.StudyForm.DAY,
+                educational_program__name="Комп'ютерна інженерія",
+            ),
+            UniversityOffer.objects.get(
+                level=EducationalLevel.BACHELOR,
+                basis=UniversityOffer.Basis.PZSO,
+                type=UniversityOffer.Type.BUDGET,
+                study_form=UniversityOffer.StudyForm.OVER_DISTANCE,
+                educational_program__speciality__specialization_code=21,
+                educational_program__speciality__code=14,
+            ),
+            UniversityOffer.objects.get(
+                level=EducationalLevel.BACHELOR,
+                basis=UniversityOffer.Basis.PZSO,
+                type=UniversityOffer.Type.CONTRACT,
+                study_form=UniversityOffer.StudyForm.OVER_DISTANCE,
+                educational_program__speciality__specialization_code=1,
+                educational_program__speciality__code=14,
+            ),
+        ]
 
-        accepted_offer = AcceptedOffer(
-            abiturient=abiturient,
-            offer=offer,
-            created_at=datetime.datetime.now(),
-            accepted_year=1,
-        )
-
-        accepted_offer.save()
+        for offer in offers:
+            AcceptedOffer(
+                abiturient=abiturient,
+                offer=offer,
+                created_at=datetime.datetime.now(),
+                accepted_year=1,
+            ).save()
