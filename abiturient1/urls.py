@@ -34,7 +34,7 @@ admin.site.site_title = _("admin.site.site_title")
 
 urlpatterns = i18n_patterns(
     path("", lambda request: redirect("abiturient_form/"), name="index"),
-    path("admin/login", include("users.urls")),
+    path("admin/users/", include("users.urls")),
     path("admin/pk_panel/", include("pk_panel.urls")),
     path("admin/django/", admin.site.urls),
     path("univeristy_offers/", include("university_offers.urls")),
