@@ -62,15 +62,14 @@ class Command(BaseCommand):
         obj = Speciality(
             code=item["speciality_code"],
             name=(
-                item["specialization_name"]
-                if "specialization_name" in item
-                else item["speciality_name"]
+                item["speciality_name"]
             ),
             faculty=faculty,
         )
 
         if "specialization_code" in item:
             obj.specialization_code = item["specialization_code"]
+            obj.specialization_name = item["specialization_name"]
 
         obj.save()
         return obj

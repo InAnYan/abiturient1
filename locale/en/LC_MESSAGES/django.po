@@ -937,11 +937,11 @@ msgstr "Educational programs"
 
 #: .\university_offers\models.py:93
 msgid "Bachelor"
-msgstr "Bachelor"
+msgstr "machelor"
 
 #: .\university_offers\models.py:94
 msgid "Master"
-msgstr "Master"
+msgstr "master"
 
 #: .\university_offers\models.py:95
 msgid "PhD"

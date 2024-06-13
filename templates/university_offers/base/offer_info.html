@@ -25,6 +25,13 @@
   {{ offer.educational_program.speciality.code_and_name }}.
 </p>
 
+{% if offer.educational_program.speciality.specialization_code %}
+<p>
+  <strong>{% trans "Specialization" %}</strong>:
+  {{ offer.educational_program.speciality.code_and_name_s }}.
+</p>
+{% endif %}
+
 <p>
   <strong>{% trans "Name of educational program" %}</strong>:
   {{ offer.educational_program.name }}.

@@ -948,15 +948,15 @@ msgstr "Освітні програми"
 
 #: .\university_offers\models.py:93
 msgid "Bachelor"
-msgstr "Бакалавр"
+msgstr "бакалавр"
 
 #: .\university_offers\models.py:94
 msgid "Master"
-msgstr "Магістр"
+msgstr "магістр"
 
 #: .\university_offers\models.py:95
 msgid "PhD"
-msgstr "Доктор філософії"
+msgstr "доктор філософії"
 
 #: .\university_offers\models.py:114
 msgid "End of accreditation"

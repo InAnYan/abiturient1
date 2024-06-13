@@ -1,10 +1,12 @@
 from locale import currency
 from optparse import Option
 from typing import Optional
+from xml.dom import ValidationErr
 from django.db import models
 from django.core.validators import MinValueValidator
 from dateutil.relativedelta import relativedelta
 from django.utils.translation import gettext_lazy as _
+from pydantic import ValidationError
 
 from abiturient1.settings import UKRAINIAN_DATE_FORMAT
 
@@ -33,18 +35,22 @@ class Faculty(models.Model):
 class Speciality(models.Model):
     code = models.IntegerField(verbose_name=_("Code"))
 
+    name = models.CharField(
+        max_length=255,
+        verbose_name=_("Name"),
+    )
+
     specialization_code = models.IntegerField(
         null=True,
         blank=True,
         verbose_name=_("Specialization code"),
-        help_text=_(
-            "If there is a specialization, fill the specialization code and leave name to be the name of the specialization"
-        ),
     )
 
-    name = models.CharField(
+    specialization_name = models.CharField(
         max_length=255,
-        verbose_name=_("Name"),
+        null=True,
+        blank=True,
+        verbose_name=_("Specialization name"),
     )
 
     faculty = models.ForeignKey(
@@ -52,11 +58,15 @@ class Speciality(models.Model):
     )
 
     def __str__(self) -> str:
-        return self.faculty.abbreviation + " - " + self.code_and_name
+        return self.faculty.abbreviation + " - " + self.code_and_name_s
 
     @property
     def code_and_name(self) -> str:
-        return self.code_with_specialization + " " + self.name
+        return str(self.code).zfill(3) + " " + self.name
+
+    @property
+    def code_and_name_s(self) -> str:
+        return f"{self.code_with_specialization} {self.specialization_name}"
 
     @property
     def code_with_specialization(self) -> str:
@@ -65,6 +75,12 @@ class Speciality(models.Model):
             code += "." + str(self.specialization_code).zfill(3)
 
         return code
+
+    def clean(self) -> None:
+        super().clean()
+
+        if not (self.specialization_code and self.specialization_name):
+            raise ValidationError("Both specialization code and name must be set")
 
     class Meta:
         verbose_name = _("Speciality")
@@ -306,6 +322,10 @@ class UniversityOffer(models.Model):
             return "за державним замовленням"
         else:
             return "навчання за кошти фізичних або юридичних осіб"
+
+    @property
+    def get_level_label(self) -> str:
+        return EducationalLevel(self.level).label
 
     class Meta:
         verbose_name = _("University offer")
