@@ -61,9 +61,7 @@ class Command(BaseCommand):
 
         obj = Speciality(
             code=item["speciality_code"],
-            name=(
-                item["speciality_name"]
-            ),
+            name=(item["speciality_name"]),
             faculty=faculty,
         )
 
@@ -141,9 +139,11 @@ class Command(BaseCommand):
                 ects = 90
             case 17:
                 ects = 666
-            
+
             case _:
-                raise Exception(f"Unknown study duration {item["study_duration"]} for {item}")
+                raise Exception(
+                    f"Unknown study duration {item['study_duration']} for {item}"
+                )
 
         return UniversityOffer.objects.create(
             study_begin=datetime.datetime.now(),
