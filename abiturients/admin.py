@@ -5,5 +5,14 @@ from abiturients.models import (
     AbiturientRepresentative,
 )
 
-admin.site.register(Abiturient)
-admin.site.register(AbiturientRepresentative)
+
+@admin.register(Abiturient)
+class AbiturientAdmin(admin.ModelAdmin):
+    model = Abiturient
+    list_per_page = 15
+
+
+@admin.register(AbiturientRepresentative)
+class AbiturientRepresentativeAdmin(admin.ModelAdmin):
+    model = AbiturientRepresentative
+    list_per_page = 15

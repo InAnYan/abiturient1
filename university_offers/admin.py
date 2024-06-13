@@ -46,23 +46,28 @@ class UniversityOfferResource(resources.ModelResource):
 @admin.register(Faculty)
 class FacultyAdmin(ImportExportModelAdmin):
     resource_classes = [FacultyResource]
+    list_per_page = 15
 
 
 @admin.register(Speciality)
 class SpecialityAdmin(ImportExportModelAdmin):
     resource_classes = [SpecialityResource]
+    list_per_page = 15
 
 
 @admin.register(EducationalProgram)
 class EducationalProgramAdmin(ImportExportModelAdmin):
     resource_classes = [EducationalProgramResource]
+    list_per_page = 15
 
 
 @admin.register(Accreditation)
 class AccreditationAdmin(ImportExportModelAdmin):
     resource_classes = [AccreditationResource]
+    list_per_page = 15
 
 
 @admin.register(UniversityOffer)
 class UniversityOfferAdmin(ImportExportModelAdmin):
     resource_classes = [UniversityOfferResource]
+    list_per_page = 15

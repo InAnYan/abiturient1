@@ -20,3 +20,5 @@ class AcceptedOfferAdmin(ImportExportModelAdmin):
         "abiturient__patronymic",
         "abiturient__email",
     ]
+
+    list_per_page = 15

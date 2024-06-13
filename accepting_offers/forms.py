@@ -10,13 +10,26 @@ from abiturients.models import (
 from accepting_offers.models import AcceptedOffer
 from university_offers.models import UniversityOffer
 
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator
+
+from abiturient1.validators import ukrainian_validator
 
 
 class AbiturientBasicInformationForm(forms.Form):
-    last_name = forms.CharField(max_length=255, label=_("Last name"))
-    first_name = forms.CharField(max_length=255, label=_("First name"))
-    patronymic = forms.CharField(max_length=255, label=_("Patronymic"), required=False)
+    last_name = forms.CharField(
+        max_length=255, label=_("Last name"), validators=[ukrainian_validator]
+    )
+
+    first_name = forms.CharField(
+        max_length=255, label=_("First name"), validators=[ukrainian_validator]
+    )
+
+    patronymic = forms.CharField(
+        max_length=255,
+        label=_("Patronymic"),
+        required=False,
+        validators=[ukrainian_validator],
+    )
 
     phone_number = forms.CharField(
         label=_("Phone number"),
@@ -188,6 +201,7 @@ class AbiturientSensitiveInformationForm(forms.Form):
         help_text=_(
             "If you have an ID card, leave this field empty. If you have a book-passport, then fill this field."
         ),
+        validators=[ukrainian_validator],
     )
 
     passport_number = forms.IntegerField(
@@ -202,6 +216,12 @@ class AbiturientSensitiveInformationForm(forms.Form):
             "If you have an ID card, this field should contain numbers. If you have a book-passport, this field should contain a text (description)."
         ),
         required=False,
+        validators=[
+            RegexValidator(
+                r"^[А-Яа-яЄєІіЇїҐґ\'’`0-9 ]*$",
+                _("Only Ukrainian letters or numbers allowed"),
+            )
+        ],
     )
 
     passport_issue_date = forms.DateField(
