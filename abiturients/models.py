@@ -214,7 +214,11 @@ class Abiturient(models.Model):
 
     @property
     def get_martial_status_label(self) -> str:
-        return self.MartialStatus(self.martial_status).label.lower()
+        label = self.MartialStatus(self.martial_status).label.lower()
+        if label.find("/") != -1:
+            return label.split("/")[self.gender - 1]
+        else:
+            return label
 
     foreign_language = models.CharField(
         max_length=255, verbose_name=_("Foreign language"), blank=True, null=True
