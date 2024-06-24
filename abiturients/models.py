@@ -179,7 +179,8 @@ class Abiturient(models.Model):
         return self.Gender(self.gender).label.lower()
 
     education_institution = models.CharField(
-        max_length=255, verbose_name=_("Full name of the educational institution")
+        max_length=255,
+        verbose_name=_("Full name of the educational institution that you ended"),
     )
 
     education_place = models.CharField(

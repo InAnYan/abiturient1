@@ -76,7 +76,7 @@ class AbiturientBirthInformationForm(forms.Form):
 
 class AbiturientEducationForm(forms.Form):
     education_institution = forms.CharField(
-        max_length=255, label=_("Educational institution")
+        max_length=255, label=_("Full name of educational institution that you ended")
     )
     education_place = forms.CharField(label=_("Education place"))
     education_end = forms.DateField(
@@ -103,7 +103,13 @@ class AbiturientEducationForm(forms.Form):
 
 
 class AbiturientMiscInformationForm(forms.Form):
-    work = forms.CharField(label=_("Work"), required=False)
+    work = forms.CharField(
+        label=_("Work experience"),
+        required=False,
+        help_text=_(
+            "You can leave this field empty. You can tell us were and how you worked before entering out university"
+        ),
+    )
     martial_status = forms.ChoiceField(
         label=_("Martial status"),
         choices=Abiturient.MartialStatus.choices,

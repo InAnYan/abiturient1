@@ -50,7 +50,7 @@
 
 <h3>{% trans "wizard.steps.abiturient_education.title" %}</h3>
 
-<p><strong>{% trans "Educational institution" %}</strong>: {{ abiturient_education.education_institution }}. </p>
+<p><strong>{% trans "Full name of educational institution that you ended" %}</strong>: {{ abiturient_education.education_institution }}. </p>
 <p><strong>{% trans "Education place" %}</strong>: {{ abiturient_education.education_place }}. </p>
 <p><strong>{% trans "Education end date" %}</strong>: {{ abiturient_education.education_end }}. </p>
 
@@ -58,7 +58,7 @@
 <h3>{% trans "wizard.steps.abiturient_misc.title" %}</h3>
 
 {% if abiturient_misc.work %}
-    <p><strong>{% trans "Work" %}</strong>: {{ abiturient_misc.work }}. </p>
+    <p><strong>{% trans "Work experience" %}</strong>: {{ abiturient_misc.work }}. </p>
 {% endif %}
 <p><strong>{% trans "Martial status" %}</strong>: {{ abiturient_misc.martial_status }}. </p>
 
