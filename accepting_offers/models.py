@@ -30,6 +30,10 @@ class AcceptedOffer(models.Model):
         null=True,
     )
 
+    @property
+    def get_payment_frequency_label(self) -> str:
+        return AcceptedOffer.PaymentFrequency(self.payment_frequency).label
+
     accepted_year = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(4)],
         verbose_name=_("Accepted year"),

@@ -98,5 +98,9 @@ class Command(BaseCommand):
                 offer=offer,
                 created_at=datetime.datetime.now(),
                 accepted_year=1,
-                payment_frequency=AcceptedOffer.PaymentFrequency.EACH_SEMESTER,
+                payment_frequency=(
+                    AcceptedOffer.PaymentFrequency.EACH_SEMESTER
+                    if offer.type == UniversityOffer.Type.CONTRACT
+                    else None
+                ),
             ).save()

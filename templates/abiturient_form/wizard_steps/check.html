@@ -102,11 +102,8 @@
 
 <h3>{% trans "wizard.steps.accepted_offer.title" %}</h3>
 
-{% if offer.result_offer.type == UniversityOffer.Type.CONTRACT %}
-    <p><strong>{% trans "Payment frequency" %}</strong>: {{ offer.result_offer.payment_frequency }}. </p>
-
-    <div class="mb-3"></div>
-
+{% if accepted_offer.payment_frequency %}
+    <p><strong>{% trans "Payment frequency" %}</strong>: {{ accepted_offer.payment_frequency_label }}. </p>
 {% endif %}
 
 <p><strong>{% trans "Accepted year" %}</strong>: {{ accepted_offer.accepted_year }}. </p>

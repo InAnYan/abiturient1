@@ -143,6 +143,10 @@ class AcceptedOfferForm(forms.ModelForm):
 
         return cleaned_data
 
+    @property
+    def get_payment_frequency_label(self) -> str:
+        return AcceptedOffer.PaymentFrequency(self.payment_frequency).label
+
     class Meta:
         model = AcceptedOffer
         exclude = ("offer", "abiturient")

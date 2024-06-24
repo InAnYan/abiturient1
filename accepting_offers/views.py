@@ -129,8 +129,16 @@ class AbiturientAndOffersWizard(SessionWizardView):
             context.update(
                 {
                     k: self.get_cleaned_data_for_step(k)
-                    for k in form_list_str[: len(form_list_str) - 2]
+                    for k in form_list_str[
+                        : len(form_list_str) - 3
+                    ]  # TODO: Introduce constant there.
                 }
+            )
+
+            context["accepted_offer"]["payment_frequency_label"] = (
+                AcceptedOffer.PaymentFrequency(
+                    context["accepted_offer"]["payment_frequency"]
+                ).label
             )
 
             if self.should_be_parent():

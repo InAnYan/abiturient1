@@ -179,7 +179,7 @@ class Abiturient(models.Model):
         return self.Gender(self.gender).label.lower()
 
     education_institution = models.CharField(
-        max_length=255, verbose_name=_("Educational institution")
+        max_length=255, verbose_name=_("Full name of the educational institution")
     )
 
     education_place = models.CharField(
@@ -202,7 +202,14 @@ class Abiturient(models.Model):
             + self.education_end.strftime("%d.%m.%Y")
         )
 
-    work = models.TextField(verbose_name=_("Work"), blank=True, null=True)
+    work = models.TextField(
+        verbose_name=_("Work experience"),
+        blank=True,
+        null=True,
+        help_text=_(
+            "You can leave this field empty. You can tell us were and how you worked before entering out university"
+        ),
+    )
 
     class MartialStatus(models.IntegerChoices):
         SINGLE = 1, _("Single")
