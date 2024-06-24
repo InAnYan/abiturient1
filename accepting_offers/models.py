@@ -11,8 +11,7 @@ class AcceptedOffer(models.Model):
     class PaymentFrequency(models.IntegerChoices):
         EACH_SEMESTER = 1, _("Each semester")
         EACH_YEAR = 2, _("Each year")
-        EACH_MONTH = 3, _("Each month")
-        FULL = 4, _("Full payment")
+        FULL = 3, _("Full payment")
 
     abiturient = models.ForeignKey(
         Abiturient, on_delete=models.PROTECT, verbose_name=_("Abiturient")

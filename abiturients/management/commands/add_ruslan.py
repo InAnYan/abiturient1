@@ -98,4 +98,5 @@ class Command(BaseCommand):
                 offer=offer,
                 created_at=datetime.datetime.now(),
                 accepted_year=1,
+                payment_frequency=AcceptedOffer.PaymentFrequency.EACH_SEMESTER,
             ).save()

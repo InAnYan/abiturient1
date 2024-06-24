@@ -70,7 +70,34 @@
 
 <h3>{% trans "wizard.steps.offer.title" %}</h3>
 
-{% include "university_offers/base/offer_info.html" with offer=offer.result_offer %}
+{% with offer=offer.result_offer %}
+    <p>
+    <strong>{% trans "Speciality" %}</strong>:
+    {{ offer.educational_program.speciality.code_and_name }}.
+    </p>
+
+    {% if offer.educational_program.speciality.specialization_code %}
+    <p>
+    <strong>{% trans "Specialization" %}</strong>:
+    {{ offer.educational_program.speciality.code_and_name_s }}.
+    </p>
+    {% endif %}
+
+    <p>
+    <strong>{% trans "Name of educational program" %}</strong>:
+    {{ offer.educational_program.name }}.
+    </p>
+
+    <p>
+    <strong>{% trans "Accreditation" %}</strong>:
+
+    {% if offer.get_accreditation %}
+        {{ offer.get_accreditation.ukr_sentence }}. 
+    {% else %}
+        {% trans "no accreditation" %}.
+    {% endif %}
+    </p>
+{% endwith %}
 
 
 <h3>{% trans "wizard.steps.accepted_offer.title" %}</h3>

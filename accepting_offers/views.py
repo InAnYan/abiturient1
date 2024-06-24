@@ -43,6 +43,7 @@ form_list_str = [
     "abiturient_sensitive",
     "representative",
     "check",
+    "last_warning",
 ]
 
 
@@ -58,6 +59,7 @@ class AbiturientAndOffersWizard(SessionWizardView):
         ("abiturient_sensitive", AbiturientSensitiveInformationForm),
         ("representative", RepresentativeForm),
         ("check", EmptyForm),
+        ("last_warning", EmptyForm),
     ]
 
     def should_be_parent(self) -> bool:
@@ -82,6 +84,7 @@ class AbiturientAndOffersWizard(SessionWizardView):
         "abiturient_sensitive": lambda _: True,
         "representative": should_be_parent,
         "check": lambda _: True,
+        "last_warning": lambda _: True,
     }
 
     def get_template_names(self) -> list[str]:

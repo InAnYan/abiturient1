@@ -61,7 +61,7 @@ class Command(BaseCommand):
 
         obj = Speciality(
             code=item["speciality_code"],
-            name=(item["speciality_name"]),
+            name=item["speciality_name"],
             faculty=faculty,
         )
 
@@ -125,6 +125,20 @@ class Command(BaseCommand):
         for i in range(0, len(costs)):
             if f"year{i + 1}_cost" in item:
                 costs[i] = item[f"year{i + 1}_cost"]
+
+        if item["basis"] == "NRK67":
+            first_year = costs[0]
+            second_year = costs[1]
+            assert first_year % 2 == 0  # Doesn't cover all wrongly set values.
+            costs[0] = first_year // 2
+            costs[1] = first_year // 2
+
+            if item["speciality_code"] == 227:
+                costs[2] = 17500
+                costs[3] = 17500
+            elif item["speciality_code"] == 223:
+                costs[2] = 10000
+                costs[3] = 14000
 
         match item["study_duration"]:
             case 46:

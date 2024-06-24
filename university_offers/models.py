@@ -1,3 +1,4 @@
+from re import S
 from typing import Optional
 from django.db import models
 from django.core.validators import MinValueValidator
@@ -131,6 +132,10 @@ class Accreditation(models.Model):
 
     end_date = models.DateField(verbose_name=_("End of accreditation"))
 
+    @property
+    def end_date_str(self) -> str:
+        return self.end_date.strftime(UKRAINIAN_DATE_FORMAT)
+
     number = models.PositiveIntegerField(verbose_name=_("Accreditation number"))
 
     serie = models.CharField(
@@ -225,6 +230,10 @@ class UniversityOffer(models.Model):
         choices=EducationalLevel.choices, verbose_name=_("Educational level")
     )
 
+    @property
+    def is_master(self) -> bool:
+        return self.level == EducationalLevel.MASTER
+
     basis = models.PositiveIntegerField(
         choices=Basis.choices,
         verbose_name=_("Basis"),
@@ -260,13 +269,18 @@ class UniversityOffer(models.Model):
         validators=[MinValueValidator(1)], verbose_name=_("ECTS")
     )
 
-    year1_cost = models.PositiveIntegerField(verbose_name=_("Year 1 cost"), default=0)
-
-    year2_cost = models.PositiveIntegerField(verbose_name=_("Year 2 cost"), default=0)
-
-    year3_cost = models.PositiveIntegerField(verbose_name=_("Year 3 cost"), default=0)
-
-    year4_cost = models.PositiveIntegerField(verbose_name=_("Year 4 cost"), default=0)
+    year1_cost = models.PositiveIntegerField(
+        verbose_name=_("Year 1 cost (for Masters it is semester 1 cost)"), default=0
+    )
+    year2_cost = models.PositiveIntegerField(
+        verbose_name=_("Year 2 cost (for Masters it is semester 2 cost)"), default=0
+    )
+    year3_cost = models.PositiveIntegerField(
+        verbose_name=_("Year 3 cost (for Masters it is semester 3 cost)"), default=0
+    )
+    year4_cost = models.PositiveIntegerField(
+        verbose_name=_("Year 4 cost (for Masters it is semester 4 cost)"), default=0
+    )
 
     @property
     def year1_cost_words(self) -> str:
@@ -337,4 +351,7 @@ class UniversityOffer(models.Model):
 def generate_currency_str(num: int) -> str:
     from num2words import num2words
 
-    return num2words(num, lang="uk", to="currency", currency="UAH").split(",")[1]
+    # TODO: Make an issue to GitHub. There is a bug in num2words. Last two numbers are considered cents. parse_currency_parts
+    return num2words(
+        num * 100, lang="uk", to="currency", currency="UAH", cents=False
+    ).split(",")[0]
