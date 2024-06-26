@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block info %}
     {% trans "wizard.steps.abiturient_education.info" as info %}
@@ -17,7 +18,7 @@
 
 <div class="form-row">
   <div class="col">
-    {{ wizard.form.education_institution | as_crispy_field }}
+    {{ wizard.form.education_institution | add_class:"first-letter-upper" | as_crispy_field }}
   </div>
 </div>
 

@@ -60,7 +60,7 @@ class Speciality(models.Model):
             self.faculty.abbreviation
             + " - "
             + self.code_and_name
-            + (f"({self.code_and_name_s})" if self.specialization_code else "")
+            + (f" ({self.code_and_name_s})" if self.specialization_code else "")
         )
 
     @property
@@ -75,7 +75,7 @@ class Speciality(models.Model):
     def code_with_specialization(self) -> str:
         code = str(self.code).zfill(3)
         if self.specialization_code:
-            code += "." + str(self.specialization_code).zfill(3)
+            code += "." + str(self.specialization_code).zfill(2)
 
         return code
 

@@ -18,54 +18,54 @@
 
 <h3>{% trans "wizard.steps.abiturient_basic.title" %}</h3>
 
-<p><strong>{% trans "Last name" %}</strong>: {{ abiturient_basic.last_name }}. </p>
-<p><strong>{% trans "First name" %}</strong>: {{ abiturient_basic.first_name }}. </p>
+<p><strong>{% trans "Last name" %}</strong>: {{ abiturient_basic.last_name }} </p>
+<p><strong>{% trans "First name" %}</strong>: {{ abiturient_basic.first_name }} </p>
 {% if abiturient_basic.patronymic %}
-    <p><strong>{% trans "Patronymic" %}</strong>: {{ abiturient_basic.patronymic }}. </p>
+    <p><strong>{% trans "Patronymic" %}</strong>: {{ abiturient_basic.patronymic }} </p>
 {% endif %}
 
 <div class="mb-3"></div>
 
-<p><strong>{% trans "Phone number" %}</strong>: {{ abiturient_basic.phone }}. </p>
-<p><strong>{% trans "Email" %}</strong>: {{ abiturient_basic.email }}. </p>
+<p><strong>{% trans "Phone number" %}</strong>: {{ abiturient_basic.phone }} </p>
+<p><strong>{% trans "Email" %}</strong>: {{ abiturient_basic.email }} </p>
 
 
 <h3>{% trans "wizard.steps.abiturient_birth.title" %}</h3>
 
-<p><strong>{% trans "Birth country" %}</strong>: {{ abiturient_birth.birth_country }}. </p>
-<p><strong>{% trans "Birth town" %}</strong>: {{ abiturient_birth.birth_town }}. </p>
+<p><strong>{% trans "Birth country" %}</strong>: {{ abiturient_birth.birth_country }} </p>
+<p><strong>{% trans "Birth town" %}</strong>: {{ abiturient_birth.birth_town }} </p>
 
 <div class="mb-3"></div>
 
-<p><strong>{% trans "Birth date" %}</strong>: {{ abiturient_birth.birth_date }}. </p>
+<p><strong>{% trans "Birth date" %}</strong>: {{ abiturient_birth.birth_date }} </p>
 {% if abiturient_birth.nationality %}
-    <p><strong>{% trans "Nationality" %}</strong>: {{ abiturient_birth.nationality }}. </p>
+    <p><strong>{% trans "Nationality" %}</strong>: {{ abiturient_birth.nationality }} </p>
 {% endif %}
 {% if abiturient_birth.foreign_language %}
-    <p><strong>{% trans "What foreign language do you know" %}</strong>: {{ abiturient_birth.foreign_language }}. </p>
+    <p><strong>{% trans "What foreign language do you know" %}</strong>: {{ abiturient_birth.foreign_language }} </p>
 {% endif %}
 
-<p><strong>{% trans "Gender" %}</strong>: {{ abiturient_birth.gender }}. </p>
+<p><strong>{% trans "Gender" %}</strong>: {{ abiturient_birth.gender }} </p>
 
 
 <h3>{% trans "wizard.steps.abiturient_education.title" %}</h3>
 
-<p><strong>{% trans "Full name of educational institution that you ended" %}</strong>: {{ abiturient_education.education_institution }}. </p>
-<p><strong>{% trans "Education place" %}</strong>: {{ abiturient_education.education_place }}. </p>
-<p><strong>{% trans "Education end date" %}</strong>: {{ abiturient_education.education_end }}. </p>
+<p><strong>{% trans "Full name of educational institution that you ended" %}</strong>: {{ abiturient_education.education_institution }} </p>
+<p><strong>{% trans "Education place" %}</strong>: {{ abiturient_education.education_place }} </p>
+<p><strong>{% trans "Education end date" %}</strong>: {{ abiturient_education.education_end }} </p>
 
 
 <h3>{% trans "wizard.steps.abiturient_misc.title" %}</h3>
 
 {% if abiturient_misc.work %}
-    <p><strong>{% trans "Work experience" %}</strong>: {{ abiturient_misc.work }}. </p>
+    <p><strong>{% trans "Work experience" %}</strong>: {{ abiturient_misc.work }} </p>
 {% endif %}
-<p><strong>{% trans "Martial status" %}</strong>: {{ abiturient_misc.martial_status }}. </p>
+<p><strong>{% trans "Martial status" %}</strong>: {{ abiturient_misc.martial_status }} </p>
 
 <div class="mb-3"></div>
 
-<p><strong>{% trans "Living address" %}</strong>: {{ abiturient_misc.living_address }}. </p>
-<p><strong>{% trans "Registered address" %}</strong>: {{ abiturient_misc.registered_address }}. </p>
+<p><strong>{% trans "Living address" %}</strong>: {{ abiturient_misc.living_address }} </p>
+<p><strong>{% trans "Registered address" %}</strong>: {{ abiturient_misc.registered_address }} </p>
 
 
 <h3>{% trans "wizard.steps.offer.title" %}</h3>
@@ -73,28 +73,28 @@
 {% with offer=offer.result_offer %}
     <p>
     <strong>{% trans "Speciality" %}</strong>:
-    {{ offer.educational_program.speciality.code_and_name }}.
+    {{ offer.educational_program.speciality.code_and_name }}
     </p>
 
     {% if offer.educational_program.speciality.specialization_code %}
     <p>
     <strong>{% trans "Specialization" %}</strong>:
-    {{ offer.educational_program.speciality.code_and_name_s }}.
+    {{ offer.educational_program.speciality.code_and_name_s }}
     </p>
     {% endif %}
 
     <p>
     <strong>{% trans "Name of educational program" %}</strong>:
-    {{ offer.educational_program.name }}.
+    {{ offer.educational_program.name }}
     </p>
 
     <p>
     <strong>{% trans "Accreditation" %}</strong>:
 
     {% if offer.get_accreditation %}
-        {{ offer.get_accreditation.ukr_sentence }}. 
+        {{ offer.get_accreditation.ukr_sentence }}
     {% else %}
-        {% trans "no accreditation" %}.
+        {% trans "no accreditation" %}
     {% endif %}
     </p>
 {% endwith %}
@@ -103,77 +103,77 @@
 <h3>{% trans "wizard.steps.accepted_offer.title" %}</h3>
 
 {% if accepted_offer.payment_frequency %}
-    <p><strong>{% trans "Payment frequency" %}</strong>: {{ accepted_offer.payment_frequency_label }}. </p>
+    <p><strong>{% trans "Payment frequency" %}</strong>: {{ accepted_offer.payment_frequency_label }} </p>
 {% endif %}
 
-<p><strong>{% trans "Accepted year" %}</strong>: {{ accepted_offer.accepted_year }}. </p>
+<p><strong>{% trans "Accepted year" %}</strong>: {{ accepted_offer.accepted_year }} </p>
 
 
 <h3>{% trans "wizard.steps.abiturient_parents.title" %}</h3>
 
-<p><strong>{% trans "Mother last name" %}</strong>: {{ abiturient_parents.mother_last_name }}. </p>
-<p><strong>{% trans "Mother first name" %}</strong>: {{ abiturient_parents.mother_first_name }}. </p>
+<p><strong>{% trans "Mother last name" %}</strong>: {% firstof abiturient_parents.mother_last_name '—' %} </p>
+<p><strong>{% trans "Mother first name" %}</strong>: {% firstof abiturient_parents.mother_first_name '—' %} </p>
 {% if abiturient_parents.mother_patronymic %}
-    <p><strong>{% trans "Mother patronymic" %}</strong>: {{ abiturient_parents.mother_patronymic }}. </p>
+    <p><strong>{% trans "Mother patronymic" %}</strong>: {% firstof abiturient_parents.mother_patronymic '—' %} </p>
 {% endif %}
 
-<p><strong>{% trans "Mother phone number" %}</strong>: {{ abiturient_parents.mother_phone }}. </p>
+<p><strong>{% trans "Mother phone number" %}</strong>: {% firstof abiturient_parents.mother_phone '—' %} </p>
 
-<p><strong>{% trans "Father last name" %}</strong>: {{ abiturient_parents.father_last_name }}. </p>
-<p><strong>{% trans "Father first name" %}</strong>: {{ abiturient_parents.father_first_name }}. </p>
+<p><strong>{% trans "Father last name" %}</strong>: {% firstof abiturient_parents.father_last_name '—' %} </p>
+<p><strong>{% trans "Father first name" %}</strong>: {% firstof abiturient_parents.father_first_name '—' %} </p>
 {% if abiturient_parents.father_patronymic %}
-    <p><strong>{% trans "Father patronymic" %}</strong>: {{ abiturient_parents.father_patronymic }}. </p>
+    <p><strong>{% trans "Father patronymic" %}</strong>: {% firstof abiturient_parents.father_patronymic '—' %} </p>
 {% endif %}
 
-<p><strong>{% trans "Father phone number" %}</strong>: {{ abiturient_parents.father_phone }}. </p>
+<p><strong>{% trans "Father phone number" %}</strong>: {% firstof abiturient_parents.father_phone '—' %} </p>
 
 
 <h3>{% trans "wizard.steps.abiturient_sensitive.title" %}</h3>
 
-<p><strong>{% trans "Passport serie" %}</strong>: {% firstof abiturient_sensitive.passport_serie '—' %}. </p>
+<p><strong>{% trans "Passport serie" %}</strong>: {% firstof abiturient_sensitive.passport_serie '—' %} </p>
 
-<p><strong>{% trans "Passport number" %}</strong>: {% firstof abiturient_sensitive.passport_number '—' %}. </p>
-
-<div class="mb-3"></div>
-
-<p><strong>{% trans "Passport authority" %}</strong>: {% firstof abiturient_sensitive.passport_authority '—' %}. </p>
-
-<p><strong>{% trans "Passport issue date" %}</strong>: {% firstof abiturient_sensitive.passport_issue_date '—' %}. </p>
+<p><strong>{% trans "Passport number" %}</strong>: {% firstof abiturient_sensitive.passport_number '—' %} </p>
 
 <div class="mb-3"></div>
 
-<p><strong>{% trans "RNTRC" %}</strong>: {% firstof abiturient_sensitive.rntrc '—' %}. </p>
+<p><strong>{% trans "Passport authority" %}</strong>: {% firstof abiturient_sensitive.passport_authority '—' %} </p>
+
+<p><strong>{% trans "Passport issue date" %}</strong>: {% firstof abiturient_sensitive.passport_issue_date '—' %} </p>
+
+<div class="mb-3"></div>
+
+<p><strong>{% trans "RNTRC" %}</strong>: {% firstof abiturient_sensitive.rntrc '—' %} </p>
 
 
 {% if not has_18_years %}
     <h3>{% trans "wizard.steps.representative.title" %}</h3>
 
-    <p><strong>{% trans "Representative last name" %}</strong>: {{ representative.last_name }}. </p>
-    <p><strong>{% trans "Representative first name" %}</strong>: {{ representative.first_name }}. </p>
+    <p><strong>{% trans "Representative last name" %}</strong>: {{ representative.last_name }} </p>
+    <p><strong>{% trans "Representative first name" %}</strong>: {{ representative.first_name }} </p>
     {% if abiturient_parents.mother_patronymic %}
-        <p><strong>{% trans "Representative patronymic" %}</strong>: {{ representative.patronymic }}. </p>
+        <p><strong>{% trans "Representative patronymic" %}</strong>: {{ representative.patronymic }} </p>
     {% endif %}
 
     <div class="mb-3"></div>
 
-    <p><strong>{% trans "Representative phone number" %}</strong>: {{ representative.phone_number }}. </p>
-    <p><strong>{% trans "Representative living address" %}</strong>: {{ representative.living_address }}. </p>
+    <p><strong>{% trans "Representative phone number" %}</strong>: {{ representative.phone_number }} </p>
+    <p><strong>{% trans "Representative living address" %}</strong>: {{ representative.living_address }} </p>
 
     <div class="mb-3"></div>
 
-    <p><strong>{% trans "Passport serie" %}</strong>: {% firstof representative.passport_serie '—' %}. </p>
+    <p><strong>{% trans "Passport serie" %}</strong>: {% firstof representative.passport_serie '—' %} </p>
 
-    <p><strong>{% trans "Passport number" %}</strong>: {% firstof representative.passport_number '—' %}. </p>
-
-    <div class="mb-3"></div>
-
-    <p><strong>{% trans "Passport authority" %}</strong>: {% firstof representative.passport_authority '—' %}. </p>
-
-    <p><strong>{% trans "Passport issue date" %}</strong>: {% firstof representative.passport_issue_date '—' %}. </p>
+    <p><strong>{% trans "Passport number" %}</strong>: {% firstof representative.passport_number '—' %} </p>
 
     <div class="mb-3"></div>
 
-    <p><strong>{% trans "RNTRC" %}</strong>: {% firstof representative.rntrc '—' %}. </p>
+    <p><strong>{% trans "Passport authority" %}</strong>: {% firstof representative.passport_authority '—' %} </p>
+
+    <p><strong>{% trans "Passport issue date" %}</strong>: {% firstof representative.passport_issue_date '—' %} </p>
+
+    <div class="mb-3"></div>
+
+    <p><strong>{% trans "RNTRC" %}</strong>: {% firstof representative.rntrc '—' %} </p>
 {% endif %}
 
 {% endblock content_form %}

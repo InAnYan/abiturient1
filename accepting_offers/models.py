@@ -34,9 +34,17 @@ class AcceptedOffer(models.Model):
     def get_payment_frequency_label(self) -> str:
         return AcceptedOffer.PaymentFrequency(self.payment_frequency).label
 
+    class AcceptedYear(models.IntegerChoices):
+        YEAR_1 = 1, "1"
+        YEAR_2 = 2, "2"
+        YEAR_3 = 3, "3"
+        YEAR_4 = 4, "4"
+
     accepted_year = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(4)],
         verbose_name=_("Accepted year"),
+        choices=AcceptedYear.choices,
+        blank=False,
+        default=1,
     )
 
     def __str__(self) -> str:

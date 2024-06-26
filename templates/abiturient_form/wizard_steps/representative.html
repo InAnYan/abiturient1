@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block info %}
     {% trans "wizard.steps.representative.info" as info %}
@@ -17,15 +18,15 @@
 
 <div class="form-row">
   <div class="col">
-    {{ wizard.form.last_name | as_crispy_field }}
+    {{ wizard.form.last_name | add_class:"first-letter-upper" | as_crispy_field }}
   </div>
 
   <div class="col">
-    {{ wizard.form.first_name | as_crispy_field }}
+    {{ wizard.form.first_name | add_class:"first-letter-upper" | as_crispy_field }}
   </div>
 
   <div class="col">
-    {{ wizard.form.patronymic | as_crispy_field }}
+    {{ wizard.form.patronymic | add_class:"first-letter-upper" | as_crispy_field }}
   </div>
 </div>
 

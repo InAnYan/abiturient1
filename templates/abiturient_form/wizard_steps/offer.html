@@ -24,9 +24,6 @@
   </div>
 
   {{ wizard.form.speciality|as_crispy_field }}
-  {{ wizard.form.faculty|as_crispy_field }}
-
-  {{ wizard.form.educational_program_name|as_crispy_field }}
 
   <div class="d-flex justify-content-center">
     <button type="button" id="searchOffer" class="btn btn-success">{% trans 'search_offer'|capfirst %}</button>
@@ -48,9 +45,7 @@
   {{ wizard.form.result_offer.as_hidden }}
 
   <script>
-    const facultyElem = $("select[id$='faculty']");
     const specialityElem = $("select[id$='speciality']");
-    const educationalProgramNameElem = $("input[id$='educational_program_name']");
     const offerTypeElem = $("select[id$='offer_type']");
     const studyFormElem = $("select[id$='study_form']");
     const basisElem = $("select[id$='basis']");
@@ -62,9 +57,7 @@
     const accordionElem = $("#accordion");
 
     const cookiesValList = [
-      ["faculty", facultyElem],
       ["speciality", specialityElem],
-      ["educational_program_name", educationalProgramNameElem],
       ["offer_type", offerTypeElem],
       ["study_form", studyFormElem],
       ["basis", basisElem],
@@ -120,9 +113,7 @@
     }
 
     searchButton.on("click", function() {
-      let faculty = facultyElem.val();
       let speciality = specialityElem.val();
-      let educational_program_name = educationalProgramNameElem.val();
       let offer_type = offerTypeElem.val();
       let study_form = studyFormElem.val();
       let basis = basisElem.val();
@@ -136,9 +127,7 @@
       $.ajax({
         url: "{% url 'offers_json' %}",
         data: {
-          faculty,
           speciality,
-          educational_program_name,
           offer_type,
           study_form,
           basis,

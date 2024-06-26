@@ -31,7 +31,7 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
     """
 
     if not abiturient.passport_serie:
-        abiturient.passport_serie = "_" * 4
+        abiturient.passport_serie = " " * 4
 
     if not abiturient.passport_number:
         abiturient.passport_number = "_" * 13  # type: ignore
@@ -64,7 +64,7 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
     assert representative
 
     if not representative.passport_serie:
-        representative.passport_serie = "_" * 4
+        representative.passport_serie = " " * 4
 
     if not representative.passport_number:
         representative.passport_number = "_" * 13  # type: ignore

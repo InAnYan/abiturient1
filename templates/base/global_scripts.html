@@ -46,4 +46,26 @@
         }, 250);
     });
     */
+
+    $(document).ready(function() {
+        $(".first-letter-upper").on("input", function() {
+            let content = this.value;
+
+            if (content.length > 0) {
+                content = content.charAt(0).toUpperCase() + content.slice(1);
+            }
+
+            this.value = content;
+        });
+
+        $(".first-letter-lower").on("input", function() {
+            let content = this.value;
+
+            if (content.length > 0) {
+                content = content.charAt(0).toLowerCase() + content.slice(1);
+            }
+
+            this.value = content;
+        })
+    });
 </script>

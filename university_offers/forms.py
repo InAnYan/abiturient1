@@ -32,23 +32,11 @@ def make_speciality_choices():
 
 
 class UniversityOfferSearchForm(forms.Form):
-    faculty = forms.ModelChoiceField(
-        queryset=Faculty.objects.all(),
-        required=False,
-        label=_("Faculty"),
-    )
-
     speciality = forms.ChoiceField(
         choices=lambda: make_speciality_choices(),
         required=False,
         label=_("Speciality"),
     )
-
-    educational_program_name = forms.CharField(
-        required=False,
-        label=_("Name of educational program"),
-    )
-
     offer_type = forms.ChoiceField(
         choices=UniversityOffer.Type.choices,
         label=_("Offer type"),
@@ -81,32 +69,3 @@ class UniversityOfferSearchForm(forms.Form):
         if not self.cleaned_data["result_offer"]:
             self.add_error(None, _("Please, choose an offer"))
         return self.cleaned_data["result_offer"]
-
-    """
-    def find_university_offers(self) -> Iterable[UniversityOffer]:
-        q = UniversityOffer.objects.filter(
-            basis=self.cleaned_data["basis"],
-            level=self.cleaned_data["level"],
-            study_form=self.cleaned_data["study_form"],
-            offer_type=self.cleaned_data["offer_type"],
-        )
-
-        if faculty := self.cleaned_data["faculty"]:
-            q = q.filter(faculty=faculty)
-
-        if speciality := self.cleaned_data["speciality"]:
-            q = q.filter(speciality=speciality)
-
-        if educational_program_name := self.cleaned_data["educational_program_name"]:
-
-            def rank(offer: UniversityOffer) -> int:
-                from thefuzz import fuzz
-
-                return fuzz.partial_ratio(
-                    educational_program_name, offer.educational_program.name
-                )
-
-            q = sorted(q, key=rank, reverse=True)
-
-        return q
-    """

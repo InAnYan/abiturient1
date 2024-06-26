@@ -137,9 +137,17 @@ class AbiturientAndOffersWizard(SessionWizardView):
 
             context["accepted_offer"]["payment_frequency_label"] = (
                 AcceptedOffer.PaymentFrequency(
-                    context["accepted_offer"]["payment_frequency"]
+                    int(context["accepted_offer"]["payment_frequency"])
                 ).label
             )
+
+            context["abiturient_birth"]["gender"] = Abiturient.Gender(
+                int(context["abiturient_birth"]["gender"])
+            ).label
+
+            context["abiturient_misc"]["martial_status"] = Abiturient.MartialStatus(
+                int(context["abiturient_misc"]["martial_status"])
+            ).label
 
             if self.should_be_parent():
                 context["has_18_years"] = False
@@ -165,8 +173,8 @@ class AbiturientAndOffersWizard(SessionWizardView):
         abiturient_parents: AbiturientParentsForm = form_list[6]
         abiturient_sensitive: AbiturientSensitiveInformationForm = form_list[7]
 
-        if len(form_list) > 9:
-            representative: RepresentativeForm | None = None  # form_list[8]
+        if len(form_list) == 11:  # TODO: Introduce constant to be in sync with steps.
+            representative: RepresentativeForm | None = form_list[8]
         else:
             representative = None
 
@@ -227,6 +235,7 @@ class AbiturientAndOffersWizard(SessionWizardView):
                 ],
                 rntrc=representative.cleaned_data["rntrc"],
             )
+            abiturient.representative.save()
 
         abiturient.save()
 

@@ -29,12 +29,10 @@ input[type=checkbox] {
     padding: 10px;
 }
 
-.first-letter-upper {
-    /* Not the right way */
-    text-transform: capitalize;
+.first-letter-upper::first-letter {
+    text-transform: uppercase;
 }
 
-.first-letter-lower {
-    /* Not the right way */
+.first-letter-lower::first-letter {
     text-transform: lowercase;
 }

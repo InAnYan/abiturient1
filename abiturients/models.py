@@ -42,8 +42,6 @@ class AbiturientRepresentative(models.Model):
     passport_number = models.IntegerField(
         verbose_name=_("Passport number"),
         validators=[MaxValueValidator(999999999)],
-        null=True,
-        blank=True,
     )
 
     passport_authority = models.TextField(
@@ -51,15 +49,11 @@ class AbiturientRepresentative(models.Model):
         help_text=_(
             "If you have an ID card, this field should contain numbers. If you have a book-passport, this field should contain a text (description)."
         ),
-        null=True,
-        blank=True,
     )
 
     passport_issue_date = models.DateField(
         verbose_name=_("Date of issue"),
         validators=[MaxValueValidator(limit_value=date.today)],
-        null=True,
-        blank=True,
     )
 
     passport_expiry_date = models.DateField(
@@ -308,8 +302,6 @@ class Abiturient(models.Model):
     passport_number = models.IntegerField(
         verbose_name=_("Passport number"),
         validators=[MaxValueValidator(999999999)],
-        null=True,
-        blank=True,
     )
 
     passport_authority = models.TextField(
@@ -317,15 +309,11 @@ class Abiturient(models.Model):
         help_text=_(
             "If you have an ID card, this field should contain numbers. If you have a book-passport, this field should contain a text (description)."
         ),
-        null=True,
-        blank=True,
     )
 
     passport_issue_date = models.DateField(
         verbose_name=_("Date of issue"),
         validators=[MaxValueValidator(limit_value=date.today)],
-        null=True,
-        blank=True,
     )
 
     @property

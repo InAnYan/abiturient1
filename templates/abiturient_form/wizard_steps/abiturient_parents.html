@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block info %}
     {% trans "wizard.steps.abiturient_parents.info" as info %}
@@ -17,15 +18,15 @@
 
 <div class="form-row">
   <div class="col">
-    {{ wizard.form.mother_last_name | as_crispy_field }}
+    {{ wizard.form.mother_last_name | add_class:"first-letter-upper" | as_crispy_field }}
   </div>
 
   <div class="col">
-    {{ wizard.form.mother_first_name | as_crispy_field }}
+    {{ wizard.form.mother_first_name | add_class:"first-letter-upper" | as_crispy_field }}
   </div>
 
   <div class="col">
-    {{ wizard.form.mother_patronymic | as_crispy_field }}
+    {{ wizard.form.mother_patronymic | add_class:"first-letter-upper" | as_crispy_field }}
   </div>
 </div>
 
@@ -39,15 +40,15 @@
 
 <div class="form-row">
   <div class="col">
-    {{ wizard.form.father_last_name | as_crispy_field }}
+    {{ wizard.form.father_last_name | add_class:"first-letter-upper" | as_crispy_field }}
   </div>
 
   <div class="col">
-    {{ wizard.form.father_first_name | as_crispy_field }}
+    {{ wizard.form.father_first_name | add_class:"first-letter-upper" | as_crispy_field }}
   </div>
 
   <div class="col">
-    {{ wizard.form.father_patronymic | as_crispy_field }}
+    {{ wizard.form.father_patronymic | add_class:"first-letter-upper" | as_crispy_field }}
   </div>
 </div>
 

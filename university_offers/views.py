@@ -14,25 +14,9 @@ def offers_json(request: HttpRequest) -> HttpResponse:
         level=request.GET.get("level"),
     )
 
-    if faculty := request.GET.get("faculty"):
-        offers = offers.filter(educational_program__speciality__faculty=faculty)
-
     if speciality_id := request.GET.get("speciality"):
         speciality = Speciality.objects.get(id=speciality_id)
-        offers = offers.filter(
-            educational_program__speciality__code=speciality.code
-        )
-
-    if educational_program_name := request.GET.get("educational_program_name"):
-
-        def rank(offer: UniversityOffer) -> int:
-            from thefuzz import fuzz
-
-            return fuzz.partial_ratio(
-                educational_program_name, offer.educational_program.name
-            )
-
-        q = sorted(q, key=rank, reverse=True)
+        offers = offers.filter(educational_program__speciality__code=speciality.code)
 
     return JsonResponse([offer.id for offer in offers], safe=False)
 

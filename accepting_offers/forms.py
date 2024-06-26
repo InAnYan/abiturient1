@@ -40,6 +40,7 @@ class AbiturientBasicInformationForm(forms.Form):
             "Write the phone number in the following form: +380123456789 (start with +, then area code, then the rest of the number)"
         ),
         max_length=13,
+        initial="+380",
     )
 
     email = forms.EmailField(label=_("Email"))
@@ -179,6 +180,7 @@ class AbiturientParentsForm(forms.Form):
         ),
         label=_("Father phone number"),
         required=False,
+        initial="+380",
     )
 
     mother_last_name = forms.CharField(
@@ -201,6 +203,7 @@ class AbiturientParentsForm(forms.Form):
         ),
         label=_("Mother phone number"),
         required=False,
+        initial="+380",
     )
 
 
@@ -220,7 +223,6 @@ class AbiturientSensitiveInformationForm(forms.Form):
     passport_number = forms.IntegerField(
         label=_("Passport number"),
         validators=[MaxValueValidator(999999999)],
-        required=False,
     )
 
     passport_authority = forms.CharField(
@@ -228,7 +230,6 @@ class AbiturientSensitiveInformationForm(forms.Form):
         help_text=_(
             "If you have an ID card, this field should contain numbers. If you have a book-passport, this field should contain a text (description)."
         ),
-        required=False,
         validators=[
             RegexValidator(
                 r"^[А-Яа-яЄєІіЇїҐґ\'’`0-9 ]*$",
@@ -246,7 +247,6 @@ class AbiturientSensitiveInformationForm(forms.Form):
             )
         ],
         widget=forms.TextInput(attrs={"type": "date"}),
-        required=False,
     )
 
     def clean_passport_issue_date(self) -> date | None:
@@ -309,6 +309,7 @@ class RepresentativeForm(forms.Form):
             "Write the phone number in the following form: +380123456789 (start with +, then area code, then the rest of the number)"
         ),
         max_length=13,
+        initial="+380",
     )
 
     email = forms.EmailField(label=_("Email"))
@@ -327,12 +328,10 @@ class RepresentativeForm(forms.Form):
     passport_number = forms.IntegerField(
         label=_("Passport number"),
         validators=[MaxValueValidator(999999999)],
-        required=False,
     )
 
     passport_authority = forms.CharField(
         label=_("Authority"),
-        required=False,
         help_text=_(
             "If you have an ID card, this field should contain numbers. If you have a book-passport, this field should contain a text (description)."
         ),
@@ -347,7 +346,6 @@ class RepresentativeForm(forms.Form):
             )
         ],
         widget=forms.TextInput(attrs={"type": "date"}),
-        required=False,
     )
 
     passport_expiry_date = forms.DateField(
