@@ -79,7 +79,7 @@ class AbiturientEducationForm(forms.Form):
     education_institution = forms.CharField(
         max_length=255, label=_("Full name of educational institution that you ended")
     )
-    education_place = forms.CharField(label=_("Education place"))
+    education_place = forms.CharField(label=_("Education place (town)"))
     education_end = forms.DateField(
         label=_("Education end date"),
         widget=forms.TextInput(attrs={"type": "date"}),

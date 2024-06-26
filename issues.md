@@ -9,13 +9,8 @@
 
 - Remove PHD: https://github.com/InAnYan/abiturient1/issues/84
 
+
 - Improve titles of fields: https://github.com/InAnYan/abiturient1/issues/82
 
-- School addres use only town: https://github.com/InAnYan/abiturient1/issues/81
 
-
-
-
-- Better step descriptions: https://github.com/InAnYan/abiturient1/issues/24
-- Translate step descriptions to English: https://github.com/InAnYan/abiturient1/issues/102
 

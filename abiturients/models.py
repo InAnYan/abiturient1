@@ -178,7 +178,7 @@ class Abiturient(models.Model):
     )
 
     education_place = models.CharField(
-        max_length=255, verbose_name=_("Education place")
+        max_length=255, verbose_name=_("Education place (town)")
     )
 
     education_end = models.DateField(verbose_name=_("Education end date"))

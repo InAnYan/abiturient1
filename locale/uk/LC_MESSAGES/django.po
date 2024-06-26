@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 11:34+0300\n"
+"POT-Creation-Date: 2024-06-26 14:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,8 +209,8 @@ msgstr "Повна назва освітнього закладу, який ви
 
 #: .\abiturients\models.py:181 .\accepting_offers\forms.py:82
 #: .\templates\abiturient_form\wizard_steps\check.html:54
-msgid "Education place"
-msgstr "Адреса освітнього закладу"
+msgid "Education place (town)"
+msgstr "Адреса освітнього закладу (напишіть лише місто)"
 
 #: .\abiturients\models.py:184 .\accepting_offers\forms.py:84
 #: .\templates\abiturient_form\wizard_steps\check.html:55
@@ -488,8 +488,8 @@ msgstr ""
 "Ласкаво просимо на наш портал заявок!\n"
 "Ми раді, що ви розглядаєте Дніпровський національний університет імені Олеся "
 "Гончара для здобуття вищої освіти.\n"
-"Для заповнення  договіру на навчання та контракту для сплати освітніх "
-"послуг просимо заповнити та внести наступну інформацію.\n"
+"Для заповнення  договіру на навчання та контракту для сплати освітніх послуг "
+"просимо заповнити та внести наступну інформацію.\n"
 "Будьте певні, вся надана інформація зберігається суворо конфіденційною і "
 "використовується виключно для цілей вашої заявки."
 
@@ -1092,6 +1092,9 @@ msgstr "Користувач"
 #: .\users\views.py:30
 msgid "Login failed (check the username and/or password)"
 msgstr "Не вдалося ввійти (перевірте ім'я та/або пароль)"
+
+#~ msgid "Education place"
+#~ msgstr "Адреса освітнього закладу"
 
 #~ msgid "Educational institution"
 #~ msgstr "Освітній заклад"
