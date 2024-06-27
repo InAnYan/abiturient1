@@ -3,6 +3,7 @@ from typing import Any
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
+from pydantic.networks import MAX_EMAIL_LENGTH
 
 from abiturients.models import (
     Abiturient,
@@ -220,9 +221,16 @@ class AbiturientSensitiveInformationForm(forms.Form):
         validators=[ukrainian_validator],
     )
 
-    passport_number = forms.IntegerField(
+    passport_number = forms.CharField(
         label=_("Passport number"),
-        validators=[MaxValueValidator(999999999)],
+        min_length=6,
+        max_length=9,
+        validators=[
+            RegexValidator(
+                r"\d{6}|\d{9}",
+                _("For book-passport it is 6 numbers, for ID-card it is 9 numbers"),
+            )
+        ],
     )
 
     passport_authority = forms.CharField(
@@ -285,9 +293,13 @@ class AbiturientSensitiveInformationForm(forms.Form):
 
         return res
 
-    rntrc = forms.IntegerField(
+    rntrc = forms.CharField(
         label=_("RNTRC"),
-        validators=[MaxValueValidator(999999999999)],
+        min_length=12,
+        max_length=12,
+        validators=[
+            RegexValidator(r"\d+", _("There should be 12 digits")),
+        ],
         help_text=_(
             "Registration number of the taxpayer's account card (a local equivalent of the taxpayer's identification number)"
         ),
@@ -325,9 +337,16 @@ class RepresentativeForm(forms.Form):
         ),
     )
 
-    passport_number = forms.IntegerField(
+    passport_number = forms.CharField(
         label=_("Passport number"),
-        validators=[MaxValueValidator(999999999)],
+        min_length=6,
+        max_length=9,
+        validators=[
+            RegexValidator(
+                r"\d{6}|\d{9}",
+                _("For book-passport it is 6 numbers, for ID-card it is 9 numbers"),
+            )
+        ],
     )
 
     passport_authority = forms.CharField(
@@ -373,13 +392,17 @@ class RepresentativeForm(forms.Form):
 
         return res
 
-    rntrc = forms.IntegerField(
+    rntrc = forms.CharField(
         label=_("RNTRC"),
-        validators=[MaxValueValidator(999999999999)],
-        required=False,
+        min_length=12,
+        max_length=12,
+        validators=[
+            RegexValidator(r"\d+", _("There should be 12 digits")),
+        ],
         help_text=_(
             "Registration number of the taxpayer's account card (a local equivalent of the taxpayer's identification number)"
         ),
+        required=False,
     )
 
 

@@ -111,7 +111,6 @@ class EducationalProgram(models.Model):
 class EducationalLevel(models.IntegerChoices):
     BACHELOR = 1, _("Bachelor")
     MASTER = 2, _("Master")
-    PHD = 3, _("PhD")
 
 
 class Accreditation(models.Model):

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 14:30+0300\n"
+"POT-Creation-Date: 2024-06-26 14:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -207,8 +207,7 @@ msgstr "Стать"
 msgid "Full name of the educational institution that you ended"
 msgstr "Повна назва освітнього закладу, який ви закінчили"
 
-#: .\abiturients\models.py:181 .\accepting_offers\forms.py:82
-#: .\templates\abiturient_form\wizard_steps\check.html:54
+#: .\abiturients\models.py:181
 msgid "Education place (town)"
 msgstr "Адреса освітнього закладу (напишіть лише місто)"
 
@@ -312,6 +311,11 @@ msgstr ""
 #: .\templates\abiturient_form\wizard_steps\check.html:53
 msgid "Full name of educational institution that you ended"
 msgstr "Повна назва освітнього закладу, який ви закінчили"
+
+#: .\accepting_offers\forms.py:82
+#: .\templates\abiturient_form\wizard_steps\check.html:54
+msgid "Education place"
+msgstr "Адреса освітнього закладу"
 
 #: .\accepting_offers\forms.py:88
 msgid "Education end date cannot be in the future"
@@ -1092,9 +1096,6 @@ msgstr "Користувач"
 #: .\users\views.py:30
 msgid "Login failed (check the username and/or password)"
 msgstr "Не вдалося ввійти (перевірте ім'я та/або пароль)"
-
-#~ msgid "Education place"
-#~ msgstr "Адреса освітнього закладу"
 
 #~ msgid "Educational institution"
 #~ msgstr "Освітній заклад"
