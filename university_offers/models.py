@@ -22,6 +22,10 @@ class Faculty(models.Model):
         verbose_name=_("Abbreviation"),
     )
 
+    email = models.EmailField(
+        verbose_name=_("Email"),
+    )
+
     def __str__(self) -> str:
         return self.full_name
 
