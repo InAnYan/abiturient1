@@ -3,6 +3,7 @@ from typing import Any
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
+from odf.form import Hidden
 
 from abiturients.models import (
     Abiturient,
@@ -407,3 +408,7 @@ class RepresentativeForm(forms.Form):
 
 class EmptyForm(forms.Form):
     pass
+
+
+class SignForm(forms.Form):
+    png_source = forms.CharField()

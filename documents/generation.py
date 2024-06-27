@@ -1,19 +1,33 @@
 from datetime import datetime
+from io import BytesIO
 import re
+from tkinter import W
+from typing import Optional
+from urllib.request import urlopen
 
 from django.http import HttpResponse
+import urllib
+
+from docx.shared import Cm
+import urllib3
 from abiturients.models import Abiturient, AbiturientRepresentative
 from accepting_offers.models import AcceptedOffer
 from documents.models import Document
 from university_offers.models import UniversityOffer
 from django.utils.translation import gettext_lazy as _
 
-from docxtpl import DocxTemplate
+from docxtpl import DocxTemplate, InlineImage
 
 from django.utils import formats
 
 
-def generate_document(accepted_offer: AcceptedOffer, path: str, out):
+def generate_document(
+    accepted_offer: AcceptedOffer,
+    path: str,
+    out,
+    abiturient_sign_datauri: str,
+    representative_sign_datauri: Optional[str],
+):
     offer = accepted_offer.offer
     abiturient = accepted_offer.abiturient
     educational_program = offer.educational_program
@@ -76,6 +90,16 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
         representative.rntrc = "_" * 13  # type: ignore
 
     doc = DocxTemplate(path)
+
+    with urlopen(abiturient_sign_datauri) as f:
+        abiturient_sign = InlineImage(doc, BytesIO(f.read()), width=Cm(3))
+
+    if representative_sign_datauri:
+        with urlopen(representative_sign_datauri) as f:
+            representative_sign = InlineImage(doc, BytesIO(f.read()), width=Cm(3))
+    else:
+        representative_sign = "_" * 12
+
     context = {
         "accepted_offer": accepted_offer,
         "offer": offer,
@@ -86,6 +110,8 @@ def generate_document(accepted_offer: AcceptedOffer, path: str, out):
         "representative": representative,
         "Abiturient": Abiturient,
         "UniversityOffer": UniversityOffer,
+        "abiturient_sign": abiturient_sign,
+        "representative_sign": representative_sign,
     }
     doc.render(context)
     doc.save(out)

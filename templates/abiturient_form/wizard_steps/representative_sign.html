@@ -1,0 +1,53 @@
+{% extends "abiturient_form/wizard_steps/wizard_step_wrapper.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block info %}
+    {% trans "wizard.steps.representative_sign.info" as info %}
+    {{ info|linebreaksbr }}
+{% endblock info %}
+
+{% block step_name %}
+    {% trans "wizard.steps.representative_sign.title"|capfirst %}
+{% endblock step_name %}
+
+{% block content_form %}
+
+{{ wizard.form.png_source.as_hidden }}
+{{ wizard.form.png_source.errors }}
+
+<div class="text-center">
+  <canvas id="signCanvas" class="sign-canvas"></canvas>
+
+  <br/>
+
+  <button type="button" id="clearSign" class="btn btn-primary">{% trans "Clear" %}</button>
+</div>
+
+
+{% endblock content_form %}
+
+{% block additional_scripts %}
+
+<script>
+
+  const canvas = document.getElementById('signCanvas');
+
+  const signaturePad = new SignaturePad(canvas);
+
+  $(() => {
+    $("form").on("submit", () => {
+      $("[id$=png_source]").val(signaturePad.toDataURL());
+    })
+  
+    $("#clearSign").on("click", () => {
+      signaturePad.clear();
+    })
+  })
+
+</script>
+
+{% endblock additional_scripts %}

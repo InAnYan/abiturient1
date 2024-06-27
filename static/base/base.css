@@ -36,3 +36,9 @@ input[type=checkbox] {
 .first-letter-lower::first-letter {
     text-transform: lowercase;
 }
+
+.sign-canvas {
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+}

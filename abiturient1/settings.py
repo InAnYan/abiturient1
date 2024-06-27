@@ -15,6 +15,7 @@ from pathlib import Path
 from django.conf.global_settings import DEFAULT_FROM_EMAIL
 from django.core.management.utils import get_random_secret_key
 from django.utils.translation import gettext_lazy as _
+from docxtpl import InlineImage
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -96,10 +97,9 @@ LOGGING = {
 EMAIL_HOST = os.getenv("DJANGO_EMAIL_HOST")
 EMAIL_HOST_USER = os.getenv("DJANGO_EMAIL_LOGIN")
 EMAIL_HOST_PASSWORD = os.getenv("DJANGO_EMAIL_PASSWORD")
-EMAIL_PORT = int(os.getenv("DJANGO_EMAIL_PORT"))
+EMAIL_PORT = int(os.getenv("DJANGO_EMAIL_PORT", "587"))
 EMAIL_USE_TLS = os.getenv("DJANGO_EMAIL_TLS", "True") == "True"
 DEFAULT_FROM_EMAIL = os.getenv("DJANGO_EMAIL_FROM")
-
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

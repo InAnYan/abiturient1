@@ -23,6 +23,7 @@ from accepting_offers.forms import (
     AcceptedOfferForm,
     EmptyForm,
     RepresentativeForm,
+    SignForm,
 )
 
 from accepting_offers.models import AcceptedOffer
@@ -61,6 +62,8 @@ form_list_str = [
     "representative",
     "check",
     "last_warning",
+    "abiturient_sign",
+    "representative_sign",
 ]
 
 
@@ -77,6 +80,8 @@ class AbiturientAndOffersWizard(SessionWizardView):
         ("representative", RepresentativeForm),
         ("check", EmptyForm),
         ("last_warning", EmptyForm),
+        ("abiturient_sign", SignForm),
+        ("representative_sign", SignForm),
     ]
 
     def should_be_parent(self) -> bool:
@@ -102,6 +107,8 @@ class AbiturientAndOffersWizard(SessionWizardView):
         "representative": should_be_parent,
         "check": lambda _: True,
         "last_warning": lambda _: True,
+        "abiturient_sign": lambda _: True,
+        "representative_sign": should_be_parent,
     }
 
     def get_template_names(self) -> list[str]:
@@ -147,16 +154,17 @@ class AbiturientAndOffersWizard(SessionWizardView):
                 {
                     k: self.get_cleaned_data_for_step(k)
                     for k in form_list_str[
-                        : len(form_list_str) - 3
+                        : len(form_list_str) - 5
                     ]  # TODO: Introduce constant there.
                 }
             )
 
-            context["accepted_offer"]["payment_frequency_label"] = (
-                AcceptedOffer.PaymentFrequency(
-                    int(context["accepted_offer"]["payment_frequency"])
-                ).label
-            )
+            if context["accepted_offer"]["payment_frequency"]:
+                context["accepted_offer"]["payment_frequency_label"] = (
+                    AcceptedOffer.PaymentFrequency(
+                        int(context["accepted_offer"]["payment_frequency"])
+                    ).label
+                )
 
             context["abiturient_birth"]["gender"] = Abiturient.Gender(
                 int(context["abiturient_birth"]["gender"])
@@ -190,10 +198,14 @@ class AbiturientAndOffersWizard(SessionWizardView):
         abiturient_parents: AbiturientParentsForm = form_list[6]
         abiturient_sensitive: AbiturientSensitiveInformationForm = form_list[7]
 
-        if len(form_list) == 11:  # TODO: Introduce constant to be in sync with steps.
+        if len(form_list) == 13:  # TODO: Introduce constant to be in sync with steps.
             representative: RepresentativeForm | None = form_list[8]
+            representative_sign: SignForm | None = form_list[12]
+            abiturient_sign: SignForm = form_list[11]
         else:
             representative = None
+            representative_sign = None
+            abiturient_sign: SignForm = form_list[10]
 
         abiturient = Abiturient(
             last_name=abiturient_basic.cleaned_data["last_name"],
@@ -275,7 +287,17 @@ class AbiturientAndOffersWizard(SessionWizardView):
 
         for doc in filter_documents(accepted_offer_object.offer):
             data = BytesIO()
-            generate_document(accepted_offer_object, doc.file.path, data)
+            generate_document(
+                accepted_offer_object,
+                doc.file.path,
+                data,
+                abiturient_sign.cleaned_data["png_source"],
+                (
+                    representative_sign.cleaned_data["png_source"]
+                    if representative_sign
+                    else None
+                ),
+            )
             email.attach(
                 generate_document_filename(accepted_offer_object, doc.name),
                 data.getvalue(),
