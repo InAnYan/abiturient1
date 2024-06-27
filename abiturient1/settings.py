@@ -54,12 +54,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "users.apps.UsersConfig",
     "documents.apps.DocumentsConfig",
     "abiturients.apps.AbiturientsConfig",
     "university_offers.apps.UniversityOffersConfig",
     "accepting_offers.apps.AcceptingOffersConfig",
-    "pk_panel.apps.PkPanelConfig",
     "crispy_forms",
     "crispy_bootstrap4",
     "formtools",
@@ -68,8 +66,6 @@ INSTALLED_APPS = [
     "django_extensions",
     "widget_tweaks",
 ]
-
-AUTH_USER_MODEL = "users.User"
 
 LOGIN_URL = "/panel/login"
 
