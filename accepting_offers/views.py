@@ -1,9 +1,14 @@
 from datetime import date, datetime, timedelta
+from io import BytesIO
+from typing import Iterable
+from django.conf.global_settings import DEFAULT_FROM_EMAIL
+from django.core.mail import EmailMessage, send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from formtools.wizard.views import SessionWizardView
 
+from abiturient1.settings import EMAIL_HOST_USER
 from abiturients.models import (
     Abiturient,
     AbiturientRepresentative,
@@ -21,6 +26,8 @@ from accepting_offers.forms import (
 )
 
 from accepting_offers.models import AcceptedOffer
+from documents.generation import generate_document, generate_document_filename
+from documents.models import Document
 from university_offers.forms import UniversityOfferSearchForm
 from university_offers.models import UniversityOffer
 
@@ -30,6 +37,16 @@ def done(request):
 
     print(get_resolver().reverse_dict.keys())
     return render(request, "abiturient_form/done.html")
+
+
+def filter_documents(offer: UniversityOffer) -> Iterable[Document]:
+    for doc in Document.objects.all():
+        if doc.only_for_contract and offer.type != UniversityOffer.Type.CONTRACT:
+            continue
+        if doc.only_for_full_time and offer.study_form != UniversityOffer.StudyForm.DAY:
+            continue
+
+        yield doc
 
 
 form_list_str = [
@@ -215,7 +232,7 @@ class AbiturientAndOffersWizard(SessionWizardView):
             passport_expiry_date=abiturient_sensitive.cleaned_data[
                 "passport_expiry_date"
             ],
-            rntrc=abiturient_sensitive.cleaned_data["rntrc"],
+            rntrc=abiturient_sensitive.cleaned_data["rntrc"] or None,
         )
 
         if representative is not None:
@@ -233,18 +250,38 @@ class AbiturientAndOffersWizard(SessionWizardView):
                 passport_expiry_date=representative.cleaned_data[
                     "passport_expiry_date"
                 ],
-                rntrc=representative.cleaned_data["rntrc"],
+                rntrc=representative.cleaned_data["rntrc"] or None,
             )
             abiturient.representative.save()
 
         abiturient.save()
 
-        AcceptedOffer.objects.create(
+        accepted_offer_object = AcceptedOffer(
             offer=offer.cleaned_data["result_offer"],
             abiturient=abiturient,
             created_at=datetime.today(),
             payment_frequency=accepted_offer.cleaned_data["payment_frequency"],
             accepted_year=accepted_offer.cleaned_data["accepted_year"],
         )
+
+        accepted_offer_object.save()
+
+        email = EmailMessage(
+            f"Документи для вступу: {abiturient.full_name}",
+            "Добрий день!\nЦе повідомлення від системи для приймальної комісії, яка займається автоматичним заповненням документів.\nЩойно хтось заповнив форму на сайті.\nНадсилаю згенеровані документи.",
+            DEFAULT_FROM_EMAIL,
+            [accepted_offer_object.offer.educational_program.speciality.faculty.email],
+        )
+
+        for doc in filter_documents(accepted_offer_object.offer):
+            data = BytesIO()
+            generate_document(accepted_offer_object, doc.file.path, data)
+            email.attach(
+                generate_document_filename(accepted_offer_object, doc.name),
+                data.getvalue(),
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            )
+
+        email.send(fail_silently=False)
 
         return HttpResponseRedirect(reverse("done"))

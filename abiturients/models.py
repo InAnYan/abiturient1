@@ -170,7 +170,7 @@ class Abiturient(models.Model):
 
     @property
     def get_gender_label(self) -> str:
-        return self.Gender(self.gender).label.lower()
+        return self.Gender(int(self.gender)).label.lower()
 
     education_institution = models.CharField(
         max_length=255,
@@ -216,9 +216,9 @@ class Abiturient(models.Model):
 
     @property
     def get_martial_status_label(self) -> str:
-        label = self.MartialStatus(self.martial_status).label.lower()
+        label = self.MartialStatus(int(self.martial_status)).label.lower()
         if label.find("/") != -1:
-            return label.split("/")[self.gender - 1]
+            return label.split("/")[int(self.gender) - 1]
         else:
             return label
 
