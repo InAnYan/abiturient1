@@ -3,7 +3,6 @@ from typing import Any
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import RegexValidator
-from pydantic.networks import MAX_EMAIL_LENGTH
 
 from abiturients.models import (
     Abiturient,
