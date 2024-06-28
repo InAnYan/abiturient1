@@ -6,10 +6,8 @@ from typing import Optional
 from urllib.request import urlopen
 
 from django.http import HttpResponse
-import urllib
 
 from docx.shared import Cm
-import urllib3
 from abiturients.models import Abiturient, AbiturientRepresentative
 from accepting_offers.models import AcceptedOffer
 from documents.models import Document
