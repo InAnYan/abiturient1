@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 14:26+0300\n"
+"POT-Creation-Date: 2024-06-28 08:12+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: .\abiturient1\settings.py:180
+#: .\abiturient1\settings.py:185
 msgid "English"
 msgstr "Англійська"
 
-#: .\abiturient1\settings.py:181
+#: .\abiturient1\settings.py:186
 msgid "Ukrainian"
 msgstr "Українська"
 
@@ -38,46 +38,47 @@ msgid "Add Popov Ruslan Oleksandrovich to database"
 msgstr "Додати Попова Руслана Олександровича в базу даних"
 
 #: .\abiturients\models.py:11 .\abiturients\models.py:120
-#: .\accepting_offers\forms.py:20 .\accepting_offers\forms.py:299
+#: .\accepting_offers\forms.py:21 .\accepting_offers\forms.py:311
 #: .\templates\abiturient_form\wizard_steps\check.html:21
 msgid "Last name"
 msgstr "Прізвище"
 
 #: .\abiturients\models.py:12 .\abiturients\models.py:121
-#: .\accepting_offers\forms.py:24 .\accepting_offers\forms.py:300
+#: .\accepting_offers\forms.py:25 .\accepting_offers\forms.py:312
 #: .\templates\abiturient_form\wizard_steps\check.html:22
 msgid "First name"
 msgstr "Ім'я"
 
 #: .\abiturients\models.py:14 .\abiturients\models.py:123
-#: .\accepting_offers\forms.py:29 .\accepting_offers\forms.py:301
+#: .\accepting_offers\forms.py:30 .\accepting_offers\forms.py:313
 #: .\templates\abiturient_form\wizard_steps\check.html:24
 msgid "Patronymic"
 msgstr "По-батькові"
 
 #: .\abiturients\models.py:17 .\abiturients\models.py:229
-#: .\accepting_offers\forms.py:46 .\accepting_offers\forms.py:315
+#: .\accepting_offers\forms.py:47 .\accepting_offers\forms.py:327
 #: .\templates\abiturient_form\wizard_steps\check.html:30
+#: .\university_offers\models.py:26
 msgid "Email"
 msgstr "Електронна пошта"
 
 #: .\abiturients\models.py:20 .\abiturients\models.py:127
-#: .\accepting_offers\forms.py:35 .\accepting_offers\forms.py:304
+#: .\accepting_offers\forms.py:36 .\accepting_offers\forms.py:316
 #: .\templates\abiturient_form\wizard_steps\check.html:29
 msgid "Phone number"
 msgstr "Номер телефону"
 
 #: .\abiturients\models.py:22 .\abiturients\models.py:129
 #: .\abiturients\models.py:253 .\abiturients\models.py:282
-#: .\accepting_offers\forms.py:37 .\accepting_offers\forms.py:176
-#: .\accepting_offers\forms.py:199 .\accepting_offers\forms.py:306
+#: .\accepting_offers\forms.py:38 .\accepting_offers\forms.py:177
+#: .\accepting_offers\forms.py:200 .\accepting_offers\forms.py:318
 msgid "Wrong phone number format"
 msgstr "Неправильний формат номера телефону"
 
 #: .\abiturients\models.py:25 .\abiturients\models.py:132
 #: .\abiturients\models.py:256 .\abiturients\models.py:285
-#: .\accepting_offers\forms.py:40 .\accepting_offers\forms.py:179
-#: .\accepting_offers\forms.py:202 .\accepting_offers\forms.py:309
+#: .\accepting_offers\forms.py:41 .\accepting_offers\forms.py:180
+#: .\accepting_offers\forms.py:203 .\accepting_offers\forms.py:321
 msgid ""
 "Write the phone number in the following form: +380123456789 (start with +, "
 "then area code, then the rest of the number)"
@@ -86,20 +87,20 @@ msgstr ""
 "коду країни, далі решта номеру)"
 
 #: .\abiturients\models.py:30 .\abiturients\models.py:231
-#: .\accepting_offers\forms.py:118 .\accepting_offers\forms.py:317
+#: .\accepting_offers\forms.py:119 .\accepting_offers\forms.py:329
 #: .\templates\abiturient_form\wizard_steps\check.html:67
 msgid "Living address"
 msgstr "Адреса проживання"
 
 #: .\abiturients\models.py:33 .\abiturients\models.py:293
-#: .\accepting_offers\forms.py:214 .\accepting_offers\forms.py:321
+#: .\accepting_offers\forms.py:215 .\accepting_offers\forms.py:333
 #: .\templates\abiturient_form\wizard_steps\check.html:133
 #: .\templates\abiturient_form\wizard_steps\check.html:164
 msgid "Passport serie"
 msgstr "Серія паспорту"
 
 #: .\abiturients\models.py:38 .\abiturients\models.py:298
-#: .\accepting_offers\forms.py:218 .\accepting_offers\forms.py:324
+#: .\accepting_offers\forms.py:219 .\accepting_offers\forms.py:336
 msgid ""
 "If you have an ID card, leave this field empty. If you have a book-passport, "
 "then fill this field."
@@ -108,19 +109,19 @@ msgstr ""
 "то заповніть це поле."
 
 #: .\abiturients\models.py:43 .\abiturients\models.py:303
-#: .\accepting_offers\forms.py:224 .\accepting_offers\forms.py:329
+#: .\accepting_offers\forms.py:225 .\accepting_offers\forms.py:341
 #: .\templates\abiturient_form\wizard_steps\check.html:135
 #: .\templates\abiturient_form\wizard_steps\check.html:166
 msgid "Passport number"
 msgstr "Номер паспорту"
 
 #: .\abiturients\models.py:48 .\abiturients\models.py:308
-#: .\accepting_offers\forms.py:229 .\accepting_offers\forms.py:334
+#: .\accepting_offers\forms.py:237 .\accepting_offers\forms.py:353
 msgid "Authority"
 msgstr "Орган, що видав"
 
 #: .\abiturients\models.py:50 .\abiturients\models.py:310
-#: .\accepting_offers\forms.py:231 .\accepting_offers\forms.py:336
+#: .\accepting_offers\forms.py:239 .\accepting_offers\forms.py:355
 msgid ""
 "If you have an ID card, this field should contain numbers. If you have a "
 "book-passport, this field should contain a text (description)."
@@ -129,29 +130,29 @@ msgstr ""
 "книжка, то це поле буде містити текст."
 
 #: .\abiturients\models.py:55 .\abiturients\models.py:315
-#: .\accepting_offers\forms.py:242 .\accepting_offers\forms.py:341
+#: .\accepting_offers\forms.py:250 .\accepting_offers\forms.py:360
 msgid "Date of issue"
 msgstr "Дата видачі"
 
 #: .\abiturients\models.py:60 .\abiturients\models.py:327
-#: .\accepting_offers\forms.py:264 .\accepting_offers\forms.py:352
+#: .\accepting_offers\forms.py:272 .\accepting_offers\forms.py:371
 msgid "Date of expiry"
 msgstr "Дійсний до"
 
 #: .\abiturients\models.py:64 .\abiturients\models.py:331
-#: .\accepting_offers\forms.py:267 .\accepting_offers\forms.py:355
+#: .\accepting_offers\forms.py:275 .\accepting_offers\forms.py:374
 msgid "Only for ID-card"
 msgstr "Тільки для ID-картки"
 
 #: .\abiturients\models.py:68 .\abiturients\models.py:351
-#: .\accepting_offers\forms.py:289 .\accepting_offers\forms.py:377
+#: .\accepting_offers\forms.py:297 .\accepting_offers\forms.py:396
 #: .\templates\abiturient_form\wizard_steps\check.html:145
 #: .\templates\abiturient_form\wizard_steps\check.html:176
 msgid "RNTRC"
 msgstr "РНОКПП"
 
 #: .\abiturients\models.py:71 .\abiturients\models.py:354
-#: .\accepting_offers\forms.py:292 .\accepting_offers\forms.py:381
+#: .\accepting_offers\forms.py:304 .\accepting_offers\forms.py:403
 msgid ""
 "Registration number of the taxpayer's account card (a local equivalent of "
 "the taxpayer's identification number)"
@@ -167,25 +168,25 @@ msgstr "Законний представник"
 msgid "Abiturient representatives"
 msgstr "Законні представники"
 
-#: .\abiturients\models.py:144 .\accepting_offers\forms.py:54
+#: .\abiturients\models.py:144 .\accepting_offers\forms.py:55
 msgid "Date of birth"
 msgstr "Дата народження"
 
-#: .\abiturients\models.py:146 .\accepting_offers\forms.py:57
+#: .\abiturients\models.py:146 .\accepting_offers\forms.py:58
 msgid "Date of birth cannot be in the future"
 msgstr "Дата народження не може бути у майбутньому"
 
-#: .\abiturients\models.py:154 .\accepting_offers\forms.py:50
+#: .\abiturients\models.py:154 .\accepting_offers\forms.py:51
 #: .\templates\abiturient_form\wizard_steps\check.html:35
 msgid "Birth country"
 msgstr "Країна народження"
 
-#: .\abiturients\models.py:155 .\accepting_offers\forms.py:51
+#: .\abiturients\models.py:155 .\accepting_offers\forms.py:52
 #: .\templates\abiturient_form\wizard_steps\check.html:36
 msgid "Birth town"
 msgstr "Місто народження"
 
-#: .\abiturients\models.py:162 .\accepting_offers\forms.py:62
+#: .\abiturients\models.py:162 .\accepting_offers\forms.py:63
 #: .\templates\abiturient_form\wizard_steps\check.html:42
 msgid "Nationality"
 msgstr "Національність"
@@ -198,7 +199,7 @@ msgstr "чоловік"
 msgid "Female"
 msgstr "жінка"
 
-#: .\abiturients\models.py:169 .\accepting_offers\forms.py:66
+#: .\abiturients\models.py:169 .\accepting_offers\forms.py:67
 #: .\templates\abiturient_form\wizard_steps\check.html:48
 msgid "Gender"
 msgstr "Стать"
@@ -207,21 +208,22 @@ msgstr "Стать"
 msgid "Full name of the educational institution that you ended"
 msgstr "Повна назва освітнього закладу, який ви закінчили"
 
-#: .\abiturients\models.py:181
+#: .\abiturients\models.py:181 .\accepting_offers\forms.py:83
+#: .\templates\abiturient_form\wizard_steps\check.html:54
 msgid "Education place (town)"
 msgstr "Адреса освітнього закладу (напишіть лише місто)"
 
-#: .\abiturients\models.py:184 .\accepting_offers\forms.py:84
+#: .\abiturients\models.py:184 .\accepting_offers\forms.py:85
 #: .\templates\abiturient_form\wizard_steps\check.html:55
 msgid "Education end date"
 msgstr "Дата закінчення навчання"
 
-#: .\abiturients\models.py:201 .\accepting_offers\forms.py:108
+#: .\abiturients\models.py:201 .\accepting_offers\forms.py:109
 #: .\templates\abiturient_form\wizard_steps\check.html:61
 msgid "Work experience"
 msgstr "Досвід роботи"
 
-#: .\abiturients\models.py:205 .\accepting_offers\forms.py:111
+#: .\abiturients\models.py:205 .\accepting_offers\forms.py:112
 msgid ""
 "You can leave this field empty. You can tell us were and how you worked "
 "before entering out university"
@@ -243,9 +245,9 @@ msgstr "Сімейний статус"
 
 #: .\abiturients\models.py:226
 msgid "Foreign language"
-msgstr "Інозмена мова"
+msgstr "Яка основна іноземна мова, яку ви вивчали"
 
-#: .\abiturients\models.py:232 .\accepting_offers\forms.py:119
+#: .\abiturients\models.py:232 .\accepting_offers\forms.py:120
 #: .\templates\abiturient_form\wizard_steps\check.html:68
 msgid "Registered address"
 msgstr "Адреса реєстрації"
@@ -298,106 +300,109 @@ msgstr "Абітурієнти"
 msgid "Accepted offers"
 msgstr "Заяви"
 
-#: .\accepting_offers\forms.py:72
+#: .\accepting_offers\forms.py:73
 msgid "What foreign language do you know?"
 msgstr "Яка іноземна мова вам відома?"
 
-#: .\accepting_offers\forms.py:74
+#: .\accepting_offers\forms.py:75
 msgid "Use nominative case"
 msgstr ""
 "Використовуйте називний відмінок (\"англійська\", \"французька\", тощо)"
 
-#: .\accepting_offers\forms.py:80
+#: .\accepting_offers\forms.py:81
 #: .\templates\abiturient_form\wizard_steps\check.html:53
 msgid "Full name of educational institution that you ended"
 msgstr "Повна назва освітнього закладу, який ви закінчили"
 
-#: .\accepting_offers\forms.py:82
-#: .\templates\abiturient_form\wizard_steps\check.html:54
-msgid "Education place"
-msgstr "Адреса освітнього закладу"
-
-#: .\accepting_offers\forms.py:88
+#: .\accepting_offers\forms.py:89
 msgid "Education end date cannot be in the future"
 msgstr "Дата закінчення навчання не може бути у майбутньому"
 
-#: .\accepting_offers\forms.py:100
+#: .\accepting_offers\forms.py:101
 msgid "Education end date cannot be before birth date"
 msgstr "Дата закінчення навчання не може бути до дати народження"
 
-#: .\accepting_offers\forms.py:115
+#: .\accepting_offers\forms.py:116
 #: .\templates\abiturient_form\wizard_steps\check.html:63
 msgid "Martial status"
 msgstr "Сімейний статус"
 
-#: .\accepting_offers\forms.py:134
+#: .\accepting_offers\forms.py:135
 msgid "Please, set payment frequency because you chose a contract offer"
 msgstr ""
 "Будь ласка, поставьте частоту оплати, оскільки ви вибрали контрактну "
 "конкурсну пропозицію"
 
-#: .\accepting_offers\forms.py:145
+#: .\accepting_offers\forms.py:146
 msgid ""
 "Please, leave the payment frequency blank because you chose a budget offer"
 msgstr ""
 "Будь ласка, залиште частоту оплати пустою, оскільки ви вибрали бюджетну "
 "конкурсну пропозицію"
 
-#: .\accepting_offers\forms.py:164
+#: .\accepting_offers\forms.py:165
 #: .\templates\abiturient_form\wizard_steps\check.html:122
 msgid "Father last name"
 msgstr "Прізвище батька"
 
-#: .\accepting_offers\forms.py:167
+#: .\accepting_offers\forms.py:168
 #: .\templates\abiturient_form\wizard_steps\check.html:123
 msgid "Father first name"
 msgstr "Ім'я батька"
 
-#: .\accepting_offers\forms.py:170
+#: .\accepting_offers\forms.py:171
 #: .\templates\abiturient_form\wizard_steps\check.html:125
 msgid "Father patronymic"
 msgstr "По-батькові батька"
 
-#: .\accepting_offers\forms.py:181
+#: .\accepting_offers\forms.py:182
 #: .\templates\abiturient_form\wizard_steps\check.html:128
 msgid "Father phone number"
 msgstr "Номер телефону батька"
 
-#: .\accepting_offers\forms.py:187
+#: .\accepting_offers\forms.py:188
 #: .\templates\abiturient_form\wizard_steps\check.html:114
 msgid "Mother last name"
 msgstr "Прізвище матері"
 
-#: .\accepting_offers\forms.py:190
+#: .\accepting_offers\forms.py:191
 #: .\templates\abiturient_form\wizard_steps\check.html:115
 msgid "Mother first name"
 msgstr "Ім'я матері"
 
-#: .\accepting_offers\forms.py:193
+#: .\accepting_offers\forms.py:194
 #: .\templates\abiturient_form\wizard_steps\check.html:117
 msgid "Mother patronymic"
 msgstr "По-батькові матері"
 
-#: .\accepting_offers\forms.py:204
+#: .\accepting_offers\forms.py:205
 #: .\templates\abiturient_form\wizard_steps\check.html:120
 msgid "Mother phone number"
 msgstr "Номер телефону матері"
 
-#: .\accepting_offers\forms.py:236
+#: .\accepting_offers\forms.py:231 .\accepting_offers\forms.py:347
+msgid "For book-passport it is 6 numbers, for ID-card it is 9 numbers"
+msgstr ""
+
+#: .\accepting_offers\forms.py:244
 msgid "Only Ukrainian letters or numbers allowed"
 msgstr ""
 
-#: .\accepting_offers\forms.py:246 .\accepting_offers\forms.py:345
+#: .\accepting_offers\forms.py:254 .\accepting_offers\forms.py:364
 msgid "Passport issue date cannot be in the future"
 msgstr "Дата видачі не може бути у майбутньому"
 
-#: .\accepting_offers\forms.py:258
+#: .\accepting_offers\forms.py:266
 msgid "Passport issue date cannot be before birth date"
 msgstr "Дата видачі не може бути раніше дати народження"
 
-#: .\accepting_offers\forms.py:283 .\accepting_offers\forms.py:371
+#: .\accepting_offers\forms.py:291 .\accepting_offers\forms.py:390
 msgid "Passport expiry date cannot be before passport issue date"
 msgstr "\"Дійсний до\" не може бути раніше дати видачі"
+
+#: .\accepting_offers\forms.py:301 .\accepting_offers\forms.py:400
+msgid "There should be 12 digits"
+msgstr "Тут має бути 12 цийфр"
 
 #: .\accepting_offers\models.py:12
 msgid "Each semester"
@@ -411,7 +416,7 @@ msgstr "щорічно"
 msgid "Full payment"
 msgstr "повна за весь період навчання"
 
-#: .\accepting_offers\models.py:21 .\university_offers\models.py:347
+#: .\accepting_offers\models.py:21 .\university_offers\models.py:350
 msgid "University offer"
 msgstr "Конкурсна пропозиція"
 
@@ -445,8 +450,8 @@ msgstr "Додати шаблони документів"
 msgid "Only alphabetical characters are allowed"
 msgstr "Дозволяється використовувати лише символи алфавіту"
 
-#: .\documents\models.py:31 .\university_offers\models.py:38
-#: .\university_offers\models.py:96
+#: .\documents\models.py:31 .\university_offers\models.py:42
+#: .\university_offers\models.py:100
 msgid "Name"
 msgstr "Ім'я"
 
@@ -465,10 +470,6 @@ msgstr "Тільки для очної форми навчання"
 #: .\documents\models.py:47
 msgid "Document"
 msgstr "Документ"
-
-#: .\pk_panel\apps.py:8
-msgid "Addmision office panel"
-msgstr "Панель приймальної комісії"
 
 #: .\templates\abiturient_form\done.html:4
 #: .\templates\abiturient_form\done.html:7
@@ -568,6 +569,20 @@ msgstr ""
 msgid "wizard.steps.abiturient_sensitive.title"
 msgstr "Паспортні данні вступника"
 
+#: .\templates\abiturient_form\wizard_steps\abiturient_sign.html:9
+msgid "wizard.steps.abiturient_sign.info"
+msgstr ""
+"Підпишіть будь ласка документи"
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_sign.html:14
+msgid "wizard.steps.abiturient_sign.title"
+msgstr "Підпис вступника"
+
+#: .\templates\abiturient_form\wizard_steps\abiturient_sign.html:27
+#: .\templates\abiturient_form\wizard_steps\representative_sign.html:27
+msgid "Clear"
+msgstr "Очистити"
+
 #: .\templates\abiturient_form\wizard_steps\accepted_offer.html:8
 msgid "wizard.steps.accepted_offer.info"
 msgstr ""
@@ -616,8 +631,8 @@ msgstr "Вибір конкурсної пропозиції"
 
 #: .\templates\abiturient_form\wizard_steps\check.html:75
 #: .\templates\university_offers\base\offer_info.html:24
-#: .\university_offers\forms.py:38 .\university_offers\models.py:89
-#: .\university_offers\models.py:100 .\university_offers\models.py:119
+#: .\university_offers\forms.py:38 .\university_offers\models.py:93
+#: .\university_offers\models.py:104 .\university_offers\models.py:122
 msgid "Speciality"
 msgstr "Спеціальність"
 
@@ -633,7 +648,7 @@ msgstr "Назва освітньої програми"
 
 #: .\templates\abiturient_form\wizard_steps\check.html:92
 #: .\templates\university_offers\base\offer_info.html:41
-#: .\university_offers\models.py:176
+#: .\university_offers\models.py:179
 msgid "Accreditation"
 msgstr "Акредитація"
 
@@ -758,15 +773,20 @@ msgstr ""
 "матимемо відповідну контактну інформацію для будь-яких повідомлень або "
 "запитів, пов'язаних з вашою заявкою."
 
+#: .\templates\abiturient_form\wizard_steps\representative_sign.html:9
+msgid "wizard.steps.representative_sign.info"
+msgstr ""
+"Законний представник має підписати ваші документи"
+
+#: .\templates\abiturient_form\wizard_steps\representative_sign.html:14
+msgid "wizard.steps.representative_sign.title"
+msgstr "Підпис законного представника"
+
 #: .\templates\base\footer.html:7
 msgid "Form for abiturients"
 msgstr "Форма для абітурієнтів"
 
-#: .\templates\base\footer.html:8
-msgid "Administration"
-msgstr "Адміністрування"
-
-#: .\templates\base\footer.html:13
+#: .\templates\base\footer.html:12
 msgid "footer.authors"
 msgstr ""
 "Попов Руслан Олександрович, Карпенко Надія Валеріївна, Герасимов Володимир "
@@ -788,54 +808,8 @@ msgstr ""
 msgid "meta.keywords"
 msgstr ""
 
-#: .\templates\pk_panel\main.html:7
-msgid "Admission office panel"
-msgstr "Панель члена приймальної комісії"
-
-#: .\templates\pk_panel\main.html:15
-msgid "Name, speciality, etc."
-msgstr "ПІБ, назва спеціальності, тощо"
-
-#: .\templates\pk_panel\main.html:16
-msgid "Search"
-msgstr "Пошук"
-
-#: .\templates\pk_panel\main.html:43
-msgid "Generate"
-msgstr "Створити"
-
-#: .\templates\pk_panel\main.html:52
-msgid "Generate all documents"
-msgstr "Згенерувати всі документи"
-
-#: .\templates\pk_panel\main.html:63
-msgid "No offers found"
-msgstr "Заяв не знайдено"
-
-#: .\templates\pk_panel\main.html:71
-msgid "logout"
-msgstr "Вихід"
-
-#: .\templates\pk_panel\unauthorized.html:6
-msgid "Unauthorized access"
-msgstr "Неавторизований доступ"
-
-#: .\templates\pk_panel\unauthorized.html:11
-msgid "pk_panel.unauthorized.description"
-msgstr "Ви не авторизовані або не належите до групи 'pk'"
-
-#: .\templates\pk_panel\unauthorized.html:14
-#: .\templates\users_login\login.html:5 .\templates\users_login\login.html:11
-#: .\templates\users_login\login.html:17
-msgid "Login"
-msgstr "Вхід"
-
-#: .\templates\pk_panel\unauthorized.html:15
-msgid "Logout"
-msgstr "Вихід"
-
 #: .\templates\university_offers\base\offer_info.html:4
-#: .\university_offers\models.py:195
+#: .\university_offers\models.py:198
 msgid "Beginning of study"
 msgstr "Початок навчання"
 
@@ -844,7 +818,7 @@ msgid "Study end"
 msgstr "Кінець навчання"
 
 #: .\templates\university_offers\base\offer_info.html:14
-#: .\university_offers\models.py:203
+#: .\university_offers\models.py:206
 msgid "Study duration"
 msgstr "Тривалість навчання"
 
@@ -857,33 +831,33 @@ msgid "months"
 msgstr "міс."
 
 #: .\templates\university_offers\base\offer_info.html:19
-#: .\university_offers\models.py:29 .\university_offers\models.py:55
+#: .\university_offers\models.py:33 .\university_offers\models.py:59
 msgid "Faculty"
 msgstr "Факультет"
 
 #: .\templates\university_offers\base\offer_info.html:51
-#: .\university_offers\forms.py:53 .\university_offers\models.py:130
-#: .\university_offers\models.py:230
+#: .\university_offers\forms.py:53 .\university_offers\models.py:133
+#: .\university_offers\models.py:233
 msgid "Educational level"
 msgstr "Освітній рівень"
 
 #: .\templates\university_offers\base\offer_info.html:56
-#: .\university_offers\forms.py:58 .\university_offers\models.py:239
+#: .\university_offers\forms.py:58 .\university_offers\models.py:242
 msgid "Basis"
 msgstr "Основа вступу"
 
 #: .\templates\university_offers\base\offer_info.html:61
-#: .\university_offers\forms.py:42 .\university_offers\models.py:244
+#: .\university_offers\forms.py:42 .\university_offers\models.py:247
 msgid "Offer type"
 msgstr "Тип конкурсної пропозиції"
 
 #: .\templates\university_offers\base\offer_info.html:66
-#: .\university_offers\forms.py:48 .\university_offers\models.py:249
+#: .\university_offers\forms.py:48 .\university_offers\models.py:252
 msgid "Study form"
 msgstr "Форма навчання"
 
 #: .\templates\university_offers\base\offer_info.html:71
-#: .\university_offers\models.py:269
+#: .\university_offers\models.py:272
 msgid "ECTS"
 msgstr "ЄКТС"
 
@@ -919,11 +893,11 @@ msgstr "Вартість четвертого року навчання"
 msgid "Semester 4 cost"
 msgstr "Вартість четвертого семестру навчання"
 
-#: .\university_offers\apps.py:8 .\university_offers\models.py:348
+#: .\university_offers\apps.py:8 .\university_offers\models.py:351
 msgid "University offers"
 msgstr "Конкурсні пропозиції"
 
-#: .\university_offers\forms.py:43 .\university_offers\models.py:245
+#: .\university_offers\forms.py:43 .\university_offers\models.py:248
 msgid "Budget or contract"
 msgstr "Бюджет або контракт"
 
@@ -939,7 +913,7 @@ msgstr "Будь ласка, виберіть конкурсну пропози�
 msgid "Add educational programs, accreditations, and offers for DNU 2024"
 msgstr "Додати освітні програми, акредитації та конкурсні пропозиції ДНУ 2024"
 
-#: .\university_offers\management\commands\add_faculties.py:68
+#: .\university_offers\management\commands\add_faculties.py:88
 msgid "add DNU faculties (2024)"
 msgstr "Додати факультети ДНУ 2024"
 
@@ -951,151 +925,185 @@ msgstr "Повна назва"
 msgid "Abbreviation"
 msgstr "Абревіатура"
 
-#: .\university_offers\models.py:30
+#: .\university_offers\models.py:34
 msgid "Faculties"
 msgstr "Факультет"
 
-#: .\university_offers\models.py:34
+#: .\university_offers\models.py:38
 msgid "Code"
 msgstr "Код"
 
-#: .\university_offers\models.py:44
+#: .\university_offers\models.py:48
 msgid "Specialization code"
 msgstr "Код спеціалізації"
 
-#: .\university_offers\models.py:51
+#: .\university_offers\models.py:55
 msgid "Specialization name"
 msgstr "Назва спеціалізації"
 
-#: .\university_offers\models.py:90
+#: .\university_offers\models.py:94
 msgid "Specialities"
 msgstr "Спеціальності"
 
-#: .\university_offers\models.py:107 .\university_offers\models.py:120
-#: .\university_offers\models.py:125 .\university_offers\models.py:226
+#: .\university_offers\models.py:111 .\university_offers\models.py:123
+#: .\university_offers\models.py:128 .\university_offers\models.py:229
 msgid "Educational program"
 msgstr "Освітня програма"
 
-#: .\university_offers\models.py:108
+#: .\university_offers\models.py:112
 msgid "Educational programs"
 msgstr "Освітні програми"
 
-#: .\university_offers\models.py:112
+#: .\university_offers\models.py:116
 msgid "Bachelor"
 msgstr "бакалавр"
 
-#: .\university_offers\models.py:113
+#: .\university_offers\models.py:117
 msgid "Master"
 msgstr "магістр"
 
-#: .\university_offers\models.py:114
-msgid "PhD"
-msgstr "доктор філософії"
-
-#: .\university_offers\models.py:133
+#: .\university_offers\models.py:136
 msgid "End of accreditation"
 msgstr "Кінець акредитації"
 
-#: .\university_offers\models.py:139
+#: .\university_offers\models.py:142
 msgid "Accreditation number"
 msgstr "Номер акредитації"
 
-#: .\university_offers\models.py:142
+#: .\university_offers\models.py:145
 msgid "Accreditation serie"
 msgstr "Серія"
 
-#: .\university_offers\models.py:147
+#: .\university_offers\models.py:150
 msgid "Accreditation type"
 msgstr "Тип акредитації"
 
-#: .\university_offers\models.py:177
+#: .\university_offers\models.py:180
 msgid "Accreditations"
 msgstr "Акредитації"
 
-#: .\university_offers\models.py:182
+#: .\university_offers\models.py:185
 msgid "Budget"
 msgstr "бюджет"
 
-#: .\university_offers\models.py:183
+#: .\university_offers\models.py:186
 msgid "Contract"
 msgstr "контракт"
 
-#: .\university_offers\models.py:186
+#: .\university_offers\models.py:189
 msgid "Full-time"
 msgstr "денна"
 
-#: .\university_offers\models.py:187
+#: .\university_offers\models.py:190
 msgid "Part-time"
 msgstr "заочна"
 
-#: .\university_offers\models.py:188
+#: .\university_offers\models.py:191
 msgid "Distance"
 msgstr "дистанційна"
 
-#: .\university_offers\models.py:191
+#: .\university_offers\models.py:194
 msgid "CGSE"
 msgstr "ПЗСО"
 
-#: .\university_offers\models.py:192
+#: .\university_offers\models.py:195
 msgid "NFQ5"
 msgstr "НРК5"
 
-#: .\university_offers\models.py:193
+#: .\university_offers\models.py:196
 msgid "NFQ6 or NFQ7"
 msgstr "НРК6 або НРК7"
 
-#: .\university_offers\models.py:204
+#: .\university_offers\models.py:207
 msgid "In months"
 msgstr "У місяцях"
 
-#: .\university_offers\models.py:273
+#: .\university_offers\models.py:276
 msgid "Year 1 cost (for Masters it is semester 1 cost)"
 msgstr "Вартість першого року (для магістрів це вартість першого семестру)"
 
-#: .\university_offers\models.py:276
+#: .\university_offers\models.py:279
 msgid "Year 2 cost (for Masters it is semester 2 cost)"
 msgstr "Вартість другого року (для магістрів це вартість другого семестру)"
 
-#: .\university_offers\models.py:279
+#: .\university_offers\models.py:282
 msgid "Year 3 cost (for Masters it is semester 3 cost)"
 msgstr "Вартість третього року (для магістрів це вартість третього семестру)"
 
-#: .\university_offers\models.py:282
+#: .\university_offers\models.py:285
 msgid "Year 4 cost (for Masters it is semester 4 cost)"
 msgstr ""
 "Вартість четвертого року (для магістрів це вартість четвертого семестру)"
 
-#: .\users\admin.py:11
-msgid "users.additional_fields"
-msgstr "Додаткові поля"
+#~ msgid "Education place"
+#~ msgstr "Адреса освітнього закладу"
 
-#: .\users\apps.py:8 .\users\models.py:17
-msgid "Users"
-msgstr "Користувачі"
+#~ msgid "Addmision office panel"
+#~ msgstr "Панель приймальної комісії"
 
-#: .\users\forms.py:6
-msgid "Username"
-msgstr "Логін"
+#~ msgid "Administration"
+#~ msgstr "Адміністрування"
 
-#: .\users\forms.py:7
-msgid "Password"
-msgstr "Пароль"
+#~ msgid "Admission office panel"
+#~ msgstr "Панель члена приймальної комісії"
 
-#: .\users\management\commands\add_groups.py:9
-msgid "Add user groups (PK)"
-msgstr "Додати групи користувачів (PK)"
+#~ msgid "Name, speciality, etc."
+#~ msgstr "ПІБ, назва спеціальності, тощо"
 
-#: .\users\management\commands\add_users.py:30
-msgid "Add users for testing (for different faculties of DNU)"
-msgstr "Додати користувачів для тестування (для різних факультетів ДНУ 2024)"
+#~ msgid "Search"
+#~ msgstr "Пошук"
 
-#: .\users\models.py:16
-msgid "User"
-msgstr "Користувач"
+#~ msgid "Generate"
+#~ msgstr "Створити"
 
-#: .\users\views.py:30
-msgid "Login failed (check the username and/or password)"
-msgstr "Не вдалося ввійти (перевірте ім'я та/або пароль)"
+#~ msgid "Generate all documents"
+#~ msgstr "Згенерувати всі документи"
+
+#~ msgid "No offers found"
+#~ msgstr "Заяв не знайдено"
+
+#~ msgid "logout"
+#~ msgstr "Вихід"
+
+#~ msgid "Unauthorized access"
+#~ msgstr "Неавторизований доступ"
+
+#~ msgid "pk_panel.unauthorized.description"
+#~ msgstr "Ви не авторизовані або не належите до групи 'pk'"
+
+#~ msgid "Login"
+#~ msgstr "Вхід"
+
+#~ msgid "Logout"
+#~ msgstr "Вихід"
+
+#~ msgid "PhD"
+#~ msgstr "доктор філософії"
+
+#~ msgid "users.additional_fields"
+#~ msgstr "Додаткові поля"
+
+#~ msgid "Users"
+#~ msgstr "Користувачі"
+
+#~ msgid "Username"
+#~ msgstr "Логін"
+
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgid "Add user groups (PK)"
+#~ msgstr "Додати групи користувачів (PK)"
+
+#~ msgid "Add users for testing (for different faculties of DNU)"
+#~ msgstr ""
+#~ "Додати користувачів для тестування (для різних факультетів ДНУ 2024)"
+
+#~ msgid "User"
+#~ msgstr "Користувач"
+
+#~ msgid "Login failed (check the username and/or password)"
+#~ msgstr "Не вдалося ввійти (перевірте ім'я та/або пароль)"
 
 #~ msgid "Educational institution"
 #~ msgstr "Освітній заклад"
